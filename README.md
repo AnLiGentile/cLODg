@@ -3,10 +3,11 @@
 cLODg implements a methodology to produce Linked Data to describe a scientific conference and its publications, participants and events.
 
 The workflow  coonsists of:
-1 [Data acquisition](#data-acquisition)
-2 [Data conversion](#data-conversion)
-3 [Data augmentation and verification](#data-augmentation-and-verification)
-4 [Linked Data Publication](#linked-data-publication)
+
+1. [Data acquisition](#data-acquisition)
+2. [Data conversion](#data-conversion)
+3. [Data augmentation and verification](#data-augmentation-and-verification)
+4. [Linked Data Publication](#linked-data-publication)
 
 
 ## Data acquisition
