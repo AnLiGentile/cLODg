@@ -2,7 +2,7 @@
 
 cLODg implements a methodology to produce Linked Data to describe a scientific conference and its publications, participants and events.
 
-The workflow  coonsists of:
+The workflow consists of:
 
 1. [Data acquisition](#data-acquisition)
 2. [Data conversion](#data-conversion)
@@ -20,6 +20,7 @@ Data is collected from:
 
 
 ### Ontologies
+
 We use the following vocabularies:
 - http://data.semanticweb.org/ ontology
 - 
@@ -28,7 +29,9 @@ We use the following vocabularies:
 
 
 ## Data augmentation and verification
+
 We implemented a Web based application to collect user feedback...
 
 ## Linked Data Publication
+
 - sending data to http://data.semanticweb.org
