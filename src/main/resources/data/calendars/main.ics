@@ -1,0 +1,428 @@
+BEGIN:VCALENDAR
+PRODID:-//jb 0.1/KI2011 iCal generator/DE
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-TIMEZONE:Europe/Ljubljana
+X-WR-CALNAME;VALUE=TEXT:ESWC2015
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150602T110000
+DTEND;TZID=Europe/Ljubljana:20150602T113000
+SUMMARY:Reseach paper Natural Language Processing: Learning a Cross-Lingual Semantic Representation of Relations Expressed in Text
+DESCRIPTION:(20) Achim Rettinger, Artem Schumilin, Steffen Thoma and Basil Ell.
+LOCATION:EMERALD 1-2
+UID:99c46b23-f10f-341c-80d0-756865d68aa9
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150602T113000
+DTEND;TZID=Europe/Ljubljana:20150602T120000
+SUMMARY:Reseach paper Natural Language Processing: HAWK - Hybrid Question Answering using Linked Data
+DESCRIPTION:(144) Ricardo Usbeck, Axel-Cyrille Ngonga Ngomo, Lorenz Bühmann and Christina Unger.
+LOCATION:EMERALD 1-2
+UID:bbb6611e-fd45-3faf-84c4-d51ece2f4067
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150602T120000
+DTEND;TZID=Europe/Ljubljana:20150602T123000
+SUMMARY:Reseach paper Natural Language Processing: LIME: the Metadata Module for OntoLex
+DESCRIPTION:(151) Manuel Fiorelli, Armando Stellato, John P. Mccrae, Philipp Cimiano and Maria Teresa Pazienza.
+LOCATION:EMERALD 1-2
+UID:d26706fb-8c0a-3baa-aa7b-8dd02eb294bf
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150602T140000
+DTEND;TZID=Europe/Ljubljana:20150602T143000
+SUMMARY:Reseach paper Mobile Sensors, Services & Web of Things: Data as a Service: The Semantic Web Redeployed
+DESCRIPTION:(70) Laurens Rietveld, Ruben Verborgh, Wouter Beek, Miel Vander Sande and Stefan Schlobach.
+LOCATION:EMERALD 1-2
+UID:7df92990-5b75-3915-993a-ad1a7a3381e4
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150602T143000
+DTEND;TZID=Europe/Ljubljana:20150602T150000
+SUMMARY:Reseach paper Mobile Sensors, Services & Web of Things: Standardized and Efficient RDF Encoding for Constrained Embedded Networks
+DESCRIPTION:(63) Sebastian Käbisch, Daniel Peintner and Darko Anicic.
+LOCATION:EMERALD 1-2
+UID:6131e4b5-a79c-37bb-a777-b71bf2ad4dc8
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150602T150000
+DTEND;TZID=Europe/Ljubljana:20150602T153000
+SUMMARY:Reseach paper Mobile Sensors, Services & Web of Things: SPSC: Efficient Composition of Semantic Services in Unstructured P2P Networks
+DESCRIPTION:(83) Xiaoqi Cao, Patrick Kapahnke and Matthias Klusch.
+LOCATION:EMERALD 1-2
+UID:84049596-281c-3eb3-bca1-627482716d5a
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150602T160000
+DTEND;TZID=Europe/Ljubljana:20150602T163000
+SUMMARY:Reseach paper Cognition & WebScience: Gagg: A Graph Aggregation Operator
+DESCRIPTION:(118) Fadi Maali, Stéphane Campinas and Stefan Decker.
+LOCATION:EMERALD 1-2
+UID:fe27f124-cd02-3be3-9bd1-ba6bd80f7bcf
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150602T163000
+DTEND;TZID=Europe/Ljubljana:20150602T170000
+SUMMARY:Reseach paper Cognition & WebScience: FrameBase: Representing N-ary Relations using Semantic Frames
+DESCRIPTION:(176) Jacobo Rouces, Gerard de Melo and Katja Hose.
+LOCATION:EMERALD 1-2
+UID:060fbd7f-004a-326c-8813-6aef63379a2e
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150602T170000
+DTEND;TZID=Europe/Ljubljana:20150602T173000
+SUMMARY:Reseach paper Cognition & WebScience: LOD-based Disambiguation of Named Entities in @tweets through Context #enrichment
+DESCRIPTION:(191) Genevieve Gorrell, Johann Petrak and Kalina Bontcheva.
+LOCATION:EMERALD 1-2
+UID:192adaa8-ce9b-3eeb-9a67-972f08fbd318
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150602T110000
+DTEND;TZID=Europe/Ljubljana:20150602T113000
+SUMMARY:Reseach paper Reasoning: Large scale rule-based Reasoning using a Laptop
+DESCRIPTION:(35) Martin Peters, Sabine Sachweh and Albert Zündorf.
+LOCATION:MEDITERANEA 1-2
+UID:59095426-eef4-37a8-9c3e-572ada39e4c9
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150602T113000
+DTEND;TZID=Europe/Ljubljana:20150602T120000
+SUMMARY:Reseach paper Reasoning: A Context-Based Semantics for SPARQL Property Paths over the Web
+DESCRIPTION:(132) Olaf Hartig and Giuseppe Pirrò.
+LOCATION:MEDITERANEA 1-2
+UID:472b75ad-bd7f-399d-9483-a806235f960a
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150602T120000
+DTEND;TZID=Europe/Ljubljana:20150602T123000
+SUMMARY:Reseach paper Reasoning: Distributed and Scalable OWL EL Reasoning; 
+DESCRIPTION:(178) Raghava Mutharaju, Pascal Hitzler, Prabhaker Mateti, Freddy Lecue.
+LOCATION:MEDITERANEA 1-2
+UID:0faa5604-4339-3745-aed1-163da6b14659
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150602T140000
+DTEND;TZID=Europe/Ljubljana:20150602T143000
+SUMMARY:Reseach paper Semantic Data Management & Big Data 1: Processing Aggregate Queries in a Federation of SPARQL Endpoints
+DESCRIPTION:(28) Dilshod Ibragimov, Katja Hose, Torben Bach Pedersen and Esteban Zimanyi.
+LOCATION:MEDITERANEA 1-2
+UID:a9498510-6af6-3eca-abeb-6f17daebf72a
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150602T143000
+DTEND;TZID=Europe/Ljubljana:20150602T150000
+SUMMARY:Reseach paper Semantic Data Management & Big Data 1: Intelligent and Efficient Techniques for RDF Query Relaxation
+DESCRIPTION:(156) Géraud Fokou, Stephane Jean and Allel Hadjali.
+LOCATION:MEDITERANEA 1-2
+UID:e3eaf1b3-2193-35c4-bebe-cdf9c32dacb9
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150602T150000
+DTEND;TZID=Europe/Ljubljana:20150602T153000
+SUMMARY:Reseach paper Semantic Data Management & Big Data 1: Query Execution Optimization for Clients of Triple Pattern Fragments
+DESCRIPTION:(54) Joachim Van Herwegen, Ruben Verborgh, Erik Mannens and Rik Van de Walle.
+LOCATION:MEDITERANEA 1-2
+UID:46012a1c-31ba-347f-bc80-72525b7da38e
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150602T160000
+DTEND;TZID=Europe/Ljubljana:20150602T163000
+SUMMARY:In-Use paper InUse & Industry 1: From Symptoms to Diseases -- Creating the Missing Link
+DESCRIPTION:(68) Heiner Oberkampf, Turan Gojayev, Sonja Zillner, Dietlind Zühlke, Sören Auer and Matthias Hammon.
+LOCATION:MEDITERANEA 1-2
+UID:b0e2d569-7204-399d-a410-20bf87951acc
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150602T163000
+DTEND;TZID=Europe/Ljubljana:20150602T170000
+SUMMARY:In-Use paper InUse & Industry 1: Crowdmapping Digital Social Innovation with Linked data
+DESCRIPTION:(91) Harry Halpin and Francesca Bria.
+LOCATION:MEDITERANEA 1-2
+UID:5090ad13-9c03-307e-b850-3311a152e025
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150602T170000
+DTEND;TZID=Europe/Ljubljana:20150602T173000
+SUMMARY:In-Use paper InUse & Industry 1: Supporting Open Collaboration in Science through Explicit and Linked Semantic Description of Processes
+DESCRIPTION:(164) Yolanda Gil, Felix Michel, Varun Ratnakar, Paul Hanson, Hilary Dugan, Jordan Read, Christopher Duffy and Matheus Hauder.
+LOCATION:MEDITERANEA 1-2
+UID:9bbb5211-9d3e-3062-8812-7a11154eff50
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150603T110000
+DTEND;TZID=Europe/Ljubljana:20150603T113000
+SUMMARY:Reseach paper Crowd Sourcing & Web Science: Ranking Entities in the Age of Two Webs, An Application to Semantic Snippets
+DESCRIPTION:(119) Pierre-Edouard Portier, Mazen Alsarem, Sylvie Calabretto and Harald Kosch.
+LOCATION:EMERALD 1-2
+UID:73944226-6ff0-3e58-9931-73b3cb7078cd
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150603T113000
+DTEND;TZID=Europe/Ljubljana:20150603T120000
+SUMMARY:Reseach paper Crowd Sourcing & Web Science: Towards hybrid NER: a study of content and crowdsourcing-related performance factors
+DESCRIPTION:(134) Oluwaseyi Feyisetan, Markus Luczak-Roesch, Elena Simperl and Ramine Tinati.
+LOCATION:EMERALD 1-2
+UID:0292fa79-1c57-3ace-ba9b-edded8b33ff9
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150603T120000
+DTEND;TZID=Europe/Ljubljana:20150603T123000
+SUMMARY:Reseach paper Crowd Sourcing & Web Science: Knowledge Enabled Approach to Predict the Location of Twitter Users
+DESCRIPTION:(89) Revathy Krishnamurthy, Pavan Kapanipathi, Amit Sheth and Krishnaprasad Thirunarayan.
+LOCATION:EMERALD 1-2
+UID:f06efa9e-c2d7-3ca2-b89f-39077f83fa79
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150603T140000
+DTEND;TZID=Europe/Ljubljana:20150603T143000
+SUMMARY:Reseach paper Semantic Data Management & Big Data 2: HDT-MR: A Scalable Solution for RDF Compression with HDT and MapReduce
+DESCRIPTION:(32) José M. Giménez-Garcia, Javier D. Fernández and Miguel A. Martinez-Prieto.
+LOCATION:EMERALD 1-2
+UID:7eca0714-4c63-30ac-8303-d8e3b8ca4108
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150603T143000
+DTEND;TZID=Europe/Ljubljana:20150603T150000
+SUMMARY:Reseach paper Semantic Data Management & Big Data 2: A survey of HTTP caching implementations on the open Semantic Web
+DESCRIPTION:(86) Kjetil Kjernsmo.
+LOCATION:EMERALD 1-2
+UID:1c87847c-5142-3766-9f44-c0dc2c784b77
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150603T150000
+DTEND;TZID=Europe/Ljubljana:20150603T153000
+SUMMARY:Reseach paper Semantic Data Management & Big Data 2: A Compact In-Memory Dictionary for RDF data
+DESCRIPTION:(142) Hamid R. Bazoobandi, Steven De Rooij, Jacopo Urbani, Annette Ten Teije, Frank Van Harmelen and Henri Bal.
+LOCATION:EMERALD 1-2
+UID:81f4c99a-97cb-36f5-b1bf-a85f05c10e73
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150603T160000
+DTEND;TZID=Europe/Ljubljana:20150603T163000
+SUMMARY:Reseach paper Ontologies: Leveraging and Balancing Heterogeneous Sources of Evidence in Ontology Learning
+DESCRIPTION:(13) Gerhard Wohlgenannt.
+LOCATION:EMERALD 1-2
+UID:8cdcc665-16fa-3471-95d2-10b78616a212
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150603T163000
+DTEND;TZID=Europe/Ljubljana:20150603T170000
+SUMMARY:Reseach paper Ontologies: RODI: A Benchmark for Relational-to-Ontology Data Integration
+DESCRIPTION:(72) Christoph Pinkel, Carsten Binnig, Ernesto Jiménez-Ruiz, Wolfgang May, Dominique Ritze, Martin G. Skjaeveland and Alessandro Solimando.
+LOCATION:EMERALD 1-2
+UID:716f0450-b20a-33dc-a204-9f899ada7f35
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150603T170000
+DTEND;TZID=Europe/Ljubljana:20150603T173000
+SUMMARY:Reseach paper Ontologies: VocBench: a Web Application for Collaborative Development of Multilingual Thesauri
+DESCRIPTION:(146) Armando Stellato, Sachit Rajbhandari, Andrea Turbati, Manuel Fiorelli, Caterina Caracciolo, Johannes Keizer and Maria Teresa Pazienza.
+LOCATION:EMERALD 1-2
+UID:0f850b3c-74da-3bbf-a0a3-c2b85931d6a6
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150603T110000
+DTEND;TZID=Europe/Ljubljana:20150603T113000
+SUMMARY:Reseach paper Machine Learning: Automating RDF Dataset Transformation and Enrichment
+DESCRIPTION:(90) Mohamed Ahmed Sherif, Axel-Cyrille Ngonga Ngomo and Jens Lehmann.
+LOCATION:MEDITERANEA 1-2
+UID:6167cc28-7c81-3eba-9ba1-a2c5dac450c6
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150603T113000
+DTEND;TZID=Europe/Ljubljana:20150603T120000
+SUMMARY:Reseach paper Machine Learning: Assigning Semantic Labels to Data Sources
+DESCRIPTION:(116) Ramnandan Krishnamurthy, Amol Mittal, Craig Knoblock and Pedro Szekely.
+LOCATION:MEDITERANEA 1-2
+UID:05c26911-17cd-39d0-9d70-54ca98438c13
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150603T120000
+DTEND;TZID=Europe/Ljubljana:20150603T123000
+SUMMARY:Reseach paper Machine Learning: Inductive Classification through Evidence-based Models and their Ensembles
+DESCRIPTION:(184) Giuseppe Rizzo, Claudia D'Amato, Nicola Fanizzi and Floriana Esposito.
+LOCATION:MEDITERANEA 1-2
+UID:737db584-32e0-3f77-b6b0-9976a878737d
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150603T140000
+DTEND;TZID=Europe/Ljubljana:20150603T143000
+SUMMARY:Reseach paper Ontology Matching & Summarization: Semi-supervised Instance Matching Using Boosted Classifiers
+DESCRIPTION:(41) Mayank Kejriwal and Daniel P. Miranker.
+LOCATION:MEDITERANEA 1-2
+UID:c4b97902-2f42-3d94-a8ef-7a538f2e1414
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150603T143000
+DTEND;TZID=Europe/Ljubljana:20150603T150000
+SUMMARY:Reseach paper Ontology Matching & Summarization: Requirements for and Evaluation of User Support for Large-Scale Ontology Alignment
+DESCRIPTION:(141) Valentina Ivanova, Patrick Lambrix and Johan Åberg.
+LOCATION:MEDITERANEA 1-2
+UID:0c5ec9c2-3fbf-3162-91a0-bd3d2306c172
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150603T150000
+DTEND;TZID=Europe/Ljubljana:20150603T153000
+SUMMARY:Reseach paper Ontology Matching & Summarization: RDF Digest: Efficient Summarization of RDF/S KBs
+DESCRIPTION:(171) Georgia Troullinou, Haridimos Kondylakis, Evangelia Daskalaki and Dimitris Plexousakis.
+LOCATION:MEDITERANEA 1-2
+UID:7f543a8d-3f4e-3ff0-8215-45f10738a1b7
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150603T160000
+DTEND;TZID=Europe/Ljubljana:20150603T163000
+SUMMARY:In-Use paper InUse & Industry 2: Troubleshooting and Optimizing Named Entity Resolution Systems in the Industry
+DESCRIPTION:(47) Panos Alexopoulos, Ronald Denaux and Jose Manuel Gomez-Perez.
+LOCATION:MEDITERANEA 1-2
+UID:1b65929a-27d5-3846-865f-7d5cf526328d
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150603T163000
+DTEND;TZID=Europe/Ljubljana:20150603T170000
+SUMMARY:In-Use paper InUse & Industry 2: Using Ontologies For Modeling Virtual Reality Scenarios
+DESCRIPTION:(105) Mauro Dragoni, Chiara Ghidini, Paolo Busetta, Mauro Fruet and Matteo Pedrotti.
+LOCATION:MEDITERANEA 1-2
+UID:cfdd6ddc-c7ae-3586-bcf6-91d04fa8e697
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150603T170000
+DTEND;TZID=Europe/Ljubljana:20150603T173000
+SUMMARY:In-Use paper InUse & Industry 2: Using semantic web technologies for enterprise architecture analysis
+DESCRIPTION:(111) Maximilan Osenberg, Melanie Langermeier and Bernhard Bauer.
+LOCATION:MEDITERANEA 1-2
+UID:49581109-0c87-3c38-ba91-0fdb62c184e9
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150604T140000
+DTEND;TZID=Europe/Ljubljana:20150604T143000
+SUMMARY:Reseach paper LinkedData & Data Management: Heuristics for Fixing Common Errors in Deployed schema.org Microdata
+DESCRIPTION:(11) Robert Meusel and Heiko Paulheim.
+LOCATION:EMERALD 1
+UID:a3e9a133-db8f-3632-b965-1847d3cc1a93
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150604T143000
+DTEND;TZID=Europe/Ljubljana:20150604T150000
+SUMMARY:Reseach paper LinkedData & Data Management: A Comparison of Data Structures to Manage URIs on the Web of Data
+DESCRIPTION:(26) Ruslan Mavlyutov, Marcin Wylot and Philippe Cudré-Mauroux.
+LOCATION:EMERALD 1
+UID:77fcd918-ab42-35d4-a02c-8917bb6ac5a6
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150604T150000
+DTEND;TZID=Europe/Ljubljana:20150604T153000
+SUMMARY:Reseach paper LinkedData & Data Management: Quality Assessment of Linked Datasets using Probabilistic Approximations
+DESCRIPTION:(125) Jeremy Debattista, Santiago Londoño, Christoph Lange and Sören Auer.
+LOCATION:EMERALD 1
+UID:3c6288ef-b802-381f-834c-30a2afe93310
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150604T140000
+DTEND;TZID=Europe/Ljubljana:20150604T143000
+SUMMARY:In-Use paper InUse & Industry 3: PADTUN - Using Semantic Technologies in Tunnel Diagnosis and Maintenance Domain
+DESCRIPTION:(19) Dhavalkumar Thakker, Vania Dimitrova, Anthony Cohn and Joaquin Valdes.
+LOCATION:EMERALD 2
+UID:84436fe6-49cc-3961-89c7-3c9a7348aea3
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150604T143000
+DTEND;TZID=Europe/Ljubljana:20150604T150000
+SUMMARY:In-Use paper InUse & Industry 3: Towards the Linked Russian Heritage Cloud: Data enrichment and Publishing
+DESCRIPTION:(56) Dmitry Muromtsev, Peter Haase, Dmitry Pavlov, Eugene Cherny, Alexey Andreev and Anna Spiridonova.
+LOCATION:EMERALD 2
+UID:7459b63f-affe-3c03-8f11-6c3ad7ebeadb
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150604T150000
+DTEND;TZID=Europe/Ljubljana:20150604T153000
+SUMMARY:In-Use paper InUse & Industry 3: Desperately searching for travel offers? Formulate better queries with some help from Linked Data.
+DESCRIPTION:(75) Chun Lu, Milan Stankovic and Philippe Laublet.
+LOCATION:EMERALD 2
+UID:d1b208d4-693f-3143-864f-f830889b8f80
+DTSTAMP:20150423T162003Z
+LAST-MODIFIED:20150423T162003Z
+END:VEVENT
+END:VCALENDAR

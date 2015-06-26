@@ -1,0 +1,178 @@
+BEGIN:VCALENDAR
+PRODID:-//jb 0.1/KI2011 iCal generator/DE
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-TIMEZONE:Europe/Ljubljana
+X-WR-CALNAME;VALUE=TEXT:ESWC2015
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150531T090000
+DTEND;TZID=Europe/Ljubljana:20150531T173000
+SUMMARY:Workshop full day WS: Know@LOD
+DESCRIPTION:Knowledge Discovery and Data Mining Meets Linked Open Data. The workshop addresses researchers and practitioners from the fields of knowledge discovery in databases and data mining, as well as researchers from the Semantic Web community applying such techniques to Linked Data. The goal of the workshop is to provide a platform for knowledge exchange between the different research communities, and to foster future collaborations. We expect at least 30 participants. Authors of contributed papers are especially encouraged to publish their data sets and/or the implementation of their algorithms, and to discuss these implementations and data sets with other attendees. The goal is to establish a common benchmark that can be used for competitive evaluations of algorithms and tools.
+LOCATION:AURORA 1
+UID:0546e34e-c135-3c7a-97ad-729e736e64da
+DTSTAMP:20150511T212736Z
+LAST-MODIFIED:20150511T212736Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150531T090000
+DTEND;TZID=Europe/Ljubljana:20150531T123000
+SUMMARY:Workshop half day WS: Wasabi
+DESCRIPTION:Semantic Web Enterprise Adoption and Best Practice. The WaSABi workshop aims at helping to guide the conversation between the scientific research community, IT practitioners and industry. The workshop helps to establish best practices for the development, deployment and evaluation of Semantic Web based technologies. Both research and industry communities can benefit greatly from this discussion by sharing use cases, user stories, practical development issues, evalutaions and design patterns. The goal of this particular workshop is to analyse the emerging Semantic Technology market, identify and apply appropriate methodologies, highlight success stories and overall support the increase in industry adoption of Semantic Web technologies.
+LOCATION:AURORA 2
+UID:c025f3f8-78c9-303e-8302-39be711a9505
+DTSTAMP:20150511T212736Z
+LAST-MODIFIED:20150511T212736Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150531T090000
+DTEND;TZID=Europe/Ljubljana:20150531T173000
+SUMMARY:Workshop full day WS: RDF Streams
+DESCRIPTION:RDF Stream Processing. Data streams are an increasingly prevalent source of information in a wide range of domains and applications, e.g. environmental monitoring, disaster response, or smart cities. The RDF model is based on a traditional persisted-data paradigm, where the focus is on maintaining a bounded set of data items in a knowledge base. This paradigm does not fit the case of data streams, where data items flow continuously over time, forming unbounded sequences of data. In this context, the W3C RDF Stream Processing (RSP) Community Group has taken the task to explore the existing technical and theoretical proposals that incorporate streams to the RDF model, and to its query language, SPARQL. More concretely, one of the main goals of the RSP Group is to define a common, but extensible core model for RDF stream processing. This core model can serve as a starting point for RSP engines to be able to talk to each other and interoperate. The goal of this workshop is to bring together interested members of the community to: (i) Demonstrate their latest advances in stream processing systems for RDF. (ii) Foster discussion for agreeing on a core model and query language for RDF streams. (iii) Involve and attract people from related research areas to actively participate in the RSP Community Group.
+LOCATION:AURORA 3
+UID:744ed025-65ba-3f07-856b-500d35ced84d
+DTSTAMP:20150511T212736Z
+LAST-MODIFIED:20150511T212736Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150531T090000
+DTEND;TZID=Europe/Ljubljana:20150531T173000
+SUMMARY:Workshop full day WS: Developers
+DESCRIPTION:Developers Workshop. <a href="http://eswc2015.semdev.org/">http://eswc2015.semdev.org/</a> Like any technology, the Semantic Web crucially depends on its developers. Many of us have created SemWeb software, but only few have gotten the opportunity to talk about what is so special about the code they wrote. The ESWC2015 Developers Workshop therefore provides a forum for SemWeb and Linked Data developers. We unite developers on May 31st 2015 to discuss about topics we passionately care about: (i) How to develop applications on top of Linked Data? (ii) How can browser applications influence the Semantic Web? (iii) How to create libraries for technologies such as RDF (JSON-LD, Turtle …), SPARQL, PROV? (iv) What about mobile and native applications? (v) How to do semantic development for a specific domain? In other words, this workshop is about how you made things work. It is about implementations, methods, techniques, about how you solved practical problems for Linked Data.
+LOCATION:MEDITERANEA 1
+UID:ff330622-06a4-34e4-8ebf-9ef182edba9b
+DTSTAMP:20150511T212736Z
+LAST-MODIFIED:20150511T212736Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150531T090000
+DTEND;TZID=Europe/Ljubljana:20150531T123000
+SUMMARY:Workshop half day WS: Diachron
+DESCRIPTION:Managing the Evolution and Preservation of the Data Web. <a href="http://www.diachron-fp7.eu/workshops.html">http://www.diachron-fp7.eu/workshops.html</a> There is a vast and rapidly increasing quantity of scientific, corporate, government and crowd-sourced data published on the emerging Data Web. Open Data are expected to play a catalyst role in the way structured information is exploited in the large scale. This offers a great potential for building innovative products and services that create new value from already collected data. It is expected to foster active citizenship (e.g., around the topics of journalism, greenhouse gas emissions, food supply-chains, smart mobility, etc.) and world-wide research according to the fourth paradigm of science. The most noteworthy advantage of the Data Web is that, rather than documents, facts are recorded, which become the basis for discovering new knowledge that is not contained in any individual source, and solving problems that were not originally anticipated. In particular, Open Data published according to the Linked Data Paradigm are essentially transforming the Web into a vibrant information ecosystem. Preserving linked open datasets poses a number of challenges, mainly related to the nature of the LOD principles and the RDF data model. In LOD, datasets representing real-world entities are structured. Thus, in LOD, when managing and representing facts we need to take into consideration possible constraints that may hold. Since resources might be interlinked, effective citation measures are required to be in place to enable, for example, the ranking of datasets according to their measured quality. Another challenge is to determine the consequences that changes to one LOD dataset may have to other datasets linked to it. The distributed nature of LOD datasets furthermore makes archiving a headache. The first DIACHRON workshop aims at addressing the above mentioned challenges and issues by providing a forum for researchers and practitioners who apply linked data technologies to discuss, exchange and disseminate their work. More broadly, this forum will enable communities interested in data, knowledge and ontology dynamics to network and cross-fertilise. The workshop will also serve as a platform for disseminating results of the DIACHRON EU FP7 project (managing the evolution and preservation of the Data Web).
+LOCATION:MEDITERANEA 2
+UID:5ac66219-344e-36b5-b1f8-c2d450f89492
+DTSTAMP:20150511T212736Z
+LAST-MODIFIED:20150511T212736Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150531T140000
+DTEND;TZID=Europe/Ljubljana:20150531T173000
+SUMMARY:Workshop half day WS: USEWOD
+DESCRIPTION:Using the Web in the Age of Data. <a href="http://usewod.org/usewod2015.html">http://usewod.org/usewod2015.html</a> The purpose of the USEWOD workshop series has been to create and maintain a forum for researchers to investigate the synergy between the Web of Data and Web usage mining. This required the analysis of semantic data usage. With the next edition we respond to the fact that publishing and consuming raw data on the Web is an established paradigm today and turn the USEWOD workshop into a forum to discuss more general questions about the usage of the Web. How will the analysis of Web usage benefit from the possibility to blend the classical log with the structure sourcing from Linked Data? Can the progress that has been made on (Read/Write) Linked Data change the way we interact with the Web and what does that mean for the usage analysis capabilities we have at hand today?
+LOCATION:AURORA 2
+UID:a306d364-bf1a-376d-a8cc-dba7171a152a
+DTSTAMP:20150511T212736Z
+LAST-MODIFIED:20150511T212736Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150531T140000
+DTEND;TZID=Europe/Ljubljana:20150531T173000
+SUMMARY:Workshop half day WS: PhiloWeb
+DESCRIPTION:Web and philosophy. <a href="http://web-and-philosophy.org/conferences-philoweb/philoweb-2015-eswc-2015-workshop/">http://web-and-philosophy.org/conferences-philoweb/philoweb-2015-eswc-2015-workshop/</a> The relationship between the Web and philosophy is now at a crucial turning point. While a group of philosophers and philosophically-influenced scholars are increasingly interested in the Web, we are facing unprecedented challenges around its future that requires concerted efforts between researcher and disciplines to be properly addressed. With both Internet governance and the very architecture of the Web undergoing rapid change, now is the time for a philosophy of the Web to help to fulfill the Web’s full potential, expanding upon its fundamental principles in new terrains ranging from mass surveillance to the impact of the Internet of things. Even swifter is the Web-driven transformation of many previously unquestioned philosophical concepts of privacy, authority, meaning, identity, belief, intelligence, cognition, and even embodiment in surprising ways. In response, we hope to provoke the properly philosophical question of whether or not philosophy that can weave these changes to technology and society into a coherent whole that can adapt the principles of the Web to the age of surveillance.
+LOCATION:NAUTILUS
+UID:62e541a0-15b3-32e1-9948-787c85cc195f
+DTSTAMP:20150511T212736Z
+LAST-MODIFIED:20150511T212736Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150531T140000
+DTEND;TZID=Europe/Ljubljana:20150531T173000
+SUMMARY:Workshop half day WS: DeRIVE
+DESCRIPTION:Detection, Representation, and Exploitation of Events in the Semantic Web. <a href="https://derive2015.wordpress.com/">https://derive2015.wordpress.com/</a> In recent years, researchers in several communities involved in aspects of information science have begun to realise the potential benefits of assigning an important role to events in the representation and organisation of knowledge and media-benefits which can be compared to those of representing entities such as persons or locations instead of just dealing with more superficial objects such as proper names and geographical coordinates. While a good deal of relevant research for example, on the modeling of events has been done in the semantic web community, much complementary research has been done in other, partially overlapping communities, such as those involved in multimedia processing, information extraction, sensor processing and information retrieval research. However, these areas often deal with events with a different perspective. The attendance at previous DERIVE workshops proved that there is a great interest from many different communities in the role of events. The results presented in there also indicated that dealing with events is still an emerging topic. The goal of this workshop is to advance research on the role of events within the information extraction and semantic web communities, both building on existing work and integrating results and methods from other areas, while focusing on issues of special importance for the semantic web.
+LOCATION:MEDITERANEA 2
+UID:33727961-153a-364a-9ba4-3331fc0c939f
+DTSTAMP:20150511T212736Z
+LAST-MODIFIED:20150511T212736Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150601T090000
+DTEND;TZID=Europe/Ljubljana:20150601T123000
+SUMMARY:Workshop half day WS: SumPre+HSWI
+DESCRIPTION:Summarizing and Presenting Entities and Ontologies - Human Semantic Web Interaction. <a href="http://km.aifb.kit.edu/ws/sumpre2015/">http://km.aifb.kit.edu/ws/sumpre2015/</a> The Open Data and Semantic Web efforts have been promoting and facilitating the publication and integration of data from diverse sources, giving rise to a large and increasing volume of machine-readable data available on the Web. Even though such raw data and its ontological schema enable the interoperability among Web applications, problems arise when exposing them to human users, as to how to present such large-scale, structured data in a user-friendly manner. To meet the challenge, we invite research contributions on all aspects of ranking, summarization, visualization, and exploration of entities, ontologies, knowledge bases and Web Data, with a particular focus on their summarization and presentation. We also welcome submissions on novel applications of these techniques. The workshop is expected to be a forum that brings together researchers and practitioners from both academia and industry in the areas of Semantic Web, information retrieval, data engineering, and human-computer interaction, to discuss high-quality research and emerging applications, to exchange ideas and experience, and to identify new opportunities for collaboration.
+LOCATION:NAUTILUS
+UID:7bc025de-ba07-3d6d-bfb6-a58aebeafe37
+DTSTAMP:20150511T212736Z
+LAST-MODIFIED:20150511T212736Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150601T090000
+DTEND;TZID=Europe/Ljubljana:20150601T173000
+SUMMARY:Workshop full day WS: Multilingual
+DESCRIPTION:Multilingual Semantic Web. <a href="http://msw4.insight-centre.org/">http://msw4.insight-centre.org/</a> The Multilingual Semantic Web workshop series is concerned with research questions on how current Semantic Web infrastructure can and should be extended to advance the Semantic Web and linked data use and development across language communities around the world. This raises several challenges such as ontology localisation, cross-lingual question answering, cross-lingual ontology and data matching, representation of lexical information on the Web of Data, etc. An infrastructure should be in place for defining ontologies and vocabularies in multiple languages with a transparent semantics across them. NLP and machine learning for linked data can benefit from exploiting multilingual language resources such as annotated corpora, WordNets, bilingual dictionaries, etc. if they are themselves formally represented and linked by following the linked data principles. We argue that a critical mass of language resources as linked data on the Web can lead to a new generation of linked data-aware NLP techniques and tools which, in turn, will serve as basis for richer multilingual multimedia Web content analysis. In addressing such research topics, the workshop aims at providing a forum for researchers at the intersection of NLP, multilingual information access, Linked Data and the Semantic Web to exchange ideas on realising the Multilingual Semantic Web.
+LOCATION:ADRIA 1
+UID:d118366a-a31c-3749-8259-4ab73e9daa2c
+DTSTAMP:20150511T212736Z
+LAST-MODIFIED:20150511T212736Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150601T090000
+DTEND;TZID=Europe/Ljubljana:20150601T173000
+SUMMARY:Workshop full day WS: SALAD
+DESCRIPTION:Services and Applications over Linked APIs and Data. <a href="http://salad2015.linked.services/">http://salad2015.linked.services/</a> The World Wide Web has undergone significant changes, developing from a collection of a few interlinked static pages to a global ubiquitous platform for sharing, searching and browsing dynamic and customisable content, in a variety of different media formats. This transformation was triggered by the ever growing number of users and websites and continues to be supported by current developments such as the increased use and popularity of Linked Data and Web APIs. Unfortunately, despite some initial efforts and progress towards integrated use, these two technologies remain mostly disjunct in terms of developing solutions and applications. To this purpose, SALAD aims to explore the possibilities of facilitating a better fusion of Web APIs and Linked Data, thus enabling the harvesting and provisioning of data through applications and services on the Web. In particular, we focus on investigating how both static and dynamic resources (for example, sensor data or streams), exposed via interfaces on the Web, can be used together with semantic data, as a means for enabling a shared use and providing a basis for developing rich applications. With this workshop, we aim to discover new ways to embrace the opportunities that Web APIs offer in terms of data consumption, processing and provisioning but also to investigate the possibilities of integrating them more closely with Linked Data. We want to challenge researchers towards developing integrated description and implementation approaches through both paper submissions and interactive on-site discussion and dialog. In particular, we are looking for description approaches, implementation solutions, use cases and applications that support a more automated and unified Web API use.
+LOCATION:MEDITERANEA 2
+UID:208325b1-13bc-3f61-9dc0-d31a056f224a
+DTSTAMP:20150511T212736Z
+LAST-MODIFIED:20150511T212736Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150601T090000
+DTEND;TZID=Europe/Ljubljana:20150601T123000
+SUMMARY:Workshop half day WS: LDQ
+DESCRIPTION:Linked Data Quality. <a href="http://ldq.semanticmultimedia.org/">http://ldq.semanticmultimedia.org/</a> Since the start of the Linked Open Data (LOD) Cloud, we have seen an unprecedented volume of structured data published on the web, in most cases as RDF and Linked (Open) Data. The integration across this LOD Cloud, however, is hampered by the ‘publish first, refine later’ philosophy. This is due to various quality problems existing in the published data such as incompleteness, inconsistency, incomprehensibility, etc. These problems affect every application domain, be it scientific (e.g., life science, environment), governmental, or industrial applications. We see linked datasets originating from crowdsourced content like Wikipedia and OpenStreetMap such as DBpedia and LinkedGeoData and also from highly curated sources e.g. from the library domain. Quality is defined as “fitness for use”, thus DBpedia currently can be appropriate for a simple end-user application but could never be used in the medical domain for treatment decisions. However, quality is a key to the success of the data web and a major barrier for further industry adoption. Despite the quality in Linked Data being an essential concept, few efforts are currently available to standardize how data quality tracking and assurance should be implemented. Particularly in Linked Data, ensuring data quality is a challenge as it involves a set of autonomously evolving data sources. Additionally, detecting the quality of datasets available and making the information explicit is yet another challenge. This includes the (semi-)automatic identification of problems. Moreover, none of the current approaches uses the assessment to ultimately improve the quality of the underlying dataset. The goal of the Workshop on Linked Data Quality is to raise the awareness of quality issues in Linked Data and to promote approaches to assess, monitor, maintain and improve Linked Data quality.
+LOCATION:ADRIA 2
+UID:5a956c13-3b86-3584-b3ed-1993c76319fd
+DTSTAMP:20150511T212736Z
+LAST-MODIFIED:20150511T212736Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150601T090000
+DTEND;TZID=Europe/Ljubljana:20150601T173000
+SUMMARY:Workshop full day WS: SW4SH
+DESCRIPTION:Semantic Web for Scientific Heritage. <a href="http://www.cepam.cnrs.fr/zoomathia/sw4sh/">http://www.cepam.cnrs.fr/zoomathia/sw4sh/</a> The purpose of the workshop is to provide a forum for discussion about the methodological approaches to the specificity of annotating “scientific” texts (in the wide sense of the term, including disciplines such as history, architecture, or rhetoric), and to support a collaborative reflection, on possible guidelines or specific models for building historical ontologies. A key goal of the workshop is to emphasize, through precise projects and up-to-date investigation in digital humanities, the benefit of a multidisciplinary research to create and operate on relevantly structured data. One of the main interests of the very topic of pre-modern historical data management lies in historical semantics, and the opportunity to jointly consider how to identify and express lexical, theoretical and material evolutions. Dealing with historical material, a major problem is indeed to handle the discrepancy of the historical terminology compared to the modern one, and, in the case of massive, diachronic data, to take into account the contextual and theoretical meaning of words and sentences and their semantics. Papers on ancient and medieval biological science and zoology are particularly welcome.
+LOCATION:PHAROS
+UID:24c79746-3201-3eea-973e-2496f78e87fc
+DTSTAMP:20150511T212736Z
+LAST-MODIFIED:20150511T212736Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150601T140000
+DTEND;TZID=Europe/Ljubljana:20150601T173000
+SUMMARY:Workshop half day WS: PROFILES
+DESCRIPTION:Dataset PROFIling and fEderated Search for Linked Data. <a href="http://www.keystone-cost.eu/profiles2015/">http://www.keystone-cost.eu/profiles2015/</a> The PROFILES’15 workshop is a continuation of the workshop series successfully started as PROFILES’14 @ ESWC 2014. These workshops aims to gather innovative query and search approaches for large-scale, distributed and heterogeneous linked datasets inline with dedicated approaches to analyse, describe and discover endpoints, as an inherent task of query distribution and dataset recommendation. The PROFILES’15 workshop aims to become a highly interactive research forum for researchers. PROFILES’15 will bring together researchers and practitioners in the fields of Semantic Web and Linked Data, Databases, Semantic Search, Text Mining, NLP as well as Information Retrieval. PROFILES’15 will gather novel works from the fields of semantic query interpretation and federated search for Linked Data, dataset selection and discovery as well as automated profiling of datasets using scalable data assessment and profiling techniques. PROFILES’15 will equally consider both novel scientific methods and techniques for querying, assessment, profiling, discovery of distributed datasets as well as the application perspective, such as the innovative use of tools and methods for providing structured knowledge about distributed datasets, their evolution and fundamentally, means to search and query the Web of Data. We will seek application-oriented, as well as more theoretical papers and position papers.
+LOCATION:DAPHNIA
+UID:221d16a2-8468-37e4-95e1-fe8d5f7d4d48
+DTSTAMP:20150511T212736Z
+LAST-MODIFIED:20150511T212736Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150601T140000
+DTEND;TZID=Europe/Ljubljana:20150601T173000
+SUMMARY:Workshop half day WS: Legal SW
+DESCRIPTION:Legal Domain And Semantic Web Applications. <a href="http://cs.unibo.it/ledaswan2015">http://cs.unibo.it/ledaswan2015</a> The two research areas of Legal Knowledge and Information Systems, and the Semantic Web are very much interconnected. The legal domain is an ideal field of study for Semantic Web researchers, as it uses and contributes to most of the topics that are relevant to the community. Given the complex interactions of legal actors, legal sources and legal processes, as well as the relevance and potential impact of decisions in the juridical and social processes of a country, it provides a challenging context and an important opportunity for groundbreaking research results. At the same time, Semantic Web formalisms and technologies provide a set of technical instruments which can be fruitfully adopted by legal experts to represent, interlink, and reason over legal knowledge and related aspects such as provenance, privacy, and trust. In particular, Semantic Web technology facilitates standards-based legal knowledge representation, which enables the possibility of legal information reuse over the Web. Ontologies, knowledge extraction and reasoning techniques have been studied by the Artificial Intelligence & Law community for years, but only few and sparse connections with the Semantic Web community have resulted from these interactions. The aim of this workshop is to study the challenges that the legal domain poses to Semantic Web research, and how Semantic Web technologies and formalisms can contribute to address these open issues. This way, we promote the use of legal knowledge for addressing Semantic Web research questions and, vice versa, to use Semantic Web technologies as tools for reasoning over legal knowledge.
+LOCATION:NAUTILUS
+UID:83ba215a-25c2-3f87-b2a3-fb94b0e025d2
+DTSTAMP:20150511T212736Z
+LAST-MODIFIED:20150511T212736Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150601T140000
+DTEND;TZID=Europe/Ljubljana:20150601T173000
+SUMMARY:Workshop half day WS: NoISE
+DESCRIPTION:Negative or Inconclusive rEsults in Semantic web. <a href="http://2015.noise-workshop.org/">http://2015.noise-workshop.org/</a> Every Semantic Web researcher has been there: you spend days of work, but the results just don’t give the answer you were hoping for. The work ends up, like so many, part of the File Drawer Effect: they never get reported because of negative or inconclusive outcome. This occurs as a result of a publication bias towards positive results in Semantic Web, as in other fields. However, negative or inconclusive results are fundamental to the research process and can be as valuable as positive results. This workshop provides a forum for such attempted approaches, methodologies, or implementations. Researchers are urged to report null, disappointing or inconclusive attempts in the Semantic Web and Linked Open Data research field. We specifically target sound approaches and, scientifically and technically relevant contributions, that produced negative or inconclusive experimental results.
+LOCATION:ADRIA 2
+UID:778024bf-c2e3-33a2-8bc4-12998e6332e1
+DTSTAMP:20150511T212736Z
+LAST-MODIFIED:20150511T212736Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Ljubljana:20150601T090000
+DTEND;TZID=Europe/Ljubljana:20150601T123000
+SUMMARY:Hackfest half day event: Microcontrollers
+DESCRIPTION:Microcontrollers Hackfest 2015 <a href="http://www.ebusiness-unibw.org/wiki/Events/MOSD2015">http://www.ebusiness-unibw.org/wiki/Events/MOSD2015</a>
+LOCATION:DAPHNIA
+UID:5f9293a2-aadc-3309-b0f9-4be1f6f37f58
+DTSTAMP:20150511T212736Z
+LAST-MODIFIED:20150511T212736Z
+END:VEVENT
+END:VCALENDAR
