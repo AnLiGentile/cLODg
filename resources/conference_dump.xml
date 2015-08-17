@@ -1,0 +1,422 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<!-- EasyChair database dump schema
+     (c) 2012 easychair.org
+-->
+
+<xs:element name="snapshot">
+  <xs:complexType>
+    <xs:sequence>
+      <!-- Conference and schema information -->
+      <xs:element name="conference" type="xs:string"/>
+      <xs:element name="acronym" type="xs:string"/>
+      <xs:element name="author" type="xs:string"/>
+      <xs:element name="schemaVersion" type="xs:integer"/>
+      <xs:element name="date" type="xs:date"/>
+      <xs:element name="time" type="xs:time"/>
+      <!-- List of countries used in this conference -->
+      <xs:element name="countries">
+	<xs:complexType>
+	  <xs:sequence>
+	    <xs:element name="country" minOccurs="0" maxOccurs="unbounded">
+	      <xs:complexType>
+		<xs:sequence>
+		  <xs:element name="code" type="xs:string"/>
+		  <xs:element name="name" type="xs:string"/>
+		  <xs:element name="shortName" type="xs:string"/>
+		</xs:sequence>
+	      </xs:complexType>
+	    </xs:element>
+	  </xs:sequence>
+	</xs:complexType>
+      </xs:element>
+      <!-- List of organizations used in this conference -->
+      <xs:element name="organizations">
+	<xs:complexType>
+	  <xs:sequence>
+	    <xs:element name="organization" minOccurs="0" maxOccurs="unbounded">
+	      <xs:complexType>
+		<xs:sequence>
+		  <xs:element name="id" type="xs:integer"/>
+		  <xs:element name="name" type="xs:string"/>
+		</xs:sequence>
+	      </xs:complexType>
+	    </xs:element>
+	  </xs:sequence>
+	</xs:complexType>
+      </xs:element>
+      <!-- List of tracks, only for multi-track conferences -->
+      <xs:element name="tracks" minOccurs="0">
+	<xs:complexType>
+	  <xs:sequence>
+	    <xs:element name="track" minOccurs="2" maxOccurs="unbounded">
+	      <xs:complexType>
+		<xs:sequence>
+		  <xs:element name="id" type="xs:integer"/>
+		  <xs:element name="number" type="xs:integer"/>
+		  <xs:element name="name" type="xs:string"/>
+		  <xs:element name="shortName" type="xs:string"/>
+		  <xs:element name="formId" type="xs:integer"/>
+		</xs:sequence>
+	      </xs:complexType>
+	    </xs:element>
+	  </xs:sequence>
+	</xs:complexType>
+      </xs:element>
+      <!-- List of decisions about submission -->
+      <xs:element name="decisions">
+	<xs:complexType>
+	  <xs:sequence>
+	    <xs:element name="decision" maxOccurs="unbounded">
+	      <xs:complexType>
+		<xs:sequence>
+		  <xs:element name="id" type="xs:integer"/>
+		  <xs:element name="level" type="xs:integer"/>
+		  <xs:element name="accepted" type="xs:boolean"/>
+		  <xs:element name="html" type="xs:string"/>
+		  <xs:element name="explanation" type="xs:string"/>
+		</xs:sequence>
+	      </xs:complexType>
+	    </xs:element>
+	  </xs:sequence>
+	</xs:complexType>
+      </xs:element>
+      <!-- Submission categories, optional -->
+      <xs:element name="submissionCategories" minOccurs="0">
+	<xs:complexType>
+	  <xs:sequence>
+	    <xs:element name="category" maxOccurs="unbounded">
+	      <xs:complexType>
+		<xs:sequence>
+		  <xs:element name="id" type="xs:integer"/>
+		  <xs:element name="trackId" type="xs:integer" minOccurs="0"/>
+		  <xs:element name="number" type="xs:integer"/>
+		  <xs:element name="name" type="xs:string"/>
+		</xs:sequence>
+	      </xs:complexType>
+	    </xs:element>
+	  </xs:sequence>
+	</xs:complexType>
+      </xs:element>
+      <!-- submission groups, optional -->
+      <xs:element name="submissionGroups" minOccurs="0">
+	<xs:complexType>
+	  <xs:sequence>
+	    <xs:element name="group" maxOccurs="unbounded">
+	      <xs:complexType>
+		<xs:sequence>
+		  <xs:element name="id" type="xs:integer"/>
+		  <xs:element name="trackId" type="xs:integer" minOccurs="0"/>
+		  <xs:element name="number" type="xs:integer"/>
+		  <xs:element name="name" type="xs:string"/>
+		</xs:sequence>
+	      </xs:complexType>
+	    </xs:element>
+	  </xs:sequence>
+	</xs:complexType>
+      </xs:element>
+      <!-- submission topics, optional -->
+      <xs:element name="topics" minOccurs="0">
+	<xs:complexType>
+	  <xs:sequence>
+	    <xs:element name="topic" maxOccurs="unbounded">
+	      <xs:complexType>
+		<xs:sequence>
+		  <xs:element name="id" type="xs:integer"/>
+		  <xs:element name="trackId" type="xs:integer" minOccurs="0"/>
+		  <xs:element name="number" type="xs:integer"/>
+		  <xs:element name="name" type="xs:string"/>
+                  <xs:element name="header" type="xs:boolean"/>
+		</xs:sequence>
+	      </xs:complexType>
+	    </xs:element>
+	  </xs:sequence>
+	</xs:complexType>
+      </xs:element>
+      <!-- description of review forms -->
+      <xs:element name="forms">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="form" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="id" type="xs:integer"/>
+                  <xs:element name="allowAttachment" type="xs:boolean"/>
+                  <xs:element name="overallId" type="xs:integer"/>
+                  <xs:element name="confidenceId" type="xs:integer" minOccurs="0"/>
+                  <xs:element name="field" maxOccurs="unbounded">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="id" type="xs:integer"/>
+                        <xs:element name="header" type="xs:string"/>
+                        <xs:element name="number" type="xs:integer"/>
+                        <xs:element name="scoreKind" type="xs:string"/>
+                        <xs:element name="scoreVisibility" type="xs:string"/>
+                        <xs:element name="scoreExplanation" type="xs:string"/>
+                        <xs:element name="score" minOccurs="0" maxOccurs="unbounded">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="value" type="xs:integer"/>
+                              <xs:element name="explanation" type="xs:string"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element name="textKind" type="xs:string"/>
+                        <xs:element name="textVisibility" type="xs:string"/>
+                        <xs:element name="textExplanation" type="xs:string"/>
+                        <xs:element name="textHeight" type="xs:integer" minOccurs="0"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+	    <xs:element name="defaultFormId" type="xs:integer"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!-- program committee -->
+      <xs:element name="pc">
+	<xs:complexType>
+	  <xs:sequence>
+	    <xs:element name="pcMember" maxOccurs="unbounded">
+	      <xs:complexType>
+		<xs:sequence>
+		  <xs:element name="id" type="xs:integer"/>
+		  <xs:element name="role" type="xs:string"/>
+		  <xs:element name="firstName" type="xs:string"/>
+		  <xs:element name="lastName" type="xs:string"/>
+		  <xs:element name="trackId" type="xs:integer" minOccurs="0"/>
+		  <xs:element name="countryCode" type="xs:string" minOccurs="0"/>
+		  <xs:element name="webSite" type="xs:string" minOccurs="0"/>
+		  <xs:element name="email" type="xs:string" minOccurs="0"/>
+		  <xs:element name="organizationId" type="xs:integer" minOccurs="0"/>
+		  <xs:element name="topics" minOccurs="0">
+		    <xs:complexType>
+		      <xs:sequence>
+			<xs:element name="topicId" type="xs:integer" maxOccurs="unbounded"/>
+		      </xs:sequence>
+		    </xs:complexType>
+		  </xs:element>
+		</xs:sequence>
+	      </xs:complexType>
+	    </xs:element>
+	  </xs:sequence>
+	</xs:complexType>
+      </xs:element>
+      <!-- submissions -->
+      <xs:element name="submissions">
+	<xs:complexType>
+	  <xs:sequence>
+	    <xs:element name="submission" minOccurs="0" maxOccurs="unbounded">
+	      <xs:complexType>
+		<xs:sequence>
+		  <xs:element name="number" type="xs:integer"/>
+		  <xs:element name="title" type="xs:string"/>
+		  <xs:element name="abstract" type="xs:string"/>
+		  <xs:element name="date" type="xs:date"/>
+		  <xs:element name="time" type="xs:time"/>
+		  <xs:element name="address" type="xs:string"/>
+		  <xs:element name="fax" type="xs:string"/>
+		  <xs:element name="decisionId" type="xs:integer"/>
+		  <xs:element name="deleted" type="xs:boolean"/>
+		  <xs:element name="uploaded" type="xs:boolean"/>
+		  <xs:element name="attachment" type="xs:boolean"/>
+		  <xs:element name="authorsNotified" type="xs:boolean"/>
+		  <xs:element name="reviewsSent" type="xs:boolean"/>
+		  <xs:element name="metareviewsSent" type="xs:boolean"/>
+		  <xs:element name="trackId" type="xs:integer" minOccurs="0"/>
+		  <xs:element name="categoryId" type="xs:integer" minOccurs="0"/>
+		  <xs:element name="link" type="xs:string" minOccurs="0"/>
+		  <xs:element name="authors">
+		    <xs:complexType>
+		      <xs:sequence>
+			<xs:element name="author" maxOccurs="unbounded">
+			  <xs:complexType>
+			    <xs:sequence>
+			      <xs:element name="firstName" type="xs:string"/>
+			      <xs:element name="lastName" type="xs:string"/>
+			      <xs:element name="corresponding" type="xs:boolean"/>
+			      <xs:element name="countryCode" type="xs:string"/>
+			      <xs:element name="organizationId" type="xs:integer"/>
+			      <xs:element name="email" type="xs:string" minOccurs="0"/>
+			      <xs:element name="webSite" type="xs:string" minOccurs="0"/>
+			    </xs:sequence>
+			  </xs:complexType>
+			</xs:element>
+		      </xs:sequence>
+		    </xs:complexType>
+		  </xs:element>
+		  <xs:element name="groups" minOccurs="0">
+		    <xs:complexType>
+		      <xs:sequence>
+			<xs:element name="groupId" type="xs:integer" maxOccurs="unbounded"/>
+		      </xs:sequence>
+		    </xs:complexType>
+		  </xs:element>
+		  <xs:element name="keywords">
+		    <xs:complexType>
+		      <xs:sequence>
+			<xs:element name="keyword" type="xs:string" minOccurs="2" maxOccurs="unbounded"/>
+		      </xs:sequence>
+		    </xs:complexType>
+		  </xs:element>
+		  <xs:element name="topics" minOccurs="0">
+		    <xs:complexType>
+		      <xs:sequence>
+			<xs:element name="topicId" type="xs:integer" maxOccurs="unbounded"/>
+		      </xs:sequence>
+		    </xs:complexType>
+		  </xs:element>
+		</xs:sequence>
+	      </xs:complexType>
+	    </xs:element>
+	  </xs:sequence>
+	</xs:complexType>
+      </xs:element>
+      <!-- watchlists of program committee members -->
+      <xs:element name="watchlist">
+	<xs:complexType>
+	  <xs:sequence>
+	    <xs:element name="watch" minOccurs="0" maxOccurs="unbounded">
+	      <xs:complexType>
+		<xs:sequence>
+		  <xs:element name="memberId" type="xs:integer"/>
+		  <xs:element name="submission" type="xs:integer"/>
+		</xs:sequence>
+	      </xs:complexType>
+	    </xs:element>
+	  </xs:sequence>
+	</xs:complexType>
+      </xs:element>
+      <!-- assignment of submissions to program committee -->
+      <xs:element name="assignment">
+	<xs:complexType>
+	  <xs:sequence>
+	    <xs:element name="assign" minOccurs="0" maxOccurs="unbounded">
+	      <xs:complexType>
+		<xs:sequence>
+		  <xs:element name="memberId" type="xs:integer"/>
+		  <xs:element name="submission" type="xs:integer"/>
+		</xs:sequence>
+	      </xs:complexType>
+	    </xs:element>
+	  </xs:sequence>
+	</xs:complexType>
+      </xs:element>
+      <!-- paper bidding by program committee members -->
+      <xs:element name="bids">
+	<xs:complexType>
+	  <xs:sequence>
+	    <xs:element name="bid" minOccurs="0" maxOccurs="unbounded">
+	      <xs:complexType>
+		<xs:sequence>
+		  <xs:element name="memberId" type="xs:integer"/>
+		  <xs:element name="submission" type="xs:integer"/>
+		  <xs:element name="bid" type="xs:string"/>
+		</xs:sequence>
+	      </xs:complexType>
+	    </xs:element>
+	  </xs:sequence>
+	</xs:complexType>
+      </xs:element>
+      <!-- registered conflicts of interests between program committee members and submissions -->
+      <xs:element name="conflicts">
+	<xs:complexType>
+	  <xs:sequence>
+	    <xs:element name="conflict" minOccurs="0" maxOccurs="unbounded">
+	      <xs:complexType>
+		<xs:sequence>
+		  <xs:element name="memberId" type="xs:integer"/>
+		  <xs:element name="submission" type="xs:integer"/>
+		</xs:sequence>
+	      </xs:complexType>
+	    </xs:element>
+	  </xs:sequence>
+	</xs:complexType>
+      </xs:element>
+      <!-- reviews -->
+      <xs:element name="reviews">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="review" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="formId" type="xs:integer"/>
+                  <xs:element name="submission" type="xs:integer"/>
+                  <xs:element name="number" type="xs:integer"/>
+                  <xs:element name="version" type="xs:integer"/>
+                  <xs:element name="date" type="xs:date"/>
+                  <xs:element name="time" type="xs:time"/>
+                  <xs:element name="pcMemberId" type="xs:integer"/>
+                  <xs:element name="attachment" type="xs:boolean"/>
+                  <xs:element name="superceded" type="xs:boolean"/>
+                  <xs:element name="sentForResponse" type="xs:boolean"/>
+                  <xs:element name="sentToAuthors" type="xs:boolean"/>
+                  <xs:element name="reviewer" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="firstName" type="xs:string"/>
+                        <xs:element name="lastName" type="xs:string"/>
+                        <xs:element name="email" type="xs:string" minOccurs="0"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="value" maxOccurs="unbounded">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="fieldId" type="xs:integer"/>
+                        <xs:element name="score" type="xs:integer" minOccurs="0"/>
+                        <xs:element name="scoreSentToAuthor" type="xs:boolean" minOccurs="0"/>
+                        <xs:element name="text" type="xs:string" minOccurs="0"/>
+                        <xs:element name="textSentToAuthor" type="xs:boolean" minOccurs="0"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!-- comments from the program committee discussion of submissions -->
+      <xs:element name="comments">
+	<xs:complexType>
+	  <xs:sequence>
+	    <xs:element name="comment" minOccurs="0" maxOccurs="unbounded">
+	      <xs:complexType>
+		<xs:sequence>
+		  <xs:element name="submission" type="xs:integer"/>
+		  <xs:element name="pcMemberId" type="xs:integer"/>
+		  <xs:element name="date" type="xs:date"/>
+		  <xs:element name="time" type="xs:time"/>
+		  <xs:element name="text" type="xs:string"/>
+		</xs:sequence>
+	      </xs:complexType>
+	    </xs:element>
+	  </xs:sequence>
+	</xs:complexType>
+      </xs:element>
+      <!-- review responses, only for conferences using the review response period -->
+      <xs:element name="reviewResponses" minOccurs="0">
+	<xs:complexType>
+	  <xs:sequence>
+	    <xs:element name="response" maxOccurs="unbounded">
+	      <xs:complexType>
+		<xs:sequence>
+		  <xs:element name="submission" type="xs:integer"/>
+		  <xs:element name="text" type="xs:string"/>
+		  <xs:element name="date" type="xs:date"/>
+		  <xs:element name="time" type="xs:time"/>
+		</xs:sequence>
+	      </xs:complexType>
+	    </xs:element>
+	  </xs:sequence>
+	</xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+</xs:schema>
