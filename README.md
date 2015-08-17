@@ -14,7 +14,7 @@ The workflow sketched below consists of:
 
 ## Data acquisition
 Data is collected from:
-- easychair output (the [schema](./resources/conference_dump.xml) of produced output has been kindly provided by [EasyChair](https://www.easychair.org)
+- easychair output (the [schema](./resources/conference_dump.xml) of produced output has been kindly provided by [EasyChair](https://www.easychair.org))
 - csv from the satellite events organizers
 - csv describing calendars...
 
