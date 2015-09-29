@@ -14,13 +14,13 @@
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
-	xmlns:dcterms="http://purl.org/dc/terms/creator"
 	xmlns:foaf="http://xmlns.com/foaf/0.1/"
 	xmlns:frbr="http://purl.org/vocab/frbr/core#"
 	xmlns:swc="http://data.semanticweb.org/ns/swc/ontology#"
 	xmlns:swrc="http://swrc.ontoware.org/ontology#"
 	xmlns:bibo="http://purl.org/ontology/bibo/"
-	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:dc-purl="http://purl.org/dc/elements/1.1/"
+	xmlns:dc="http://purl.org/dc/terms/"
 	xmlns:dbpedia-owl="http://dbpedia.org/ontology/"
 	xmlns:eswc-owl="http://www.ontologydesignpatterns.org/ont/eswc/ontology.owl#"
 	exclude-result-prefixes="xsl php">
@@ -138,7 +138,7 @@
 	    			INPUT STRING ISWC2015doctoralconsortium/submission/submission-6
 	    			OUTPUT STRING ISWC2015doctoralconsortium/6
 	    		-->
-	    		<xsl:variable name="track" select="replace($uri, 'submission/submission-', '')" />
+	    		<xsl:variable name="track" select="replace($track, 'submission/submission-', '')" />
 	    		
 	    		
 	    		<!-- 
