@@ -70,14 +70,14 @@
 	            
 	            <!-- add authors -->
 	    		
-	    		<xsl:variable name="authorlistref" select="bibo:authorList/@rdf:resource" />
+	    		<xsl:variable name="authorlistref" select="swrc:author/@rdf:resource" />
 	            <xsl:choose>
 	            	<xsl:when test="$authorlistref">
 	            		<xsl:text>[</xsl:text>
 	            		<xsl:variable name="authorlist" select="/rdf:RDF/rdf:Description[@rdf:about=$authorlistref]" />
 	            		<xsl:for-each select="$authorlist/*[name() != 'rdf:type']">
 							<!-- sort the element of the rdf:Bag (rdf:_1, rdf:_2,..., rdf:n) -->
-							<xsl:sort select="xs:integer(replace(local-name(), '_', ''))" data-type="number"/>
+							<!-- xsl:sort select="xs:integer(replace(local-name(), '_', ''))" data-type="number"/-->
 							
 							<xsl:if test="(position( )) > 1">
 	            				<xsl:text>,</xsl:text>
