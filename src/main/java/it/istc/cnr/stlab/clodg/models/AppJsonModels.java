@@ -4,6 +4,7 @@ import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
+import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 
@@ -59,34 +60,89 @@ public class AppJsonModels {
 		out.flush();
 
 		try {
-			out.write(("\"organizations\":"
-					+ organizations.getJSONArray("organizations").toString()
-					+ "," + newLine).getBytes());
-			out.flush();
+		    JSONArray jsonArray = null;
+		    
+		    if(organizations != null){
+    		    jsonArray = organizations.getJSONArray("organizations");
+    		    
+    		    if(jsonArray != null)
+        			out.write(("\"organizations\":"
+        					+ jsonArray.toString()
+        					+ "," + newLine).getBytes());
+    		    else out.write(("\"organizations\":"
+                        + JSONObject.NULL.toString()
+                        + "," + newLine).getBytes());
+    		    
+    		    out.flush();
+		    }
+		    
+		    if(contacts != null){
+    		    jsonArray = contacts.getJSONArray("persons");
+    		    if(jsonArray != null)
+        			out.write(("\"persons\":"
+        					+ jsonArray.toString() + "," + newLine)
+        					.getBytes());
+        		else out.write(("\"persons\":"
+                        + JSONObject.NULL.toString()
+                        + "," + newLine).getBytes());
+    		    
+    		    out.flush();
+		    }
 
-			out.write(("\"persons\":"
-					+ contacts.getJSONArray("persons").toString() + "," + newLine)
-					.getBytes());
-			out.flush();
+		    if(articles != null){
+    		    jsonArray = articles.getJSONArray("publications");
+    		    
+    		    if(jsonArray != null)
+        			out.write(("\"publications\":"
+        					+ jsonArray.toString() + "," + newLine)
+        					.getBytes());
+        		else out.write(("\"publications\":"
+                        + JSONObject.NULL.toString()
+                        + "," + newLine).getBytes());
+    		    
+    		    out.flush();
+		    }
 
-			out.write(("\"publications\":"
-					+ articles.getJSONArray("publications").toString() + "," + newLine)
-					.getBytes());
-			out.flush();
+		    if(events != null){
+    		    jsonArray = events.getJSONArray("events");
+    		    
+    		    if(jsonArray != null)
+        			out.write(("\"events\":" + jsonArray.toString()
+        					+ "," + newLine).getBytes());
+    		    else out.write(("\"events\":"
+                        + JSONObject.NULL.toString()
+                        + "," + newLine).getBytes());
+        		
+    		    out.flush();
+		    }
 
-			out.write(("\"events\":" + events.getJSONArray("events").toString()
-					+ "," + newLine).getBytes());
-			out.flush();
+		    if(locations != null){
+    		    jsonArray = locations.getJSONArray("locations");
+    		    if(jsonArray != null)
+        			out.write(("\"locations\":"
+        					+ jsonArray.toString() + "," + newLine)
+        					.getBytes());
+    		    else out.write(("\"locations\":"
+                        + JSONObject.NULL.toString()
+                        + "," + newLine).getBytes());
+    		    
+    		    out.flush();
+		    }
 
-			out.write(("\"locations\":"
-					+ locations.getJSONArray("locations").toString() + "," + newLine)
-					.getBytes());
-			out.flush();
-
-			out.write(("\"categories\":"
-					+ categories.getJSONArray("categories").toString() + newLine)
-					.getBytes());
-			out.flush();
+		    if(categories != null){
+    		    jsonArray = categories.getJSONArray("categories");
+    		    
+    		    if(jsonArray != null)
+        			out.write(("\"categories\":"
+        					+ jsonArray.toString() + newLine)
+        					.getBytes());
+    		    else out.write(("\"categories\":"
+                        + JSONObject.NULL.toString()
+                        + "," + newLine).getBytes());	
+    		    
+    		    out.flush();
+    		    
+		    }
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -106,34 +162,90 @@ public class AppJsonModels {
 		out.flush();
 
 		try {
-			out.write(("\"organizations\":"
-					+ organizations.getJSONArray("organizations").toString()
-					+ "," + newLine).getBytes());
-			out.flush();
+		    JSONArray jsonArray = null;
+		    
+		    if(organizations != null){
+		        jsonArray = organizations.getJSONArray("organizations");
+		        
+		        if(jsonArray != null)
+        			out.write(("\"organizations\":"
+        					+ jsonArray.toString()
+        					+ "," + newLine).getBytes());
+		        else out.write(("\"organizations\":"
+                            + JSONObject.NULL.toString()
+                            + "," + newLine).getBytes());
+		        
+		        out.flush();
+		    }
 
-			out.write(("\"persons\":"
-					+ contacts.getJSONArray("persons").toString() + "," + newLine)
-					.getBytes());
-			out.flush();
+		    if(contacts != null){
+		        jsonArray = contacts.getJSONArray("persons");
+		        
+		        if(jsonArray != null)
+		            out.write(("\"persons\":"
+		                    + jsonArray.toString() + "," + newLine)
+		                    .getBytes());
+		        else out.write(("\"persons\":"
+                        + JSONObject.NULL.toString()
+                        + "," + newLine).getBytes());
+		        
+    			out.flush();
+		    }
 
-			out.write(("\"publications\":"
-					+ articles.getJSONArray("publications").toString() + "," + newLine)
-					.getBytes());
-			out.flush();
+		    if(articles != null){
+		        jsonArray = articles.getJSONArray("publications");
+		        
+		        if(jsonArray != null)
+        			out.write(("\"publications\":"
+        					+ jsonArray.toString() + "," + newLine)
+        					.getBytes());
+		        else out.write(("\"publications\":"
+                        + JSONObject.NULL.toString()
+                        + "," + newLine).getBytes());
+		        
+    			out.flush();
+		    }
 
-			out.write(("\"events\":" + events.getJSONArray("events").toString()
-					+ "," + newLine).getBytes());
-			out.flush();
+		    if(events != null){
+		        jsonArray = events.getJSONArray("events");
+		        
+		        if(jsonArray != null)
+        			out.write(("\"events\":" + jsonArray.toString()
+        					+ "," + newLine).getBytes());
+		        else out.write(("\"events\":"
+                        + JSONObject.NULL.toString()
+                        + "," + newLine).getBytes());	
+		        
+		        out.flush();
+		    }
+		    
+		    if(locations != null){
+		        jsonArray = locations.getJSONArray("locations");
+		        
+		        if(jsonArray != null)
+        			out.write(("\"locations\":"
+        					+ jsonArray.toString() + "," + newLine)
+        					.getBytes());
+		        else out.write(("\"locations\":"
+                        + JSONObject.NULL.toString()
+                        + "," + newLine).getBytes());
+		        
+    			out.flush();
+		    }
 
-			out.write(("\"locations\":"
-					+ locations.getJSONArray("locations").toString() + "," + newLine)
-					.getBytes());
-			out.flush();
-
-			out.write(("\"categories\":"
-					+ categories.getJSONArray("categories").toString() + newLine)
-					.getBytes());
-			out.flush();
+		    if(categories != null){
+		        jsonArray = categories.getJSONArray("categories");
+		        
+		        if(jsonArray != null)
+        			out.write(("\"categories\":"
+        					+ jsonArray.toString() + newLine)
+        					.getBytes());
+		        else out.write(("\"categories\":"
+                        + JSONObject.NULL.toString()
+                        + "," + newLine).getBytes());
+		        
+    			out.flush();
+		    }
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
