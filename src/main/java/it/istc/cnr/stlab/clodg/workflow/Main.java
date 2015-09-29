@@ -16,9 +16,11 @@ import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 import org.apache.commons.cli.PosixParser;
+import org.apache.jena.riot.RiotException;
 import org.codehaus.jettison.json.JSONObject;
 
 import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.util.FileManager;
 
 /**
  * @author andrea
@@ -40,6 +42,8 @@ public class Main {
 				"Folder where to save the RDF file contaning the data to sent to the Semantic Web Dog Food.");
 		options.addOption("j", true,
 				"Folder where to save the JSON files contaning the data to use for the APP.");
+		options.addOption("i", true,
+                "Precomputed RDF file containing data compliant to the semantic web dog food format.");
 
 		CommandLine commandLine = null;
 
@@ -57,6 +61,7 @@ public class Main {
 			}
 			String rdfFolder = commandLine.getOptionValue('r');
 			String jsonFolder = commandLine.getOptionValue('j');
+			String dogFoodInput = commandLine.getOptionValue('i');
 
 			if (rdfFolder != null && jsonFolder != null) {
 
@@ -74,8 +79,17 @@ public class Main {
 				 */
 				GenerateMainConferenceInitialGraph generateMainConferenceInitialGraph = new GenerateMainConferenceInitialGraph(
 						easychairSnapshot, conferenceConfiguration);
-				Model dogFoodData = generateMainConferenceInitialGraph
-						.generateArticlesRDFModel();
+				
+				Model dogFoodData = null;
+				if(dogFoodInput != null){
+				    try{
+				        dogFoodData = FileManager.get().loadModel(dogFoodInput);
+				    } catch(RiotException e){
+				        System.err.println("The semantic web dog food compliant model is not valid.");
+				    }
+				}
+				
+				if(dogFoodData == null) dogFoodData = generateMainConferenceInitialGraph.generateArticlesRDFModel();
 
 				generateMainConferenceInitialGraph.alignFormData(dogFoodData);
 
