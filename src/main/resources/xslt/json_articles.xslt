@@ -94,7 +94,7 @@
 	            </xsl:choose>
 	    		
 	    		<!-- add the Twitter hanhtag -->
-	    		<xsl:text>,"hashtag":"#eswc2015",</xsl:text>
+	    		<xsl:text>,"hashtag":"#iswc2015",</xsl:text>
 	    		
 	    		<!-- add the thumbnail if any exists -->
 	    		<xsl:text>"thumbnail":</xsl:text>

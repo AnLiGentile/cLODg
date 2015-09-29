@@ -103,8 +103,8 @@
 	    		</xsl:choose>
 	    		<xsl:text>,</xsl:text>
 	            
-	            <!-- add the twitterWidgetToken attribute of the event (#ESWC2015 by default) -->
-	            <xsl:text>"twitterWidgetToken": "#ESWC2015",</xsl:text>
+	            <!-- add the twitterWidgetToken attribute of the event (#ISWC2015 by default) -->
+	            <xsl:text>"twitterWidgetToken": "#ISWC2015",</xsl:text>
 	            
 	            <!-- add the location attribute of the event (Portorož, Slovenia by default) -->
 	            <xsl:text>"locations": </xsl:text>
