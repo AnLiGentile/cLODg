@@ -128,12 +128,10 @@
 	    		<xsl:text>"track": "</xsl:text>
 	    		<!-- 
 	    			remove the namespace from paper's URI, e.g.:
-	    			INPUT STRING http://data.semanticweb.org/conference/eswc/2015/paper/research/175
-	    						 http://data.semanticweb.org/ISWC2015doctoralconsortium/submission/submission-6
-	    			OUTPUT STRING research/175
-	    			ISWC2015doctoralconsortium/submission/submission-6
+	    			INPUT STRING  http://data.semanticweb.org/ISWC2015doctoralconsortium/submission/submission-6
+	    			OUTPUT STRING doctoralconsortium/submission/submission-6
 	    		-->
-	    		<xsl:variable name="track" select="replace($uri, '^http://data.semanticweb.org', '')" />
+	    		<xsl:variable name="track" select="replace($uri, '^http://data.semanticweb.org/ISWC2015', '')" />
 	    		
 	    		<!-- 
 	    			remove the submission from string:
