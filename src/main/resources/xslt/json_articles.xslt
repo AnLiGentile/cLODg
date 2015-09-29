@@ -69,16 +69,23 @@
 	    		<xsl:text>"authors":</xsl:text>
 	            
 	            <!-- add authors -->
-	            
-	            <xsl:when test="swrc:author">
-	            	<xsl:text>[</xsl:text>
-	            	<xsl:for-each select="swrc:author">
-	            		<xsl:text>"</xsl:text>
-						<xsl:value-of select="@rdf:resource" />
-						<xsl:text>"</xsl:text>
-	            	</xsl:for-each>
-	            	<xsl:text>]</xsl:text>
-	            </xsl:when>
+	            <xsl:choose>
+		            <xsl:when test="swrc:author">
+		            	<xsl:text>[</xsl:text>
+		            	<xsl:for-each select="swrc:author">
+		            		<xsl:if test="(position( )) > 1">
+	            				<xsl:text>,</xsl:text>
+	            			</xsl:if>
+		            		<xsl:text>"</xsl:text>
+							<xsl:value-of select="@rdf:resource" />
+							<xsl:text>"</xsl:text>
+		            	</xsl:for-each>
+		            	<xsl:text>]</xsl:text>
+		            </xsl:when>
+		          	<xsl:otherwise>
+	            		<xsl:text>null</xsl:text>
+	            	</xsl:otherwise> 
+	            </xsl:choose> 
 	    		
 	    		<!-- add the Twitter hanhtag -->
 	    		<xsl:text>,"hashtag":"#iswc2015",</xsl:text>
