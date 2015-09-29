@@ -21,56 +21,56 @@
 
 	<pc>
 		<pc_member>
-			<first_name>Witold</first_name>
-			<last_name>Abramowicz</last_name>
+			<firstName>Witold</firstName>
+			<lastName>Abramowicz</lastName>
 			<country>Poland</country>
 			<homepage>http://www.kie.ae.poznan.pl/members/wabramowicz/</homepage>
 			<email>#######</email>
 			<affiliation>Poznan University of Economics</affiliation>
 		</pc_member>
 		<pc_member>
-			<first_name>Diego</first_name>
-			<last_name>Berrueta</last_name>
+			<firstName>Diego</firstName>
+			<lastName>Berrueta</lastName>
 			<country>Spain</country>
 			<homepage></homepage>
 			<email>#######</email>
 			<affiliation>Fundación CTIC</affiliation>
 		</pc_member>
 		<pc_member>
-			<first_name>Chris</first_name>
-			<last_name>Bizer</last_name>
+			<firstName>Chris</firstName>
+			<lastName>Bizer</lastName>
 			<country>Germany</country>
 			<homepage>http://www.wiwiss.fu-berlin.de/en/institute/pwo/bizer/index.html</homepage>
 			<email>#######</email>
 			<affiliation>Freie Universität Berlin</affiliation>
 		</pc_member>
 		<pc_member>
-			<first_name>Boanerges</first_name>
-			<last_name>Aleman-Meza</last_name>
+			<firstName>Boanerges</firstName>
+			<lastName>Aleman-Meza</lastName>
 			<country>USA</country>
 			<homepage>http://lsdis.cs.uga.edu/~aleman/</homepage>
 			<email>#######</email>
 			<affiliation>LSDIS Lab, University of Georgia</affiliation>
 		</pc_member>
 		<pc_member>
-			<first_name>Harold</first_name>
-			<last_name>Boley</last_name>
+			<firstName>Harold</firstName>
+			<lastName>Boley</lastName>
 			<country>Canada</country>
 			<homepage>http://www.cs.unb.ca/~boley/</homepage>
 			<email>#######</email>
 			<affiliation>NRC Institute of Information Technology</affiliation>
 		</pc_member>
 		<pc_member>
-			<first_name>Irene</first_name>
-			<last_name>Celino</last_name>
+			<firstName>Irene</firstName>
+			<lastName>Celino</lastName>
 			<country>Italy</country>
 			<homepage></homepage>
 			<email>#######</email>
 			<affiliation>Cefriel</affiliation>
 		</pc_member>
 		<pc_member>
-			<first_name>Asunción</first_name>
-			<last_name>Gómez-Pérez</last_name>
+			<firstName>Asunción</firstName>
+			<lastName>Gómez-Pérez</lastName>
 			<country>Spain</country>
 			<homepage></homepage>
 			<email>#######</email>
@@ -78,8 +78,8 @@
 		</pc_member>
 		
 		<pc_member>
-			<first_name>Tom</first_name>
-			<last_name>Heath</last_name>
+			<firstName>Tom</firstName>
+			<lastName>Heath</lastName>
 			<country>United Kingdom</country>
 			<homepage></homepage>
 			<email>#######</email>
@@ -98,16 +98,16 @@
 			</abstract>
 			<authors>
 				<author>
-					<first_name>Paul</first_name>
-					<last_name>Gaultieri</last_name>
+					<firstName>Paul</firstName>
+					<lastName>Gaultieri</lastName>
 					<country>USA</country>
 					<homepage>http://kingpauli.mobsters.com</homepage>
 					<email>kingpauli@mobsters.com</email>
 					<affiliation>The Mob</affiliation>
 				</author>
 				<author>
-					<first_name>Hans</first_name>
-					<last_name>Wurst</last_name>
+					<firstName>Hans</firstName>
+					<lastName>Wurst</lastName>
 					<country>Germany</country>
 					<affiliation>Universität Düsseldorf</affiliation>
 				</author>
