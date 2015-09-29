@@ -112,6 +112,8 @@ public class GenerateMainConferenceInitialGraph {
 
 		try {
 			builder = factory.newDocumentBuilder();
+			System.out.println(classLoader
+                .getResourceAsStream(conferenceData));
 			conferenceDataDoc = builder.parse(classLoader
 					.getResourceAsStream(conferenceData));
 			conferenceConfigDoc = builder.parse(classLoader
@@ -223,6 +225,7 @@ public class GenerateMainConferenceInitialGraph {
 			Model namesModel) throws XPathExpressionException {
 		for (int i = 0, j = personNodes.getLength(); i < j; i++) {
 			Node node = personNodes.item(i);
+			
 			XPathExpression xPathExpression = xPath.compile("firstName");
 			Node firstNameNode = (Node) xPathExpression.evaluate(node,
 					XPathConstants.NODE);
@@ -629,160 +632,162 @@ public class GenerateMainConferenceInitialGraph {
 
 	public void alignFormData(Model model) {
 		URL formDataLocation = classLoader.getResource("data/form-data");
-		String formDataLocationAsFilePath = formDataLocation.getFile();
-		File formDataDir = new File(formDataLocationAsFilePath);
-
-		FileFilter dirFilter = new FileFilter() {
-
-			@Override
-			public boolean accept(File pathname) {
-				return pathname.isDirectory() ? true : false;
-			}
-		};
-
-		FileFilter rdfFilter = new FileFilter() {
-
-			@Override
-			public boolean accept(File pathname) {
-				return pathname.getName().endsWith(".rdf");
-			}
-		};
-
-		Property holdsRole = ModelFactory.createDefaultModel().createProperty(
-				"http://data.semanticweb.org/ns/swc/ontology#holdsRole");
-		for (File subDir : formDataDir.listFiles(dirFilter)) {
-
-			for (File rdf : subDir.listFiles(rdfFilter)) {
-
-				System.out.println("RDF form model " + rdf.getName());
-				InputStream inputStream;
-				try {
-					inputStream = new FileInputStream(rdf);
-					Model formModel = ModelFactory.createDefaultModel();
-					formModel.read(inputStream, null, "RDF/XML");
-
-					ResIterator people = formModel.listResourcesWithProperty(
-							RDF.type, FOAF.Person);
-
-					while (people.hasNext()) {
-						Resource person = people.next();
-
-						// Add core information
-						Statement statement = person.getProperty(RDF.type);
-						model.add(statement);
-						statement = person.getProperty(holdsRole);
-						model.add(statement);
-
-						// Update name and label
-						statement = person.getProperty(FOAF.name);
-						model.removeAll(person, FOAF.name, null);
-						model.add(statement);
-						model.removeAll(person, RDFS.label, null);
-						model.add(person, RDFS.label, statement.getObject());
-
-						// Update first name
-						statement = person.getProperty(FOAF.firstName);
-						model.removeAll(person, FOAF.firstName, null);
-						model.add(statement);
-
-						// Update last name
-						Property foafLastName = model
-								.createProperty("http://xmlns.com/foaf/0.1/lastName");
-						statement = person.getProperty(foafLastName);
-						model.removeAll(person, foafLastName, null);
-						model.add(statement);
-
-						// Update homepage
-						statement = person.getProperty(FOAF.homepage);
-						if (statement != null) {
-							model.removeAll(person, FOAF.homepage, null);
-							model.add(statement);
-						}
-
-						// Update mbox
-						statement = person.getProperty(FOAF.mbox);
-						Resource mbox = (Resource) statement.getObject();
-						model.removeAll(person, FOAF.mbox, null);
-						model.add(statement);
-						// Update mbox sha1sum
-						model.removeAll(person, FOAF.mbox_sha1sum, null);
-						model.add(person, FOAF.mbox_sha1sum,
-								DigestUtils.sha1Hex(mbox.getURI()));
-
-						// Add depiction
-						statement = person.getProperty(FOAF.depiction);
-						if (statement != null) {
-							Resource depiction = (Resource) statement
-									.getObject();
-							String depictionURI = depiction.getURI().replace(
-									"/images/", "/imgresized/");
-							if (depictionURI.endsWith(".tiff")
-									|| depictionURI.endsWith(".TIFF")) {
-								int index = depictionURI.lastIndexOf(".");
-								depictionURI = depictionURI.substring(0, index)
-										+ ".jpg";
-							} else if (!depictionURI.endsWith(".jpg")
-									&& !depictionURI.endsWith(".JPG")
-									&& !depictionURI.endsWith(".jpeg")
-									&& !depictionURI.endsWith(".JPEG"))
-								depictionURI += ".jpg";
-							model.add(statement.getSubject(),
-									statement.getPredicate(),
-									model.createResource(depictionURI));
-						}
-
-						// Add Twitter account
-						Property foafAccount = model
-								.createProperty("http://xmlns.com/foaf/0.1/account");
-						statement = person.getProperty(foafAccount);
-						if (statement != null) {
-							model.add(statement);
-							Resource account = (Resource) statement.getObject();
-							model.add(account.listProperties());
-						}
-
-						// Add paper image
-						Resource inProceedings = model
-								.createResource("http://swrc.ontoware.org/ontology#InProceedings");
-						ResIterator papers = formModel
-								.listResourcesWithProperty(RDF.type,
-										inProceedings);
-						if (papers.hasNext()) {
-							Resource paper = papers.next();
-							Property dbpediaThumbnail = model
-									.createProperty("http://dbpedia.org/ontology/thumbnail");
-							statement = paper.getProperty(dbpediaThumbnail);
-
-							if (statement != null) {
-								Resource thumbnail = (Resource) statement
-										.getObject();
-								String thumbnailURI = thumbnail.getURI()
-										.replace("/images/", "/imgresized/");
-
-								if (thumbnailURI.endsWith(".tiff")
-										|| thumbnailURI.endsWith(".TIFF")) {
-									int index = thumbnailURI.lastIndexOf(".");
-									thumbnailURI = thumbnailURI.substring(0,
-											index) + ".jpg";
-								} else if (!thumbnailURI.endsWith(".jpg")
-										&& !thumbnailURI.endsWith(".JPG")
-										&& !thumbnailURI.endsWith(".jpeg")
-										&& !thumbnailURI.endsWith(".JPEG"))
-									thumbnailURI += ".jpg";
-								model.add(statement.getSubject(),
-										statement.getPredicate(),
-										model.createResource(thumbnailURI));
-							}
-						}
-
-					}
-
-				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-
-			}
+		if(formDataLocation != null){
+    		String formDataLocationAsFilePath = formDataLocation.getFile();
+    		File formDataDir = new File(formDataLocationAsFilePath);
+    
+    		FileFilter dirFilter = new FileFilter() {
+    
+    			@Override
+    			public boolean accept(File pathname) {
+    				return pathname.isDirectory() ? true : false;
+    			}
+    		};
+    
+    		FileFilter rdfFilter = new FileFilter() {
+    
+    			@Override
+    			public boolean accept(File pathname) {
+    				return pathname.getName().endsWith(".rdf");
+    			}
+    		};
+    
+    		Property holdsRole = ModelFactory.createDefaultModel().createProperty(
+    				"http://data.semanticweb.org/ns/swc/ontology#holdsRole");
+    		for (File subDir : formDataDir.listFiles(dirFilter)) {
+    
+    			for (File rdf : subDir.listFiles(rdfFilter)) {
+    
+    				System.out.println("RDF form model " + rdf.getName());
+    				InputStream inputStream;
+    				try {
+    					inputStream = new FileInputStream(rdf);
+    					Model formModel = ModelFactory.createDefaultModel();
+    					formModel.read(inputStream, null, "RDF/XML");
+    
+    					ResIterator people = formModel.listResourcesWithProperty(
+    							RDF.type, FOAF.Person);
+    
+    					while (people.hasNext()) {
+    						Resource person = people.next();
+    
+    						// Add core information
+    						Statement statement = person.getProperty(RDF.type);
+    						model.add(statement);
+    						statement = person.getProperty(holdsRole);
+    						model.add(statement);
+    
+    						// Update name and label
+    						statement = person.getProperty(FOAF.name);
+    						model.removeAll(person, FOAF.name, null);
+    						model.add(statement);
+    						model.removeAll(person, RDFS.label, null);
+    						model.add(person, RDFS.label, statement.getObject());
+    
+    						// Update first name
+    						statement = person.getProperty(FOAF.firstName);
+    						model.removeAll(person, FOAF.firstName, null);
+    						model.add(statement);
+    
+    						// Update last name
+    						Property foafLastName = model
+    								.createProperty("http://xmlns.com/foaf/0.1/lastName");
+    						statement = person.getProperty(foafLastName);
+    						model.removeAll(person, foafLastName, null);
+    						model.add(statement);
+    
+    						// Update homepage
+    						statement = person.getProperty(FOAF.homepage);
+    						if (statement != null) {
+    							model.removeAll(person, FOAF.homepage, null);
+    							model.add(statement);
+    						}
+    
+    						// Update mbox
+    						statement = person.getProperty(FOAF.mbox);
+    						Resource mbox = (Resource) statement.getObject();
+    						model.removeAll(person, FOAF.mbox, null);
+    						model.add(statement);
+    						// Update mbox sha1sum
+    						model.removeAll(person, FOAF.mbox_sha1sum, null);
+    						model.add(person, FOAF.mbox_sha1sum,
+    								DigestUtils.sha1Hex(mbox.getURI()));
+    
+    						// Add depiction
+    						statement = person.getProperty(FOAF.depiction);
+    						if (statement != null) {
+    							Resource depiction = (Resource) statement
+    									.getObject();
+    							String depictionURI = depiction.getURI().replace(
+    									"/images/", "/imgresized/");
+    							if (depictionURI.endsWith(".tiff")
+    									|| depictionURI.endsWith(".TIFF")) {
+    								int index = depictionURI.lastIndexOf(".");
+    								depictionURI = depictionURI.substring(0, index)
+    										+ ".jpg";
+    							} else if (!depictionURI.endsWith(".jpg")
+    									&& !depictionURI.endsWith(".JPG")
+    									&& !depictionURI.endsWith(".jpeg")
+    									&& !depictionURI.endsWith(".JPEG"))
+    								depictionURI += ".jpg";
+    							model.add(statement.getSubject(),
+    									statement.getPredicate(),
+    									model.createResource(depictionURI));
+    						}
+    
+    						// Add Twitter account
+    						Property foafAccount = model
+    								.createProperty("http://xmlns.com/foaf/0.1/account");
+    						statement = person.getProperty(foafAccount);
+    						if (statement != null) {
+    							model.add(statement);
+    							Resource account = (Resource) statement.getObject();
+    							model.add(account.listProperties());
+    						}
+    
+    						// Add paper image
+    						Resource inProceedings = model
+    								.createResource("http://swrc.ontoware.org/ontology#InProceedings");
+    						ResIterator papers = formModel
+    								.listResourcesWithProperty(RDF.type,
+    										inProceedings);
+    						if (papers.hasNext()) {
+    							Resource paper = papers.next();
+    							Property dbpediaThumbnail = model
+    									.createProperty("http://dbpedia.org/ontology/thumbnail");
+    							statement = paper.getProperty(dbpediaThumbnail);
+    
+    							if (statement != null) {
+    								Resource thumbnail = (Resource) statement
+    										.getObject();
+    								String thumbnailURI = thumbnail.getURI()
+    										.replace("/images/", "/imgresized/");
+    
+    								if (thumbnailURI.endsWith(".tiff")
+    										|| thumbnailURI.endsWith(".TIFF")) {
+    									int index = thumbnailURI.lastIndexOf(".");
+    									thumbnailURI = thumbnailURI.substring(0,
+    											index) + ".jpg";
+    								} else if (!thumbnailURI.endsWith(".jpg")
+    										&& !thumbnailURI.endsWith(".JPG")
+    										&& !thumbnailURI.endsWith(".jpeg")
+    										&& !thumbnailURI.endsWith(".JPEG"))
+    									thumbnailURI += ".jpg";
+    								model.add(statement.getSubject(),
+    										statement.getPredicate(),
+    										model.createResource(thumbnailURI));
+    							}
+    						}
+    
+    					}
+    
+    				} catch (FileNotFoundException e) {
+    					// TODO Auto-generated catch block
+    					e.printStackTrace();
+    				}
+    
+    			}
+    		}
 		}
 	}
 

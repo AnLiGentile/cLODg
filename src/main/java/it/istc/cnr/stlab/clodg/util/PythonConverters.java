@@ -11,6 +11,8 @@ import java.io.PrintWriter;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.apache.jena.riot.RiotException;
+
 import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
@@ -91,6 +93,8 @@ public class PythonConverters {
 
 	public static void doStuff(String pathOfCalendarFolder) {
 
+	    File outFolder = new File("out");
+	    if(!outFolder.exists()) outFolder.mkdirs();
 
 		ical2RDF(pathOfCalendarFolder+File.separator+"main.ics", MAIN_CONFERENCE_CALENDAR_NS,
 				"./out/main_temp.rdf");
@@ -110,74 +114,116 @@ public class PythonConverters {
 		ical2RDF(pathOfCalendarFolder+File.separator+"phDSymp.ics", PLENARY_EVENTS_CALENDAR_NS,
 				"./out/phd_temp.rdf");
 		
-		Model modelMain = FileManager.get().loadModel("./out/main_temp.rdf");
-		refactoring(modelMain, CALENDAR.MAIN_CONFERENCE);
-		try {
-
-			modelMain.write(new FileOutputStream(new File(pathOfCalendarFolder+File.separator+"main-calendar.rdf")));
-		} catch (FileNotFoundException e) {
-
-			e.printStackTrace();
+		
+		Model modelMain = null;
+		try{
+		    modelMain = FileManager.get().loadModel("./out/main_temp.rdf");
+		} catch(RiotException e){
+		    System.err.println(e.getMessage());
 		}
 		
-		Model modelSessions = FileManager.get().loadModel("./out/sessions_temp.rdf");
-		refactoring(modelSessions, CALENDAR.SESSIONS);
-		try {
-
-			modelSessions.write(new FileOutputStream(new File(pathOfCalendarFolder+File.separator+"sessions-calendar.rdf")));
-			//TODO also, this is a new one, please put online
-		} catch (FileNotFoundException e) {
-
-			e.printStackTrace();
+		if(modelMain != null){
+    		refactoring(modelMain, CALENDAR.MAIN_CONFERENCE);
+    		try {
+    
+    			modelMain.write(new FileOutputStream(new File(pathOfCalendarFolder+File.separator+"main-calendar.rdf")));
+    		} catch (FileNotFoundException e) {
+    
+    			e.printStackTrace();
+    		}
 		}
 		
-		Model modelWS = FileManager.get().loadModel("./out/workhop_temp.rdf");
-		refactoring(modelWS, CALENDAR.WORKSHOPS);
-		try {
-
-		    modelWS.write(new FileOutputStream(new File(pathOfCalendarFolder+File.separator+"workshops-calendar.rdf")));
-		    
-		} catch (FileNotFoundException e) {
-
-			e.printStackTrace();
+		Model modelSessions = null;
+		try{
+		    modelSessions = FileManager.get().loadModel("./out/sessions_temp.rdf");
+		} catch(RiotException e){
+            System.err.println(e.getMessage());
+        }
+		if(modelSessions != null){
+    		refactoring(modelSessions, CALENDAR.SESSIONS);
+    		try {
+    
+    			modelSessions.write(new FileOutputStream(new File(pathOfCalendarFolder+File.separator+"sessions-calendar.rdf")));
+    			//TODO also, this is a new one, please put online
+    		} catch (FileNotFoundException e) {
+    
+    			e.printStackTrace();
+    		}
 		}
 		
-		Model modelTutorials = FileManager.get().loadModel("./out/tutorials_temp.rdf");
-		refactoring(modelTutorials, CALENDAR.TUTORIALS);
-		try {
-
-			modelTutorials.write(new FileOutputStream(new File(pathOfCalendarFolder+File.separator+"tutorials-calendar.rdf")));
-		    
-		} catch (FileNotFoundException e) {
-
-			e.printStackTrace();
+		Model modelWS = null;
+		try{
+		    modelWS = FileManager.get().loadModel("./out/workhop_temp.rdf");
+		} catch(RiotException e){
+            System.err.println(e.getMessage());
+        }
+		if(modelWS != null){
+    		refactoring(modelWS, CALENDAR.WORKSHOPS);
+    		try {
+    
+    		    modelWS.write(new FileOutputStream(new File(pathOfCalendarFolder+File.separator+"workshops-calendar.rdf")));
+    		    
+    		} catch (FileNotFoundException e) {
+    
+    			e.printStackTrace();
+    		}
+		}
+		
+		Model modelTutorials = null;
+		try{
+		    modelTutorials = FileManager.get().loadModel("./out/tutorials_temp.rdf");
+		} catch(RiotException e){
+            System.err.println(e.getMessage());
+        }
+		if(modelTutorials != null){
+    		refactoring(modelTutorials, CALENDAR.TUTORIALS);
+    		try {
+    
+    			modelTutorials.write(new FileOutputStream(new File(pathOfCalendarFolder+File.separator+"tutorials-calendar.rdf")));
+    		    
+    		} catch (FileNotFoundException e) {
+    
+    			e.printStackTrace();
+    		}
 		}
 		
 		//TODO Andrea ho aggiunto PHD e PLENARY all'enum
-
-		Model modelPhD = FileManager.get().loadModel("./out/phd_temp.rdf");
-		refactoring(modelPhD, CALENDAR.PHD);
-		try {
-			modelPhD.write(new FileOutputStream(new File(pathOfCalendarFolder+File.separator+"phdSymp-calendar.rdf")));
-		    
-		} catch (FileNotFoundException e) {
-
-			e.printStackTrace();
+		Model modelPhD = null;
+		try{
+		    modelPhD = FileManager.get().loadModel("./out/phd_temp.rdf");
+		} catch(RiotException e){
+            System.err.println(e.getMessage());
+        }
+		if(modelPhD != null){
+    		refactoring(modelPhD, CALENDAR.PHD);
+    		try {
+    			modelPhD.write(new FileOutputStream(new File(pathOfCalendarFolder+File.separator+"phdSymp-calendar.rdf")));
+    		    
+    		} catch (FileNotFoundException e) {
+    
+    			e.printStackTrace();
+    		}
+    			
 		}
-				
 		
-	
-		Model modelPlenary = FileManager.get().loadModel("./out/plenary_temp.rdf");
-		refactoring(modelPlenary, CALENDAR.PLENARY);
-		try {
-		    /*
-		     * FIXED
-		     */
-			modelPlenary.write(new FileOutputStream(new File(pathOfCalendarFolder+File.separator+"plenary-calendar.rdf")));
-		    
-		} catch (FileNotFoundException e) {
-
-			e.printStackTrace();
+		Model modelPlenary = null;
+		try{
+		    modelPlenary = FileManager.get().loadModel("./out/plenary_temp.rdf");
+		} catch(RiotException e){
+            System.err.println(e.getMessage());
+        }
+		if(modelPlenary != null){
+    		refactoring(modelPlenary, CALENDAR.PLENARY);
+    		try {
+    		    /*
+    		     * FIXED
+    		     */
+    			modelPlenary.write(new FileOutputStream(new File(pathOfCalendarFolder+File.separator+"plenary-calendar.rdf")));
+    		    
+    		} catch (FileNotFoundException e) {
+    
+    			e.printStackTrace();
+    		}
 		}
 		
 	}
