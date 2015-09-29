@@ -28,7 +28,8 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		String easychairSnapshot = "data/ESWC2015_snapshot_2015-04-08.xml";
+		//String easychairSnapshot = "data/ESWC2015_snapshot_2015-04-08.xml";
+	    String easychairSnapshot = "data/data_example2008.xml";
 		String conferenceConfiguration = "data/eswc2015-config.xml";
 		String folderContainingIcsCalendars = "";
 
