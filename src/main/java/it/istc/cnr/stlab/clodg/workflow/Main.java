@@ -34,7 +34,11 @@ public class Main {
 	    String easychairSnapshot = "data/data_example2008.xml";
 		String conferenceConfiguration = "data/eswc2015-config.xml";
 		String folderContainingIcsCalendars = "";
+		String jsFinalData ="data_CONFERENCE.js";
+		String jsonFinalData ="data_CONFERENCE.json";
 
+
+		
 		Options options = new Options();
 		options.addOption(
 				"r",
@@ -209,9 +213,9 @@ public class Main {
 
 				try {
 					appJsonModels.write(new FileOutputStream(jsonFolder
-							+ File.separator + "data_ESWC2015.js"));
+							+ File.separator + jsFinalData));
 					appJsonModels.writePureJson(new FileOutputStream(jsonFolder
-							+ File.separator + "data_ESWC2015.json"));
+							+ File.separator + jsonFinalData));
 
 				} catch (FileNotFoundException e) {
 					// TODO Auto-generated catch block
