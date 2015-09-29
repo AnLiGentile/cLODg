@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.net.URL;
 
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerConfigurationException;
@@ -63,24 +64,27 @@ public class GenerateAppData {
         
         BufferedReader bufferedReader;
         try {
-            bufferedReader = new BufferedReader(new FileReader(classLoader.getResource("data/locations.json").getFile()));
-            String jsonContent = "";
-            String line = null;
-            while((line = bufferedReader.readLine()) != null) jsonContent += line;
-            
-            locations = new JSONObject(jsonContent);
-            
-            bufferedReader.close();
-            
-            bufferedReader = new BufferedReader(new FileReader(classLoader.getResource("data/categories.json").getFile()));
-            
-            jsonContent = "";
-            line = null;
-            while((line = bufferedReader.readLine()) != null) jsonContent += line;
-            
-            categories = new JSONObject(jsonContent);
-            
-            bufferedReader.close();
+            URL locationsURL = classLoader.getResource("data/locations.json");
+            if(locationsURL != null){
+                bufferedReader = new BufferedReader(new FileReader(locationsURL.getFile()));
+                String jsonContent = "";
+                String line = null;
+                while((line = bufferedReader.readLine()) != null) jsonContent += line;
+                
+                locations = new JSONObject(jsonContent);
+                
+                bufferedReader.close();
+                
+                bufferedReader = new BufferedReader(new FileReader(classLoader.getResource("data/categories.json").getFile()));
+                
+                jsonContent = "";
+                line = null;
+                while((line = bufferedReader.readLine()) != null) jsonContent += line;
+                
+                categories = new JSONObject(jsonContent);
+                
+                bufferedReader.close();
+            }
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

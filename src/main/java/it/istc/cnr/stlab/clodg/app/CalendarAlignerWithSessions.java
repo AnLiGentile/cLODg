@@ -22,6 +22,7 @@ import net.fortuna.ical4j.model.Calendar;
 import net.fortuna.ical4j.model.ComponentList;
 import net.fortuna.ical4j.model.component.VEvent;
 
+import org.apache.jena.riot.RiotException;
 import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
@@ -249,22 +250,24 @@ public class CalendarAlignerWithSessions implements Aligner {
 
 		Map<String, String> titlesMap = new HashMap<String, String>();
 		for (Model model : models) {
-			String sparql = "PREFIX ical: <http://www.w3.org/2002/12/cal/icaltzd#> "
-					+ "SELECT ?event ?summary "
-					+ "WHERE{"
-					+ "    ?event ical:summary ?summary" + "}";
-			Query query = QueryFactory.create(sparql, Syntax.syntaxARQ);
-			QueryExecution queryExecution = QueryExecutionFactory.create(query,
-					model);
-			ResultSet resultSet = queryExecution.execSelect();
-			while (resultSet.hasNext()) {
-				QuerySolution querySolution = resultSet.next();
-				Resource paper = querySolution.getResource("event");
-				Literal title = querySolution.getLiteral("summary");
-				String titleString = title.getLexicalForm().replaceAll(" +",
-						" ");
-				titlesMap.put(paper.getURI(), titleString);
-			}
+		    if(model != null){
+    			String sparql = "PREFIX ical: <http://www.w3.org/2002/12/cal/icaltzd#> "
+    					+ "SELECT ?event ?summary "
+    					+ "WHERE{"
+    					+ "    ?event ical:summary ?summary" + "}";
+    			Query query = QueryFactory.create(sparql, Syntax.syntaxARQ);
+    			QueryExecution queryExecution = QueryExecutionFactory.create(query,
+    					model);
+    			ResultSet resultSet = queryExecution.execSelect();
+    			while (resultSet.hasNext()) {
+    				QuerySolution querySolution = resultSet.next();
+    				Resource paper = querySolution.getResource("event");
+    				Literal title = querySolution.getLiteral("summary");
+    				String titleString = title.getLexicalForm().replaceAll(" +",
+    						" ");
+    				titlesMap.put(paper.getURI(), titleString);
+    			}
+		    }
 		}
 		return titlesMap;
 	}
@@ -558,31 +561,60 @@ public class CalendarAlignerWithSessions implements Aligner {
 		// Model model = FileManager.get().loadModel("out/eswc_data_final.rdf");
 		//Model model = FileManager.get().loadModel("rdf/form-data.rdf");
 
-		Model calendarmodel[] = new Model[5];
+		Model calendarModels[] = new Model[5];
 
-		calendarmodel[0] = FileManager.get().loadModel(
-				"calendar2015/main-calendar2015.rdf");
-		model.add(calendarmodel[0]);
-
-		calendarmodel[1] = FileManager.get().loadModel(
-				"calendar2015/sessions-calendar2015.rdf");
-		model.add(calendarmodel[1]);
-
-		calendarmodel[2] = FileManager.get().loadModel(
-				"calendar2015/workshops-calendar.rdf");
-		model.add(calendarmodel[2]);
-
-		calendarmodel[3] = FileManager.get().loadModel(
-				"calendar2015/tutorials-calendar.rdf");
-		model.add(calendarmodel[3]);
-
-		calendarmodel[4] = FileManager.get().loadModel(
-				"calendar2015/plenary-calendar.rdf");
-		model.add(calendarmodel[4]);
 		
-		calendarmodel[4] = FileManager.get().loadModel(
-				"calendar2015/phdSymp-calendar.rdf");
-		model.add(calendarmodel[4]);
+		try{
+		    Model tmp = FileManager.get().loadModel(
+	                "calendar2015/main-calendar2015.rdf");
+		    calendarModels[0] = tmp;
+		} catch(RiotException e){
+		    System.err.println("Missing calendar2015/main-calendar2015.rdf");
+		}
+		
+		try{
+            Model tmp = FileManager.get().loadModel(
+                    "calendar2015/sessions-calendar2015.rdf");
+            calendarModels[1] = tmp;
+        } catch(RiotException e){
+            System.err.println("Missing calendar2015/sessions-calendar2015.rdf");
+        }
+		
+		try{
+            Model tmp = FileManager.get().loadModel(
+                    "calendar2015/workshops-calendar.rdf");
+            calendarModels[2] = tmp;
+        } catch(RiotException e){
+            System.err.println("Missing calendar2015/workshops-calendar.rdf");
+        }
+		
+		try{
+            Model tmp = FileManager.get().loadModel(
+                    "calendar2015/tutorials-calendar.rdf");
+            calendarModels[3] = tmp;
+        } catch(RiotException e){
+            System.err.println("Missing calendar2015/tutorials-calendar.rdf");
+        }
+		
+		try{
+            Model tmp = FileManager.get().loadModel(
+                    "calendar2015/plenary-calendar.rdf");
+            calendarModels[4] = tmp;
+        } catch(RiotException e){
+            System.err.println("Missing calendar2015/plenary-calendar.rdf");
+        }
+		
+		try{
+            Model tmp = FileManager.get().loadModel(
+                    "calendar2015/phdSymp-calendar.rdf");
+            calendarModels[5] = tmp;
+        } catch(RiotException e){
+            System.err.println("calendar2015/phdSymp-calendar.rdf");
+        }
+		
+		for(Model calendarModel : calendarModels){
+		    if(calendarModel != null) model.add(calendarModel);
+		}
 		
 		// TODO for each paper in the final rdf
 		// serach the rdf calendar for a related evant
@@ -590,7 +622,7 @@ public class CalendarAlignerWithSessions implements Aligner {
 		// and generate properties
 
 		CalendarAlignerWithSessions aligner = new CalendarAlignerWithSessions(
-				model, calendarmodel);
+				model, calendarModels);
 
 		SortedMap<String, String> papers = new TreeMap();
 		for (Entry<String, String> e : aligner.getPaperTitles().entrySet()) {
@@ -775,6 +807,10 @@ public class CalendarAlignerWithSessions implements Aligner {
 			model.setNsPrefix("foaf", "http://xmlns.com/foaf/0.1/");
 			model.setNsPrefix("swc", "http://data.semanticweb.org/ns/swc/ontology#");
 			model.setNsPrefix("icaltzd", "http://www.w3.org/2002/12/cal/icaltzd#");
+			
+			File calendarFile = new File("calendar2015");
+			if(!calendarFile.exists()) calendarFile.mkdirs();
+			
 			out = new FileOutputStream(
 					"./calendar2015/main-with-calendar2015.rdf");
 			model.write(out);

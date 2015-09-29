@@ -60,92 +60,94 @@ public class GenerateCalendarData {
 
 		InputStream inputStream = classLoader
 				.getResourceAsStream("data/locations.json");
-		BufferedReader reader = new BufferedReader(new InputStreamReader(
-				inputStream));
-
-		String locationsJsonContent = "";
-		String line = null;
-
-		try {
-			while ((line = reader.readLine()) != null)
-				locationsJsonContent += line;
-
-			inputStream.close();
-			reader.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if(inputStream != null){
+    		BufferedReader reader = new BufferedReader(new InputStreamReader(
+    				inputStream));
+    
+    		String locationsJsonContent = "";
+    		String line = null;
+    
+    		try {
+    			while ((line = reader.readLine()) != null)
+    				locationsJsonContent += line;
+    
+    			inputStream.close();
+    			reader.close();
+    		} catch (IOException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
+    
+    		try {
+    			JSONObject locations = new JSONObject(locationsJsonContent);
+    
+    			JSONArray locationsArray = locations.getJSONArray("locations");
+    			for (int i = 0, j = locationsArray.length(); i < j; i++) {
+    				JSONObject locationJson = locationsArray.getJSONObject(i);
+    				this.locationMap.put(
+    						locationJson.getString("name").trim(),
+    						ModelFactory.createDefaultModel().createResource(
+    								locationJson.getString("id").trim()));
+    			}
+    		} catch (JSONException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
+    
+    		String icaltzdNs = "http://www.w3.org/2002/12/cal/icaltzd#";
+    
+    		String sparql = "PREFIX icaltzd: <http://www.w3.org/2002/12/cal/icaltzd#> "
+    				+ "SELECT ?event ?location "
+    				+ "WHERE {?event icaltzd:location ?location . FILTER(isLiteral(?location))}";
+    		Query query = QueryFactory.create(sparql, Syntax.syntaxARQ);
+    		QueryExecution queryExecution = QueryExecutionFactory.create(query,
+    				calendarData);
+    		ResultSet resultSet = queryExecution.execSelect();
+    
+    		Property icaltzdLocation = calendarData.createProperty(icaltzdNs
+    				+ "location");
+    		List<Statement> removeStatements = new ArrayList<Statement>();
+    		List<Statement> addStatements = new ArrayList<Statement>();
+    
+    		while (resultSet.hasNext()) {
+    			QuerySolution querySolution = resultSet.next();
+    			Resource event = querySolution.getResource("event");
+    			Literal locationLiteral = querySolution.getLiteral("location");
+    
+    			if (locationLiteral != null) {
+    				String location = locationLiteral.getLexicalForm();
+    
+    				String[] locationParts = location.split("\\-");
+    
+    				String mainLocation = locationParts[0].trim();
+    
+    				try {
+    					addStatements.add(new StatementImpl(event, icaltzdLocation,
+    							locationMap.get(mainLocation)));
+    				} catch (Exception e) {
+    					System.err.println(event);
+    					System.err.println(icaltzdLocation);
+    					System.err.println(locationMap.get(mainLocation));
+    
+    					e.printStackTrace();
+    				}
+    				removeStatements.add(new StatementImpl(event, icaltzdLocation,
+    						locationLiteral));
+    
+    				String[] mainLocationParts = mainLocation.split(" ");
+    				String mainLocationId = mainLocationParts[0].trim();
+    
+    				for (int i = 1; i < locationParts.length; i++) {
+    					String loc = mainLocationId + " " + locationParts[i].trim();
+    					addStatements.add(new StatementImpl(event, icaltzdLocation,
+    							locationMap.get(loc)));
+    				}
+    			}
+    		}
+    
+    		calendarData.remove(removeStatements);
+    		calendarData.add(addStatements);
 		}
-
-		try {
-			JSONObject locations = new JSONObject(locationsJsonContent);
-
-			JSONArray locationsArray = locations.getJSONArray("locations");
-			for (int i = 0, j = locationsArray.length(); i < j; i++) {
-				JSONObject locationJson = locationsArray.getJSONObject(i);
-				this.locationMap.put(
-						locationJson.getString("name").trim(),
-						ModelFactory.createDefaultModel().createResource(
-								locationJson.getString("id").trim()));
-			}
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		String icaltzdNs = "http://www.w3.org/2002/12/cal/icaltzd#";
-
-		String sparql = "PREFIX icaltzd: <http://www.w3.org/2002/12/cal/icaltzd#> "
-				+ "SELECT ?event ?location "
-				+ "WHERE {?event icaltzd:location ?location . FILTER(isLiteral(?location))}";
-		Query query = QueryFactory.create(sparql, Syntax.syntaxARQ);
-		QueryExecution queryExecution = QueryExecutionFactory.create(query,
-				calendarData);
-		ResultSet resultSet = queryExecution.execSelect();
-
-		Property icaltzdLocation = calendarData.createProperty(icaltzdNs
-				+ "location");
-		List<Statement> removeStatements = new ArrayList<Statement>();
-		List<Statement> addStatements = new ArrayList<Statement>();
-
-		while (resultSet.hasNext()) {
-			QuerySolution querySolution = resultSet.next();
-			Resource event = querySolution.getResource("event");
-			Literal locationLiteral = querySolution.getLiteral("location");
-
-			if (locationLiteral != null) {
-				String location = locationLiteral.getLexicalForm();
-
-				String[] locationParts = location.split("\\-");
-
-				String mainLocation = locationParts[0].trim();
-
-				try {
-					addStatements.add(new StatementImpl(event, icaltzdLocation,
-							locationMap.get(mainLocation)));
-				} catch (Exception e) {
-					System.err.println(event);
-					System.err.println(icaltzdLocation);
-					System.err.println(locationMap.get(mainLocation));
-
-					e.printStackTrace();
-				}
-				removeStatements.add(new StatementImpl(event, icaltzdLocation,
-						locationLiteral));
-
-				String[] mainLocationParts = mainLocation.split(" ");
-				String mainLocationId = mainLocationParts[0].trim();
-
-				for (int i = 1; i < locationParts.length; i++) {
-					String loc = mainLocationId + " " + locationParts[i].trim();
-					addStatements.add(new StatementImpl(event, icaltzdLocation,
-							locationMap.get(loc)));
-				}
-			}
-		}
-
-		calendarData.remove(removeStatements);
-		calendarData.add(addStatements);
 	}
 
 	public JSONObject generateJsonModel() {
