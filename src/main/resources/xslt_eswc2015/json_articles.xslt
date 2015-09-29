@@ -94,7 +94,7 @@
 	            </xsl:choose>
 	    		
 	    		<!-- add the Twitter hanhtag -->
-	    		<xsl:text>,"hashtag":"#iswc2015",</xsl:text>
+	    		<xsl:text>,"hashtag":"#eswc2015",</xsl:text>
 	    		
 	    		<!-- add the thumbnail if any exists -->
 	    		<xsl:text>"thumbnail":</xsl:text>
@@ -129,24 +129,13 @@
 	    		<!-- 
 	    			remove the namespace from paper's URI, e.g.:
 	    			INPUT STRING http://data.semanticweb.org/conference/eswc/2015/paper/research/175
-	    						 http://data.semanticweb.org/ISWC2015doctoralconsortium/submission/submission-6
 	    			OUTPUT STRING research/175
-	    			ISWC2015doctoralconsortium/submission/submission-6
 	    		-->
-	    		<xsl:variable name="track" select="replace($uri, '^http://data.semanticweb.org', '')" />
-	    		
-	    		<!-- 
-	    			remove the submission from string:
-	    			INPUT STRING ISWC2015doctoralconsortium/submission/submission-6
-	    			OUTPUT STRING ISWC2015doctoralconsortium/6
-	    		-->
-	    		<xsl:variable name="track" select="replace($uri, 'submission/submission-', '')" />
-	    		
-	    		
+	    		<xsl:variable name="track" select="replace($uri, '^http://data.semanticweb.org/conference/eswc/2015/paper/', '')" />
 	    		<!-- 
 	    			remove the id of the paper from the track string, e.g.: 
-	    			INPUT STRING ISWC2015doctoralconsortium/6
-	    			OUTPUT STRING ISWC2015doctoralconsortium
+	    			INPUT STRING research/175
+	    			OUTPUT STRING research
 	    		-->
 	    		<xsl:variable name="track" select="replace($track, '/[0-9]+$', '')" />
 	    		<!-- 
