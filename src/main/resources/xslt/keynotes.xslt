@@ -27,7 +27,7 @@
 				
 				<rdf:Description>
 					<xsl:attribute name="rdf:about">
-		 				<xsl:value-of select="concat('http://data.semanticweb.org/conference/eswc/2015/keynote/', uriID/text())" />
+		 				<xsl:value-of select="concat('http://data.semanticweb.org/conference/ld4ie/2015/keynote/', uriID/text())" />
 		 			</xsl:attribute>
 		 			
 		 			<rdf:type> 
@@ -37,7 +37,7 @@
 		 			</rdf:type>
 		 			<swc:isSubEventOf>
 		 				<xsl:attribute name="rdf:resource">
-		 					<xsl:value-of select="'http://data.semanticweb.org/conference/eswc/2015'" />
+		 					<xsl:value-of select="'http://data.semanticweb.org/conference/ld4ie/2015'" />
 		 				</xsl:attribute>
 		 			</swc:isSubEventOf>
 		 			

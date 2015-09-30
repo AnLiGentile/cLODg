@@ -566,6 +566,7 @@ public class GenerateMainConferenceInitialGraph {
 			e.printStackTrace();
 		}
 
+		//TODO this should be configurable
 		/*
 		 * We add the data about Poster and Demo.
 		 */
@@ -580,6 +581,8 @@ public class GenerateMainConferenceInitialGraph {
 			posterDemoHandler.mergeData(model);
 		}
 
+		//TODO this should be configurable
+
 		/*
 		 * We add the data about PhD symposium
 		 */
@@ -591,6 +594,8 @@ public class GenerateMainConferenceInitialGraph {
 			PhDSympHandler phDSympHandler = new PhDSympHandler(phDSympModel);
 			phDSympHandler.mergeData(model);
 		}
+
+		//TODO this should be configurable
 
 		/*
 		 * We add the data about challenges
