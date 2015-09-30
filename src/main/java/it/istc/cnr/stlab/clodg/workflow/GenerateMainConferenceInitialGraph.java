@@ -659,7 +659,7 @@ public class GenerateMainConferenceInitialGraph {
     		};
     
     		Property holdsRole = ModelFactory.createDefaultModel().createProperty(
-    				"http://data.semanticweb.org/ns/swc/ontology#holdsRole");
+    				OfficialNameSpace.HOLDS_ROLE_PROP);
     		for (File subDir : formDataDir.listFiles(dirFilter)) {
     
     			for (File rdf : subDir.listFiles(rdfFilter)) {
@@ -697,7 +697,7 @@ public class GenerateMainConferenceInitialGraph {
     
     						// Update last name
     						Property foafLastName = model
-    								.createProperty("http://xmlns.com/foaf/0.1/lastName");
+    								.createProperty(OfficialNameSpace.FOAF_LAST_NAME);
     						statement = person.getProperty(foafLastName);
     						model.removeAll(person, foafLastName, null);
     						model.add(statement);
@@ -743,7 +743,7 @@ public class GenerateMainConferenceInitialGraph {
     
     						// Add Twitter account
     						Property foafAccount = model
-    								.createProperty("http://xmlns.com/foaf/0.1/account");
+    								.createProperty(OfficialNameSpace.FOAF_ACCOUNT);
     						statement = person.getProperty(foafAccount);
     						if (statement != null) {
     							model.add(statement);
@@ -812,13 +812,13 @@ public class GenerateMainConferenceInitialGraph {
 			Resource authorTypeRole = model
 					.createResource("http://www.ontologydesignpatterns.org/ont/eswc/ontology.owl#Author");
 			Resource authorRole = model.createResource(
-					"http://data.semanticweb.org/conference/eswc/2015/author",
+					ns.baseConference+"author",
 					authorTypeRole);
 			authorRole.addProperty(RDFS.label, "Paper author");
 			authorRole
 					.addProperty(
 							model.createProperty("http://data.semanticweb.org/ns/swc/ontology#isRoleAt"),
-							model.createResource("http://data.semanticweb.org/conference/eswc/2015"));
+							model.createResource(ns.baseConference));
 
 			while (papersIt.hasNext()) {
 				Resource paper = papersIt.next().getSubject();
@@ -1000,13 +1000,13 @@ public class GenerateMainConferenceInitialGraph {
 					.createResource("http://data.semanticweb.org/ns/swc/ontology#Presenter");
 			Resource keynoteSpeakerRole = model
 					.createResource(
-							"http://data.semanticweb.org/conference/eswc/2015/keynote-speaker",
+							ns.baseConference+ "keynote-speaker",
 							presenter);
 			keynoteSpeakerRole.addProperty(RDFS.label, "Keynote speaker");
 			keynoteSpeakerRole
 					.addProperty(
 							model.createProperty("http://data.semanticweb.org/ns/swc/ontology#isRoleAt"),
-							model.createResource("http://data.semanticweb.org/conference/eswc/2015"));
+							model.createResource(ns.baseConference));
 
 			TransformerFactory tFactory = TransformerFactory.newInstance();
 			try {
@@ -1142,14 +1142,14 @@ public class GenerateMainConferenceInitialGraph {
 					.createResource("http://data.semanticweb.org/ns/swc/ontology#ProgrammeCommitteeMember");
 			Resource programCommitteeMemberRole = model
 					.createResource(
-							"http://data.semanticweb.org/conference/eswc/2015/program-committee-member",
+							ns.baseConference+"program-committee-member",
 							programCommitteeMemberType);
 			programCommitteeMemberRole.addProperty(RDFS.label,
 					"Program committee member");
 			programCommitteeMemberRole
 					.addProperty(
 							model.createProperty("http://data.semanticweb.org/ns/swc/ontology#isRoleAt"),
-							model.createResource("http://data.semanticweb.org/conference/eswc/2015"));
+							model.createResource(ns.baseConference));
 
 			TransformerFactory tFactory = TransformerFactory.newInstance();
 			try {
@@ -1318,7 +1318,6 @@ public class GenerateMainConferenceInitialGraph {
 						.createResource("http://data.semanticweb.org/ns/swc/ontology#Chair");
 				Resource conference = model
 						.createResource(this.ns.baseConference);
-//						.createResource("http://data.semanticweb.org/conference/eswc/2015");
 				Property hasRole = model
 						.createProperty("http://data.semanticweb.org/ns/swc/ontology#hasRole");
 				Property isRoleAt = model

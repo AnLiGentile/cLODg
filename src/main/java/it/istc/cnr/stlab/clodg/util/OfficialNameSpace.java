@@ -34,16 +34,24 @@ public class OfficialNameSpace {
 	public String challengePaperNs;
 
 	public String personNs;
-	
+		
 	public static String eswcOntology = "http://www.ontologydesignpatterns.org/ont/eswc/ontology.owl#";
 	public static String semDogPerson = "http://data.semanticweb.org/person/";
 
+	public static String HOLDS_ROLE_PROP = "http://data.semanticweb.org/ns/swc/ontology#holdsRole";
+	public static final String FOAF_LAST_NAME = "http://xmlns.com/foaf/0.1/lastName";
+	public static final String FOAF_ACCOUNT = "http://xmlns.com/foaf/0.1/account";
+
+	
+	
     public String PLENARY_EVENTS_CALENDAR_NS ;
     public String MAIN_CONFERENCE_CALENDAR_NS;
     public String WORKSHOPS_CALENDAR_NS ;
     public String SESSIONS_CALENDAR_NS ;
     public String TUTORIALS_CALENDAR_NS;
     public String PHD_CALENDAR_NS;
+    
+    
     
 	
 	public OfficialNameSpace(String year, String baseDomainNs, String conference,
@@ -96,7 +104,7 @@ public class OfficialNameSpace {
 		this.demoPaperNs = basePaperEswcNs + demoPaper;
 		this.phdPaperNs = basePaperEswcNs + phdPaper;
 		this.challengePaperNs = basePaperEswcNs + challengePaper;
-		
+				
 		
 	    this.PLENARY_EVENTS_CALENDAR_NS = this.baseConference+"event/";
 	    this.MAIN_CONFERENCE_CALENDAR_NS = this.baseConference+"talk/";
