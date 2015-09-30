@@ -2,6 +2,7 @@ package it.istc.cnr.stlab.clodg.workflow;
 
 import it.istc.cnr.stlab.clodg.app.CalendarAlignerWithSessions;
 import it.istc.cnr.stlab.clodg.models.AppJsonModels;
+import it.istc.cnr.stlab.clodg.util.OfficialNameSpace;
 import it.istc.cnr.stlab.clodg.util.PythonConverters;
 
 import java.io.File;
@@ -30,14 +31,31 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		//String easychairSnapshot = "data/ESWC2015_snapshot_2015-04-08.xml";
+//		String easychairSnapshot = "data/ESWC2015_snapshot_2015-04-08.xml";
 	    String easychairSnapshot = "data/data_example2008.xml";
 		String conferenceConfiguration = "data/eswc2015-config.xml";
 		String folderContainingIcsCalendars = "";
 		String jsFinalData ="data_CONFERENCE.js";
 		String jsonFinalData ="data_CONFERENCE.json";
 
-
+		
+		String year = "2015";
+		String baseDomain = "http://data.semanticweb.org/";
+		String conference = "conference/eswc/";
+		String mainTrackPaper =  "research/";
+		String inusePaper =  "in-use/";
+		String posterPaper =  "poster/";
+		String demoPaper =  "demo/";
+		String phdPaper =  "phDSymposium/";
+		String challengePaper =  "challenge/";
+	
+	
+		OfficialNameSpace ns = new OfficialNameSpace (year, baseDomain, conference,
+				mainTrackPaper, inusePaper,
+				posterPaper, demoPaper, phdPaper,
+				challengePaper);
+				
+				
 		
 		Options options = new Options();
 		options.addOption(
@@ -82,19 +100,15 @@ public class Main {
 				 * decrypted mboxes.
 				 */
 				GenerateMainConferenceInitialGraph generateMainConferenceInitialGraph = new GenerateMainConferenceInitialGraph(
-						easychairSnapshot, conferenceConfiguration);
+						easychairSnapshot, conferenceConfiguration, ns);
 				
 				Model dogFoodData = null;
 				if(dogFoodInput != null){
 				    try{
 				        dogFoodData = FileManager.get().loadModel(dogFoodInput);
-				        dogFoodData.write(new FileOutputStream("/Users/andrea/git/cLODg/iswc2015_metadata_preview.rdf"));
 				    } catch(RiotException e){
 				        System.err.println("The semantic web dog food compliant model is not valid.");
-				    } catch (FileNotFoundException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                    }
+				    }
 				}
 				
 				if(dogFoodData == null) dogFoodData = generateMainConferenceInitialGraph.generateArticlesRDFModel();
@@ -104,7 +118,7 @@ public class Main {
 				/*
 				 * Execute PythonConverters.
 				 */
-				PythonConverters.doStuff(folderContainingIcsCalendars);
+				PythonConverters.doStuff(folderContainingIcsCalendars, ns);
 
 				/*
 				 * Execute CalendarAlignerWithSessions.
