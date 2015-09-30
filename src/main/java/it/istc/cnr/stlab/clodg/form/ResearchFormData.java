@@ -26,12 +26,18 @@ import com.hp.hpl.jena.vocabulary.RDF;
 import com.hp.hpl.jena.vocabulary.RDFS;
 
 public class ResearchFormData implements FormData {
+	public OfficialNameSpace ns;
+
+	public ResearchFormData(OfficialNameSpace ns) {
+		super();
+		this.ns = ns;
+		}
 
 	public Model toRDF(CSVReader csvReader) {
 		Map<String, Person> complexNouns = KnownPerson.knownPersons;
 
-		String paperNS = OfficialNameSpace.mainTrackPaperNs + "research/";
-		String personNS = OfficialNameSpace.personNs;
+		String paperNS = ns.mainTrackPaperNs + "research/";
+		String personNS = ns.personNs;
 
 		Model model = ModelFactory.createDefaultModel();
 
@@ -180,7 +186,25 @@ public class ResearchFormData implements FormData {
 	}
 
 	public static void main(String[] args) {
-		ResearchFormData researchFormData = new ResearchFormData();
+		
+		String year = "2015";
+		String baseDomain = "http://data.semanticweb.org/";
+		String conference = "conference/eswc/";
+		String mainTrackPaper =  "research/";
+		String inusePaper =  "in-use/";
+		String posterPaper =  "poster/";
+		String demoPaper =  "demo/";
+		String phdPaper =  "phDSymposium/";
+		String challengePaper =  "challenge/";
+	
+	
+		OfficialNameSpace ns = new OfficialNameSpace (year, baseDomain, conference,
+				mainTrackPaper, inusePaper,
+				posterPaper, demoPaper, phdPaper,
+				challengePaper);
+    	        
+		ResearchFormData researchFormData = new ResearchFormData(ns);
+		
 		try {
 			CSVReader csvReader = new CSVReader(new FileReader(new File(
 					"in/eswc2014.csv")));

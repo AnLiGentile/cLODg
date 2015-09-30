@@ -26,6 +26,12 @@ import com.hp.hpl.jena.vocabulary.RDFS;
 
 public class MashUpFormData implements FormData {
 
+	public OfficialNameSpace ns;
+
+	public MashUpFormData(OfficialNameSpace ns2) {
+super();
+this.ns = ns2;}
+
 	@Override
 	public Model toRDF(CSVReader csvReader) {
 
@@ -33,9 +39,9 @@ public class MashUpFormData implements FormData {
 		Resource inusePaper = model
 				.createResource("http://purl.org/spar/fabio/MashUpPaper");
 
-		String paperNs = OfficialNameSpace.mainTrackPaperNs + "mashUp/";
-		String personNs = OfficialNameSpace.personNs;
-		String eswcOntology = OfficialNameSpace.eswcOntology;
+		String paperNs = ns.mainTrackPaperNs + "mashUp/";
+		String personNs = ns.personNs;
+		String eswcOntology = ns.eswcOntology;
 
 		Map<String, Person> knownPersons = KnownPerson.knownPersons;
 
@@ -145,7 +151,22 @@ public class MashUpFormData implements FormData {
 	}
 
 	public static void main(String[] args) {
-		MashUpFormData formData = new MashUpFormData();
+		String year = "2015";
+		String baseDomain = "http://data.semanticweb.org/";
+		String conference = "conference/eswc/";
+		String mainTrackPaper =  "research/";
+		String inusePaper =  "in-use/";
+		String posterPaper =  "poster/";
+		String demoPaper =  "demo/";
+		String phdPaper =  "phDSymposium/";
+		String challengePaper =  "challenge/";
+	
+	
+		OfficialNameSpace ns = new OfficialNameSpace (year, baseDomain, conference,
+				mainTrackPaper, inusePaper,
+				posterPaper, demoPaper, phdPaper,
+				challengePaper);
+		MashUpFormData formData = new MashUpFormData(ns);
 		try {
 			CSVReader csvReader = new CSVReader(new FileReader(new File(
 					"in/allDataCleaned/eswc_mashUp.txt")), '\t');

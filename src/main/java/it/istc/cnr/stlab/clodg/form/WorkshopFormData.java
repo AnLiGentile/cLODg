@@ -27,6 +27,14 @@ import com.hp.hpl.jena.sparql.vocabulary.FOAF;
 import com.hp.hpl.jena.vocabulary.RDFS;
 
 public class WorkshopFormData implements FormData {
+	public OfficialNameSpace ns;
+
+	public WorkshopFormData(OfficialNameSpace ns) {
+		super();
+		this.ns = ns;
+	}
+
+
 
     public Model toRDF(CSVReader csvReader, String wsName) {
         Model model = ModelFactory.createDefaultModel();
@@ -34,9 +42,9 @@ public class WorkshopFormData implements FormData {
         
         //TODO check if this namespace is elsewhere and modify it
 //        String paperNs = "http://data.semanticweb.org/conference/eswc/2014/paper/eswc-2014/";
-        String paperNs = OfficialNameSpace.mainTrackPaperNs+"ws/"+wsName+"/";
-        String personNs = OfficialNameSpace.personNs;
-        String eswcOntology = OfficialNameSpace.eswcOntology;
+        String paperNs = ns.mainTrackPaperNs+"ws/"+wsName+"/";
+        String personNs = ns.personNs;
+        String eswcOntology = ns.eswcOntology;
         
         Map<String, Person> knownPersons = KnownPerson.knownPersons;
         
@@ -164,7 +172,23 @@ public class WorkshopFormData implements FormData {
     }
     
     public static void main(String[] args){
-        WorkshopFormData formData = new WorkshopFormData();
+		String year = "2015";
+		String baseDomain = "http://data.semanticweb.org/";
+		String conference = "conference/eswc/";
+		String mainTrackPaper =  "research/";
+		String inusePaper =  "in-use/";
+		String posterPaper =  "poster/";
+		String demoPaper =  "demo/";
+		String phdPaper =  "phDSymposium/";
+		String challengePaper =  "challenge/";
+	
+	
+		OfficialNameSpace ns = new OfficialNameSpace (year, baseDomain, conference,
+				mainTrackPaper, inusePaper,
+				posterPaper, demoPaper, phdPaper,
+				challengePaper);
+    	
+        WorkshopFormData formData = new WorkshopFormData(ns);
        
         File wsFolder = new File ("./WScsv_abstract");
         File wsOUTFolder = new File ("./WScsvOUT");

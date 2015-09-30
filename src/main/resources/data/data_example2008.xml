@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <snapshot>
 
-	<!-- 
-		source data file example for data.semanticweb.org (Semantic Web Dog Food) 
-	    based on EasyChair XML output
-	    $Id: data_example2008.xml 786 2008-10-17 13:45:04Z knumoe $
-	-->
-	
-	<!-- Track Information -->
-	<!-- if your event has several tracks, this is where you could list them
-
-	<tracks>
-		<track number="1">Research</track>
-	</tracks>
-	
-	-->
-
 	<!-- PC Information -->
 	<!-- for all people data: country, homepage, email and affiliation are optional -->
 

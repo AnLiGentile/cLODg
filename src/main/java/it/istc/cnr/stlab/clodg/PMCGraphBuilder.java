@@ -25,9 +25,9 @@ import com.hp.hpl.jena.util.FileManager;
 
 public class PMCGraphBuilder implements RDFGraphBuilder {
 
-	public PMCGraphBuilder() {
+	public PMCGraphBuilder(OfficialNameSpace ns) {
 		FunctionRegistry.get().put(
-				OfficialNameSpace.basePaperEswcNs + "person", SwdfIRI.class);
+				ns.basePaperEswcNs + "person", SwdfIRI.class);
 	}
 
 	@Override

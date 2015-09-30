@@ -26,15 +26,21 @@ import com.hp.hpl.jena.vocabulary.RDFS;
 
 public class LinkedUpChallengeFormData implements FormData {
 
+	public OfficialNameSpace ns;
+
+	public LinkedUpChallengeFormData(OfficialNameSpace ns2) {
+super();
+this.ns = ns2;}
+
 	@Override
 	public Model toRDF(CSVReader csvReader) {
 		Model model = ModelFactory.createDefaultModel();
 		Resource inusePaper = model
 				.createResource("http://purl.org/spar/fabio/LinkedUpPaper");
 
-		String paperNs = OfficialNameSpace.mainTrackPaperNs + "linkedUp/";
-		String personNs = OfficialNameSpace.personNs;
-		String eswcOntology = OfficialNameSpace.eswcOntology;
+		String paperNs = ns.mainTrackPaperNs + "linkedUp/";
+		String personNs = ns.personNs;
+		String eswcOntology = ns.eswcOntology;
 
 		Map<String, Person> knownPersons = KnownPerson.knownPersons;
 
@@ -122,7 +128,22 @@ public class LinkedUpChallengeFormData implements FormData {
 	}
 
 	public static void main(String[] args) {
-		LinkedUpChallengeFormData formData = new LinkedUpChallengeFormData();
+		String year = "2015";
+		String baseDomain = "http://data.semanticweb.org/";
+		String conference = "conference/eswc/";
+		String mainTrackPaper =  "research/";
+		String inusePaper =  "in-use/";
+		String posterPaper =  "poster/";
+		String demoPaper =  "demo/";
+		String phdPaper =  "phDSymposium/";
+		String challengePaper =  "challenge/";
+	
+	
+		OfficialNameSpace ns = new OfficialNameSpace (year, baseDomain, conference,
+				mainTrackPaper, inusePaper,
+				posterPaper, demoPaper, phdPaper,
+				challengePaper);
+		LinkedUpChallengeFormData formData = new LinkedUpChallengeFormData(ns);
 		try {
 			CSVReader csvReader = new CSVReader(new FileReader(new File(
 					"in/eswc_linkedUp.csv")), ';');

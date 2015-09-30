@@ -6,13 +6,13 @@ import static it.istc.cnr.stlab.clodg.Namespaces.KEYNOTE_NS;
 import static it.istc.cnr.stlab.clodg.Namespaces.ORGANIZATION_NS;
 import static it.istc.cnr.stlab.clodg.Namespaces.PERSON_NS;
 import static it.istc.cnr.stlab.clodg.Namespaces.TOPLEVEL_NS;
-
 import it.istc.cnr.stlab.clodg.Homonym;
 import it.istc.cnr.stlab.clodg.models.Organization;
 import it.istc.cnr.stlab.clodg.models.OrganizationMap;
 import it.istc.cnr.stlab.clodg.models.Person;
 import it.istc.cnr.stlab.clodg.models.PersonMap;
 import it.istc.cnr.stlab.clodg.models.Urifier;
+import it.istc.cnr.stlab.clodg.util.OfficialNameSpace;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -91,6 +91,9 @@ import com.hp.hpl.jena.vocabulary.RDFS;
 public class GenerateMainConferenceInitialGraph {
 
 	public static ClassLoader classLoader;
+	
+	public OfficialNameSpace ns;
+	
 	private PersonMap personMap;
 	private OrganizationMap organizationMap;
 	private Map<String, Boolean> answersMap;
@@ -100,8 +103,9 @@ public class GenerateMainConferenceInitialGraph {
 	private Document conferenceDataDoc, conferenceConfigDoc;
 
 	public GenerateMainConferenceInitialGraph(String conferenceData,
-			String conferenceConfig) {
+			String conferenceConfig, OfficialNameSpace ns) {
 		getClassLoader();
+		this.ns = ns;
 
 		this.conferenceConfig = conferenceConfig;
 		this.conferenceData = conferenceData;
@@ -131,6 +135,7 @@ public class GenerateMainConferenceInitialGraph {
 
 		homonymsMap = new HashMap<String, Map<String, Homonym>>();
 
+		//TODO make this a configurable parameter
 		CSVReader csvReader = new CSVReader(new InputStreamReader(
 				classLoader.getResourceAsStream("data/ESWC2015-homonyms.csv")));
 
@@ -322,6 +327,7 @@ public class GenerateMainConferenceInitialGraph {
 			 * Read the RDF model containing all people names.
 			 */
 			Model namesModel = ModelFactory.createDefaultModel();
+			//TODO all-names.rdf should be passed as input
 			namesModel.read(
 					classLoader.getResourceAsStream("data/all-names.rdf"),
 					"http://data.semanticweb.org/person/", "RDF/XML");
@@ -1311,7 +1317,8 @@ public class GenerateMainConferenceInitialGraph {
 				Resource chairType = model
 						.createResource("http://data.semanticweb.org/ns/swc/ontology#Chair");
 				Resource conference = model
-						.createResource("http://data.semanticweb.org/conference/eswc/2015");
+						.createResource(this.ns.baseConference);
+//						.createResource("http://data.semanticweb.org/conference/eswc/2015");
 				Property hasRole = model
 						.createProperty("http://data.semanticweb.org/ns/swc/ontology#hasRole");
 				Property isRoleAt = model

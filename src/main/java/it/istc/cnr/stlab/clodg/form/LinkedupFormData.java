@@ -28,6 +28,12 @@ import com.hp.hpl.jena.vocabulary.RDFS;
 
 public class LinkedupFormData implements FormData {
 
+	public OfficialNameSpace ns;
+
+	public LinkedupFormData(OfficialNameSpace ns2) {
+super();
+this.ns = ns2;}
+
 	public Model toRDF(CSVReader csvReader, String wsName) {
 		Model model = ModelFactory.createDefaultModel();
 		Resource wsPaper = model
@@ -36,9 +42,9 @@ public class LinkedupFormData implements FormData {
 		// TODO check if this namespace is elsewhere and modify it
 		// String paperNs =
 		// "http://data.semanticweb.org/conference/eswc/2014/paper/eswc-2014/";
-		String paperNs = OfficialNameSpace.mainTrackPaperNs + "linkedUp/";
-		String personNs = OfficialNameSpace.personNs;
-		String eswcOntology = OfficialNameSpace.eswcOntology;
+		String paperNs = ns.mainTrackPaperNs + "linkedUp/";
+		String personNs = ns.personNs;
+		String eswcOntology = ns.eswcOntology;
 
 		Map<String, Person> knownPersons = KnownPerson.knownPersons;
 
@@ -167,7 +173,23 @@ public class LinkedupFormData implements FormData {
 	}
 
 	public static void main(String[] args) {
-		LinkedupFormData formData = new LinkedupFormData();
+		
+		String year = "2015";
+		String baseDomain = "http://data.semanticweb.org/";
+		String conference = "conference/eswc/";
+		String mainTrackPaper =  "research/";
+		String inusePaper =  "in-use/";
+		String posterPaper =  "poster/";
+		String demoPaper =  "demo/";
+		String phdPaper =  "phDSymposium/";
+		String challengePaper =  "challenge/";
+	
+	
+		OfficialNameSpace ns = new OfficialNameSpace (year, baseDomain, conference,
+				mainTrackPaper, inusePaper,
+				posterPaper, demoPaper, phdPaper,
+				challengePaper);
+		LinkedupFormData formData = new LinkedupFormData(ns);
 
 		File f = new File("in/allDataCleaned/eswc_linkedUp.txt");
 		File wsOUTFolder = new File("./test");

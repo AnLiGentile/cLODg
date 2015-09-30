@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 
-
 import au.com.bytecode.opencsv.CSVReader;
 
 import com.hp.hpl.jena.query.Query;
@@ -27,6 +26,13 @@ import com.hp.hpl.jena.sparql.vocabulary.FOAF;
 import com.hp.hpl.jena.util.FileManager;
 
 public class DuplicatePerson {
+
+	private OfficialNameSpace ns;
+
+	public DuplicatePerson(OfficialNameSpace ns) {
+super();
+this.ns = ns;
+}
 
 	public void list(Model model) {
 		String sparql = "PREFIX foaf: <" + FOAF.NS + "> "
@@ -54,9 +60,9 @@ public class DuplicatePerson {
 				String wrong = line[1];
 				System.out.println(wrong);
 				Resource correctPerson = model
-						.getResource(OfficialNameSpace.personNs + correct);
+						.getResource(ns.personNs + correct);
 				Resource wrongPerson = model
-						.getResource(OfficialNameSpace.personNs + wrong);
+						.getResource(ns.personNs + wrong);
 
 				String sparql = "PREFIX foaf: <" + FOAF.NS + "> "
 						+ "CONSTRUCT {" + "    <" + correctPerson
@@ -84,9 +90,25 @@ public class DuplicatePerson {
 	}
 
 	public static void main(String[] args) {
+		String year = "2015";
+		String baseDomain = "http://data.semanticweb.org/";
+		String conference = "conference/eswc/";
+		String mainTrackPaper =  "research/";
+		String inusePaper =  "in-use/";
+		String posterPaper =  "poster/";
+		String demoPaper =  "demo/";
+		String phdPaper =  "phDSymposium/";
+		String challengePaper =  "challenge/";
+	
+	
+		OfficialNameSpace ns = new OfficialNameSpace (year, baseDomain, conference,
+				mainTrackPaper, inusePaper,
+				posterPaper, demoPaper, phdPaper,
+				challengePaper);
+		
 		Model model = FileManager.get().loadModel("out/eswc_data_final.rdf");
 		try {
-			new DuplicatePerson().remove(model, new CSVReader(new FileReader(
+			new DuplicatePerson(ns).remove(model, new CSVReader(new FileReader(
 					new File("in/duplicates.csv")), ';'));
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

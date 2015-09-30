@@ -38,8 +38,9 @@ import com.hp.hpl.jena.vocabulary.RDFS;
 
 /**
  * @author annalisa
- *
+ * this class has been replaced by it.istc.cnr.stlab.clodg.workflow.GenerateAppData
  */
+@Deprecated 
 public class GenerateAppData {
 
 	Map<String, String> hashtags;

@@ -15,7 +15,7 @@ public class SwdfIRI extends FunctionBase2 {
             
             String id = StringUtils.stripAccents(v1String) + "-" + StringUtils.stripAccents(v2String);
             
-            return NodeValue.makeString(OfficialNameSpace.personNs + id.toLowerCase());
+            return NodeValue.makeString(OfficialNameSpace.semDogPerson + id.toLowerCase());
             
         }
         return null;

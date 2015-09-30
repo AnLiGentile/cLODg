@@ -26,6 +26,14 @@ import com.hp.hpl.jena.vocabulary.RDFS;
 
 public class PDFormData implements FormData {
 
+	public OfficialNameSpace ns;
+
+	public PDFormData(OfficialNameSpace ns2) {
+		super();
+		this.ns = ns2;
+
+	}
+
 	@Override
 	public Model toRDF(CSVReader csvReader) {
 		Model model = ModelFactory.createDefaultModel();
@@ -37,9 +45,9 @@ public class PDFormData implements FormData {
 		// TODO check the URIs
 		// if demo/poster gets added
 
-		String paperNs = OfficialNameSpace.mainTrackPaperNs;
-		String personNs = OfficialNameSpace.personNs;
-		String eswcOntology = OfficialNameSpace.eswcOntology;
+		String paperNs = ns.mainTrackPaperNs;
+		String personNs = ns.personNs;
+		String eswcOntology = ns.eswcOntology;
 
 		Map<String, Person> knownPersons = KnownPerson.knownPersons;
 
@@ -155,7 +163,23 @@ public class PDFormData implements FormData {
 	}
 
 	public static void main(String[] args) {
-		PDFormData formData = new PDFormData();
+		String year = "2015";
+		String baseDomain = "http://data.semanticweb.org/";
+		String conference = "conference/eswc/";
+		String mainTrackPaper =  "research/";
+		String inusePaper =  "in-use/";
+		String posterPaper =  "poster/";
+		String demoPaper =  "demo/";
+		String phdPaper =  "phDSymposium/";
+		String challengePaper =  "challenge/";
+	
+	
+		OfficialNameSpace ns = new OfficialNameSpace (year, baseDomain, conference,
+				mainTrackPaper, inusePaper,
+				posterPaper, demoPaper, phdPaper,
+				challengePaper);
+		
+		PDFormData formData = new PDFormData(ns);
 		try {
 			// CSVReader csvReader = new CSVReader(new FileReader(new
 			// File("in/eswc2014_pd.csv")), ';');

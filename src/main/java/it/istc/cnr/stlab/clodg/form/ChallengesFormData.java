@@ -27,6 +27,8 @@ import com.hp.hpl.jena.vocabulary.RDFS;
 
 public class ChallengesFormData implements FormData {
 
+	public OfficialNameSpace ns;
+
 	@Override
 	public Model toRDF(CSVReader csvReader) {
 
@@ -54,10 +56,10 @@ public class ChallengesFormData implements FormData {
 		Resource phdPaper = model
 				.createResource("http://purl.org/spar/fabio/ChallengePaper");
 
-		String phdNs = OfficialNameSpace.challengePaperNs;
+		String phdNs = ns.challengePaperNs;
 
-		String personNs = OfficialNameSpace.personNs;
-		String eswcOntology = OfficialNameSpace.eswcOntology;
+		String personNs = ns.personNs;
+		String eswcOntology = ns.eswcOntology;
 
 		Map<String, Person> knownPersons = KnownPerson.knownPersons;
 
