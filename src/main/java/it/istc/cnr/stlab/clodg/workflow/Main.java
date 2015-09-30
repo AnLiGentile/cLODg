@@ -88,9 +88,13 @@ public class Main {
 				if(dogFoodInput != null){
 				    try{
 				        dogFoodData = FileManager.get().loadModel(dogFoodInput);
+				        dogFoodData.write(new FileOutputStream("/Users/andrea/git/cLODg/iswc2015_metadata_preview.rdf"));
 				    } catch(RiotException e){
 				        System.err.println("The semantic web dog food compliant model is not valid.");
-				    }
+				    } catch (FileNotFoundException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
 				}
 				
 				if(dogFoodData == null) dogFoodData = generateMainConferenceInitialGraph.generateArticlesRDFModel();
