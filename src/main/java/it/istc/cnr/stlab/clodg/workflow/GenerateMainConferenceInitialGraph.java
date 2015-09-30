@@ -1,11 +1,11 @@
 package it.istc.cnr.stlab.clodg.workflow;
 
-import static it.istc.cnr.stlab.clodg.Namespaces.ARTICLE_NS;
-import static it.istc.cnr.stlab.clodg.Namespaces.IN_USE_ARTICLE_NS;
-import static it.istc.cnr.stlab.clodg.Namespaces.KEYNOTE_NS;
-import static it.istc.cnr.stlab.clodg.Namespaces.ORGANIZATION_NS;
-import static it.istc.cnr.stlab.clodg.Namespaces.PERSON_NS;
-import static it.istc.cnr.stlab.clodg.Namespaces.TOPLEVEL_NS;
+//import static it.istc.cnr.stlab.clodg.Namespaces.ARTICLE_NS;
+//import static it.istc.cnr.stlab.clodg.Namespaces.IN_USE_ARTICLE_NS;
+//import static it.istc.cnr.stlab.clodg.Namespaces.KEYNOTE_NS;
+//import static it.istc.cnr.stlab.clodg.Namespaces.ORGANIZATION_NS;
+//import static it.istc.cnr.stlab.clodg.Namespaces.PERSON_NS;
+//import static it.istc.cnr.stlab.clodg.Namespaces.TOPLEVEL_NS;
 import it.istc.cnr.stlab.clodg.Homonym;
 import it.istc.cnr.stlab.clodg.models.Organization;
 import it.istc.cnr.stlab.clodg.models.OrganizationMap;
@@ -286,14 +286,14 @@ public class GenerateMainConferenceInitialGraph {
 			}
 
 			if (personURI.isEmpty()) {
-				personURI = Urifier.toURI(PERSON_NS, name, email, homonymsMap);
+				personURI = Urifier.toURI(this.ns.personNs, name, email, homonymsMap);
 			} else {
 				Map<String, Homonym> homonyms = homonymsMap.get(personURI
-						.replace(PERSON_NS, ""));
+						.replace(this.ns.personNs, ""));
 				if (homonyms != null) {
 					Homonym homonym = homonyms.get(email);
 					if (homonym != null) {
-						personURI = PERSON_NS + homonym.getId();
+						personURI = this.ns.personNs + homonym.getId();
 					}
 				}
 			}
@@ -502,7 +502,7 @@ public class GenerateMainConferenceInitialGraph {
 		}
 
 		if (organizationURI.isEmpty()) {
-			organizationURI = Urifier.toURI(ORGANIZATION_NS, label, null, null);
+			organizationURI = Urifier.toURI(ns.organizationNs, label, null, null);
 		}
 
 		organizationMap.addEntity(new Organization(label, new URI(
@@ -830,12 +830,12 @@ public class GenerateMainConferenceInitialGraph {
 
 				String paperNs = null;
 				String paperID = paper.getURI();
-				if (paperID.startsWith(ARTICLE_NS)) {
-					paperID = paperID.replace(ARTICLE_NS, "");
-					paperNs = ARTICLE_NS;
+				if (paperID.startsWith(this.ns.mainTrackPaperNs)) {
+					paperID = paperID.replace(this.ns.mainTrackPaperNs, "");
+					paperNs = this.ns.mainTrackPaperNs;
 				} else {
-					paperID = paperID.replace(IN_USE_ARTICLE_NS, "");
-					paperNs = IN_USE_ARTICLE_NS;
+					paperID = paperID.replace(this.ns.inusePaperNs, "");
+					paperNs = this.ns.inusePaperNs;
 				}
 
 				XPathExpression xPathExpression;
@@ -920,7 +920,7 @@ public class GenerateMainConferenceInitialGraph {
 						try {
 							person = personMap
 									.getEntityByURI(new URI(Urifier
-											.toURI(PERSON_NS, name, email,
+											.toURI(this.ns.personNs, name, email,
 													homonymsMap)));
 
 						} catch (URISyntaxException e) {
@@ -1069,7 +1069,7 @@ public class GenerateMainConferenceInitialGraph {
 					Person person;
 					try {
 						person = personMap.getEntityByURI(new URI(Urifier
-								.toURI(PERSON_NS, firstName + " " + lastName,
+								.toURI(this.ns.personNs, firstName + " " + lastName,
 										email, homonymsMap)));
 					} catch (URISyntaxException e) {
 						person = null;
@@ -1077,7 +1077,7 @@ public class GenerateMainConferenceInitialGraph {
 					if (person != null) {
 						personUri = person.getURI().toString();
 					} else {
-						personUri = Urifier.toURI(PERSON_NS, firstName + " "
+						personUri = Urifier.toURI(this.ns.personNs, firstName + " "
 								+ lastName, email, homonymsMap);
 					}
 
@@ -1085,7 +1085,7 @@ public class GenerateMainConferenceInitialGraph {
 
 						Resource keynoteSpeaker = model.createResource(
 								personUri, FOAF.Person);
-						Resource keynote = model.createResource(KEYNOTE_NS
+						Resource keynote = model.createResource(this.ns.keynoteNs
 								+ keynoteId);
 
 						keynoteSpeaker.addProperty(FOAF.made, keynote);
@@ -1194,7 +1194,7 @@ public class GenerateMainConferenceInitialGraph {
 					Person person;
 					try {
 						person = personMap.getEntityByURI(new URI(Urifier
-								.toURI(PERSON_NS, firstName + " " + lastName,
+								.toURI(this.ns.personNs, firstName + " " + lastName,
 										email, homonymsMap)));
 					} catch (URISyntaxException e) {
 						person = null;
@@ -1202,7 +1202,7 @@ public class GenerateMainConferenceInitialGraph {
 					if (person != null) {
 						personUri = person.getURI().toString();
 					} else {
-						personUri = Urifier.toURI(PERSON_NS, firstName + " "
+						personUri = Urifier.toURI(this.ns.personNs, firstName + " "
 								+ lastName, email, homonymsMap);
 					}
 
@@ -1344,7 +1344,7 @@ public class GenerateMainConferenceInitialGraph {
 					Node roleNode = node.getAttributes().getNamedItem("name");
 
 					String role = roleNode.getTextContent();
-					role = Urifier.toURI(TOPLEVEL_NS, role, null, null);
+					role = Urifier.toURI(this.ns.baseConference, role, null, null);
 
 					Resource roleResource = model.createResource(role,
 							chairType);
@@ -1389,7 +1389,7 @@ public class GenerateMainConferenceInitialGraph {
 						try {
 							person = personMap
 									.getEntityByURI(new URI(Urifier
-											.toURI(PERSON_NS, name, email,
+											.toURI(this.ns.personNs, name, email,
 													homonymsMap)));
 						} catch (URISyntaxException e) {
 							person = null;

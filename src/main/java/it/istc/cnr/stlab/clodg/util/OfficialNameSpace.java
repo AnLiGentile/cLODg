@@ -34,6 +34,11 @@ public class OfficialNameSpace {
 	public String challengePaperNs;
 
 	public String personNs;
+	public String organizationNs;
+	public String keynoteNs;
+
+
+	
 		
 	public static String eswcOntology = "http://www.ontologydesignpatterns.org/ont/eswc/ontology.owl#";
 	public static String semDogPerson = "http://data.semanticweb.org/person/";
@@ -95,9 +100,14 @@ public class OfficialNameSpace {
 		this.baseConference = baseDomainNs+ conference
 				+ year + "/";
 		this.basePaperEswcNs = baseConference+ "paper/";
+		
 		this.personNs = baseDomainNs+"person/";
+		this.organizationNs =  baseDomainNs+"organization/";
+		this.keynoteNs =  baseDomainNs+"keynote/";
 
+//		public static final String KEYNOTE_NS = "http://data.semanticweb.org/conference/eswc/2015/keynote/";
 
+		
 		this.mainTrackPaperNs = basePaperEswcNs + mainTrackPaper;
 		this.inusePaperNs = basePaperEswcNs + inusePaper;
 		this.posterPaperNs = basePaperEswcNs + posterPaper;

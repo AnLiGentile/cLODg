@@ -77,7 +77,9 @@
 	<!-- make sure each submission has a unique number! -->
 
 	<submissions>
-		<submission number="2" paper="yes">
+		<submission>
+		<number>2</number>
+	<decisionid>1300</decisionid>
 			<title>Nari naru omohi aka yori wo mono hito omohi wo do uhe?</title>
 			<abstract>Goto asikari kata, e naru. Goto te ohom otosime, hasitanaki mono, omohi tanomi. Asikari agari ha, te sobame adikinau ara katazikenaki no ni sobame kokoro do, goto agari yo nam, gerahu oya wo ha. Ohom naho amenosita beku hodo beki gata iyo idure. Tamaha yau me mo kata ara ni Dr. Melfi beki nyougo wo te? Naru no, ni keru no kere, titi yauki uti koso, do otora. Koto titi ba mo boso nari ni ari zu gata mezamasiki.
 			</abstract>
@@ -111,5 +113,15 @@
 		<!-- more submissions -->
 		
 	</submissions>
+
+
+<decisions>
+<decision>
+<id>1300</id>
+<accepted>true</accepted>
+<explanation>accepted and meta-review by chairs</explanation>
+</decision>
+</decisions>
+
 
 </snapshot>
