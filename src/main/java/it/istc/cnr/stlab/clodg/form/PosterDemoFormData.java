@@ -33,6 +33,14 @@ import com.hp.hpl.jena.vocabulary.RDFS;
  */
 public class PosterDemoFormData implements FormData {
 
+	public OfficialNameSpace ns;
+
+	public PosterDemoFormData(OfficialNameSpace ns) {
+		super();
+		this.ns = ns;
+
+	}
+
 	// TODO add partOf property in the Graph
 	@Override
 	public Model toRDF(CSVReader csvReader) {
@@ -65,10 +73,10 @@ public class PosterDemoFormData implements FormData {
 		// TODO check the URIs
 		// if demo/poster gets added
 
-		String posterNs = OfficialNameSpace.posterPaperNs;
-		String demoNs = OfficialNameSpace.demoPaperNs;
+		String posterNs = ns.posterPaperNs;
+		String demoNs = ns.demoPaperNs;
 
-		String personNs = OfficialNameSpace.personNs;
+		String personNs = ns.personNs;
 		String eswcOntology = OfficialNameSpace.eswcOntology;
 
 		Map<String, Person> knownPersons = KnownPerson.knownPersons;
@@ -212,7 +220,23 @@ public class PosterDemoFormData implements FormData {
 	}
 
 	public static void main(String[] args) {
-		PosterDemoFormData formData = new PosterDemoFormData();
+		String year = "2015";
+		String baseDomain = "http://data.semanticweb.org/";
+		String conference = "conference/eswc/";
+		String mainTrackPaper =  "research/";
+		String inusePaper =  "in-use/";
+		String posterPaper =  "poster/";
+		String demoPaper =  "demo/";
+		String phdPaper =  "phDSymposium/";
+		String challengePaper =  "challenge/";
+	
+	
+		OfficialNameSpace ns = new OfficialNameSpace (year, baseDomain, conference,
+				mainTrackPaper, inusePaper,
+				posterPaper, demoPaper, phdPaper,
+				challengePaper);
+		
+		PosterDemoFormData formData = new PosterDemoFormData(ns);
 		try {
 			// CSVReader csvReader = new CSVReader(new FileReader(new
 			// File("in/eswc2014_pd.csv")), ';');

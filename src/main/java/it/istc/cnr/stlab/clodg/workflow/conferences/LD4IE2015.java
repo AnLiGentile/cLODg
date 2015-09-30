@@ -1,9 +1,11 @@
-package it.istc.cnr.stlab.clodg.workflow;
+package it.istc.cnr.stlab.clodg.workflow.conferences;
 
 import it.istc.cnr.stlab.clodg.app.CalendarAlignerWithSessions;
 import it.istc.cnr.stlab.clodg.models.AppJsonModels;
 import it.istc.cnr.stlab.clodg.util.OfficialNameSpace;
 import it.istc.cnr.stlab.clodg.util.PythonConverters;
+import it.istc.cnr.stlab.clodg.workflow.GenerateAppData;
+import it.istc.cnr.stlab.clodg.workflow.GenerateMainConferenceInitialGraph;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -24,38 +26,30 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.util.FileManager;
 
 /**
- * @author andrea
+ * @author annalisa
  *
  */
-public class Main {
+public class LD4IE2015 {
 
 	public static void main(String[] args) {
 
-//		String easychairSnapshot = "data/ESWC2015_snapshot_2015-04-08.xml";
+//	    String easychairSnapshot = "data/data_LD4IE2015.xml";
 	    String easychairSnapshot = "data/data_example2008.xml";
-		String conferenceConfiguration = "data/eswc2015-config.xml";
-		String folderContainingIcsCalendars = "";
-		String jsFinalData ="data_CONFERENCE.js";
-		String jsonFinalData ="data_CONFERENCE.json";
 
-		
+		String conferenceConfiguration = "data/ld4ie2015-config.xml";
+		String folderContainingIcsCalendars = "";
+		String jsFinalData ="data_LD4IE2015.js";
+		String jsonFinalData ="data_LD4IE.json";
+
 		String year = "2015";
 		String baseDomain = "http://data.semanticweb.org/";
-		String conference = "conference/eswc/";
+		String conference = "conference/ld4ie/";
 		String mainTrackPaper =  "research/";
-		String inusePaper =  "in-use/";
-		String posterPaper =  "poster/";
-		String demoPaper =  "demo/";
-		String phdPaper =  "phDSymposium/";
-		String challengePaper =  "challenge/";
 	
 	
 		OfficialNameSpace ns = new OfficialNameSpace (year, baseDomain, conference,
-				mainTrackPaper, inusePaper,
-				posterPaper, demoPaper, phdPaper,
-				challengePaper);
-				
-				
+				mainTrackPaper, "","","","","");
+		
 		
 		Options options = new Options();
 		options.addOption(

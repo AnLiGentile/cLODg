@@ -31,16 +31,12 @@ import com.hp.hpl.jena.util.FileManager;
  * @author annalisa
  *
  */
+
+
 public class PythonConverters {
     
     public static enum CALENDAR {MAIN_CONFERENCE, WORKSHOPS, SESSIONS, TUTORIALS, PLENARY, PHD};
-    
-    public static final String PLENARY_EVENTS_CALENDAR_NS = OfficialNameSpace.baseEswc+"event/";
-    public static final String MAIN_CONFERENCE_CALENDAR_NS = OfficialNameSpace.baseEswc+"talk/";
-    public static final String WORKSHOPS_CALENDAR_NS = OfficialNameSpace.baseEswc+"workshop/";
-    public static final String SESSIONS_CALENDAR_NS = OfficialNameSpace.baseEswc+"session/";
-    public static final String TUTORIALS_CALENDAR_NS = OfficialNameSpace.baseEswc+"tutorial/";
-    public static final String PHD_CALENDAR_NS = OfficialNameSpace.baseEswc+"PhDSymposium/";
+
 
 
 	public static void ical2RDF(String inIcal, String base, String outRDF) {
@@ -91,27 +87,27 @@ public class PythonConverters {
 		}
 	}
 
-	public static void doStuff(String pathOfCalendarFolder) {
+	public static void doStuff(String pathOfCalendarFolder, OfficialNameSpace ns) {
 
 	    File outFolder = new File("out");
 	    if(!outFolder.exists()) outFolder.mkdirs();
 
-		ical2RDF(pathOfCalendarFolder+File.separator+"main.ics", MAIN_CONFERENCE_CALENDAR_NS,
+		ical2RDF(pathOfCalendarFolder+File.separator+"main.ics", ns.MAIN_CONFERENCE_CALENDAR_NS,
 				"./out/main_temp.rdf");
 
-		ical2RDF(pathOfCalendarFolder+File.separator+"sessions_main.ics", SESSIONS_CALENDAR_NS,
+		ical2RDF(pathOfCalendarFolder+File.separator+"sessions_main.ics", ns.SESSIONS_CALENDAR_NS,
 				"./out/sessions_temp.rdf");
 		
-		ical2RDF(pathOfCalendarFolder+File.separator+"workshops.ics", WORKSHOPS_CALENDAR_NS,
+		ical2RDF(pathOfCalendarFolder+File.separator+"workshops.ics", ns.WORKSHOPS_CALENDAR_NS,
 		"./out/workhop_temp.rdf");
 		
-		ical2RDF(pathOfCalendarFolder+File.separator+"tutorials.ics", TUTORIALS_CALENDAR_NS,
+		ical2RDF(pathOfCalendarFolder+File.separator+"tutorials.ics", ns.TUTORIALS_CALENDAR_NS,
 				"./out/tutorials_temp.rdf");
 		
-		ical2RDF(pathOfCalendarFolder+File.separator+"plenary.ics", PLENARY_EVENTS_CALENDAR_NS,
+		ical2RDF(pathOfCalendarFolder+File.separator+"plenary.ics", ns.PLENARY_EVENTS_CALENDAR_NS,
 				"./out/plenary_temp.rdf");
 		
-		ical2RDF(pathOfCalendarFolder+File.separator+"phDSymp.ics", PLENARY_EVENTS_CALENDAR_NS,
+		ical2RDF(pathOfCalendarFolder+File.separator+"phDSymp.ics", ns.PLENARY_EVENTS_CALENDAR_NS,
 				"./out/phd_temp.rdf");
 		
 		
@@ -123,7 +119,7 @@ public class PythonConverters {
 		}
 		
 		if(modelMain != null){
-    		refactoring(modelMain, CALENDAR.MAIN_CONFERENCE);
+    		refactoring(modelMain, CALENDAR.MAIN_CONFERENCE, ns);
     		try {
     
     			modelMain.write(new FileOutputStream(new File(pathOfCalendarFolder+File.separator+"main-calendar.rdf")));
@@ -140,7 +136,7 @@ public class PythonConverters {
             System.err.println(e.getMessage());
         }
 		if(modelSessions != null){
-    		refactoring(modelSessions, CALENDAR.SESSIONS);
+    		refactoring(modelSessions, CALENDAR.SESSIONS, ns);
     		try {
     
     			modelSessions.write(new FileOutputStream(new File(pathOfCalendarFolder+File.separator+"sessions-calendar.rdf")));
@@ -158,7 +154,7 @@ public class PythonConverters {
             System.err.println(e.getMessage());
         }
 		if(modelWS != null){
-    		refactoring(modelWS, CALENDAR.WORKSHOPS);
+    		refactoring(modelWS, CALENDAR.WORKSHOPS, ns);
     		try {
     
     		    modelWS.write(new FileOutputStream(new File(pathOfCalendarFolder+File.separator+"workshops-calendar.rdf")));
@@ -176,7 +172,7 @@ public class PythonConverters {
             System.err.println(e.getMessage());
         }
 		if(modelTutorials != null){
-    		refactoring(modelTutorials, CALENDAR.TUTORIALS);
+    		refactoring(modelTutorials, CALENDAR.TUTORIALS, ns);
     		try {
     
     			modelTutorials.write(new FileOutputStream(new File(pathOfCalendarFolder+File.separator+"tutorials-calendar.rdf")));
@@ -195,7 +191,7 @@ public class PythonConverters {
             System.err.println(e.getMessage());
         }
 		if(modelPhD != null){
-    		refactoring(modelPhD, CALENDAR.PHD);
+    		refactoring(modelPhD, CALENDAR.PHD, ns);
     		try {
     			modelPhD.write(new FileOutputStream(new File(pathOfCalendarFolder+File.separator+"phdSymp-calendar.rdf")));
     		    
@@ -213,7 +209,7 @@ public class PythonConverters {
             System.err.println(e.getMessage());
         }
 		if(modelPlenary != null){
-    		refactoring(modelPlenary, CALENDAR.PLENARY);
+    		refactoring(modelPlenary, CALENDAR.PLENARY, ns);
     		try {
     		    /*
     		     * FIXED
@@ -229,26 +225,26 @@ public class PythonConverters {
 	}
 	
 	
-	public static void refactoring(Model model, CALENDAR calendar){
+	public static void refactoring(Model model, CALENDAR calendar, OfficialNameSpace ns){
 	    
-	    String ns = null;
+	    String nameSp = null;
 	    boolean renameCalendarResource = false;
 	    switch (calendar) {
             case MAIN_CONFERENCE:
-                ns = MAIN_CONFERENCE_CALENDAR_NS;
+                nameSp =ns.MAIN_CONFERENCE_CALENDAR_NS;
                 renameCalendarResource = true;
                 break;
             case WORKSHOPS:
-                ns = WORKSHOPS_CALENDAR_NS;
+                nameSp = ns.WORKSHOPS_CALENDAR_NS;
                 break;
             case SESSIONS:
-                ns = SESSIONS_CALENDAR_NS;
+                nameSp = ns.SESSIONS_CALENDAR_NS;
                 break;
             case TUTORIALS:
-                ns = TUTORIALS_CALENDAR_NS;
+                nameSp = ns.TUTORIALS_CALENDAR_NS;
                 break;
             default:
-                ns = MAIN_CONFERENCE_CALENDAR_NS;
+                nameSp = ns.MAIN_CONFERENCE_CALENDAR_NS;
                 renameCalendarResource = true;
                 break;
         }
@@ -272,7 +268,7 @@ public class PythonConverters {
         
         for(Resource event : toModify){
             String namespaceOld = RDFUtils.getNameSpace(event);
-            String eventUriNew = event.getURI().replace(namespaceOld, ns);
+            String eventUriNew = event.getURI().replace(namespaceOld, nameSp);
             
             Resource eventNew = model.createResource(eventUriNew);
             
@@ -302,7 +298,7 @@ public class PythonConverters {
             }
             
             if(calendarResource != null){
-                Resource calendarResourceNew = model.createResource(MAIN_CONFERENCE_CALENDAR_NS + "#main_conference");
+                Resource calendarResourceNew = model.createResource(ns.MAIN_CONFERENCE_CALENDAR_NS + "#main_conference");
                 StmtIterator stmtIterator = model.listStatements(calendarResource, null, (RDFNode)null);
                 while(stmtIterator.hasNext()){
                     Statement statement = stmtIterator.next();

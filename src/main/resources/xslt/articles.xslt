@@ -35,10 +35,10 @@
 						<xsl:attribute name="rdf:about">
 							<xsl:choose>
 								<xsl:when test="trackId='118204'">
-									<xsl:value-of select="concat('http://data.semanticweb.org/conference/eswc/2015/paper/in-use/', number/text())" />
+									<xsl:value-of select="concat('http://data.semanticweb.org/conference/ld4ie/2015/paper/in-use/', number/text())" />
 								</xsl:when>
 			 					<xsl:otherwise>
-			 						<xsl:value-of select="concat('http://data.semanticweb.org/conference/eswc/2015/paper/research/', number/text())" />
+			 						<xsl:value-of select="concat('http://data.semanticweb.org/conference/ld4ie/2015/paper/research/', number/text())" />
 			 					</xsl:otherwise>
 			 				</xsl:choose>
 		 				</xsl:attribute>
@@ -70,10 +70,10 @@
 		 					<xsl:attribute name="rdf:resource">
 		 						<xsl:choose>
 									<xsl:when test="trackId='118204'">
-										<xsl:value-of select="concat('http://data.semanticweb.org/conference/eswc/2015/paper/in-use/', number/text(), '/authorList')" />
+										<xsl:value-of select="concat('http://data.semanticweb.org/conference/ld4ie/2015/paper/in-use/', number/text(), '/authorList')" />
 									</xsl:when>
 				 					<xsl:otherwise>
-				 						<xsl:value-of select="concat('http://data.semanticweb.org/conference/eswc/2015/paper/research/', number/text(), '/authorList')" />
+				 						<xsl:value-of select="concat('http://data.semanticweb.org/conference/ld4ie/2015/paper/research/', number/text(), '/authorList')" />
 				 					</xsl:otherwise>
 				 				</xsl:choose>
 		 					</xsl:attribute>
@@ -88,7 +88,7 @@
 		 				</xsl:for-each>	
 		 				<swrc:year>2015</swrc:year>
 		 				<swrc:month>May</swrc:month>
-		 				<swc:isPartOf rdf:resource="http://data.semanticweb.org/conference/eswc/2015/proceedings" />
+		 				<swc:isPartOf rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/proceedings" />
 		 			</rdf:Description>
 				</xsl:if>
 				
@@ -99,26 +99,26 @@
 				
 			</xsl:for-each>
 			
-			<rdf:Description rdf:about="http://data.semanticweb.org/conference/eswc/2015">
+			<!-- rdf:Description rdf:about="http://data.semanticweb.org/conference/ld4ie/2015">
     			<rdf:type rdf:resource="http://data.semanticweb.org/ns/swc/ontology#ConferenceEvent"/>
-    			<swc:completeGraph rdf:resource="http://data.semanticweb.org/conference/eswc/2015/complete"/>
+    			<swc:completeGraph rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/complete"/>
     			<swc:hasAcronym>ESWC2015</swc:hasAcronym>
     			<swc:address>Grand hotel Bernardin, Obala 2, 6320 Portorož, Slovenia</swc:address>
     			<foaf:homepage rdf:resource="http://2015.eswc-conferences.org/"/>
-    			<swc:hasRelatedDocument rdf:resource="http://data.semanticweb.org/conference/eswc/2015/proceedings"/>
+    			<swc:hasRelatedDocument rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/proceedings"/>
     			<icaltzd:dtstart rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-05-31T09:00:00</icaltzd:dtstart>
     			<icaltzd:dtend rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-06-04T17:00:00</icaltzd:dtend>
     			<icaltzd:duration>
     				<xsl:value-of select="xs:dateTime('2015-06-04T17:00:00')-xs:dateTime('2015-05-31T09:00:00')" />
     			</icaltzd:duration>
-    			<swc:hasRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/sponsor-chair"/>
+    			<swc:hasRole rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/sponsor-chair"/>
     			<rdfs:label>The 12th Extented Semantic Web Conference</rdfs:label>
     			<swc:hasLogo rdf:resource="http://2015.eswc-conferences.org/sites/default/files/miniLogo_eswc15_red_0.png"/>
     			<icaltzd:location>Portoroz, Slovenia</icaltzd:location>
     			<icaltzd:summary>ESWC2015</icaltzd:summary>
     			<icaltzd:description>The 12th Extented Semantic Web Conference</icaltzd:description>
 
-  			</rdf:Description>
+  			</rdf:Description-->
 			
 			
 		</rdf:RDF>

@@ -1,18 +1,18 @@
 package it.istc.cnr.stlab.clodg.workflow;
 
-import static it.istc.cnr.stlab.clodg.Namespaces.ARTICLE_NS;
-import static it.istc.cnr.stlab.clodg.Namespaces.IN_USE_ARTICLE_NS;
-import static it.istc.cnr.stlab.clodg.Namespaces.KEYNOTE_NS;
-import static it.istc.cnr.stlab.clodg.Namespaces.ORGANIZATION_NS;
-import static it.istc.cnr.stlab.clodg.Namespaces.PERSON_NS;
-import static it.istc.cnr.stlab.clodg.Namespaces.TOPLEVEL_NS;
-
+//import static it.istc.cnr.stlab.clodg.Namespaces.ARTICLE_NS;
+//import static it.istc.cnr.stlab.clodg.Namespaces.IN_USE_ARTICLE_NS;
+//import static it.istc.cnr.stlab.clodg.Namespaces.KEYNOTE_NS;
+//import static it.istc.cnr.stlab.clodg.Namespaces.ORGANIZATION_NS;
+//import static it.istc.cnr.stlab.clodg.Namespaces.PERSON_NS;
+//import static it.istc.cnr.stlab.clodg.Namespaces.TOPLEVEL_NS;
 import it.istc.cnr.stlab.clodg.Homonym;
 import it.istc.cnr.stlab.clodg.models.Organization;
 import it.istc.cnr.stlab.clodg.models.OrganizationMap;
 import it.istc.cnr.stlab.clodg.models.Person;
 import it.istc.cnr.stlab.clodg.models.PersonMap;
 import it.istc.cnr.stlab.clodg.models.Urifier;
+import it.istc.cnr.stlab.clodg.util.OfficialNameSpace;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -91,6 +91,9 @@ import com.hp.hpl.jena.vocabulary.RDFS;
 public class GenerateMainConferenceInitialGraph {
 
 	public static ClassLoader classLoader;
+	
+	public OfficialNameSpace ns;
+	
 	private PersonMap personMap;
 	private OrganizationMap organizationMap;
 	private Map<String, Boolean> answersMap;
@@ -100,8 +103,9 @@ public class GenerateMainConferenceInitialGraph {
 	private Document conferenceDataDoc, conferenceConfigDoc;
 
 	public GenerateMainConferenceInitialGraph(String conferenceData,
-			String conferenceConfig) {
+			String conferenceConfig, OfficialNameSpace ns) {
 		getClassLoader();
+		this.ns = ns;
 
 		this.conferenceConfig = conferenceConfig;
 		this.conferenceData = conferenceData;
@@ -131,6 +135,7 @@ public class GenerateMainConferenceInitialGraph {
 
 		homonymsMap = new HashMap<String, Map<String, Homonym>>();
 
+		//TODO make this a configurable parameter
 		CSVReader csvReader = new CSVReader(new InputStreamReader(
 				classLoader.getResourceAsStream("data/ESWC2015-homonyms.csv")));
 
@@ -281,14 +286,14 @@ public class GenerateMainConferenceInitialGraph {
 			}
 
 			if (personURI.isEmpty()) {
-				personURI = Urifier.toURI(PERSON_NS, name, email, homonymsMap);
+				personURI = Urifier.toURI(this.ns.personNs, name, email, homonymsMap);
 			} else {
 				Map<String, Homonym> homonyms = homonymsMap.get(personURI
-						.replace(PERSON_NS, ""));
+						.replace(this.ns.personNs, ""));
 				if (homonyms != null) {
 					Homonym homonym = homonyms.get(email);
 					if (homonym != null) {
-						personURI = PERSON_NS + homonym.getId();
+						personURI = this.ns.personNs + homonym.getId();
 					}
 				}
 			}
@@ -322,6 +327,7 @@ public class GenerateMainConferenceInitialGraph {
 			 * Read the RDF model containing all people names.
 			 */
 			Model namesModel = ModelFactory.createDefaultModel();
+			//TODO all-names.rdf should be passed as input
 			namesModel.read(
 					classLoader.getResourceAsStream("data/all-names.rdf"),
 					"http://data.semanticweb.org/person/", "RDF/XML");
@@ -496,7 +502,7 @@ public class GenerateMainConferenceInitialGraph {
 		}
 
 		if (organizationURI.isEmpty()) {
-			organizationURI = Urifier.toURI(ORGANIZATION_NS, label, null, null);
+			organizationURI = Urifier.toURI(ns.organizationNs, label, null, null);
 		}
 
 		organizationMap.addEntity(new Organization(label, new URI(
@@ -560,6 +566,7 @@ public class GenerateMainConferenceInitialGraph {
 			e.printStackTrace();
 		}
 
+		//TODO this should be configurable
 		/*
 		 * We add the data about Poster and Demo.
 		 */
@@ -574,6 +581,8 @@ public class GenerateMainConferenceInitialGraph {
 			posterDemoHandler.mergeData(model);
 		}
 
+		//TODO this should be configurable
+
 		/*
 		 * We add the data about PhD symposium
 		 */
@@ -585,6 +594,8 @@ public class GenerateMainConferenceInitialGraph {
 			PhDSympHandler phDSympHandler = new PhDSympHandler(phDSympModel);
 			phDSympHandler.mergeData(model);
 		}
+
+		//TODO this should be configurable
 
 		/*
 		 * We add the data about challenges
@@ -653,7 +664,7 @@ public class GenerateMainConferenceInitialGraph {
     		};
     
     		Property holdsRole = ModelFactory.createDefaultModel().createProperty(
-    				"http://data.semanticweb.org/ns/swc/ontology#holdsRole");
+    				OfficialNameSpace.HOLDS_ROLE_PROP);
     		for (File subDir : formDataDir.listFiles(dirFilter)) {
     
     			for (File rdf : subDir.listFiles(rdfFilter)) {
@@ -691,7 +702,7 @@ public class GenerateMainConferenceInitialGraph {
     
     						// Update last name
     						Property foafLastName = model
-    								.createProperty("http://xmlns.com/foaf/0.1/lastName");
+    								.createProperty(OfficialNameSpace.FOAF_LAST_NAME);
     						statement = person.getProperty(foafLastName);
     						model.removeAll(person, foafLastName, null);
     						model.add(statement);
@@ -737,7 +748,7 @@ public class GenerateMainConferenceInitialGraph {
     
     						// Add Twitter account
     						Property foafAccount = model
-    								.createProperty("http://xmlns.com/foaf/0.1/account");
+    								.createProperty(OfficialNameSpace.FOAF_ACCOUNT);
     						statement = person.getProperty(foafAccount);
     						if (statement != null) {
     							model.add(statement);
@@ -806,25 +817,25 @@ public class GenerateMainConferenceInitialGraph {
 			Resource authorTypeRole = model
 					.createResource("http://www.ontologydesignpatterns.org/ont/eswc/ontology.owl#Author");
 			Resource authorRole = model.createResource(
-					"http://data.semanticweb.org/conference/eswc/2015/author",
+					ns.baseConference+"author",
 					authorTypeRole);
 			authorRole.addProperty(RDFS.label, "Paper author");
 			authorRole
 					.addProperty(
 							model.createProperty("http://data.semanticweb.org/ns/swc/ontology#isRoleAt"),
-							model.createResource("http://data.semanticweb.org/conference/eswc/2015"));
+							model.createResource(ns.baseConference));
 
 			while (papersIt.hasNext()) {
 				Resource paper = papersIt.next().getSubject();
 
 				String paperNs = null;
 				String paperID = paper.getURI();
-				if (paperID.startsWith(ARTICLE_NS)) {
-					paperID = paperID.replace(ARTICLE_NS, "");
-					paperNs = ARTICLE_NS;
+				if (paperID.startsWith(this.ns.mainTrackPaperNs)) {
+					paperID = paperID.replace(this.ns.mainTrackPaperNs, "");
+					paperNs = this.ns.mainTrackPaperNs;
 				} else {
-					paperID = paperID.replace(IN_USE_ARTICLE_NS, "");
-					paperNs = IN_USE_ARTICLE_NS;
+					paperID = paperID.replace(this.ns.inusePaperNs, "");
+					paperNs = this.ns.inusePaperNs;
 				}
 
 				XPathExpression xPathExpression;
@@ -909,7 +920,7 @@ public class GenerateMainConferenceInitialGraph {
 						try {
 							person = personMap
 									.getEntityByURI(new URI(Urifier
-											.toURI(PERSON_NS, name, email,
+											.toURI(this.ns.personNs, name, email,
 													homonymsMap)));
 
 						} catch (URISyntaxException e) {
@@ -994,13 +1005,13 @@ public class GenerateMainConferenceInitialGraph {
 					.createResource("http://data.semanticweb.org/ns/swc/ontology#Presenter");
 			Resource keynoteSpeakerRole = model
 					.createResource(
-							"http://data.semanticweb.org/conference/eswc/2015/keynote-speaker",
+							ns.baseConference+ "keynote-speaker",
 							presenter);
 			keynoteSpeakerRole.addProperty(RDFS.label, "Keynote speaker");
 			keynoteSpeakerRole
 					.addProperty(
 							model.createProperty("http://data.semanticweb.org/ns/swc/ontology#isRoleAt"),
-							model.createResource("http://data.semanticweb.org/conference/eswc/2015"));
+							model.createResource(ns.baseConference));
 
 			TransformerFactory tFactory = TransformerFactory.newInstance();
 			try {
@@ -1058,7 +1069,7 @@ public class GenerateMainConferenceInitialGraph {
 					Person person;
 					try {
 						person = personMap.getEntityByURI(new URI(Urifier
-								.toURI(PERSON_NS, firstName + " " + lastName,
+								.toURI(this.ns.personNs, firstName + " " + lastName,
 										email, homonymsMap)));
 					} catch (URISyntaxException e) {
 						person = null;
@@ -1066,7 +1077,7 @@ public class GenerateMainConferenceInitialGraph {
 					if (person != null) {
 						personUri = person.getURI().toString();
 					} else {
-						personUri = Urifier.toURI(PERSON_NS, firstName + " "
+						personUri = Urifier.toURI(this.ns.personNs, firstName + " "
 								+ lastName, email, homonymsMap);
 					}
 
@@ -1074,7 +1085,7 @@ public class GenerateMainConferenceInitialGraph {
 
 						Resource keynoteSpeaker = model.createResource(
 								personUri, FOAF.Person);
-						Resource keynote = model.createResource(KEYNOTE_NS
+						Resource keynote = model.createResource(this.ns.keynoteNs
 								+ keynoteId);
 
 						keynoteSpeaker.addProperty(FOAF.made, keynote);
@@ -1136,14 +1147,14 @@ public class GenerateMainConferenceInitialGraph {
 					.createResource("http://data.semanticweb.org/ns/swc/ontology#ProgrammeCommitteeMember");
 			Resource programCommitteeMemberRole = model
 					.createResource(
-							"http://data.semanticweb.org/conference/eswc/2015/program-committee-member",
+							ns.baseConference+"program-committee-member",
 							programCommitteeMemberType);
 			programCommitteeMemberRole.addProperty(RDFS.label,
 					"Program committee member");
 			programCommitteeMemberRole
 					.addProperty(
 							model.createProperty("http://data.semanticweb.org/ns/swc/ontology#isRoleAt"),
-							model.createResource("http://data.semanticweb.org/conference/eswc/2015"));
+							model.createResource(ns.baseConference));
 
 			TransformerFactory tFactory = TransformerFactory.newInstance();
 			try {
@@ -1183,7 +1194,7 @@ public class GenerateMainConferenceInitialGraph {
 					Person person;
 					try {
 						person = personMap.getEntityByURI(new URI(Urifier
-								.toURI(PERSON_NS, firstName + " " + lastName,
+								.toURI(this.ns.personNs, firstName + " " + lastName,
 										email, homonymsMap)));
 					} catch (URISyntaxException e) {
 						person = null;
@@ -1191,7 +1202,7 @@ public class GenerateMainConferenceInitialGraph {
 					if (person != null) {
 						personUri = person.getURI().toString();
 					} else {
-						personUri = Urifier.toURI(PERSON_NS, firstName + " "
+						personUri = Urifier.toURI(this.ns.personNs, firstName + " "
 								+ lastName, email, homonymsMap);
 					}
 
@@ -1311,7 +1322,7 @@ public class GenerateMainConferenceInitialGraph {
 				Resource chairType = model
 						.createResource("http://data.semanticweb.org/ns/swc/ontology#Chair");
 				Resource conference = model
-						.createResource("http://data.semanticweb.org/conference/eswc/2015");
+						.createResource(this.ns.baseConference);
 				Property hasRole = model
 						.createProperty("http://data.semanticweb.org/ns/swc/ontology#hasRole");
 				Property isRoleAt = model
@@ -1333,7 +1344,7 @@ public class GenerateMainConferenceInitialGraph {
 					Node roleNode = node.getAttributes().getNamedItem("name");
 
 					String role = roleNode.getTextContent();
-					role = Urifier.toURI(TOPLEVEL_NS, role, null, null);
+					role = Urifier.toURI(this.ns.baseConference, role, null, null);
 
 					Resource roleResource = model.createResource(role,
 							chairType);
@@ -1378,7 +1389,7 @@ public class GenerateMainConferenceInitialGraph {
 						try {
 							person = personMap
 									.getEntityByURI(new URI(Urifier
-											.toURI(PERSON_NS, name, email,
+											.toURI(this.ns.personNs, name, email,
 													homonymsMap)));
 						} catch (URISyntaxException e) {
 							person = null;

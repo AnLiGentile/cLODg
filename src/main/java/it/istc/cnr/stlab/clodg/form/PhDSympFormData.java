@@ -33,6 +33,13 @@ import com.hp.hpl.jena.vocabulary.RDFS;
  */
 public class PhDSympFormData implements FormData {
 
+	public OfficialNameSpace ns;
+
+	public PhDSympFormData(OfficialNameSpace ns) {
+		super();
+		this.ns=ns;
+	}
+
 	// TODO add partOf property in the Graph
 	@Override
 	public Model toRDF(CSVReader csvReader) {
@@ -60,10 +67,10 @@ public class PhDSympFormData implements FormData {
 		Resource phdPaper = model
 				.createResource("http://purl.org/spar/fabio/PhDSymposiumPaper");
 
-		String phdNs = OfficialNameSpace.phdPaperNs;
+		String phdNs = ns.phdPaperNs;
 
-		String personNs = OfficialNameSpace.personNs;
-		String eswcOntology = OfficialNameSpace.eswcOntology;
+		String personNs = ns.personNs;
+		String eswcOntology = ns.eswcOntology;
 
 		Map<String, Person> knownPersons = KnownPerson.knownPersons;
 
@@ -198,7 +205,24 @@ public class PhDSympFormData implements FormData {
 	}
 
 	public static void main(String[] args) {
-		PhDSympFormData formData = new PhDSympFormData();
+		
+		String year = "2015";
+		String baseDomain = "http://data.semanticweb.org/";
+		String conference = "conference/eswc/";
+		String mainTrackPaper =  "research/";
+		String inusePaper =  "in-use/";
+		String posterPaper =  "poster/";
+		String demoPaper =  "demo/";
+		String phdPaper =  "phDSymposium/";
+		String challengePaper =  "challenge/";
+	
+	
+		OfficialNameSpace ns = new OfficialNameSpace (year, baseDomain, conference,
+				mainTrackPaper, inusePaper,
+				posterPaper, demoPaper, phdPaper,
+				challengePaper);
+		
+		PhDSympFormData formData = new PhDSympFormData(ns);
 		try {
 			// CSVReader csvReader = new CSVReader(new FileReader(new
 			// File("in/eswc2014_pd.csv")), ';');
