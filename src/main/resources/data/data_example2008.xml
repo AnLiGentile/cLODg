@@ -5,71 +5,71 @@
 	<!-- for all people data: country, homepage, email and affiliation are optional -->
 
 	<pc>
-		<pc_member>
+		<pcMember>
 			<firstName>Witold</firstName>
 			<lastName>Abramowicz</lastName>
 			<country>Poland</country>
 			<homepage>http://www.kie.ae.poznan.pl/members/wabramowicz/</homepage>
 			<email>#######</email>
 			<affiliation>Poznan University of Economics</affiliation>
-		</pc_member>
-		<pc_member>
+		</pcMember>
+		<pcMember>
 			<firstName>Diego</firstName>
 			<lastName>Berrueta</lastName>
 			<country>Spain</country>
 			<homepage></homepage>
 			<email>#######</email>
 			<affiliation>Fundación CTIC</affiliation>
-		</pc_member>
-		<pc_member>
+		</pcMember>
+		<pcMember>
 			<firstName>Chris</firstName>
 			<lastName>Bizer</lastName>
 			<country>Germany</country>
 			<homepage>http://www.wiwiss.fu-berlin.de/en/institute/pwo/bizer/index.html</homepage>
 			<email>#######</email>
 			<affiliation>Freie Universität Berlin</affiliation>
-		</pc_member>
-		<pc_member>
+		</pcMember>
+		<pcMember>
 			<firstName>Boanerges</firstName>
 			<lastName>Aleman-Meza</lastName>
 			<country>USA</country>
 			<homepage>http://lsdis.cs.uga.edu/~aleman/</homepage>
 			<email>#######</email>
 			<affiliation>LSDIS Lab, University of Georgia</affiliation>
-		</pc_member>
-		<pc_member>
+		</pcMember>
+		<pcMember>
 			<firstName>Harold</firstName>
 			<lastName>Boley</lastName>
 			<country>Canada</country>
 			<homepage>http://www.cs.unb.ca/~boley/</homepage>
 			<email>#######</email>
 			<affiliation>NRC Institute of Information Technology</affiliation>
-		</pc_member>
-		<pc_member>
+		</pcMember>
+		<pcMember>
 			<firstName>Irene</firstName>
 			<lastName>Celino</lastName>
 			<country>Italy</country>
 			<homepage></homepage>
 			<email>#######</email>
 			<affiliation>Cefriel</affiliation>
-		</pc_member>
-		<pc_member>
+		</pcMember>
+		<pcMember>
 			<firstName>Asunción</firstName>
 			<lastName>Gómez-Pérez</lastName>
 			<country>Spain</country>
 			<homepage></homepage>
 			<email>#######</email>
 			<affiliation>Universidad Politécnica de Madrid</affiliation>
-		</pc_member>
+		</pcMember>
 		
-		<pc_member>
+		<pcMember>
 			<firstName>Tom</firstName>
 			<lastName>Heath</lastName>
 			<country>United Kingdom</country>
 			<homepage></homepage>
 			<email>#######</email>
 			<affiliation>Talis Information Limited</affiliation>
-		</pc_member>
+		</pcMember>
 		
 	</pc>
 

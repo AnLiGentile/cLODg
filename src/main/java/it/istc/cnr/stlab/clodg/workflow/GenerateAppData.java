@@ -42,6 +42,7 @@ public class GenerateAppData {
     public AppJsonModels generateJsonModels(){
         AppJsonModels appJsonModels = null;
      
+        //TODO Andrea, xslt is still hardcoded here
         JSONObject contacts = generateJsonModel("xslt/json_contacts.xslt");
         JSONObject organizations = generateJsonModel("xslt/json_organizations.xslt");
         JSONObject articles = generateJsonModel("xslt/json_articles.xslt");

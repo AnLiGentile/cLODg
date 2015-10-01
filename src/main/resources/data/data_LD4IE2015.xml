@@ -20,63 +20,101 @@
 	<!-- for all people data: country, homepage, email and affiliation are optional -->
 
 	<pc>
-		<pc_member>	<firstName>Claudia</firstName>	<lastName>D'Amato</lastName>	<homepage>http://www.di.uniba.it/~cdamato</homepage>	<affiliation>University of Bari</affiliation>	</pc_member>
-<pc_member>	<firstName>Heiko</firstName>	<lastName>Paulheim</lastName>	<homepage>http://www.heikopaulheim.com/</homepage>	<affiliation>University of Mannheim</affiliation>	</pc_member>
-<pc_member>	<firstName>Ziqi</firstName>	<lastName>Zhang</lastName>	<homepage>http://staffwww.dcs.shef.ac.uk/people/Z.Zhang/</homepage>	<affiliation>University of Sheffield</affiliation>	</pc_member>
-<pc_member>	<firstName>Andrea</firstName>	<lastName>Moro</lastName>	<homepage>http://wwwusers.di.uniroma1.it/~moro/</homepage>	<affiliation>Sapienza, Università di Roma</affiliation>	</pc_member>
-<pc_member>	<firstName>Monika</firstName>	<lastName>Solanki</lastName>	<homepage>http://monikasolanki.com</homepage>	<affiliation>University of Oxford</affiliation>	</pc_member>
-<pc_member>	<firstName>Pierpaolo</firstName>	<lastName>Basile</lastName>	<homepage>http://www.di.uniba.it/~basilepp/</homepage>	<affiliation>Dipartimento di Informatica - University of Bari</affiliation>	</pc_member>
-<pc_member>	<firstName>Brian</firstName>	<lastName>Davis</lastName>	<homepage>http://www.deri.ie/about/team/member/brian_davis/</homepage>	<affiliation>DERI NUIG</affiliation>	</pc_member>
-<pc_member>	<firstName>Andrea Giovanni</firstName>	<lastName>Nuzzolese</lastName>	<homepage>http://www.istc.cnr.it/it/people/andrea-nuzzolese</homepage>	<affiliation>STLab, ISTC-CNR</affiliation>	</pc_member>
-<pc_member>	<firstName>Christopher</firstName>	<lastName>Brewster</lastName>	<homepage>http://windermere.aston.ac.uk/~kiffer/</homepage>	<affiliation>Aston Business School, Aston University, Birmingham, UK</affiliation>	</pc_member>
-<pc_member>	<firstName>Matthias</firstName>	<lastName>Nickles</lastName>	<homepage>http://www.cs.bath.ac.uk/~mln22/</homepage>	<affiliation>National University of Ireland, Galway, Digital Enterprise Research Institute</affiliation>	</pc_member>
-<pc_member>	<firstName>Disheng</firstName>	<lastName>Qiu</lastName>	<homepage>http://www.dia.uniroma3.it/~disheng/</homepage>	<affiliation>University of Roma Tre</affiliation>	</pc_member>
-<pc_member>	<firstName>Rabeeh Ayaz</firstName>	<lastName>Abbasi</lastName>	<homepage>http://userpages.uni-koblenz.de/~abbasi/</homepage>	<affiliation>Quaid-i-Azam University</affiliation>	</pc_member>
-<pc_member>	<firstName>Simone Paolo</firstName>	<lastName>Ponzetto</lastName>	<homepage>http://web.informatik.uni-mannheim.de/ponzetto/</homepage>	<affiliation>University of Mannheim</affiliation>	</pc_member>
-<pc_member>	<firstName>Craig</firstName>	<lastName>Knoblock</lastName>	<homepage>http://www.isi.edu/~knoblock/</homepage>	<affiliation>University of Southern California</affiliation>	</pc_member>
-<pc_member>	<firstName>Christina</firstName>	<lastName>Feilmayr</lastName>	<homepage>http://www.faw.jku.at</homepage>	<affiliation>Johannes Kepler University of Linz</affiliation>	</pc_member>
-<pc_member>	<firstName>Victoria</firstName>	<lastName>Uren</lastName>	<homepage></homepage>	<affiliation>Aston University</affiliation>	</pc_member>
-<pc_member>	<firstName>Katja</firstName>	<lastName>Hose</lastName>	<homepage>http://www.katja-hose.de/</homepage>	<affiliation>Aalborg University</affiliation>	</pc_member>
-<pc_member>	<firstName>Payam</firstName>	<lastName>Barnaghi</lastName>	<homepage>http://personal.ee.surrey.ac.uk/Personal/P.Barnaghi/</homepage>	<affiliation>University of Surrey</affiliation>	</pc_member>
-<pc_member>	<firstName>Martin</firstName>	<lastName>Riedl</lastName>	<homepage></homepage>	<affiliation>TU Darmstadt</affiliation>	</pc_member>
-<pc_member>	<firstName>Will</firstName>	<lastName>Radford</lastName>	<homepage></homepage>	<affiliation>Xerox Research Centre Europe</affiliation>	</pc_member>
-<pc_member>	<firstName>Varish</firstName>	<lastName>Mulwad</lastName>	<homepage>http://ebiquity.umbc.edu/person/html/Varish/Mulwad/</homepage>	<affiliation>University of Maryland, Baltimore County</affiliation>	</pc_member>
-<pc_member>	<firstName>Jay</firstName>	<lastName>Pujara</lastName>	<homepage>http://www.cs.umd.edu/~jay</homepage>	<affiliation>University of Maryland</affiliation>	</pc_member>
-<pc_member>	<firstName>Volker</firstName>	<lastName>Tresp</lastName>	<homepage>http://www.tresp.org/</homepage>	<affiliation>Siemens AG</affiliation>	</pc_member>
-<pc_member>	<firstName>Paul</firstName>	<lastName>Buitelaar</lastName>	<homepage>http://paulbuitelaar.net/</homepage>	<affiliation>Insight - National University of Ireland, Galway</affiliation>	</pc_member>
-<pc_member>	<firstName>Petr</firstName>	<lastName>Knoth</lastName>	<homepage></homepage>	<affiliation>KMi, The Open University</affiliation>	</pc_member>
-<pc_member>	<firstName>Pablo</firstName>	<lastName>Mendes</lastName>	<homepage>http://pablomendes.com</homepage>	<affiliation>IBM Research Almaden</affiliation>	</pc_member>
-<pc_member>	<firstName>Ernesto William</firstName>	<lastName>De Luca</lastName>	<homepage></homepage>	<affiliation>Georg-Eckert-Institute – Leibniz-Institute for international Textbook Research</affiliation>	</pc_member>
-<pc_member>	<firstName>Chris</firstName>	<lastName>Welty</lastName>	<homepage>http://google.com/+Chris_Welty</homepage>	<affiliation>Google</affiliation>	</pc_member>
-<pc_member>	<firstName>Miriam</firstName>	<lastName>Fernandez</lastName>	<homepage>http://kmi.open.ac.uk/people/member/miriam-fernandez</homepage>	<affiliation>Open University</affiliation>	</pc_member>
-<pc_member>	<firstName>Giuseppe</firstName>	<lastName>Rizzo</lastName>	<homepage>http://www.eurecom.fr/~rizzo/</homepage>	<affiliation>EURECOM</affiliation>	</pc_member>
+		<pcMember>	<firstName>Claudia</firstName>	<lastName>D'Amato</lastName>	<homepage>http://www.di.uniba.it/~cdamato</homepage>	<affiliation>University of Bari</affiliation>	</pcMember>
+<pcMember>	<firstName>Heiko</firstName>	<lastName>Paulheim</lastName>	<homepage>http://www.heikopaulheim.com/</homepage>	<affiliation>University of Mannheim</affiliation>	</pcMember>
+<pcMember>	<firstName>Ziqi</firstName>	<lastName>Zhang</lastName>	<homepage>http://staffwww.dcs.shef.ac.uk/people/Z.Zhang/</homepage>	<affiliation>University of Sheffield</affiliation>	</pcMember>
+<pcMember>	<firstName>Andrea</firstName>	<lastName>Moro</lastName>	<homepage>http://wwwusers.di.uniroma1.it/~moro/</homepage>	<affiliation>Sapienza, Università di Roma</affiliation>	</pcMember>
+<pcMember>	<firstName>Monika</firstName>	<lastName>Solanki</lastName>	<homepage>http://monikasolanki.com</homepage>	<affiliation>University of Oxford</affiliation>	</pcMember>
+<pcMember>	<firstName>Pierpaolo</firstName>	<lastName>Basile</lastName>	<homepage>http://www.di.uniba.it/~basilepp/</homepage>	<affiliation>Dipartimento di Informatica - University of Bari</affiliation>	</pcMember>
+<pcMember>	<firstName>Brian</firstName>	<lastName>Davis</lastName>	<homepage>http://www.deri.ie/about/team/member/brian_davis/</homepage>	<affiliation>DERI NUIG</affiliation>	</pcMember>
+<pcMember>	<firstName>Andrea Giovanni</firstName>	<lastName>Nuzzolese</lastName>	<homepage>http://www.istc.cnr.it/it/people/andrea-nuzzolese</homepage>	<affiliation>STLab, ISTC-CNR</affiliation>	</pcMember>
+<pcMember>	<firstName>Christopher</firstName>	<lastName>Brewster</lastName>	<homepage>http://windermere.aston.ac.uk/~kiffer/</homepage>	<affiliation>Aston Business School, Aston University, Birmingham, UK</affiliation>	</pcMember>
+<pcMember>	<firstName>Matthias</firstName>	<lastName>Nickles</lastName>	<homepage>http://www.cs.bath.ac.uk/~mln22/</homepage>	<affiliation>National University of Ireland, Galway, Digital Enterprise Research Institute</affiliation>	</pcMember>
+<pcMember>	<firstName>Disheng</firstName>	<lastName>Qiu</lastName>	<homepage>http://www.dia.uniroma3.it/~disheng/</homepage>	<affiliation>University of Roma Tre</affiliation>	</pcMember>
+<pcMember>	<firstName>Rabeeh Ayaz</firstName>	<lastName>Abbasi</lastName>	<homepage>http://userpages.uni-koblenz.de/~abbasi/</homepage>	<affiliation>Quaid-i-Azam University</affiliation>	</pcMember>
+<pcMember>	<firstName>Simone Paolo</firstName>	<lastName>Ponzetto</lastName>	<homepage>http://web.informatik.uni-mannheim.de/ponzetto/</homepage>	<affiliation>University of Mannheim</affiliation>	</pcMember>
+<pcMember>	<firstName>Craig</firstName>	<lastName>Knoblock</lastName>	<homepage>http://www.isi.edu/~knoblock/</homepage>	<affiliation>University of Southern California</affiliation>	</pcMember>
+<pcMember>	<firstName>Christina</firstName>	<lastName>Feilmayr</lastName>	<homepage>http://www.faw.jku.at</homepage>	<affiliation>Johannes Kepler University of Linz</affiliation>	</pcMember>
+<pcMember>	<firstName>Victoria</firstName>	<lastName>Uren</lastName>	<homepage></homepage>	<affiliation>Aston University</affiliation>	</pcMember>
+<pcMember>	<firstName>Katja</firstName>	<lastName>Hose</lastName>	<homepage>http://www.katja-hose.de/</homepage>	<affiliation>Aalborg University</affiliation>	</pcMember>
+<pcMember>	<firstName>Payam</firstName>	<lastName>Barnaghi</lastName>	<homepage>http://personal.ee.surrey.ac.uk/Personal/P.Barnaghi/</homepage>	<affiliation>University of Surrey</affiliation>	</pcMember>
+<pcMember>	<firstName>Martin</firstName>	<lastName>Riedl</lastName>	<homepage></homepage>	<affiliation>TU Darmstadt</affiliation>	</pcMember>
+<pcMember>	<firstName>Will</firstName>	<lastName>Radford</lastName>	<homepage></homepage>	<affiliation>Xerox Research Centre Europe</affiliation>	</pcMember>
+<pcMember>	<firstName>Varish</firstName>	<lastName>Mulwad</lastName>	<homepage>http://ebiquity.umbc.edu/person/html/Varish/Mulwad/</homepage>	<affiliation>University of Maryland, Baltimore County</affiliation>	</pcMember>
+<pcMember>	<firstName>Jay</firstName>	<lastName>Pujara</lastName>	<homepage>http://www.cs.umd.edu/~jay</homepage>	<affiliation>University of Maryland</affiliation>	</pcMember>
+<pcMember>	<firstName>Volker</firstName>	<lastName>Tresp</lastName>	<homepage>http://www.tresp.org/</homepage>	<affiliation>Siemens AG</affiliation>	</pcMember>
+<pcMember>	<firstName>Paul</firstName>	<lastName>Buitelaar</lastName>	<homepage>http://paulbuitelaar.net/</homepage>	<affiliation>Insight - National University of Ireland, Galway</affiliation>	</pcMember>
+<pcMember>	<firstName>Petr</firstName>	<lastName>Knoth</lastName>	<homepage></homepage>	<affiliation>KMi, The Open University</affiliation>	</pcMember>
+<pcMember>	<firstName>Pablo</firstName>	<lastName>Mendes</lastName>	<homepage>http://pablomendes.com</homepage>	<affiliation>IBM Research Almaden</affiliation>	</pcMember>
+<pcMember>	<firstName>Ernesto William</firstName>	<lastName>De Luca</lastName>	<homepage></homepage>	<affiliation>Georg-Eckert-Institute – Leibniz-Institute for international Textbook Research</affiliation>	</pcMember>
+<pcMember>	<firstName>Chris</firstName>	<lastName>Welty</lastName>	<homepage>http://google.com/+Chris_Welty</homepage>	<affiliation>Google</affiliation>	</pcMember>
+<pcMember>	<firstName>Miriam</firstName>	<lastName>Fernandez</lastName>	<homepage>http://kmi.open.ac.uk/people/member/miriam-fernandez</homepage>	<affiliation>Open University</affiliation>	</pcMember>
+<pcMember>	<firstName>Giuseppe</firstName>	<lastName>Rizzo</lastName>	<homepage>http://www.eurecom.fr/~rizzo/</homepage>	<affiliation>EURECOM</affiliation>	</pcMember>
 	</pc>
 
 	<!-- Submissions Information (Papers) -->
 	<!-- make sure each submission has a unique number! -->
 
 	<submissions>
-		<submission number="1" paper="yes">	<title>A Topic-Sensitive Model for Salient Entity Linking</title>	<authors>				
+				<submission>
+		<number>1</number>
+	<decisionId>1300</decisionId><title>A Topic-Sensitive Model for Salient Entity Linking</title>	<authors>				
 		<author><firstName>Lei</firstName>	<lastName>Zhang</lastName>	<country>Germany</country>	<affiliation>KIT</affiliation></author>	
 		<author><firstName>Cong</firstName>	<lastName>Liu</lastName>	<country>Germany</country>	<affiliation>KIT</affiliation></author>	
 		<author><firstName>Achim</firstName>	<lastName>Rettinger</lastName>	<country>Germany</country>	<affiliation>KIT</affiliation></author>	</authors></submission>
-<submission number="2" paper="yes">	<title>Topic Modeling for RDF Graphs</title>	<authors>					
+		<submission>
+		<number>2</number>
+	<decisionId>1301</decisionId>	<title>Topic Modeling for RDF Graphs</title>	<authors>					
 		<author><firstName>Jennifer</firstName>	<lastName>Sleeman</lastName>	<country>USA</country>	<affiliation>University of Maryland Baltimore County</affiliation></author>	
 		<author><firstName>Tim</firstName>	<lastName>Finin</lastName>	<country>USA</country>	<affiliation>University of Maryland, Baltimore County</affiliation></author>	
 		<author><firstName>Anupam</firstName>	<lastName>Joshi</lastName>	<country>USA</country>	<affiliation>University of Maryland Baltimore County</affiliation></author>	</authors></submission>
-<submission number="3" paper="yes">	<title>Semantic Relation Composition in Large Scale Knowledge Bases</title>		<authors>				
+		<submission>
+		<number>3</number>
+	<decisionId>1302</decisionId>	<title>Semantic Relation Composition in Large Scale Knowledge Bases</title>		<authors>				
 		<author><firstName>Kristian</firstName>	<lastName>Kolthoff</lastName>	<country>Germany</country>	<affiliation>University of Mannheim</affiliation></author>	
 		<author><firstName>Arnab</firstName>	<lastName>Dutta</lastName>	<country>Germany</country>	<affiliation>University of Mannheim</affiliation></author>	</authors></submission>
-<submission number="4" paper="yes">	<title>Semantic Annotation of Quantitative Textual Content</title>			<authors>			
+		<submission>
+		<number>4</number>
+	<decisionId>1303</decisionId>	<title>Semantic Annotation of Quantitative Textual Content</title>			<authors>			
 		<author><firstName>Mehrnaz</firstName>	<lastName>Ghashghaei</lastName>	<country>Canada</country>	<affiliation>Ryerson University</affiliation></author>	
 		<author><firstName>John</firstName>	<lastName>Cuzzola</lastName>	<country>Canada</country>	<affiliation>Ryerson University</affiliation></author>	
 		<author><firstName>Ebrahim</firstName>	<lastName>Bagheri</lastName>	<country>Canada</country>	<affiliation>Ryerson University</affiliation></author>	
 		<author><firstName>Ali</firstName>	<lastName>Ghorbani</lastName>	<country>Canada</country>	<affiliation>University of New Brunswick</affiliation></author>	</authors></submission>
-<submission number="7" paper="yes">	<title>CrowdTruth Measures for Language Ambiguity: The Case of Medical Relation Extraction</title>		<authors>				
+		<submission>
+		<number>7</number>
+	<decisionId>1304</decisionId>	<title>CrowdTruth Measures for Language Ambiguity: The Case of Medical Relation Extraction</title>		<authors>				
 		<author><firstName>Anca</firstName>	<lastName>Dumitrache</lastName>	<country>Netherlands</country>	<affiliation>VU University Amsterdam</affiliation></author>	
 		<author><firstName>Lora</firstName>	<lastName>Aroyo</lastName>	<country>Netherlands</country>	<affiliation>VU University Amsterdam</affiliation></author>	
 		<author><firstName>Chris</firstName>	<lastName>Welty</lastName>	<country>USA</country>	<affiliation>Google Research</affiliation></author>	</authors></submission>
 		
 	</submissions>
+
+<decisions>
+<decision>
+<id>1300</id>
+<accepted>true</accepted>
+<explanation>accepted and meta-review by chairs</explanation>
+</decision>
+<decision>
+<id>1301</id>
+<accepted>true</accepted>
+<explanation>accepted and meta-review by chairs</explanation>
+</decision>
+<decision>
+<id>1302</id>
+<accepted>true</accepted>
+<explanation>accepted and meta-review by chairs</explanation>
+</decision>
+<decision>
+<id>1303</id>
+<accepted>true</accepted>
+<explanation>accepted and meta-review by chairs</explanation>
+</decision>
+<decision>
+<id>1304</id>
+<accepted>true</accepted>
+<explanation>accepted and meta-review by chairs</explanation>
+</decision>
+</decisions>
 
 </snapshot>
