@@ -60,6 +60,8 @@ public class LD4IE2015 {
 				"Folder where to save the JSON files contaning the data to use for the APP.");
 		options.addOption("i", true,
                 "Precomputed RDF file containing data compliant to the semantic web dog food format.");
+		options.addOption("x", true,
+                "Folder containing the XSLT files used for performing format transformations from XML->RDF and RDF->JSON.");
 
 		CommandLine commandLine = null;
 
@@ -78,6 +80,7 @@ public class LD4IE2015 {
 			String rdfFolder = commandLine.getOptionValue('r');
 			String jsonFolder = commandLine.getOptionValue('j');
 			String dogFoodInput = commandLine.getOptionValue('i');
+			String xsltFolder = commandLine.getOptionValue('x');
 
 			if (rdfFolder != null && jsonFolder != null) {
 
@@ -94,7 +97,7 @@ public class LD4IE2015 {
 				 * decrypted mboxes.
 				 */
 				GenerateMainConferenceInitialGraph generateMainConferenceInitialGraph = new GenerateMainConferenceInitialGraph(
-						easychairSnapshot, conferenceConfiguration, ns);
+						easychairSnapshot, conferenceConfiguration, xsltFolder, ns);
 				
 				Model dogFoodData = null;
 				if(dogFoodInput != null){

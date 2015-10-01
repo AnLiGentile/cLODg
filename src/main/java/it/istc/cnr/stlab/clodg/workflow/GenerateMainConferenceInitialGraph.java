@@ -98,17 +98,21 @@ public class GenerateMainConferenceInitialGraph {
 	private OrganizationMap organizationMap;
 	private Map<String, Boolean> answersMap;
 	private Map<String, Map<String, Homonym>> homonymsMap;
+	
+	private String xsltFolder;
 
 	private String conferenceData, conferenceConfig;
 	private Document conferenceDataDoc, conferenceConfigDoc;
 
 	public GenerateMainConferenceInitialGraph(String conferenceData,
-			String conferenceConfig, OfficialNameSpace ns) {
+			String conferenceConfig, String xsltFolder, OfficialNameSpace ns) {
 		getClassLoader();
 		this.ns = ns;
 
 		this.conferenceConfig = conferenceConfig;
 		this.conferenceData = conferenceData;
+		
+		this.xsltFolder = xsltFolder;
 
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		factory.setNamespaceAware(true);
@@ -521,7 +525,7 @@ public class GenerateMainConferenceInitialGraph {
 		Model model = ModelFactory.createDefaultModel();
 
 		InputStream xsltStream = classLoader
-				.getResourceAsStream("xslt/articles.xslt");
+				.getResourceAsStream(xsltFolder + "/articles.xslt");
 		TransformerFactory tFactory = TransformerFactory.newInstance();
 		try {
 
@@ -544,9 +548,9 @@ public class GenerateMainConferenceInitialGraph {
 
 			addAuthorsInfo(model);
 
-			addKeynotes("xslt/keynotes.xslt", model);
+			addKeynotes(xsltFolder + "/keynotes.xslt", model);
 			addProgramCommitteeMembers(model);
-			addChairs("xslt/keynotes.xslt", model);
+			addChairs(xsltFolder + "/keynotes.xslt", model);
 
 			/*
 			 * OutputStream outputStream = new FileOutputStream(out);
