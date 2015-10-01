@@ -33,8 +33,8 @@ public class LD4IE2015 {
 
 	public static void main(String[] args) {
 
-//	    String easychairSnapshot = "data/data_LD4IE2015.xml";
-	    String easychairSnapshot = "data/data_example2008.xml";
+	    String easychairSnapshot = "data/data_LD4IE2015.xml";
+//	    String easychairSnapshot = "data/data_example2008.xml";
 
 		String conferenceConfiguration = "data/ld4ie2015-config.xml";
 		String folderContainingIcsCalendars = "";
