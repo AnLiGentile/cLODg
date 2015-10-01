@@ -9,7 +9,6 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
@@ -29,8 +28,9 @@ public class MashUpFormData implements FormData {
 	public OfficialNameSpace ns;
 
 	public MashUpFormData(OfficialNameSpace ns2) {
-super();
-this.ns = ns2;}
+	    super();
+	    this.ns = ns2;
+	}
 
 	@Override
 	public Model toRDF(CSVReader csvReader) {
@@ -151,21 +151,8 @@ this.ns = ns2;}
 	}
 
 	public static void main(String[] args) {
-		String year = "2015";
-		String baseDomain = "http://data.semanticweb.org/";
-		String conference = "conference/eswc/";
-		String mainTrackPaper =  "research/";
-		String inusePaper =  "in-use/";
-		String posterPaper =  "poster/";
-		String demoPaper =  "demo/";
-		String phdPaper =  "phDSymposium/";
-		String challengePaper =  "challenge/";
-	
-	
-		OfficialNameSpace ns = new OfficialNameSpace (year, baseDomain, conference,
-				mainTrackPaper, inusePaper,
-				posterPaper, demoPaper, phdPaper,
-				challengePaper);
+		
+	    OfficialNameSpace ns = OfficialNameSpace.getInstance();
 		MashUpFormData formData = new MashUpFormData(ns);
 		try {
 			CSVReader csvReader = new CSVReader(new FileReader(new File(

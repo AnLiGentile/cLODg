@@ -527,11 +527,15 @@ public class GenerateMainConferenceInitialGraph {
 		InputStream xsltStream = classLoader
 				.getResourceAsStream(xsltFolder + "/articles.xslt");
 		TransformerFactory tFactory = TransformerFactory.newInstance();
+		System.out.println(tFactory.getClass());
 		try {
 
+		    System.out.println("... " + xsltFolder);
 			Transformer transformer = tFactory.newTransformer(new StreamSource(
 					xsltStream));
-
+			transformer.setParameter("conferenceLabel", OfficialNameSpace.conferenceLabel());
+			System.out.println("conferenceLabel: " +transformer.getParameter("conferenceLabel"));
+			
 			ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 			// transformer.transform(new DOMSource(conferenceDataDoc), new
 			// StreamResult(new File(out)));
@@ -543,9 +547,9 @@ public class GenerateMainConferenceInitialGraph {
 			outputStream.close();
 			model.read(inputStream, null, "RDF/XML");
 			inputStream.close();
-
+			
 			model.write(System.out);
-
+			
 			addAuthorsInfo(model);
 
 			addKeynotes(xsltFolder + "/keynotes.xslt", model);
