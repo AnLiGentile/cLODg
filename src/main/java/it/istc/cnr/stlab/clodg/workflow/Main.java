@@ -90,6 +90,7 @@ public class Main {
 			String xsltFolder = commandLine.getOptionValue('x');
 			
 			if(xsltFolder == null || xsltFolder.isEmpty()) xsltFolder = "xslt";
+			ns.setXsltFolder(xsltFolder);
 
 			if (rdfFolder != null && jsonFolder != null) {
 
@@ -106,7 +107,7 @@ public class Main {
 				 * decrypted mboxes.
 				 */
 				GenerateMainConferenceInitialGraph generateMainConferenceInitialGraph = new GenerateMainConferenceInitialGraph(
-						easychairSnapshot, conferenceConfiguration, xsltFolder, ns);
+						easychairSnapshot, conferenceConfiguration);
 				
 				Model dogFoodData = null;
 				if(dogFoodInput != null){

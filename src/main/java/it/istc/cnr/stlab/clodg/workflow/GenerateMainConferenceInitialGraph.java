@@ -92,7 +92,7 @@ public class GenerateMainConferenceInitialGraph {
 
 	public static ClassLoader classLoader;
 	
-	public OfficialNameSpace ns;
+	private OfficialNameSpace ns;
 	
 	private PersonMap personMap;
 	private OrganizationMap organizationMap;
@@ -105,14 +105,15 @@ public class GenerateMainConferenceInitialGraph {
 	private Document conferenceDataDoc, conferenceConfigDoc;
 
 	public GenerateMainConferenceInitialGraph(String conferenceData,
-			String conferenceConfig, String xsltFolder, OfficialNameSpace ns) {
+			String conferenceConfig) {
 		getClassLoader();
-		this.ns = ns;
-
+		
+		this.ns = OfficialNameSpace.getInstance();
+		
 		this.conferenceConfig = conferenceConfig;
 		this.conferenceData = conferenceData;
 		
-		this.xsltFolder = xsltFolder;
+		this.xsltFolder = this.ns.xsltFolder;
 
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		factory.setNamespaceAware(true);

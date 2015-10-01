@@ -38,7 +38,7 @@ public class LD4IE2015 {
 	     * Change values in such a file. 
 	     */
 	    OfficialNameSpace ns = OfficialNameSpace.getInstance();
-        String easychairSnapshot = ns.easychairSnapshot, conferenceConfiguration = ns.conferenceConfiguration;
+	    String easychairSnapshot = ns.easychairSnapshot, conferenceConfiguration = ns.conferenceConfiguration;
 		
 		
 		Options options = new Options();
@@ -73,6 +73,7 @@ public class LD4IE2015 {
 			String xsltFolder = commandLine.getOptionValue('x');
 			
 			if(xsltFolder == null || xsltFolder.isEmpty()) xsltFolder = "xslt";
+			ns.setXsltFolder(xsltFolder);
 
 			if (rdfFolder != null && jsonFolder != null) {
 
@@ -89,7 +90,7 @@ public class LD4IE2015 {
 				 * decrypted mboxes.
 				 */
 				GenerateMainConferenceInitialGraph generateMainConferenceInitialGraph = new GenerateMainConferenceInitialGraph(
-						easychairSnapshot, conferenceConfiguration, xsltFolder, ns);
+						easychairSnapshot, conferenceConfiguration);
 				
 				Model dogFoodData = null;
 				if(dogFoodInput != null){

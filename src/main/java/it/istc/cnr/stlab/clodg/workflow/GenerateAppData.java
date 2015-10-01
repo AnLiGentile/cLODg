@@ -1,6 +1,7 @@
 package it.istc.cnr.stlab.clodg.workflow;
 
 import it.istc.cnr.stlab.clodg.models.AppJsonModels;
+import it.istc.cnr.stlab.clodg.util.OfficialNameSpace;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -42,10 +43,12 @@ public class GenerateAppData {
     public AppJsonModels generateJsonModels(){
         AppJsonModels appJsonModels = null;
      
+        OfficialNameSpace officialNameSpace = OfficialNameSpace.getInstance();
+        String xsltFolder = officialNameSpace.xsltFolder;
         //TODO Andrea, xslt is still hardcoded here
-        JSONObject contacts = generateJsonModel("xslt/json_contacts.xslt");
-        JSONObject organizations = generateJsonModel("xslt/json_organizations.xslt");
-        JSONObject articles = generateJsonModel("xslt/json_articles.xslt");
+        JSONObject contacts = generateJsonModel(xsltFolder + "/json_contacts.xslt");
+        JSONObject organizations = generateJsonModel(xsltFolder + "/json_organizations.xslt");
+        JSONObject articles = generateJsonModel(xsltFolder + "/json_articles.xslt");
         
         /*
         try {

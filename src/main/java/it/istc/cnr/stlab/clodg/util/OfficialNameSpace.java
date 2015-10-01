@@ -34,6 +34,7 @@ public class OfficialNameSpace {
 	public String baseEswc;
 	public String baseConference;
 	public String basePaperEswcNs;
+	public String xsltFolder;
 
 
 	public String mainTrackPaperNs;
@@ -202,5 +203,8 @@ public class OfficialNameSpace {
 	    return officialNameSpace.conferenceName + officialNameSpace.year;
 	}
 
+	public void setXsltFolder(String xsltFolder){
+	    this.xsltFolder = xsltFolder;
+	}
 
 }

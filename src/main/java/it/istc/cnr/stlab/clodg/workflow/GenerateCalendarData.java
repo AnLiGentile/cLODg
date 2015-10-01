@@ -1,5 +1,7 @@
 package it.istc.cnr.stlab.clodg.workflow;
 
+import it.istc.cnr.stlab.clodg.util.OfficialNameSpace;
+
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -52,8 +54,13 @@ public class GenerateCalendarData {
 	private ClassLoader classLoader;
 
 	private Map<String, Resource> locationMap;
+	
+	private String xsltFolder;
 
 	public GenerateCalendarData(Model calendarData) {
+	    
+	    xsltFolder = OfficialNameSpace.getInstance().xsltFolder;
+	    
 		getClassLoader();
 		this.calendarData = calendarData;
 		this.locationMap = new HashMap<String, Resource>();
@@ -154,7 +161,7 @@ public class GenerateCalendarData {
 		JSONObject jsonObject = null;
 
 		InputStream xsltStream = classLoader
-				.getResourceAsStream("xslt/json_events.xslt");
+				.getResourceAsStream(xsltFolder + "/json_events.xslt");
 		TransformerFactory tFactory = TransformerFactory.newInstance();
 
 		Transformer transformer = null;
