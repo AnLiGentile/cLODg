@@ -90,21 +90,8 @@ this.ns = ns;
 	}
 
 	public static void main(String[] args) {
-		String year = "2015";
-		String baseDomain = "http://data.semanticweb.org/";
-		String conference = "conference/eswc/";
-		String mainTrackPaper =  "research/";
-		String inusePaper =  "in-use/";
-		String posterPaper =  "poster/";
-		String demoPaper =  "demo/";
-		String phdPaper =  "phDSymposium/";
-		String challengePaper =  "challenge/";
-	
-	
-		OfficialNameSpace ns = new OfficialNameSpace (year, baseDomain, conference,
-				mainTrackPaper, inusePaper,
-				posterPaper, demoPaper, phdPaper,
-				challengePaper);
+		
+	    OfficialNameSpace ns = OfficialNameSpace.getInstance();
 		
 		Model model = FileManager.get().loadModel("out/eswc_data_final.rdf");
 		try {

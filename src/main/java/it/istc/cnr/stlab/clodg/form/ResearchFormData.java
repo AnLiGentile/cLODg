@@ -10,7 +10,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -187,21 +186,7 @@ public class ResearchFormData implements FormData {
 
 	public static void main(String[] args) {
 		
-		String year = "2015";
-		String baseDomain = "http://data.semanticweb.org/";
-		String conference = "conference/eswc/";
-		String mainTrackPaper =  "research/";
-		String inusePaper =  "in-use/";
-		String posterPaper =  "poster/";
-		String demoPaper =  "demo/";
-		String phdPaper =  "phDSymposium/";
-		String challengePaper =  "challenge/";
-	
-	
-		OfficialNameSpace ns = new OfficialNameSpace (year, baseDomain, conference,
-				mainTrackPaper, inusePaper,
-				posterPaper, demoPaper, phdPaper,
-				challengePaper);
+	    OfficialNameSpace ns = OfficialNameSpace.getInstance();
     	        
 		ResearchFormData researchFormData = new ResearchFormData(ns);
 		

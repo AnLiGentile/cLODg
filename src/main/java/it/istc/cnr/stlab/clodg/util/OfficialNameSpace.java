@@ -1,5 +1,11 @@
 package it.istc.cnr.stlab.clodg.util;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
 public class OfficialNameSpace {
 
 	//	public String year = "2015";
@@ -19,6 +25,10 @@ public class OfficialNameSpace {
 //	public String challengePaperNs = basePaperEswcNs + "challenge/";
 //
 //	public String personNs = baseDomainNs+"person/";
+    
+    private static OfficialNameSpace officialNameSpace;
+    
+    public String conferenceName;
 	public String year;
 	public String baseDomainNs;
 	public String baseEswc;
@@ -37,6 +47,11 @@ public class OfficialNameSpace {
 	public String organizationNs;
 	public String keynoteNs;
 
+	public String easychairSnapshot;
+	public String conferenceConfiguration;
+	public String folderContainingIcsCalendars;
+	public String jsFinalData;
+	public String jsonFinalData;
 
 	
 		
@@ -56,25 +71,11 @@ public class OfficialNameSpace {
     public String TUTORIALS_CALENDAR_NS;
     public String PHD_CALENDAR_NS;
     
-    
-    
-	
-	public OfficialNameSpace(String year, String baseDomainNs, String conference,
-			String mainTrackPaper, String inusePaper,
-			String posterPaper, String demoPaper, String phdPaper,
-			String challengePaper) {
-		super();
-
-		init(year, baseDomainNs, conference, mainTrackPaper, inusePaper,
-				posterPaper, demoPaper, phdPaper, challengePaper);
-
-		
-
-	}
-
-	private void init(String year, String baseDomainNs, String conference,
+    private void init(String year, String baseDomainNs, String conference,
 			String mainTrackPaper, String inusePaper, String posterPaper,
-			String demoPaper, String phdPaper, String challengePaper) {
+			String demoPaper, String phdPaper, String challengePaper,
+			String easychairSnapshot, String conferenceConfiguration, String folderContainingIcsCalendars,
+			String jsFinalData, String jsonFinalData) {
 		if(!baseDomainNs.endsWith("/"))
 			baseDomainNs =baseDomainNs+"/";
 		if(!conference.endsWith("/"))
@@ -123,10 +124,16 @@ public class OfficialNameSpace {
 	    this.TUTORIALS_CALENDAR_NS = this.baseConference+"tutorial/";
 	    this.PHD_CALENDAR_NS = this.baseConference+"PhDSymposium/";
 	    
+	    this.easychairSnapshot = easychairSnapshot;
+	    this.conferenceConfiguration = conferenceConfiguration;
+	    this.folderContainingIcsCalendars = folderContainingIcsCalendars;
+        this.jsFinalData = jsFinalData;
+        this.jsonFinalData = jsonFinalData;
+	    
 	}
 	
-	public OfficialNameSpace() {
-		super();
+	private OfficialNameSpace() {
+	    /*
 		String year = "2015";
 		String baseDomain = "http://data.semanticweb.org/";
 		String conference = "conference/eswc/";
@@ -136,13 +143,64 @@ public class OfficialNameSpace {
 		String demoPaper =  "demo/";
 		String phdPaper =  "phDSymposium/";
 		String challengePaper =  "challenge/";
-
-
-		init(year, baseDomain, conference,
-				mainTrackPaper, inusePaper,
-				posterPaper, demoPaper, phdPaper,
-				challengePaper);
-					}
+	     */
+	    
+	    InputStream is = null;
+        try {
+            is = new FileInputStream("conferenceProps.properties");
+        } catch (FileNotFoundException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+	    
+	    Properties props = new Properties();
+	    try {
+            props.load(is);
+        } catch (IOException e) {
+            System.err.println("An error occurred while loading the properties from conferenceProps.properties.");
+        }
+	    
+	    if(!props.isEmpty()){
+    	    String year = props.getProperty("year");
+    	    this.conferenceName = props.getProperty("conferenceName");
+    	    String baseDomain = props.getProperty("baseDomain");
+    	    String conference = props.getProperty("conference");
+    	    String mainTrackPaper = props.getProperty("mainTrackPaper");
+    	    String inusePaper = props.getProperty("inusePaper");
+    	    String posterPaper = props.getProperty("posterPaper");
+    	    String demoPaper = props.getProperty("demoPaper");
+    	    String phdPaper = props.getProperty("phdPaper");
+    	    String challengePaper = props.getProperty("challengePaper");
+    	    
+    	    String easychairSnapshot = props.getProperty("easychairSnapshot");
+    	    String conferenceConfiguration = props.getProperty("conferenceConfiguration");
+    	    String folderContainingIcsCalendars = props.getProperty("folderContainingIcsCalendars");
+    	    String jsFinalData = props.getProperty("jsFinalData");
+    	    String jsonFinalData = props.getProperty("jsonFinalData");
+    
+    		init(year, baseDomain, conference,
+    				mainTrackPaper, inusePaper,
+    				posterPaper, demoPaper, phdPaper,
+    				challengePaper, easychairSnapshot, conferenceConfiguration, folderContainingIcsCalendars,
+    				jsFinalData, jsonFinalData);
+	    }
+	}
+	
+	
+	
+	
+	
+	
+	public static OfficialNameSpace getInstance(){
+	    if(officialNameSpace == null){
+	        officialNameSpace = new OfficialNameSpace();
+	    }
+	    return officialNameSpace;
+	}
+	
+	public static String conferenceLabel(){
+	    return officialNameSpace.conferenceName + officialNameSpace.year;
+	}
 
 
 }

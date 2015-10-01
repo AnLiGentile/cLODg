@@ -30,7 +30,7 @@ import com.hp.hpl.jena.util.FileManager;
 public class Main {
 
 	public static void main(String[] args) {
-
+	    /*
 //		String easychairSnapshot = "data/ESWC2015_snapshot_2015-04-08.xml";
 	    String easychairSnapshot = "data/data_example2008.xml";
 		String conferenceConfiguration = "data/eswc2015-config.xml";
@@ -48,16 +48,17 @@ public class Main {
 		String demoPaper =  "demo/";
 		String phdPaper =  "phDSymposium/";
 		String challengePaper =  "challenge/";
+		*/
 	
-	
-		OfficialNameSpace ns = new OfficialNameSpace (year, baseDomain, conference,
-				mainTrackPaper, inusePaper,
-				posterPaper, demoPaper, phdPaper,
-				challengePaper);
+	    /*
+         * Read the configuration from conferenceProps.properties.
+         * Change values in such a file. 
+         */
+	    OfficialNameSpace ns = OfficialNameSpace.getInstance();
+	    
+	    String easychairSnapshot = ns.easychairSnapshot, conferenceConfiguration = ns.conferenceConfiguration;
 				
-				
-		
-		Options options = new Options();
+	    Options options = new Options();
 		options.addOption(
 				"r",
 				true,
@@ -87,6 +88,8 @@ public class Main {
 			String jsonFolder = commandLine.getOptionValue('j');
 			String dogFoodInput = commandLine.getOptionValue('i');
 			String xsltFolder = commandLine.getOptionValue('x');
+			
+			if(xsltFolder == null || xsltFolder.isEmpty()) xsltFolder = "xslt";
 
 			if (rdfFolder != null && jsonFolder != null) {
 
@@ -121,7 +124,7 @@ public class Main {
 				/*
 				 * Execute PythonConverters.
 				 */
-				PythonConverters.doStuff(folderContainingIcsCalendars, ns);
+				PythonConverters.doStuff(ns.folderContainingIcsCalendars, ns);
 
 				/*
 				 * Execute CalendarAlignerWithSessions.
@@ -234,9 +237,9 @@ public class Main {
 
 				try {
 					appJsonModels.write(new FileOutputStream(jsonFolder
-							+ File.separator + jsFinalData));
+							+ File.separator + ns.jsFinalData));
 					appJsonModels.writePureJson(new FileOutputStream(jsonFolder
-							+ File.separator + jsonFinalData));
+							+ File.separator + ns.jsonFinalData));
 
 				} catch (FileNotFoundException e) {
 					// TODO Auto-generated catch block
