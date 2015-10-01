@@ -1,0 +1,684 @@
+<rdf:RDF
+    xmlns:cnr="http://data.cnr.it/functions/"
+    xmlns:dcterms="http://purl.org/dc/terms/creator"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:eswc-owl="http://www.ontologydesignpatterns.org/ont/eswc/ontology.owl#"
+    xmlns:fn="http://www.w3.org/2005/xpath-functions"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:bibo="http://purl.org/ontology/bibo/"
+    xmlns:swc="http://data.semanticweb.org/ns/swc/ontology#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:frbr="http://purl.org/vocab/frbr/core#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:j.0="http://purl.org/spar/fabio/"
+    xmlns:dbpedia="http://dbpedia.org/ontology/"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:icaltzd="http://www.w3.org/2002/12/cal/icaltzd#"
+    xmlns:swrc="http://swrc.ontoware.org/ontology#" > 
+  <rdf:Description rdf:about="http://data.semanticweb.org/person/anna-lisa-gentile">
+    <swrc:affiliation rdf:resource="http://data.semanticweb.org/organization/university-of-sheffield-uk"/>
+    <foaf:lastName>Gentile</foaf:lastName>
+    <foaf:firstName>Anna Lisa</foaf:firstName>
+    <foaf:name>Anna Lisa Gentile</foaf:name>
+    <rdfs:label>Anna Lisa Gentile</rdfs:label>
+    <swc:holdsRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/semantic-technologies-coordinator"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/eswc/2015/poster-and-demo-chair">
+    <swc:heldBy rdf:resource="http://data.semanticweb.org/person/serena-villata"/>
+    <swc:heldBy rdf:resource="http://data.semanticweb.org/person/christophe-gueret"/>
+    <swc:isRoleAt rdf:resource="http://data.semanticweb.org/conference/eswc/2015/"/>
+    <rdfs:label>Poster and Demo Chair</rdfs:label>
+    <rdf:type rdf:resource="http://data.semanticweb.org/ns/swc/ontology#Chair"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/eswc/2015/publicity-chair">
+    <swc:heldBy rdf:resource="http://data.semanticweb.org/person/mauro-dragoni"/>
+    <swc:isRoleAt rdf:resource="http://data.semanticweb.org/conference/eswc/2015/"/>
+    <rdfs:label>Publicity Chair</rdfs:label>
+    <rdf:type rdf:resource="http://data.semanticweb.org/ns/swc/ontology#Chair"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/keynote/3">
+    <foaf:maker rdf:resource="http://data.semanticweb.org/person/massimo-poesio"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/person/fabien-gandon">
+    <swrc:affiliation rdf:resource="http://data.semanticweb.org/organization/inria-sophia-antipolis-france"/>
+    <foaf:lastName>Gandon</foaf:lastName>
+    <foaf:firstName>Fabien</foaf:firstName>
+    <foaf:name>Fabien Gandon</foaf:name>
+    <rdfs:label>Fabien Gandon</rdfs:label>
+    <swc:holdsRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/general-chair"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/eswc/2015/web-presence">
+    <swc:heldBy rdf:resource="http://data.semanticweb.org/person/serge-tymaniuk"/>
+    <swc:isRoleAt rdf:resource="http://data.semanticweb.org/conference/eswc/2015/"/>
+    <rdfs:label>Web Presence</rdfs:label>
+    <rdf:type rdf:resource="http://data.semanticweb.org/ns/swc/ontology#Chair"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/eswc/2015/phd-symposium-chair">
+    <swc:heldBy rdf:resource="http://data.semanticweb.org/person/philippe-cudre-mauroux"/>
+    <swc:heldBy rdf:resource="http://data.semanticweb.org/person/claudia-damato"/>
+    <swc:isRoleAt rdf:resource="http://data.semanticweb.org/conference/eswc/2015/"/>
+    <rdfs:label>PhD Symposium Chair</rdfs:label>
+    <rdf:type rdf:resource="http://data.semanticweb.org/ns/swc/ontology#Chair"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/organization/hasso-plattner-institut-universitat-potsdam-germany">
+    <foaf:member rdf:resource="http://data.semanticweb.org/person/harald-sack"/>
+    <foaf:name>Hasso-Plattner-Institut, Universität Potsdam, Germany</foaf:name>
+    <rdfs:label>Hasso-Plattner-Institut, Universität Potsdam, Germany</rdfs:label>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/eswc/2015/event/ef93f99d-1f79-381d-9c96-97cf888966b9_20">
+    <swc:isSubEventOf rdf:resource="http://data.semanticweb.org/conference/eswc/2015"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/organization/sti-international-austria">
+    <foaf:member rdf:resource="http://data.semanticweb.org/person/ioan-toma"/>
+    <foaf:member rdf:resource="http://data.semanticweb.org/person/serge-tymaniuk"/>
+    <foaf:name>STI International, Austria</foaf:name>
+    <rdfs:label>STI International, Austria</rdfs:label>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/person/luca-costabello">
+    <swrc:affiliation rdf:resource="http://data.semanticweb.org/organization/fujitsu-galway-ireland"/>
+    <foaf:lastName>Costabello</foaf:lastName>
+    <foaf:firstName>Luca</foaf:firstName>
+    <foaf:name>Luca Costabello</foaf:name>
+    <rdfs:label>Luca Costabello</rdfs:label>
+    <swc:holdsRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/semantic-technologies-coordinator"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/ld4ie/2015">
+    <swc:isSuperEventOf rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/keynote/3"/>
+    <swc:isSuperEventOf rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/keynote/2"/>
+    <swc:isSuperEventOf rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/keynote/1"/>
+    <swc:hasAcronym>ESWC2015</swc:hasAcronym>
+    <swc:completeGraph rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/complete"/>
+    <rdf:type rdf:resource="http://data.semanticweb.org/ns/swc/ontology#ConferenceEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/person/catherine-faron">
+    <swrc:affiliation rdf:resource="http://data.semanticweb.org/organization/university-of-nice-sophia-antipolis-france"/>
+    <foaf:lastName>Faron</foaf:lastName>
+    <foaf:firstName>Catherine</foaf:firstName>
+    <foaf:name>Catherine Faron</foaf:name>
+    <rdfs:label>Catherine Faron</rdfs:label>
+    <swc:holdsRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/workshops-chair"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/organization/sepage-paris-france">
+    <foaf:member rdf:resource="http://data.semanticweb.org/person/milan-stankovic"/>
+    <foaf:name>SEPAGE, Paris, France</foaf:name>
+    <rdfs:label>SEPAGE, Paris, France</rdfs:label>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/person/antoine-zimmermann">
+    <swrc:affiliation rdf:resource="http://data.semanticweb.org/organization/ecole-nationale-superieure-des-mines-de-saint-etienne-france"/>
+    <foaf:lastName>Zimmermann</foaf:lastName>
+    <foaf:firstName>Antoine</foaf:firstName>
+    <foaf:name>Antoine Zimmermann</foaf:name>
+    <rdfs:label>Antoine Zimmermann</rdfs:label>
+    <swc:holdsRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/proceedings-chair"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/person/jun-zhao">
+    <swrc:affiliation rdf:resource="http://data.semanticweb.org/organization/lancaster-university-uk"/>
+    <foaf:lastName>Zhao</foaf:lastName>
+    <foaf:firstName>Jun</foaf:firstName>
+    <foaf:name>Jun Zhao</foaf:name>
+    <rdfs:label>Jun Zhao</rdfs:label>
+    <swc:holdsRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/project-networking-session-chair"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/organization/jozef-stefan-institute-ljubljana-slovenia">
+    <foaf:member rdf:resource="http://data.semanticweb.org/person/monika-kropej"/>
+    <foaf:member rdf:resource="http://data.semanticweb.org/person/spela-sitar"/>
+    <foaf:member rdf:resource="http://data.semanticweb.org/person/marko-grobelnik"/>
+    <foaf:name>Jožef Stefan Institute Ljubljana, Slovenia</foaf:name>
+    <rdfs:label>Jožef Stefan Institute Ljubljana, Slovenia</rdfs:label>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/person/harald-sack">
+    <swrc:affiliation rdf:resource="http://data.semanticweb.org/organization/hasso-plattner-institut-universitat-potsdam-germany"/>
+    <foaf:lastName>Sack</foaf:lastName>
+    <foaf:firstName>Harald</foaf:firstName>
+    <foaf:name>Harald Sack</foaf:name>
+    <rdfs:label>Harald Sack</rdfs:label>
+    <swc:holdsRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/program-chair"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/eswc/2015/treasurer">
+    <swc:heldBy rdf:resource="http://data.semanticweb.org/person/ioan-toma"/>
+    <swc:isRoleAt rdf:resource="http://data.semanticweb.org/conference/eswc/2015/"/>
+    <rdfs:label>Treasurer</rdfs:label>
+    <rdf:type rdf:resource="http://data.semanticweb.org/ns/swc/ontology#Chair"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/organization/fujitsu-galway-ireland">
+    <foaf:member rdf:resource="http://data.semanticweb.org/person/luca-costabello"/>
+    <foaf:name>Fujitsu, Galway, Ireland</foaf:name>
+    <rdfs:label>Fujitsu, Galway, Ireland</rdfs:label>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/person/andrea-giovanni-nuzzolese">
+    <swrc:affiliation rdf:resource="http://data.semanticweb.org/organization/stlab-istc-cnr-italy"/>
+    <foaf:mbox_sha1sum>87707a356b60f036a079c5268236791fbab9f85e</foaf:mbox_sha1sum>
+    <foaf:mbox rdf:resource="mailto:andrea.nuzzolese@istc.cnr.it"/>
+    <foaf:lastName>Nuzzolese</foaf:lastName>
+    <foaf:firstName>Andrea Giovanni</foaf:firstName>
+    <foaf:name>Andrea Giovanni Nuzzolese</foaf:name>
+    <rdfs:label>Andrea Giovanni Nuzzolese</rdfs:label>
+    <swc:holdsRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/semantic-technologies-coordinator"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/eswc/2015/tutorials-chair">
+    <swc:heldBy rdf:resource="http://data.semanticweb.org/person/antoine-isaac"/>
+    <swc:isRoleAt rdf:resource="http://data.semanticweb.org/conference/eswc/2015/"/>
+    <rdfs:label>Tutorials Chair</rdfs:label>
+    <rdf:type rdf:resource="http://data.semanticweb.org/ns/swc/ontology#Chair"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/organization/multimedia-lab-%E2%80%93-iminds-%E2%80%93-ghent-university-belgium">
+    <foaf:member rdf:resource="http://data.semanticweb.org/person/erik-mannens"/>
+    <foaf:name>Multimedia Lab – iMinds – Ghent University, Belgium</foaf:name>
+    <rdfs:label>Multimedia Lab – iMinds – Ghent University, Belgium</rdfs:label>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/eswc/2015/sponsorship-chair">
+    <swc:heldBy rdf:resource="http://data.semanticweb.org/person/blaz-fortuna"/>
+    <swc:isRoleAt rdf:resource="http://data.semanticweb.org/conference/eswc/2015/"/>
+    <rdfs:label>Sponsorship Chair</rdfs:label>
+    <rdf:type rdf:resource="http://data.semanticweb.org/ns/swc/ontology#Chair"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/eswc/2015/project-networking-session-chair">
+    <swc:heldBy rdf:resource="http://data.semanticweb.org/person/sergio-consoli"/>
+    <swc:heldBy rdf:resource="http://data.semanticweb.org/person/erik-mannens"/>
+    <swc:heldBy rdf:resource="http://data.semanticweb.org/person/jun-zhao"/>
+    <swc:heldBy rdf:resource="http://data.semanticweb.org/person/frederique-segond"/>
+    <swc:isRoleAt rdf:resource="http://data.semanticweb.org/conference/eswc/2015/"/>
+    <rdfs:label>Project Networking Session Chair</rdfs:label>
+    <rdf:type rdf:resource="http://data.semanticweb.org/ns/swc/ontology#Chair"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/eswc/2015/event/5dad5df3-9e01-352d-9fc6-6ae32efd8616_19">
+    <swc:isSubEventOf rdf:resource="http://data.semanticweb.org/conference/eswc/2015"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/person/spela-sitar">
+    <swrc:affiliation rdf:resource="http://data.semanticweb.org/organization/jozef-stefan-institute-ljubljana-slovenia"/>
+    <foaf:lastName>Sitar</foaf:lastName>
+    <foaf:firstName>Špela</foaf:firstName>
+    <foaf:name>Špela Sitar</foaf:name>
+    <rdfs:label>Špela Sitar</rdfs:label>
+    <swc:holdsRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/local-organization-and-conference-administration"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/organization/lancaster-university-uk">
+    <foaf:member rdf:resource="http://data.semanticweb.org/person/jun-zhao"/>
+    <foaf:name>Lancaster University, UK</foaf:name>
+    <rdfs:label>Lancaster University, UK</rdfs:label>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/eswc/2015/workshops-chair">
+    <swc:heldBy rdf:resource="http://data.semanticweb.org/person/catherine-faron"/>
+    <swc:heldBy rdf:resource="http://data.semanticweb.org/person/john-breslin"/>
+    <swc:isRoleAt rdf:resource="http://data.semanticweb.org/conference/eswc/2015/"/>
+    <rdfs:label>Workshops Chair</rdfs:label>
+    <rdf:type rdf:resource="http://data.semanticweb.org/ns/swc/ontology#Chair"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/eswc/2015/general-chair">
+    <swc:heldBy rdf:resource="http://data.semanticweb.org/person/fabien-gandon"/>
+    <swc:isRoleAt rdf:resource="http://data.semanticweb.org/conference/eswc/2015/"/>
+    <rdfs:label>General Chair</rdfs:label>
+    <rdf:type rdf:resource="http://data.semanticweb.org/ns/swc/ontology#Chair"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/organization/university-of-nice-sophia-antipolis-france">
+    <foaf:member rdf:resource="http://data.semanticweb.org/person/catherine-faron"/>
+    <foaf:name>University of Nice Sophia Antipolis, France</foaf:name>
+    <rdfs:label>University of Nice Sophia Antipolis, France</rdfs:label>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/person/marta-sabou">
+    <swrc:affiliation rdf:resource="http://data.semanticweb.org/organization/vienna-university-of-technology-austria"/>
+    <foaf:lastName>Sabou</foaf:lastName>
+    <foaf:firstName>Marta</foaf:firstName>
+    <foaf:name>Marta Sabou</foaf:name>
+    <rdfs:label>Marta Sabou</rdfs:label>
+    <swc:holdsRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/program-chair"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/person/john-breslin">
+    <swrc:affiliation rdf:resource="http://data.semanticweb.org/organization/insight-galway-ireland"/>
+    <foaf:lastName>Breslin</foaf:lastName>
+    <foaf:firstName>John</foaf:firstName>
+    <foaf:name>John Breslin</foaf:name>
+    <rdfs:label>John Breslin</rdfs:label>
+    <swc:holdsRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/workshops-chair"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/person/milan-stankovic">
+    <swrc:affiliation rdf:resource="http://data.semanticweb.org/organization/sepage-paris-france"/>
+    <foaf:lastName>Stankovic</foaf:lastName>
+    <foaf:firstName>Milan</foaf:firstName>
+    <foaf:name>Milan Stankovic</foaf:name>
+    <rdfs:label>Milan Stankovic</rdfs:label>
+    <swc:holdsRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/challenges-chair"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/ld4ie/2015/keynote/1">
+    <icaltzd:location rdf:resource="http://data.semanticweb.org/conference/eswc/2015/location/EMERALD_2"/>
+    <icaltzd:location rdf:resource="http://data.semanticweb.org/conference/eswc/2015/location/EMERALD_1"/>
+    <icaltzd:dtend rdf:datatype="http://www.w3.org/2002/12/cal/tzd/Europe/Ljubljana#tz">2015-06-03T10:30:00</icaltzd:dtend>
+    <icaltzd:dtstart rdf:datatype="http://www.w3.org/2002/12/cal/tzd/Europe/Ljubljana#tz">2015-06-03T09:30:00</icaltzd:dtstart>
+    <icaltzd:description>Addressing inherent uncertainty and exploiting structure are fundamental to turning data into knowledge. Statistical relational learning (SRL) builds on principles from probability theory and statistics to address uncertainty while incorporating tools from logic to represent structure. In this talk I will overview our recent work on probabilistic soft logic (PSL), an SRL framework for collective, probabilistic reasoning in relational domains. PSL is able to reason holistically about both entity attributes and relationships among the entities, along with ontological constraints. The underlying mathematical framework supports extremely efficient inference. Our recent results show that by building on state-of-the-art optimization methods in a distributed implementation, we can solve large-scale knowledge graph extraction problems with millions of random variables orders of magnitude faster than existing approaches.</icaltzd:description>
+    <rdfs:label>Invited Talk: Lise Getoor - Combining Statistics and Semantics to Turn Data into Knowledge</rdfs:label>
+    <icaltzd:summary>Invited Talk: Lise Getoor - Combining Statistics and Semantics to Turn Data into Knowledge</icaltzd:summary>
+    <swc:isSubEventOf rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015"/>
+    <rdf:type rdf:resource="http://data.semanticweb.org/ns/swc/ontology#TalkEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/organization/viseo-grenoble-france">
+    <foaf:member rdf:resource="http://data.semanticweb.org/person/frederique-segond"/>
+    <foaf:name>Viseo, Grenoble, France</foaf:name>
+    <rdfs:label>Viseo, Grenoble, France</rdfs:label>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/person/frederique-segond">
+    <swrc:affiliation rdf:resource="http://data.semanticweb.org/organization/viseo-grenoble-france"/>
+    <foaf:lastName>Segond</foaf:lastName>
+    <foaf:firstName>Frédérique</foaf:firstName>
+    <foaf:name>Frédérique Segond</foaf:name>
+    <rdfs:label>Frédérique Segond</rdfs:label>
+    <swc:holdsRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/project-networking-session-chair"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/person/antoine-isaac">
+    <swrc:affiliation rdf:resource="http://data.semanticweb.org/organization/vrije-universiteit-amsterdam-netherlands"/>
+    <foaf:lastName>Isaac</foaf:lastName>
+    <foaf:firstName>Antoine</foaf:firstName>
+    <foaf:name>Antoine Isaac</foaf:name>
+    <rdfs:label>Antoine Isaac</rdfs:label>
+    <swc:holdsRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/tutorials-chair"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/person/philippe-cudre-mauroux">
+    <swrc:affiliation rdf:resource="http://data.semanticweb.org/organization/university-of-fribourg-switzerland"/>
+    <foaf:lastName>Cudré-Mauroux</foaf:lastName>
+    <foaf:firstName>Philippe</foaf:firstName>
+    <foaf:name>Philippe Cudré-Mauroux</foaf:name>
+    <rdfs:label>Philippe Cudré-Mauroux</rdfs:label>
+    <swc:holdsRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/phd-symposium-chair"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/organization/vrije-universiteit-amsterdam-netherlands">
+    <foaf:member rdf:resource="http://data.semanticweb.org/person/antoine-isaac"/>
+    <foaf:name>Vrije Universiteit Amsterdam, Netherlands</foaf:name>
+    <rdfs:label>Vrije Universiteit Amsterdam, Netherlands</rdfs:label>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/person/serge-tymaniuk">
+    <swrc:affiliation rdf:resource="http://data.semanticweb.org/organization/sti-international-austria"/>
+    <foaf:lastName>Tymaniuk</foaf:lastName>
+    <foaf:firstName>Serge</foaf:firstName>
+    <foaf:name>Serge Tymaniuk</foaf:name>
+    <rdfs:label>Serge Tymaniuk</rdfs:label>
+    <swc:holdsRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/web-presence"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/person/ioan-toma">
+    <swrc:affiliation rdf:resource="http://data.semanticweb.org/organization/sti-international-austria"/>
+    <foaf:lastName>Toma</foaf:lastName>
+    <foaf:firstName>Ioan</foaf:firstName>
+    <foaf:name>Ioan Toma</foaf:name>
+    <rdfs:label>Ioan Toma</rdfs:label>
+    <swc:holdsRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/treasurer"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/person/elena-cabrio">
+    <swrc:affiliation rdf:resource="http://data.semanticweb.org/organization/inria-sophia-antipolis-france"/>
+    <foaf:lastName>Cabrio</foaf:lastName>
+    <foaf:firstName>Elena</foaf:firstName>
+    <foaf:name>Elena Cabrio</foaf:name>
+    <rdfs:label>Elena Cabrio</rdfs:label>
+    <swc:holdsRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/challenges-chair"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/eswc/2015/paper/in-use/http://data.semanticweb.org/conference/ld4ie/2015/paper/research/2/authorList">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/person/serena-villata">
+    <swrc:affiliation rdf:resource="http://data.semanticweb.org/organization/inria-sophia-antipolis-france"/>
+    <foaf:lastName>Villata</foaf:lastName>
+    <foaf:firstName>Serena</foaf:firstName>
+    <foaf:name>Serena Villata</foaf:name>
+    <rdfs:label>Serena Villata</rdfs:label>
+    <swc:holdsRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/poster-and-demo-chair"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/eswc/2015/challenges-chair">
+    <swc:heldBy rdf:resource="http://data.semanticweb.org/person/milan-stankovic"/>
+    <swc:heldBy rdf:resource="http://data.semanticweb.org/person/elena-cabrio"/>
+    <swc:isRoleAt rdf:resource="http://data.semanticweb.org/conference/eswc/2015/"/>
+    <rdfs:label>Challenges Chair</rdfs:label>
+    <rdf:type rdf:resource="http://data.semanticweb.org/ns/swc/ontology#Chair"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/organization/inria-sophia-antipolis-france">
+    <foaf:member rdf:resource="http://data.semanticweb.org/person/fuqi-song"/>
+    <foaf:member rdf:resource="http://data.semanticweb.org/person/elena-cabrio"/>
+    <foaf:member rdf:resource="http://data.semanticweb.org/person/serena-villata"/>
+    <foaf:member rdf:resource="http://data.semanticweb.org/person/fabien-gandon"/>
+    <foaf:name>Inria, Sophia Antipolis, France</foaf:name>
+    <rdfs:label>Inria, Sophia Antipolis, France</rdfs:label>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/eswc/2015">
+    <swc:isSuperEventOf rdf:resource="http://data.semanticweb.org/conference/eswc/2015/event/d67c8943-6513-3043-856c-0b6aab9823a8_10"/>
+    <swc:isSuperEventOf rdf:resource="http://data.semanticweb.org/conference/eswc/2015/event/ef93f99d-1f79-381d-9c96-97cf888966b9_20"/>
+    <swc:isSuperEventOf rdf:resource="http://data.semanticweb.org/conference/eswc/2015/event/5dad5df3-9e01-352d-9fc6-6ae32efd8616_19"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/person/christophe-gueret">
+    <swrc:affiliation rdf:resource="http://data.semanticweb.org/organization/data-archiving-and-networked-services-netherlands"/>
+    <foaf:lastName>Guéret</foaf:lastName>
+    <foaf:firstName>Christophe</foaf:firstName>
+    <foaf:name>Christophe Guéret</foaf:name>
+    <rdfs:label>Christophe Guéret</rdfs:label>
+    <swc:holdsRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/poster-and-demo-chair"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/keynote/1">
+    <foaf:maker rdf:resource="http://data.semanticweb.org/person/lise-getoor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/eswc/2015/keynote-speaker">
+    <swc:heldBy rdf:resource="http://data.semanticweb.org/person/massimo-poesio"/>
+    <swc:heldBy rdf:resource="http://data.semanticweb.org/person/viktor-mayer-schonberger"/>
+    <swc:heldBy rdf:resource="http://data.semanticweb.org/person/lise-getoor"/>
+    <swc:isRoleAt rdf:resource="http://data.semanticweb.org/conference/eswc/2015/"/>
+    <rdfs:label>Keynote speaker</rdfs:label>
+    <rdf:type rdf:resource="http://data.semanticweb.org/ns/swc/ontology#Presenter"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/person/viktor-mayer-schonberger">
+    <swc:holdsRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/keynote-speaker"/>
+    <foaf:mbox_sha1sum>16ce8b63e162cdc38b069edbf0e2df54cc1c48dd</foaf:mbox_sha1sum>
+    <foaf:mbox rdf:resource="mailto:viktor.ms@oii.ox.ac.uk"/>
+    <foaf:lastName>Mayer-Schönberger</foaf:lastName>
+    <foaf:firstName>Viktor</foaf:firstName>
+    <rdfs:label>Viktor Mayer-Schönberger</rdfs:label>
+    <foaf:name>Viktor Mayer-Schönberger</foaf:name>
+    <foaf:made rdf:resource="http://data.semanticweb.org/keynote/2"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/eswc/2015/">
+    <swc:hasRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/program-chair"/>
+    <swc:hasRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/web-presence"/>
+    <swc:hasRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/general-chair"/>
+    <swc:hasRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/tutorials-chair"/>
+    <swc:hasRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/poster-and-demo-chair"/>
+    <swc:hasRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/sponsorship-chair"/>
+    <swc:hasRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/local-chair"/>
+    <swc:hasRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/challenges-chair"/>
+    <swc:hasRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/project-networking-session-chair"/>
+    <swc:hasRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/phd-symposium-chair"/>
+    <swc:hasRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/local-organization-and-conference-administration"/>
+    <swc:hasRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/treasurer"/>
+    <swc:hasRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/workshops-chair"/>
+    <swc:hasRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/proceedings-chair"/>
+    <swc:hasRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/publicity-chair"/>
+    <swc:hasRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/semantic-technologies-coordinator"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/organization/fondazione-bruno-kessler-italy">
+    <foaf:member rdf:resource="http://data.semanticweb.org/person/mauro-dragoni"/>
+    <foaf:name>Fondazione Bruno Kessler, Italy</foaf:name>
+    <rdfs:label>Fondazione Bruno Kessler, Italy</rdfs:label>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/organization/insight-galway-ireland">
+    <foaf:member rdf:resource="http://data.semanticweb.org/person/john-breslin"/>
+    <foaf:name>Insight, Galway, Ireland</foaf:name>
+    <rdfs:label>Insight, Galway, Ireland</rdfs:label>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/ld4ie/2015/keynote/2">
+    <icaltzd:location rdf:resource="http://data.semanticweb.org/conference/eswc/2015/location/EMERALD_2"/>
+    <icaltzd:location rdf:resource="http://data.semanticweb.org/conference/eswc/2015/location/EMERALD_1"/>
+    <icaltzd:dtend rdf:datatype="http://www.w3.org/2002/12/cal/tzd/Europe/Ljubljana#tz">2015-06-02T10:30:00</icaltzd:dtend>
+    <icaltzd:dtstart rdf:datatype="http://www.w3.org/2002/12/cal/tzd/Europe/Ljubljana#tz">2015-06-02T09:30:00</icaltzd:dtstart>
+    <icaltzd:description>Much has been made of "big data", our ability to gain novel insights from a comprehensive set of data points, but a lot of it is hype, and marketing-speak to sell more tools and consulting. In this talk, I will explain what Big Data really is, why it isn?t just a marketing fad or the tool du jour, but a new way of making sense of the world around us, and consequently why Big Data matters a great deal, in particular also in the context of semantic technologies. But I will also mention why we need to be cautious and well aware of Big Data limitations when utilizing it.</icaltzd:description>
+    <rdfs:label>Invited Talk: Viktor Mayer-Sch?nberger - Why Big Data Matters - a lot</rdfs:label>
+    <icaltzd:summary>Invited Talk: Viktor Mayer-Sch?nberger - Why Big Data Matters - a lot</icaltzd:summary>
+    <swc:isSubEventOf rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015"/>
+    <rdf:type rdf:resource="http://data.semanticweb.org/ns/swc/ontology#TalkEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/eswc/2015/semantic-technologies-coordinator">
+    <swc:heldBy rdf:resource="http://data.semanticweb.org/person/anna-lisa-gentile"/>
+    <swc:heldBy rdf:resource="http://data.semanticweb.org/person/fuqi-song"/>
+    <swc:heldBy rdf:resource="http://data.semanticweb.org/person/lionel-medini"/>
+    <swc:heldBy rdf:resource="http://data.semanticweb.org/person/luca-costabello"/>
+    <swc:heldBy rdf:resource="http://data.semanticweb.org/person/andrea-giovanni-nuzzolese"/>
+    <swc:isRoleAt rdf:resource="http://data.semanticweb.org/conference/eswc/2015/"/>
+    <rdfs:label>Semantic Technologies Coordinator</rdfs:label>
+    <rdf:type rdf:resource="http://data.semanticweb.org/ns/swc/ontology#Chair"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/person/massimo-poesio">
+    <swc:holdsRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/keynote-speaker"/>
+    <foaf:mbox_sha1sum>ebf8dd4e65e9acc9b3dd8c5c4a1b3b02d282ca27</foaf:mbox_sha1sum>
+    <foaf:mbox rdf:resource="mailto:massimo.poesio@essex.ac.uk"/>
+    <foaf:lastName>Poesio</foaf:lastName>
+    <foaf:firstName>Massimo</foaf:firstName>
+    <rdfs:label>Massimo Poesio</rdfs:label>
+    <foaf:name>Massimo Poesio</foaf:name>
+    <foaf:made rdf:resource="http://data.semanticweb.org/keynote/3"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/person/erik-mannens">
+    <swrc:affiliation rdf:resource="http://data.semanticweb.org/organization/multimedia-lab-%E2%80%93-iminds-%E2%80%93-ghent-university-belgium"/>
+    <foaf:lastName>Mannens</foaf:lastName>
+    <foaf:firstName>Erik</foaf:firstName>
+    <foaf:name>Erik Mannens</foaf:name>
+    <rdfs:label>Erik Mannens</rdfs:label>
+    <swc:holdsRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/project-networking-session-chair"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/eswc/2015/local-chair">
+    <swc:heldBy rdf:resource="http://data.semanticweb.org/person/marko-grobelnik"/>
+    <swc:isRoleAt rdf:resource="http://data.semanticweb.org/conference/eswc/2015/"/>
+    <rdfs:label>Local Chair</rdfs:label>
+    <rdf:type rdf:resource="http://data.semanticweb.org/ns/swc/ontology#Chair"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/person/monika-kropej">
+    <swrc:affiliation rdf:resource="http://data.semanticweb.org/organization/jozef-stefan-institute-ljubljana-slovenia"/>
+    <foaf:lastName>Kropej</foaf:lastName>
+    <foaf:firstName>Monika</foaf:firstName>
+    <foaf:name>Monika Kropej</foaf:name>
+    <rdfs:label>Monika Kropej</rdfs:label>
+    <swc:holdsRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/local-organization-and-conference-administration"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/eswc/2015/program-chair">
+    <swc:heldBy rdf:resource="http://data.semanticweb.org/person/harald-sack"/>
+    <swc:heldBy rdf:resource="http://data.semanticweb.org/person/marta-sabou"/>
+    <swc:isRoleAt rdf:resource="http://data.semanticweb.org/conference/eswc/2015/"/>
+    <rdfs:label>Program Chair</rdfs:label>
+    <rdf:type rdf:resource="http://data.semanticweb.org/ns/swc/ontology#Chair"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/person/sergio-consoli">
+    <swrc:affiliation rdf:resource="http://data.semanticweb.org/organization/stlab-istc-cnr-italy"/>
+    <foaf:mbox_sha1sum>d8cb9e03a97d34028d95c3bf919dc37973a8d9e7</foaf:mbox_sha1sum>
+    <foaf:mbox rdf:resource="mailto:sergio.consoli@istc.cnr.it"/>
+    <foaf:lastName>Consoli</foaf:lastName>
+    <foaf:firstName>Sergio</foaf:firstName>
+    <foaf:name>Sergio Consoli</foaf:name>
+    <rdfs:label>Sergio Consoli</rdfs:label>
+    <swc:holdsRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/project-networking-session-chair"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/ld4ie/2015/paper/research/2">
+    <swrc:year>2015</swrc:year>
+    <swc:isPartOf rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/proceedings"/>
+    <swrc:abstract>Goto asikari kata, e naru. Goto te ohom otosime, hasitanaki mono, omohi tanomi. Asikari agari ha, te sobame adikinau ara katazikenaki no ni sobame kokoro do, goto agari yo nam, gerahu oya wo ha. Ohom naho amenosita beku hodo beki gata iyo idure. Tamaha yau me mo kata ara ni Dr. Melfi beki nyougo wo te? Naru no, ni keru no kere, titi yauki uti koso, do otora. Koto titi ba mo boso nari ni ari zu gata mezamasiki.
+			</swrc:abstract>
+    <bibo:authorList rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/paper/research/2/authorList"/>
+    <dc:subject>NLP</dc:subject>
+    <dc:subject>knowledge extraction</dc:subject>
+    <dc:subject>Japanese</dc:subject>
+    <swrc:month>May</swrc:month>
+    <rdfs:label>Nari naru omohi aka yori wo mono hito omohi wo do uhe?</rdfs:label>
+    <rdf:type rdf:resource="http://swrc.ontoware.org/ontology#InProceedings"/>
+    <dc:title>Nari naru omohi aka yori wo mono hito omohi wo do uhe?</dc:title>
+    <swrc:id>2</swrc:id>
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/ResearchPaper"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/organization/vienna-university-of-technology-austria">
+    <foaf:member rdf:resource="http://data.semanticweb.org/person/marta-sabou"/>
+    <foaf:name>Vienna University of Technology, Austria</foaf:name>
+    <rdfs:label>Vienna University of Technology, Austria</rdfs:label>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/eswc/2015/proceedings-chair">
+    <swc:heldBy rdf:resource="http://data.semanticweb.org/person/antoine-zimmermann"/>
+    <swc:isRoleAt rdf:resource="http://data.semanticweb.org/conference/eswc/2015/"/>
+    <rdfs:label>Proceedings Chair</rdfs:label>
+    <rdf:type rdf:resource="http://data.semanticweb.org/ns/swc/ontology#Chair"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/keynote/2">
+    <foaf:maker rdf:resource="http://data.semanticweb.org/person/viktor-mayer-schonberger"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/organization/university-of-fribourg-switzerland">
+    <foaf:member rdf:resource="http://data.semanticweb.org/person/philippe-cudre-mauroux"/>
+    <foaf:name>University of Fribourg, Switzerland</foaf:name>
+    <rdfs:label>University of Fribourg, Switzerland</rdfs:label>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/organization/university-of-sheffield-uk">
+    <foaf:member rdf:resource="http://data.semanticweb.org/person/anna-lisa-gentile"/>
+    <foaf:name>University of Sheffield, UK</foaf:name>
+    <rdfs:label>University of Sheffield, UK</rdfs:label>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/person/lionel-medini">
+    <swrc:affiliation rdf:resource="http://data.semanticweb.org/organization/university-lyon-france"/>
+    <foaf:lastName>Médini</foaf:lastName>
+    <foaf:firstName>Lionel</foaf:firstName>
+    <foaf:name>Lionel Médini</foaf:name>
+    <rdfs:label>Lionel Médini</rdfs:label>
+    <swc:holdsRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/semantic-technologies-coordinator"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/person/lise-getoor">
+    <swc:holdsRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/keynote-speaker"/>
+    <foaf:mbox_sha1sum>a99eb4a4efc181fdeb7576c2202d0cfe4c0154fc</foaf:mbox_sha1sum>
+    <foaf:mbox rdf:resource="mailto:getoor@cs.umd.edu"/>
+    <foaf:lastName>Getoor</foaf:lastName>
+    <foaf:firstName>Lise</foaf:firstName>
+    <rdfs:label>Lise Getoor</rdfs:label>
+    <foaf:name>Lise Getoor</foaf:name>
+    <foaf:made rdf:resource="http://data.semanticweb.org/keynote/1"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/organization/ghent-university-belgium">
+    <foaf:member rdf:resource="http://data.semanticweb.org/person/blaz-fortuna"/>
+    <foaf:name>Ghent University, Belgium</foaf:name>
+    <rdfs:label>Ghent University, Belgium</rdfs:label>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/ld4ie/2015/keynote/3">
+    <icaltzd:location rdf:resource="http://data.semanticweb.org/conference/eswc/2015/location/EMERALD_2"/>
+    <icaltzd:location rdf:resource="http://data.semanticweb.org/conference/eswc/2015/location/EMERALD_1"/>
+    <icaltzd:dtend rdf:datatype="http://www.w3.org/2002/12/cal/tzd/Europe/Ljubljana#tz">2015-06-04T12:30:00</icaltzd:dtend>
+    <icaltzd:dtstart rdf:datatype="http://www.w3.org/2002/12/cal/tzd/Europe/Ljubljana#tz">2015-06-04T11:30:00</icaltzd:dtstart>
+    <icaltzd:description>Crowdsourcing is usually seen primarily as an inexpensive and quick way of creating large resources for a variety of Artificial Intelligence tasks. However, our work with Phrase Detectives, a game-with-a-purpose designed to collect data about anaphora, suggests that collecting large numbers of judgments about very large amounts of data also tells us a lot about the extent to which human subjects agree or disagree about the interpretation of such data. In the talk I will introduce Phrase Detectives and discuss our results and their implications.</icaltzd:description>
+    <rdfs:label> Invited Talk: Massimo Poesio - What Crowdsourcing Tells Us about Cognition: the Case of Anaphora</rdfs:label>
+    <icaltzd:summary> Invited Talk: Massimo Poesio - What Crowdsourcing Tells Us about Cognition: the Case of Anaphora</icaltzd:summary>
+    <swc:isSubEventOf rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015"/>
+    <rdf:type rdf:resource="http://data.semanticweb.org/ns/swc/ontology#TalkEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/eswc/2015/event/d67c8943-6513-3043-856c-0b6aab9823a8_10">
+    <swc:isSubEventOf rdf:resource="http://data.semanticweb.org/conference/eswc/2015"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/organization/university-lyon-france">
+    <foaf:member rdf:resource="http://data.semanticweb.org/person/lionel-medini"/>
+    <foaf:name>University Lyon, France</foaf:name>
+    <rdfs:label>University Lyon, France</rdfs:label>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/organization/data-archiving-and-networked-services-netherlands">
+    <foaf:member rdf:resource="http://data.semanticweb.org/person/christophe-gueret"/>
+    <foaf:name>Data Archiving and Networked Services, Netherlands</foaf:name>
+    <rdfs:label>Data Archiving and Networked Services, Netherlands</rdfs:label>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/eswc/2015/local-organization-and-conference-administration">
+    <swc:heldBy rdf:resource="http://data.semanticweb.org/person/monika-kropej"/>
+    <swc:heldBy rdf:resource="http://data.semanticweb.org/person/spela-sitar"/>
+    <swc:isRoleAt rdf:resource="http://data.semanticweb.org/conference/eswc/2015/"/>
+    <rdfs:label>Local Organization and Conference Administration</rdfs:label>
+    <rdf:type rdf:resource="http://data.semanticweb.org/ns/swc/ontology#Chair"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/person/mauro-dragoni">
+    <swrc:affiliation rdf:resource="http://data.semanticweb.org/organization/fondazione-bruno-kessler-italy"/>
+    <foaf:lastName>Dragoni</foaf:lastName>
+    <foaf:firstName>Mauro</foaf:firstName>
+    <foaf:name>Mauro Dragoni</foaf:name>
+    <rdfs:label>Mauro Dragoni</rdfs:label>
+    <swc:holdsRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/publicity-chair"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/organization/ecole-nationale-superieure-des-mines-de-saint-etienne-france">
+    <foaf:member rdf:resource="http://data.semanticweb.org/person/antoine-zimmermann"/>
+    <foaf:name>École nationale supérieure des mines de Saint-Étienne, France</foaf:name>
+    <rdfs:label>École nationale supérieure des mines de Saint-Étienne, France</rdfs:label>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/person/marko-grobelnik">
+    <swrc:affiliation rdf:resource="http://data.semanticweb.org/organization/jozef-stefan-institute-ljubljana-slovenia"/>
+    <foaf:lastName>Grobelnik</foaf:lastName>
+    <foaf:firstName>Marko</foaf:firstName>
+    <foaf:name>Marko Grobelnik</foaf:name>
+    <rdfs:label>Marko Grobelnik</rdfs:label>
+    <swc:holdsRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/local-chair"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/eswc/2015/program-committee-member">
+    <swc:isRoleAt rdf:resource="http://data.semanticweb.org/conference/eswc/2015/"/>
+    <rdfs:label>Program committee member</rdfs:label>
+    <rdf:type rdf:resource="http://data.semanticweb.org/ns/swc/ontology#ProgrammeCommitteeMember"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/person/claudia-damato">
+    <swrc:affiliation rdf:resource="http://data.semanticweb.org/organization/dipartimento-di-informatica-universita-degli-studi-di-bari-italy"/>
+    <foaf:lastName>D'Amato</foaf:lastName>
+    <foaf:firstName>Claudia</foaf:firstName>
+    <foaf:name>Claudia D'Amato</foaf:name>
+    <rdfs:label>Claudia D'Amato</rdfs:label>
+    <swc:holdsRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/phd-symposium-chair"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/eswc/2015/author">
+    <swc:isRoleAt rdf:resource="http://data.semanticweb.org/conference/eswc/2015/"/>
+    <rdfs:label>Paper author</rdfs:label>
+    <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/ont/eswc/ontology.owl#Author"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/organization/dipartimento-di-informatica-universita-degli-studi-di-bari-italy">
+    <foaf:member rdf:resource="http://data.semanticweb.org/person/claudia-damato"/>
+    <foaf:name>Dipartimento di Informatica, Università degli Studi di Bari, Italy</foaf:name>
+    <rdfs:label>Dipartimento di Informatica, Università degli Studi di Bari, Italy</rdfs:label>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/person/fuqi-song">
+    <swrc:affiliation rdf:resource="http://data.semanticweb.org/organization/inria-sophia-antipolis-france"/>
+    <foaf:lastName>Song</foaf:lastName>
+    <foaf:firstName>Fuqi</foaf:firstName>
+    <foaf:name>Fuqi Song</foaf:name>
+    <rdfs:label>Fuqi Song</rdfs:label>
+    <swc:holdsRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/semantic-technologies-coordinator"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/person/blaz-fortuna">
+    <swrc:affiliation rdf:resource="http://data.semanticweb.org/organization/ghent-university-belgium"/>
+    <foaf:lastName>Fortuna</foaf:lastName>
+    <foaf:firstName>Blaz</foaf:firstName>
+    <foaf:name>Blaz Fortuna</foaf:name>
+    <rdfs:label>Blaz Fortuna</rdfs:label>
+    <swc:holdsRole rdf:resource="http://data.semanticweb.org/conference/eswc/2015/sponsorship-chair"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/organization/stlab-istc-cnr-italy">
+    <foaf:member rdf:resource="http://data.semanticweb.org/person/sergio-consoli"/>
+    <foaf:member rdf:resource="http://data.semanticweb.org/person/andrea-giovanni-nuzzolese"/>
+    <foaf:name>STLab ISTC-CNR, Italy</foaf:name>
+    <rdfs:label>STLab ISTC-CNR, Italy</rdfs:label>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+  </rdf:Description>
+</rdf:RDF>
