@@ -747,7 +747,7 @@ public class CalendarAlignerWithSessions implements Aligner {
 		//TODO this is a dirty patch
 		//posters: http://data.semanticweb.org/conference/eswc/2015/event/8fcd5c61-3205-30b3-91ff-2045565e4cc2_20
 		//demo: http://data.semanticweb.org/conference/eswc/2015/event/03ac4bc4-bbad-31d1-8a06-c0f488124ede_21
-		Resource poster_event = model
+		/*Resource poster_event = model
 				.createResource("http://data.semanticweb.org/conference/eswc/2015/event/5dad5df3-9e01-352d-9fc6-6ae32efd8616_19");
 		
 		Resource demo_event = model
@@ -771,11 +771,10 @@ public class CalendarAlignerWithSessions implements Aligner {
 				demo_event.addProperty(presentsPredicate, paper);
 			}
 
-		}
+		}*/
 		/////////////////////////////////
 		
 		//TODO this is ANOTHER dirty patch
-
 //		Resource challenge_event = model
 //				.createResource("http://data.semanticweb.org/conference/eswc/2015/event/d67c8943-6513-3043-856c-0b6aab9823a8_10");
 //		
