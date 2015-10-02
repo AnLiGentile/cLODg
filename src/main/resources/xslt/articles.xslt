@@ -14,6 +14,9 @@
 	<xsl:output method="xml" encoding="utf-8" indent="yes" />
 	
 	<xsl:param name="conferenceLabel" />
+	<xsl:param name="baseConference" />
+	<xsl:param name="conferenceYear" />
+	<xsl:param name="conferenceMonth" />
 	
 	<xsl:template match="snapshot">
 	
@@ -38,10 +41,10 @@
 						<xsl:attribute name="rdf:about">
 							<xsl:choose>
 								<xsl:when test="trackId='118204'">
-									<xsl:value-of select="concat('http://data.semanticweb.org/conference/ld4ie/2015/paper/in-use/', number/text())" />
+									<xsl:value-of select="concat($baseConference, '/paper/in-use/', number/text())" />
 								</xsl:when>
 			 					<xsl:otherwise>
-			 						<xsl:value-of select="concat('http://data.semanticweb.org/conference/ld4ie/2015/paper/research/', number/text())" />
+			 						<xsl:value-of select="concat($baseConference, '/paper/research/', number/text())" />
 			 					</xsl:otherwise>
 			 				</xsl:choose>
 		 				</xsl:attribute>
@@ -73,10 +76,10 @@
 		 					<xsl:attribute name="rdf:resource">
 		 						<xsl:choose>
 									<xsl:when test="trackId='118204'">
-										<xsl:value-of select="concat('http://data.semanticweb.org/conference/ld4ie/2015/paper/in-use/', number/text(), '/authorList')" />
+										<xsl:value-of select="concat($baseConference, '/paper/in-use/', number/text(), '/authorList')" />
 									</xsl:when>
 				 					<xsl:otherwise>
-				 						<xsl:value-of select="concat('http://data.semanticweb.org/conference/ld4ie/2015/paper/research/', number/text(), '/authorList')" />
+				 						<xsl:value-of select="concat($baseConference, '/paper/research/', number/text(), '/authorList')" />
 				 					</xsl:otherwise>
 				 				</xsl:choose>
 		 					</xsl:attribute>
@@ -89,9 +92,15 @@
 		 						<xsl:value-of select="." />
 		 					</dc:subject>
 		 				</xsl:for-each>	
-		 				<swrc:year>2015</swrc:year>
-		 				<swrc:month>May</swrc:month>
-		 				<swc:isPartOf rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/proceedings" />
+		 				<swrc:year><xsl:value-of select="$conferenceYear"></xsl:value-of></swrc:year>
+		 				<swrc:month><xsl:value-of select="$conferenceMonth"></xsl:value-of></swrc:month>
+		 				
+		 				<swc:isPartOf>
+    <xsl:attribute name="rdf:resource">
+        <xsl:value-of select="concat($baseConference,'/proceedings')" />
+    </xsl:attribute>
+</swc:isPartOf>
+
 		 			</rdf:Description>
 				</xsl:if>
 				

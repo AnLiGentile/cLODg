@@ -535,6 +535,11 @@ public class GenerateMainConferenceInitialGraph {
 			Transformer transformer = tFactory.newTransformer(new StreamSource(
 					xsltStream));
 			transformer.setParameter("conferenceLabel", OfficialNameSpace.conferenceLabel());
+			transformer.setParameter("baseConference", ns.baseConference);
+			transformer.setParameter("conferenceYear", ns.year);
+			transformer.setParameter("conferenceMonth", ns.baseConference);
+
+			
 			System.out.println("conferenceLabel: " +transformer.getParameter("conferenceLabel"));
 			
 			ByteArrayOutputStream outputStream = new ByteArrayOutputStream();

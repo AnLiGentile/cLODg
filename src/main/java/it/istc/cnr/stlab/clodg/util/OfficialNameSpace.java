@@ -30,6 +30,7 @@ public class OfficialNameSpace {
     
     public String conferenceName;
 	public String year;
+	public String month;
 	public String baseDomainNs;
 	public String baseEswc;
 	public String baseConference;
@@ -163,6 +164,7 @@ public class OfficialNameSpace {
 	    
 	    if(!props.isEmpty()){
     	    String year = props.getProperty("year");
+    	    this.month = props.getProperty("month");
     	    this.conferenceName = props.getProperty("conferenceName");
     	    String baseDomain = props.getProperty("baseDomain");
     	    String conference = props.getProperty("conference");
