@@ -1,5 +1,7 @@
 package it.istc.cnr.stlab.clodg.app;
 
+import it.istc.cnr.stlab.clodg.util.OfficialNameSpace;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -102,9 +104,13 @@ public class CalendarAlignerWithSessions implements Aligner {
 			String paperId = this.getIdForPaper(t.getValue());
 
 			if (paperId != null) {
-				String session = t.getValue().split(":")[0];
+				//TODO check this split
+				String session = t.getValue().split("\\|")[0];
 				
-				session = session.split(" paper ")[1].trim();
+				if (session.contains(" paper "))
+				session = session.split(" paper ")[1];
+				
+				session = session.trim();
 				System.out.println(paperId + " " + session);
 				try {
 					pe.get(session).add(paperId);
@@ -556,7 +562,7 @@ public class CalendarAlignerWithSessions implements Aligner {
 
 	}
 
-	public static void doStuff(Model model) {
+	public static void doStuff(Model model, OfficialNameSpace ns) {
 
 		// Model model = FileManager.get().loadModel("out/eswc_data_final.rdf");
 		//Model model = FileManager.get().loadModel("rdf/form-data.rdf");
@@ -566,50 +572,50 @@ public class CalendarAlignerWithSessions implements Aligner {
 		
 		try{
 		    Model tmp = FileManager.get().loadModel(
-	                "calendar2015/main-calendar2015.rdf");
+	                ns.folderContainingIcsCalendars+"/main-calendar.rdf");
 		    calendarModels[0] = tmp;
 		} catch(RiotException e){
-		    System.err.println("Missing calendar2015/main-calendar2015.rdf");
+		    System.err.println("Missing "+ns.folderContainingIcsCalendars+"/main-calendar.rdf");
 		}
 		
 		try{
             Model tmp = FileManager.get().loadModel(
-                    "calendar2015/sessions-calendar2015.rdf");
+            		ns.folderContainingIcsCalendars+"/sessions-calendar2015.rdf");
             calendarModels[1] = tmp;
         } catch(RiotException e){
-            System.err.println("Missing calendar2015/sessions-calendar2015.rdf");
+            System.err.println("Missing "+ns.folderContainingIcsCalendars+"/sessions-calendar.rdf");
         }
 		
 		try{
             Model tmp = FileManager.get().loadModel(
-                    "calendar2015/workshops-calendar.rdf");
+            		ns.folderContainingIcsCalendars+"/workshops-calendar.rdf");
             calendarModels[2] = tmp;
         } catch(RiotException e){
-            System.err.println("Missing calendar2015/workshops-calendar.rdf");
+            System.err.println("Missing "+ns.folderContainingIcsCalendars+"/workshops-calendar.rdf");
         }
 		
 		try{
             Model tmp = FileManager.get().loadModel(
-                    "calendar2015/tutorials-calendar.rdf");
+            		ns.folderContainingIcsCalendars+"/tutorials-calendar.rdf");
             calendarModels[3] = tmp;
         } catch(RiotException e){
-            System.err.println("Missing calendar2015/tutorials-calendar.rdf");
+            System.err.println("Missing "+ns.folderContainingIcsCalendars+"/tutorials-calendar.rdf");
         }
 		
 		try{
             Model tmp = FileManager.get().loadModel(
-                    "calendar2015/plenary-calendar.rdf");
+            		ns.folderContainingIcsCalendars+"/plenary-calendar.rdf");
             calendarModels[4] = tmp;
         } catch(RiotException e){
-            System.err.println("Missing calendar2015/plenary-calendar.rdf");
+            System.err.println("Missing "+ns.folderContainingIcsCalendars+"/plenary-calendar.rdf");
         }
 		
 		try{
             Model tmp = FileManager.get().loadModel(
-                    "calendar2015/phdSymp-calendar.rdf");
+            		ns.folderContainingIcsCalendars+"/phdSymp-calendar.rdf");
             calendarModels[5] = tmp;
         } catch(RiotException e){
-            System.err.println("calendar2015/phdSymp-calendar.rdf");
+            System.err.println("Missing "+ns.folderContainingIcsCalendars+"/phdSymp-calendar.rdf");
         }
 		
 		for(Model calendarModel : calendarModels){
@@ -697,7 +703,7 @@ public class CalendarAlignerWithSessions implements Aligner {
 		
 
 		Resource conference = model
-				.createResource("http://data.semanticweb.org/conference/eswc/2015");
+				.createResource(ns.baseConference);
 		// TODO this is a dirty patch!
 		// TODO Andrea uncomment this for adding conference info
 //		conference.addProperty(label,
@@ -770,23 +776,23 @@ public class CalendarAlignerWithSessions implements Aligner {
 		
 		//TODO this is ANOTHER dirty patch
 
-		Resource challenge_event = model
-				.createResource("http://data.semanticweb.org/conference/eswc/2015/event/d67c8943-6513-3043-856c-0b6aab9823a8_10");
-		
-		challenge_event.addProperty(isSubEventOf, conference);
-		conference.addProperty(isSuperEventOf, challenge_event);
-		
-		for (Entry<String, String> e : aligner.getPaperTitles().entrySet()){
-			if (e.getKey().contains("challenge")){
-				Resource paper = model.createResource(e.getKey());
-				paper.addProperty(isPresentedPredicate, challenge_event);
-				challenge_event.addProperty(presentsPredicate, paper);
-			}
-
-		}
+//		Resource challenge_event = model
+//				.createResource("http://data.semanticweb.org/conference/eswc/2015/event/d67c8943-6513-3043-856c-0b6aab9823a8_10");
+//		
+//		challenge_event.addProperty(isSubEventOf, conference);
+//		conference.addProperty(isSuperEventOf, challenge_event);
+//		
+//		for (Entry<String, String> e : aligner.getPaperTitles().entrySet()){
+//			if (e.getKey().contains("challenge")){
+//				Resource paper = model.createResource(e.getKey());
+//				paper.addProperty(isPresentedPredicate, challenge_event);
+//				challenge_event.addProperty(presentsPredicate, paper);
+//			}
+//
+//		}
 		/////////////////////////////////
 		
-		Resource mainConferenceEvent = model.createResource("http://data.semanticweb.org/conference/eswc/2015");
+		Resource mainConferenceEvent = model.createResource(ns.baseConference);
 		StmtIterator stmtIt = model.listStatements(null, RDF.type, model.createResource("http://www.w3.org/2002/12/cal/icaltzd#Vevent"));
 		while(stmtIt.hasNext()){
 		    Statement statement = stmtIt.next();
@@ -837,8 +843,10 @@ public class CalendarAlignerWithSessions implements Aligner {
 	}
 	
 	
-    public static void main(String[] args){
-    	doStuff(FileManager.get().loadModel("rdf/form-data.rdf"));
-    }
+//    public static void main(String[] args){
+//    	
+//    	
+//    	doStuff(FileManager.get().loadModel("rdf/form-data.rdf"));
+//    }
 
 }

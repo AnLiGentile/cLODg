@@ -92,24 +92,37 @@ public class PythonConverters {
 	    File outFolder = new File("out");
 	    if(!outFolder.exists()) outFolder.mkdirs();
 
-		ical2RDF(pathOfCalendarFolder+File.separator+"main.ics", ns.MAIN_CONFERENCE_CALENDAR_NS,
+		if (new File(pathOfCalendarFolder+File.separator+"main.ics").exists())
+	    ical2RDF(pathOfCalendarFolder+File.separator+"main.ics", ns.MAIN_CONFERENCE_CALENDAR_NS,
 				"./out/main_temp.rdf");
-
+		else System.err.println("MISSING: "+pathOfCalendarFolder+File.separator+"main.ics");
+		
+		if (new File(pathOfCalendarFolder+File.separator+"sessions_main.ics").exists())
 		ical2RDF(pathOfCalendarFolder+File.separator+"sessions_main.ics", ns.SESSIONS_CALENDAR_NS,
 				"./out/sessions_temp.rdf");
+		else System.err.println("MISSING: "+pathOfCalendarFolder+File.separator+"sessions_main.ics");
+
 		
+		if (new File(pathOfCalendarFolder+File.separator+"workshops.ics").exists())
 		ical2RDF(pathOfCalendarFolder+File.separator+"workshops.ics", ns.WORKSHOPS_CALENDAR_NS,
 		"./out/workhop_temp.rdf");
-		
+		else System.err.println("MISSING: "+pathOfCalendarFolder+File.separator+"workshops.ics");
+
+		if (new File(pathOfCalendarFolder+File.separator+"tutorials.ics").exists())
 		ical2RDF(pathOfCalendarFolder+File.separator+"tutorials.ics", ns.TUTORIALS_CALENDAR_NS,
 				"./out/tutorials_temp.rdf");
-		
+		else System.err.println("MISSING: "+pathOfCalendarFolder+File.separator+"tutorials.ics");
+
+		if (new File(pathOfCalendarFolder+File.separator+"plenary.ics").exists())
 		ical2RDF(pathOfCalendarFolder+File.separator+"plenary.ics", ns.PLENARY_EVENTS_CALENDAR_NS,
 				"./out/plenary_temp.rdf");
-		
+		else System.err.println("MISSING: "+pathOfCalendarFolder+File.separator+"plenary.ics");
+
+		if (new File(pathOfCalendarFolder+File.separator+"phDSymp.ics").exists())
 		ical2RDF(pathOfCalendarFolder+File.separator+"phDSymp.ics", ns.PLENARY_EVENTS_CALENDAR_NS,
 				"./out/phd_temp.rdf");
-		
+		else System.err.println("MISSING: "+pathOfCalendarFolder+File.separator+"phDSymp.ics");
+
 		
 		Model modelMain = null;
 		try{

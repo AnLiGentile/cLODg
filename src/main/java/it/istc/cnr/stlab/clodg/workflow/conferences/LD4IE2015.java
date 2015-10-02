@@ -113,7 +113,7 @@ public class LD4IE2015 {
 				/*
 				 * Execute CalendarAlignerWithSessions.
 				 */
-				CalendarAlignerWithSessions.doStuff(dogFoodData);
+				CalendarAlignerWithSessions.doStuff(dogFoodData, ns);
 
 				/*
 				 * Save the RDF model

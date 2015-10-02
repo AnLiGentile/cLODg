@@ -130,7 +130,7 @@ public class Main {
 				/*
 				 * Execute CalendarAlignerWithSessions.
 				 */
-				CalendarAlignerWithSessions.doStuff(dogFoodData);
+				CalendarAlignerWithSessions.doStuff(dogFoodData, ns);
 
 				/*
 				 * Save the RDF model
