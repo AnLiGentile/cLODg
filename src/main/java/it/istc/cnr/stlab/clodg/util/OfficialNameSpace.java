@@ -49,6 +49,11 @@ public class OfficialNameSpace {
 	public String organizationNs;
 	public String keynoteNs;
 
+	
+	public String posterEventURI;
+	public String demoEventURI;
+	
+	
 	public String easychairSnapshot;
 	public String conferenceConfiguration;
 	public String folderContainingIcsCalendars;
@@ -77,7 +82,7 @@ public class OfficialNameSpace {
 			String mainTrackPaper, String inusePaper, String posterPaper,
 			String demoPaper, String phdPaper, String challengePaper,
 			String easychairSnapshot, String conferenceConfiguration, String folderContainingIcsCalendars,
-			String jsFinalData, String jsonFinalData) {
+			String jsFinalData, String jsonFinalData, String posterEvent, String demoEvent) {
 		if(!baseDomainNs.endsWith("/"))
 			baseDomainNs =baseDomainNs+"/";
 		if(!conference.endsWith("/"))
@@ -120,6 +125,8 @@ public class OfficialNameSpace {
 		this.phdPaperNs = basePaperEswcNs + phdPaper;
 		this.challengePaperNs = basePaperEswcNs + challengePaper;
 				
+		this.posterEventURI = posterEvent;
+		this.demoEventURI = demoEvent;
 		
 	    this.PLENARY_EVENTS_CALENDAR_NS = this.baseConference+"event/";
 	    this.MAIN_CONFERENCE_CALENDAR_NS = this.baseConference+"talk/";
@@ -178,6 +185,9 @@ public class OfficialNameSpace {
     	    String challengePaper = props.getProperty("challengePaper");
     	    conference = props.getProperty("conference");
     	    
+    	    String posterEvent = props.getProperty("posterEvent");
+    	    String demoEvent = props.getProperty("demoEvent");
+    	    
     	    String easychairSnapshot = props.getProperty("easychairSnapshot");
     	    String conferenceConfiguration = props.getProperty("conferenceConfiguration");
     	    String folderContainingIcsCalendars = props.getProperty("folderContainingIcsCalendars");
@@ -188,7 +198,7 @@ public class OfficialNameSpace {
     				mainTrackPaper, inusePaper,
     				posterPaper, demoPaper, phdPaper,
     				challengePaper, easychairSnapshot, conferenceConfiguration, folderContainingIcsCalendars,
-    				jsFinalData, jsonFinalData);
+    				jsFinalData, jsonFinalData, posterEvent, demoEvent);
 	    }
 	}
 	
