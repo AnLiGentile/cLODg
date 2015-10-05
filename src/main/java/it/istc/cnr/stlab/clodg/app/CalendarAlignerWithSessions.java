@@ -85,7 +85,8 @@ public class CalendarAlignerWithSessions implements Aligner {
 			if (paperId == null) {
 				String session;
 				try {
-					session = t.getValue().split(":")[1].trim();
+				    System.out.println("T Value: " + t.getValue());
+					session = t.getValue().split("\\|")[1].trim();
 					if (pe.get(session) == null) {
 						pe.put(session, new HashSet<String>());
 						this.sessionURIs.put(session, t.getKey());
@@ -112,7 +113,10 @@ public class CalendarAlignerWithSessions implements Aligner {
 				
 				session = session.trim();
 				System.out.println(paperId + " " + session);
+				
+				for(String key : pe.keySet()) System.out.println("---- " + key);
 				try {
+				    System.out.println(session + " - - " + pe.get(session));
 					pe.get(session).add(paperId);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
