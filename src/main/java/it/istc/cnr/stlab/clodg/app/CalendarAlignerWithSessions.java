@@ -759,13 +759,14 @@ public class CalendarAlignerWithSessions implements Aligner {
 			}
 		}
 		
-		//TODO the poster and demo event are manually indicated in property file
-
-		Resource poster_event = model
-				.createResource(ns.posterEventURI);
+		//TODO this is a dirty patch
+		//posters: http://data.semanticweb.org/conference/eswc/2015/event/8fcd5c61-3205-30b3-91ff-2045565e4cc2_20
+		//demo: http://data.semanticweb.org/conference/eswc/2015/event/03ac4bc4-bbad-31d1-8a06-c0f488124ede_21
+		/*Resource poster_event = model
+				.createResource("http://data.semanticweb.org/conference/eswc/2015/event/5dad5df3-9e01-352d-9fc6-6ae32efd8616_19");
 		
 		Resource demo_event = model
-				.createResource(ns.demoEventURI);
+				.createResource("http://data.semanticweb.org/conference/eswc/2015/event/ef93f99d-1f79-381d-9c96-97cf888966b9_20");
 		
 		
 		poster_event.addProperty(isSubEventOf, conference);
@@ -785,7 +786,7 @@ public class CalendarAlignerWithSessions implements Aligner {
 				demo_event.addProperty(presentsPredicate, paper);
 			}
 
-		}
+		}*/
 		/////////////////////////////////
 		
 		//TODO this is ANOTHER dirty patch
