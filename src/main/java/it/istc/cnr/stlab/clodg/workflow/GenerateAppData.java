@@ -79,11 +79,17 @@ public class GenerateAppData {
                 
                 bufferedReader.close();
                 
-                bufferedReader = new BufferedReader(new FileReader(classLoader.getResource("data/categories.json").getFile()));
+            }
                 
-                jsonContent = "";
-                line = null;
+            URL categoriesURL = classLoader.getResource("data/categories.json");
+            if(categoriesURL != null){
+                bufferedReader = new BufferedReader(new FileReader(categoriesURL.getFile()));
+                
+                String jsonContent = "";
+                String line = null;
                 while((line = bufferedReader.readLine()) != null) jsonContent += line;
+                
+                System.out.println("Category content " + jsonContent);
                 
                 categories = new JSONObject(jsonContent);
                 

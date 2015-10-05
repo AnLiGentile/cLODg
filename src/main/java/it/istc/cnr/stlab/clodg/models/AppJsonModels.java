@@ -26,6 +26,7 @@ public class AppJsonModels {
 		this.events = events;
 		this.locations = locations;
 		this.categories = categories;
+		System.out.println("Le categorie sono " + categories);
 	}
 
 	public JSONObject getArticles() {
