@@ -170,7 +170,7 @@ public class GenerateCalendarData {
 			
 			OfficialNameSpace ns = OfficialNameSpace.getInstance();
 			transformer.setParameter("twitterHashtag", "#" + ns.conferenceName + ns.year);
-			transformer.setParameter("confBaseURI", "http://data.semanticweb.org/conference/category/");
+			transformer.setParameter("confBaseURI", "http://data.semanticweb.org/conference/");
 		} catch (TransformerConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
