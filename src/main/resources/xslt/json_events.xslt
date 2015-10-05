@@ -28,6 +28,8 @@
 	
 	<xsl:param name="confBaseURI" />
 	<xsl:param name="twitterHashtag" />
+		<xsl:param name="posterEvent" />
+		<xsl:param name="demoEvent" />
 	
 	<xsl:output method="text" encoding="utf-8" indent="no" />
 	<xsl:strip-space elements="*" />
@@ -209,12 +211,12 @@
 	    				<xsl:value-of select="concat($confBaseURI, 'category\/keynote-event')" />
 	    				<xsl:text>"</xsl:text>
 	    			</xsl:when>
-	    			<xsl:when test="icaltzd:summary='Plenary: Posters session with breakfast'">
+	    			<xsl:when test="$uri=$posterEvent">
 	    				<xsl:text>"</xsl:text>
 	    				<xsl:value-of select="concat($confBaseURI, 'category\/poster-event')" />
 	    				<xsl:text>"</xsl:text>
 	    			</xsl:when>
-	    			<xsl:when test="icaltzd:summary='Plenary: Demo session with breakfast'">
+	    			<xsl:when test="$uri=$demoEvent">
 	    				<xsl:text>"</xsl:text>
 	    				<xsl:value-of select="concat($confBaseURI, 'category\/demo-event')" />
 	    				<xsl:text>"</xsl:text>
