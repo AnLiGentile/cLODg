@@ -5,13 +5,13 @@
   <rdf:Description rdf:about="http://data.semanticweb.org/conference/ld4ie/2015/talk/#main_conference">
     <prodid>-//Google Inc//Google Calendar 70.9054//EN</prodid>
     <component rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/talk/#817b4icma6mkao4j5jjf2hhu2o@google.com_1"/>
-    <component rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/talk/#6qn80t9g85uvdoooftrhjjbbv4@google.com_5"/>
     <component rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/talk/#ri9oe6lcndmbii7j2mehclqu2o@google.com_2"/>
+    <component rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/talk/#6qn80t9g85uvdoooftrhjjbbv4@google.com_5"/>
     <calscale>GREGORIAN</calscale>
     <version>2.0</version>
     <component rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/talk/#2l7a5duv5ina9b5a8fofftgjdk@google.com_7"/>
-    <component rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/talk/#rlofdvrkt3tmr48533jbsgqt48@google.com_4"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/12/cal/icaltzd#Vcalendar"/>
+    <component rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/talk/#rlofdvrkt3tmr48533jbsgqt48@google.com_4"/>
     <component rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/talk/#dq0d4i00ndh35hp6ssijocvqrc@google.com_6"/>
     <component rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/talk/#96a4bh66arosfhfed2uu76kt08@google.com_8"/>
     <method>PUBLISH</method>
