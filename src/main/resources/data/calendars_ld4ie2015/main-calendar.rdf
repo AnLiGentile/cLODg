@@ -1,0 +1,141 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:x-wr="http://www.w3.org/2002/12/cal/prod/Google_Inc_4ed21034d44ff76e#"
+    xmlns="http://www.w3.org/2002/12/cal/icaltzd#" > 
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/ld4ie/2015/talk/#main_conference">
+    <prodid>-//Google Inc//Google Calendar 70.9054//EN</prodid>
+    <component rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/talk/#817b4icma6mkao4j5jjf2hhu2o@google.com_1"/>
+    <component rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/talk/#6qn80t9g85uvdoooftrhjjbbv4@google.com_5"/>
+    <component rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/talk/#ri9oe6lcndmbii7j2mehclqu2o@google.com_2"/>
+    <calscale>GREGORIAN</calscale>
+    <version>2.0</version>
+    <component rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/talk/#2l7a5duv5ina9b5a8fofftgjdk@google.com_7"/>
+    <component rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/talk/#rlofdvrkt3tmr48533jbsgqt48@google.com_4"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/12/cal/icaltzd#Vcalendar"/>
+    <component rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/talk/#dq0d4i00ndh35hp6ssijocvqrc@google.com_6"/>
+    <component rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/talk/#96a4bh66arosfhfed2uu76kt08@google.com_8"/>
+    <method>PUBLISH</method>
+    <component rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/talk/#ecv20nbc0jsq0uee9bnjb197mk@google.com_3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/ld4ie/2015/talk/#ecv20nbc0jsq0uee9bnjb197mk@google.com_3">
+    <dtstart rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-12T14:00:00Z</dtstart>
+    <uid>ecv20nbc0jsq0uee9bnjb197mk@google.com</uid>
+    <dtend rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-12T14:30:00Z</dtend>
+    <created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-02T10:01:49Z</created>
+    <rdf:type rdf:resource="http://www.w3.org/2002/12/cal/icaltzd#Vevent"/>
+    <location>Room RBC 271</location>
+    <transp>OPAQUE</transp>
+    <status>CONFIRMED</status>
+    <description>Lei Zhang, Cong Liu and Achim Rettinger.</description>
+    <sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</sequence>
+    <lastModified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-02T12:00:25Z</lastModified>
+    <summary>Research | A Topic-Sensitive Model for Salient Entity Linking </summary>
+    <dtstamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-02T12:03:03Z</dtstamp>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/ld4ie/2015/talk/#ri9oe6lcndmbii7j2mehclqu2o@google.com_2">
+    <lastModified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-02T12:00:16Z</lastModified>
+    <transp>OPAQUE</transp>
+    <summary>Research | Semantic Annotation of Quantitative Textual Content</summary>
+    <description>Mehrnaz Ghashghaei, John Cuzzola, Ebrahim Bagheri and Ali Ghorbani.</description>
+    <rdf:type rdf:resource="http://www.w3.org/2002/12/cal/icaltzd#Vevent"/>
+    <location>Room RBC 271</location>
+    <dtend rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-12T14:00:00Z</dtend>
+    <dtstart rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-12T13:30:00Z</dtstart>
+    <sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</sequence>
+    <uid>ri9oe6lcndmbii7j2mehclqu2o@google.com</uid>
+    <created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-02T10:01:21Z</created>
+    <status>CONFIRMED</status>
+    <dtstamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-02T12:03:03Z</dtstamp>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/ld4ie/2015/talk/#96a4bh66arosfhfed2uu76kt08@google.com_8">
+    <dtstart rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-12T19:15:00Z</dtstart>
+    <status>CONFIRMED</status>
+    <description>Closing remarks and best paper Award announcment</description>
+    <location>Room RBC 271</location>
+    <created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-02T10:08:17Z</created>
+    <transp>OPAQUE</transp>
+    <uid>96a4bh66arosfhfed2uu76kt08@google.com</uid>
+    <lastModified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-02T12:01:23Z</lastModified>
+    <dtstamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-02T12:03:03Z</dtstamp>
+    <summary>Plenary | Closing and Awards</summary>
+    <sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sequence>
+    <dtend rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-12T19:30:00Z</dtend>
+    <rdf:type rdf:resource="http://www.w3.org/2002/12/cal/icaltzd#Vevent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/ld4ie/2015/talk/#6qn80t9g85uvdoooftrhjjbbv4@google.com_5">
+    <summary>Research | Semantic Relation Composition in Large Scale Knowledge Bases</summary>
+    <location>Room RBC 271</location>
+    <sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</sequence>
+    <status>CONFIRMED</status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/12/cal/icaltzd#Vevent"/>
+    <lastModified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-02T12:00:41Z</lastModified>
+    <created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-02T10:03:18Z</created>
+    <uid>6qn80t9g85uvdoooftrhjjbbv4@google.com</uid>
+    <dtend rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-12T16:00:00Z</dtend>
+    <dtstart rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-12T15:30:00Z</dtstart>
+    <transp>OPAQUE</transp>
+    <dtstamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-02T12:03:03Z</dtstamp>
+    <description>Kristian Kolthoff and Arnab Dutta.</description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/ld4ie/2015/talk/#rlofdvrkt3tmr48533jbsgqt48@google.com_4">
+    <status>CONFIRMED</status>
+    <created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-02T10:02:43Z</created>
+    <lastModified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-02T12:00:31Z</lastModified>
+    <dtend rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-12T15:30:00Z</dtend>
+    <rdf:type rdf:resource="http://www.w3.org/2002/12/cal/icaltzd#Vevent"/>
+    <dtstart rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-12T15:00:00Z</dtstart>
+    <uid>rlofdvrkt3tmr48533jbsgqt48@google.com</uid>
+    <dtstamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-02T12:03:03Z</dtstamp>
+    <sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</sequence>
+    <description>Jennifer Sleeman, Tim Finin and Anupam Joshi.</description>
+    <transp>OPAQUE</transp>
+    <location>Room RBC 271</location>
+    <summary>Research | Topic Modeling for RDF Graphs </summary>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/ld4ie/2015/talk/#817b4icma6mkao4j5jjf2hhu2o@google.com_1">
+    <status>CONFIRMED</status>
+    <description>Anca Dumitrache, Lora Aroyo and Chris Welty. </description>
+    <dtstart rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-12T13:00:00Z</dtstart>
+    <transp>OPAQUE</transp>
+    <created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-02T09:46:55Z</created>
+    <summary>Research | CrowdTruth Measures for Language Ambiguity: The Case of Medical Relation Extraction</summary>
+    <dtstamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-02T12:03:03Z</dtstamp>
+    <uid>817b4icma6mkao4j5jjf2hhu2o@google.com</uid>
+    <dtend rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-12T13:30:00Z</dtend>
+    <sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sequence>
+    <rdf:type rdf:resource="http://www.w3.org/2002/12/cal/icaltzd#Vevent"/>
+    <lastModified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-02T11:59:57Z</lastModified>
+    <location>Room RBC 271</location>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/ld4ie/2015/talk/#dq0d4i00ndh35hp6ssijocvqrc@google.com_6">
+    <description>Heiko Paulheim.</description>
+    <sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</sequence>
+    <rdf:type rdf:resource="http://www.w3.org/2002/12/cal/icaltzd#Vevent"/>
+    <dtstamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-02T12:03:03Z</dtstamp>
+    <transp>OPAQUE</transp>
+    <created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-02T10:04:01Z</created>
+    <location>Room RBC 271</location>
+    <dtstart rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-12T16:00:00Z</dtstart>
+    <uid>dq0d4i00ndh35hp6ssijocvqrc@google.com</uid>
+    <lastModified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-02T12:00:56Z</lastModified>
+    <dtend rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-12T16:30:00Z</dtend>
+    <summary>Plenary | IE challenge</summary>
+    <status>CONFIRMED</status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.semanticweb.org/conference/ld4ie/2015/talk/#2l7a5duv5ina9b5a8fofftgjdk@google.com_7">
+    <dtstamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-02T12:03:03Z</dtstamp>
+    <dtend rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-12T19:15:00Z</dtend>
+    <description>Goodbye to True: Advancing semantics beyond the black and white.
+Chris Welty, Google Research</description>
+    <uid>2l7a5duv5ina9b5a8fofftgjdk@google.com</uid>
+    <location>Room RBC 271</location>
+    <transp>OPAQUE</transp>
+    <summary>Plenary | Invited talk: Chris Welty </summary>
+    <rdf:type rdf:resource="http://www.w3.org/2002/12/cal/icaltzd#Vevent"/>
+    <lastModified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-02T12:01:17Z</lastModified>
+    <sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</sequence>
+    <created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-02T10:07:36Z</created>
+    <dtstart rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-12T18:00:00Z</dtstart>
+    <status>CONFIRMED</status>
+  </rdf:Description>
+</rdf:RDF>

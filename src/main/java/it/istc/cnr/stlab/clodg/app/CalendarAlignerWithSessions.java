@@ -82,11 +82,16 @@ public class CalendarAlignerWithSessions implements Aligner {
 
 			String paperId = this.getIdForPaper(t.getValue());
 
+			//events that are not paper presentations
 			if (paperId == null) {
 				String session;
 				try {
+<<<<<<< HEAD
 				    System.out.println("T Value: " + t.getValue());
 					session = t.getValue().split("\\|")[1].trim();
+=======
+					session = t.getValue().split("\\|")[0].trim();
+>>>>>>> origin/master
 					if (pe.get(session) == null) {
 						pe.put(session, new HashSet<String>());
 						this.sessionURIs.put(session, t.getKey());
@@ -109,14 +114,21 @@ public class CalendarAlignerWithSessions implements Aligner {
 				String session = t.getValue().split("\\|")[0];
 				
 				if (session.contains(" paper "))
-				session = session.split(" paper ")[1];
+				session = session.split(" paper ")[0];
 				
 				session = session.trim();
 				System.out.println(paperId + " " + session);
 				
 				for(String key : pe.keySet()) System.out.println("---- " + key);
 				try {
+<<<<<<< HEAD
 				    System.out.println(session + " - - " + pe.get(session));
+=======
+					if (pe.get(session) == null) {
+						pe.put(session, new HashSet<String>());
+						this.sessionURIs.put(session, t.getKey());
+					}
+>>>>>>> origin/master
 					pe.get(session).add(paperId);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
