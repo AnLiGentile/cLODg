@@ -49,8 +49,15 @@
 	            
 	            <!-- add the title of the paper -->
 	            <xsl:text>"title": "</xsl:text>
-	    		<xsl:value-of select="replace(dc:title, '&quot;', '\\&quot;')" />
-	            <xsl:text>",</xsl:text>
+	            <xsl:choose>
+	            	<xsl:when test="dc:title">
+	            		<xsl:value-of select="replace(dc:title, '&quot;', '\\&quot;')" />
+	            	</xsl:when>
+	            	<xsl:otherwise>
+	            		<xsl:value-of select="replace(dc-purl:title, '&quot;', '\\&quot;')" />
+	            	</xsl:otherwise>
+	            </xsl:choose>
+	    		<xsl:text>",</xsl:text>
 	            
 	            <!-- add the abstract -->
 	            <xsl:text>"abstract":</xsl:text>
@@ -69,6 +76,7 @@
 	    		<xsl:text>"authors":</xsl:text>
 	            
 	            <!-- add authors -->
+	            <xsl:variable name="authorlistref" select="bibo:authorList/@rdf:resource" />
 	            <xsl:choose>
 		            <xsl:when test="swrc:author">
 		            	<xsl:text>[</xsl:text>
@@ -82,10 +90,26 @@
 		            	</xsl:for-each>
 		            	<xsl:text>]</xsl:text>
 		            </xsl:when>
-		          	<xsl:otherwise>
+		            <xsl:when test="$authorlistref">
+	            		<xsl:text>[</xsl:text>
+	            		<xsl:variable name="authorlist" select="/rdf:RDF/rdf:Description[@rdf:about=$authorlistref]" />
+	            		<xsl:for-each select="$authorlist/*[name() != 'rdf:type']">
+							<!-- sort the element of the rdf:Bag (rdf:_1, rdf:_2,..., rdf:n) -->
+							<xsl:sort select="xs:integer(replace(local-name(), '_', ''))" data-type="number"/>
+							
+							<xsl:if test="(position( )) > 1">
+	            				<xsl:text>,</xsl:text>
+	            			</xsl:if>
+	            			<xsl:text>"</xsl:text>
+							<xsl:value-of select="@rdf:resource" />
+							<xsl:text>"</xsl:text>
+						</xsl:for-each>             		
+	            		<xsl:text>]</xsl:text>
+	            	</xsl:when>
+	            	<xsl:otherwise>
 	            		<xsl:text>null</xsl:text>
-	            	</xsl:otherwise> 
-	            </xsl:choose> 
+	            	</xsl:otherwise>
+	            </xsl:choose>
 	    		
 	    		<!-- add the Twitter hanhtag -->
 	    		<xsl:text>,"hashtag":"#iswc2015",</xsl:text>

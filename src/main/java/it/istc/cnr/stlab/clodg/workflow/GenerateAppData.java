@@ -24,6 +24,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
+import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 
@@ -79,6 +80,10 @@ public class GenerateAppData {
                 
                 bufferedReader.close();
                 
+            }
+            else {
+                locations = new JSONObject();
+                locations.put("locations", new JSONArray());
             }
                 
             URL categoriesURL = classLoader.getResource("data/categories.json");

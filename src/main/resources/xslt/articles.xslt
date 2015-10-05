@@ -39,14 +39,7 @@
 				<xsl:if test="/snapshot/decisions/decision/id[text()=$decisionID]/../accepted='true'">
 					<rdf:Description>
 						<xsl:attribute name="rdf:about">
-							<xsl:choose>
-								<xsl:when test="trackId='118204'">
-									<xsl:value-of select="concat($baseConference, '/paper/in-use/', number/text())" />
-								</xsl:when>
-			 					<xsl:otherwise>
-			 						<xsl:value-of select="concat($baseConference, '/paper/research/', number/text())" />
-			 					</xsl:otherwise>
-			 				</xsl:choose>
+							<xsl:value-of select="concat($baseConference, 'paper/research/', number/text())" />
 		 				</xsl:attribute>
 		 				<rdf:type>
 		 					<xsl:attribute name="rdf:resource">
@@ -74,14 +67,7 @@
 		 				
 		 				<bibo:authorList>
 		 					<xsl:attribute name="rdf:resource">
-		 						<xsl:choose>
-									<xsl:when test="trackId='118204'">
-										<xsl:value-of select="concat($baseConference, '/paper/in-use/', number/text(), '/authorList')" />
-									</xsl:when>
-				 					<xsl:otherwise>
-				 						<xsl:value-of select="concat($baseConference, '/paper/research/', number/text(), '/authorList')" />
-				 					</xsl:otherwise>
-				 				</xsl:choose>
+		 						<xsl:value-of select="concat($baseConference, 'paper/research/', number/text(), '/authorList')" />
 		 					</xsl:attribute>
 		 				</bibo:authorList>
 		 				

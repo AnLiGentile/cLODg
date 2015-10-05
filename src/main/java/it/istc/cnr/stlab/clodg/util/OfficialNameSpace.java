@@ -102,6 +102,8 @@ public class OfficialNameSpace {
 				+ year + "/";
 		this.baseConference = baseDomainNs+ conference
 				+ year + "/";
+		
+		System.out.println("BASE CONFERENCE "+ baseConference);
 		this.basePaperEswcNs = baseConference+ "paper/";
 		
 		this.personNs = baseDomainNs+"person/";

@@ -540,8 +540,6 @@ public class GenerateMainConferenceInitialGraph {
 			transformer.setParameter("conferenceMonth", ns.baseConference);
 
 			
-			System.out.println("conferenceLabel: " +transformer.getParameter("conferenceLabel"));
-			
 			ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 			// transformer.transform(new DOMSource(conferenceDataDoc), new
 			// StreamResult(new File(out)));
@@ -553,8 +551,6 @@ public class GenerateMainConferenceInitialGraph {
 			outputStream.close();
 			model.read(inputStream, null, "RDF/XML");
 			inputStream.close();
-			
-			model.write(System.out);
 			
 			addAuthorsInfo(model);
 
@@ -652,6 +648,8 @@ public class GenerateMainConferenceInitialGraph {
 		model.removeAll(null, swrcTmpId, (RDFNode) null);
 		model.removeAll(null, RDF.type, inUsePaperType);
 		model.removeAll(null, RDF.type, researchPaperType);
+		
+		model.write(System.out);
 		return model;
 	}
 
