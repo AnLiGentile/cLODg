@@ -14,9 +14,9 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.SortedMap;
-import java.util.Map.Entry;
 
 import net.fortuna.ical4j.data.CalendarBuilder;
 import net.fortuna.ical4j.data.ParserException;
@@ -81,17 +81,16 @@ public class CalendarAlignerWithSessions implements Aligner {
 		for (Entry<String, String> t : this.getAllEvents().entrySet()) {
 
 			String paperId = this.getIdForPaper(t.getValue());
-
+			System.out.println("T Value: " + t.getValue());
 			//events that are not paper presentations
 			if (paperId == null) {
 				String session;
 				try {
-<<<<<<< HEAD
-				    System.out.println("T Value: " + t.getValue());
+				    
 					session = t.getValue().split("\\|")[1].trim();
-=======
+
 					session = t.getValue().split("\\|")[0].trim();
->>>>>>> origin/master
+
 					if (pe.get(session) == null) {
 						pe.put(session, new HashSet<String>());
 						this.sessionURIs.put(session, t.getKey());
@@ -108,7 +107,7 @@ public class CalendarAlignerWithSessions implements Aligner {
 		for (Entry<String, String> t : this.getAllEvents().entrySet()) {
 
 			String paperId = this.getIdForPaper(t.getValue());
-
+			
 			if (paperId != null) {
 				//TODO check this split
 				String session = t.getValue().split("\\|")[0];
@@ -121,14 +120,14 @@ public class CalendarAlignerWithSessions implements Aligner {
 				
 				for(String key : pe.keySet()) System.out.println("---- " + key);
 				try {
-<<<<<<< HEAD
 				    System.out.println(session + " - - " + pe.get(session));
-=======
+
 					if (pe.get(session) == null) {
 						pe.put(session, new HashSet<String>());
 						this.sessionURIs.put(session, t.getKey());
 					}
->>>>>>> origin/master
+					System.out.println("session is " + session);
+					System.out.println("paper is " + paperId);
 					pe.get(session).add(paperId);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block

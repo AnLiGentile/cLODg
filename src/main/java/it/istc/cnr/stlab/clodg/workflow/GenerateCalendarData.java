@@ -167,6 +167,10 @@ public class GenerateCalendarData {
 		Transformer transformer = null;
 		try {
 			transformer = tFactory.newTransformer(new StreamSource(xsltStream));
+			
+			OfficialNameSpace ns = OfficialNameSpace.getInstance();
+			transformer.setParameter("twitterHashtag", "#" + ns.conferenceName + ns.year);
+			transformer.setParameter("confBaseURI", ns.baseConference);
 		} catch (TransformerConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

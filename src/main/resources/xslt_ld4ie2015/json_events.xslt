@@ -175,15 +175,16 @@
 	            <xsl:text>"categories": [</xsl:text> 
 	            <xsl:choose>
 	    			<xsl:when test="$uri='http://data.semanticweb.org/conference/eswc/2015'">
-	    				<xsl:text>"http:\/\/data.semanticweb.org\/conference\/eswc\/2015\/category\/conference-event"</xsl:text>
+	    				<xsl:text>"</xsl:text>
+	    				<xsl:value-of select="concat($'category\/conference-event')" />http:\/\/data.semanticweb.org\/conference\/eswc\/2015\/"</xsl:text>
 	    			</xsl:when>
-	    			<xsl:when test="contains(icaltzd:summary, 'Reseach Track ')">
+	    			<xsl:when test="contains(icaltzd:summary, 'Research ')">
 	    				<xsl:text>"http:\/\/data.semanticweb.org\/conference\/eswc\/2015\/category\/research-event"</xsl:text>
 	    			</xsl:when> 
 	    			<xsl:when test="contains(icaltzd:summary, 'PhDSymposium:')">
 	    				<xsl:text>"http:\/\/data.semanticweb.org\/conference\/eswc\/2015\/category\/phd-event"</xsl:text>
 	    			</xsl:when> 	    			
-	    			<xsl:when test="contains(icaltzd:summary, 'In-Use Track ')">
+	    			<xsl:when test="contains(icaltzd:summary, 'In-Use ')">
 	    				<xsl:text>"http:\/\/data.semanticweb.org\/conference\/eswc\/2015\/category\/in-use-event"</xsl:text>
 	    			</xsl:when> 
 	    			<xsl:when test="contains($uri, '/session/')">

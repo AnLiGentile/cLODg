@@ -174,6 +174,7 @@ public class OfficialNameSpace {
     	    String demoPaper = props.getProperty("demoPaper");
     	    String phdPaper = props.getProperty("phdPaper");
     	    String challengePaper = props.getProperty("challengePaper");
+    	    conference = props.getProperty("conference");
     	    
     	    String easychairSnapshot = props.getProperty("easychairSnapshot");
     	    String conferenceConfiguration = props.getProperty("conferenceConfiguration");

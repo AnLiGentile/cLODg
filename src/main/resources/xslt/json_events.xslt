@@ -26,6 +26,9 @@
 	xmlns:eswc-owl="http://www.ontologydesignpatterns.org/ont/eswc/ontology.owl#"
 	exclude-result-prefixes="xsl php">
 	
+	<xsl:param name="confBaseURI" />
+	<xsl:param name="twitterHashtag" />
+	
 	<xsl:output method="text" encoding="utf-8" indent="no" />
 	<xsl:strip-space elements="*" />
 	<xsl:preserve-space elements="*"/>
@@ -104,7 +107,9 @@
 	    		<xsl:text>,</xsl:text>
 	            
 	            <!-- add the twitterWidgetToken attribute of the event (#ISWC2015 by default) -->
-	            <xsl:text>"twitterWidgetToken": "#ISWC2015",</xsl:text>
+	            <xsl:text>"twitterWidgetToken": "</xsl:text>
+	            <xsl:value-of select="$twitterHashtag" />
+	            <xsl:text>",</xsl:text>
 	            
 	            <!-- add the location attribute of the event (Portorož, Slovenia by default) -->
 	            <xsl:text>"locations": </xsl:text>
@@ -175,73 +180,85 @@
 	            <xsl:text>"categories": [</xsl:text> 
 	            <xsl:choose>
 	    			<xsl:when test="$uri='http://data.semanticweb.org/conference/eswc/2015'">
-	    				<xsl:text>"http:\/\/data.semanticweb.org\/conference\/eswc\/2015\/category\/conference-event"</xsl:text>
+	    				<xsl:text>"</xsl:text>
+	    				<xsl:value-of select="concat($confBaseURI, 'category\/conference-event')" />
+	    				<xsl:text>"</xsl:text>
 	    			</xsl:when>
-	    			<xsl:when test="contains(icaltzd:summary, 'Reseach Track ')">
-	    				<xsl:text>"http:\/\/data.semanticweb.org\/conference\/eswc\/2015\/category\/research-event"</xsl:text>
+	    			<xsl:when test="contains(icaltzd:summary, 'Research ')">
+	    				<xsl:text>"</xsl:text>
+	    				<xsl:value-of select="concat($confBaseURI, 'category\/research-event')" />
+	    				<xsl:text>"</xsl:text>
 	    			</xsl:when> 
 	    			<xsl:when test="contains(icaltzd:summary, 'PhDSymposium:')">
-	    				<xsl:text>"http:\/\/data.semanticweb.org\/conference\/eswc\/2015\/category\/phd-event"</xsl:text>
+	    				<xsl:text>"</xsl:text>
+	    				<xsl:value-of select="concat($confBaseURI, 'category\/phd-event')" />
+	    				<xsl:text>"</xsl:text>
 	    			</xsl:when> 	    			
 	    			<xsl:when test="contains(icaltzd:summary, 'In-Use Track ')">
-	    				<xsl:text>"http:\/\/data.semanticweb.org\/conference\/eswc\/2015\/category\/in-use-event"</xsl:text>
+	    				<xsl:text>"</xsl:text>
+	    				<xsl:value-of select="concat($confBaseURI, 'category\/in-use-event')" />
+	    				<xsl:text>"</xsl:text>
 	    			</xsl:when> 
 	    			<xsl:when test="contains($uri, '/session/')">
-	    				<xsl:text>"http:\/\/data.semanticweb.org\/conference\/eswc\/2015\/category\/session-event"</xsl:text>
+	    				<xsl:text>"</xsl:text>
+	    				<xsl:value-of select="concat($confBaseURI, 'category\/session-event')" />
+	    				<xsl:text>"</xsl:text>
 	    			</xsl:when>
 	    			<xsl:when test="contains($uri, '/keynote/')">
-	    				<xsl:text>"http:\/\/data.semanticweb.org\/conference\/eswc\/2015\/category\/keynote-event"</xsl:text>
+	    				<xsl:text>"</xsl:text>
+	    				<xsl:value-of select="concat($confBaseURI, 'category\/keynote-event')" />
+	    				<xsl:text>"</xsl:text>
 	    			</xsl:when>
 	    			<xsl:when test="icaltzd:summary='Plenary: Posters session with breakfast'">
-	    				<xsl:text>"http:\/\/data.semanticweb.org\/conference\/eswc\/2015\/category\/poster-event"</xsl:text>
+	    				<xsl:text>"</xsl:text>
+	    				<xsl:value-of select="concat($confBaseURI, 'category\/poster-event')" />
+	    				<xsl:text>"</xsl:text>
 	    			</xsl:when>
 	    			<xsl:when test="icaltzd:summary='Plenary: Demo session with breakfast'">
-	    				<xsl:text>"http:\/\/data.semanticweb.org\/conference\/eswc\/2015\/category\/demo-event"</xsl:text>
+	    				<xsl:text>"</xsl:text>
+	    				<xsl:value-of select="concat($confBaseURI, 'category\/demo-event')" />
+	    				<xsl:text>"</xsl:text>
 	    			</xsl:when>
 	    			<xsl:when test="contains($uri, '/workshop/')">
-	    				<xsl:text>"http:\/\/data.semanticweb.org\/conference\/eswc\/2015\/category\/workshop-event"</xsl:text>
+	    				<xsl:text>"</xsl:text>
+	    				<xsl:value-of select="concat($confBaseURI, 'category\/workshop-event')" />
+	    				<xsl:text>"</xsl:text>
 	    			</xsl:when>
 	    			<xsl:when test="contains($uri, '/tutorial/')">
-	    				<xsl:text>"http:\/\/data.semanticweb.org\/conference\/eswc\/2015\/category\/tutorial-event"</xsl:text>
+	    				<xsl:text>"</xsl:text>
+	    				<xsl:value-of select="concat($confBaseURI, 'category\/tutorial-event')" />
+	    				<xsl:text>"</xsl:text>
 	    			</xsl:when>
 	    			<xsl:when test="contains(icaltzd:summary, 'Coffee Break + Challenges Posters')">
-	    				 <xsl:text>"http:\/\/data.semanticweb.org\/conference\/eswc\/2015\/category\/challenge-event"</xsl:text>
+	    				<xsl:text>"</xsl:text>
+	    				<xsl:value-of select="concat($confBaseURI, 'category\/challenge-event')" />
+	    				<xsl:text>"</xsl:text>
 	    			</xsl:when>	    			
 	    			<xsl:when test="contains(icaltzd:summary, 'Break:')">
-	    				<xsl:text>"http:\/\/data.semanticweb.org\/conference\/eswc\/2015\/category\/break-event"</xsl:text>
+	    				<xsl:text>"</xsl:text>
+	    				<xsl:value-of select="concat($confBaseURI, 'category\/break-event')" />
+	    				<xsl:text>"</xsl:text>
 	    			</xsl:when> 
 	    			<xsl:when test="contains(icaltzd:summary, 'Social:')">
-	    				<xsl:text>"http:\/\/data.semanticweb.org\/conference\/eswc\/2015\/category\/social-event"</xsl:text>
+	    				<xsl:text>"</xsl:text>
+	    				<xsl:value-of select="concat($confBaseURI, 'category\/social-event')" />
+	    				<xsl:text>"</xsl:text>
 	    			</xsl:when> 
 	    			<xsl:when test="contains(icaltzd:summary, 'Plenary:')">
-	    				<xsl:text>"http:\/\/data.semanticweb.org\/conference\/eswc\/2015\/category\/plenary-event"</xsl:text>
+	    				<xsl:text>"</xsl:text>
+	    				<xsl:value-of select="concat($confBaseURI, 'category\/plenary-event')" />
+	    				<xsl:text>"</xsl:text>
 	    			</xsl:when>
 	    			<xsl:when test="contains(icaltzd:summary, 'Networking:')">
-	    				<xsl:text>"http:\/\/data.semanticweb.org\/conference\/eswc\/2015\/category\/networking-event"</xsl:text>
+	    				<xsl:text>"</xsl:text>
+	    				<xsl:value-of select="concat($confBaseURI, 'category\/networking-event')" />
+	    				<xsl:text>"</xsl:text>
 	    			</xsl:when>
-
-
-
-
-	    		
-	    				    			
-	    			<!-- <xsl:when test="icaltzd:summary='Break: Coffee Break'">
-	    				<xsl:text>"http:\/\/data.semanticweb.org\/conference\/eswc\/2015\/category\/break-event"</xsl:text>
-	    			</xsl:when>
-	    			<xsl:when test="icaltzd:summary='Break: PhD Lunch'">
-	    				<xsl:text>"http:\/\/data.semanticweb.org\/conference\/eswc\/2015\/category\/break-event"</xsl:text>
-	    			</xsl:when>
-	    			<xsl:when test="icaltzd:summary='Break: Lunch Break'">
-	    				<xsl:text>"http:\/\/data.semanticweb.org\/conference\/eswc\/2015\/category\/break-event"</xsl:text>
-	    			</xsl:when>
-	    			<xsl:when test="icaltzd:summary='Social: Gala dinner'">
-	    				<xsl:text>"http:\/\/data.semanticweb.org\/conference\/eswc\/2015\/category\/social-event"</xsl:text>
-	    			</xsl:when>
-	    			-->	    			
-	    			
 	    			
         			<xsl:otherwise>
-	    				<xsl:text>"http:\/\/data.semanticweb.org\/conference\/eswc\/2015\/category\/presentation-event"</xsl:text>
+        				<xsl:text>"</xsl:text>
+	    				<xsl:value-of select="concat($confBaseURI, 'category\/presentation-event')" />
+	    				<xsl:text>"</xsl:text>
 	    			</xsl:otherwise>
       
 	    		</xsl:choose>
