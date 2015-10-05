@@ -649,7 +649,6 @@ public class GenerateMainConferenceInitialGraph {
 		model.removeAll(null, RDF.type, inUsePaperType);
 		model.removeAll(null, RDF.type, researchPaperType);
 		
-		model.write(System.out);
 		return model;
 	}
 
