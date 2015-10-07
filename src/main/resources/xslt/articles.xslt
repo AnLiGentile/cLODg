@@ -119,7 +119,7 @@
 
 
 
-			<rdf:Description>
+			<!-- rdf:Description>
 				<xsl:attribute name="rdf:about">
 							<xsl:value-of select="$baseConference" />
 		 				</xsl:attribute>
@@ -135,7 +135,7 @@
 					<xsl:value-of select="$conferenceLabel" />
 				</swc:hasAcronym>
 				<swc:address>
-					<xsl:value-of select="$address" />
+					<xsl:value-of select="$location" />
 				</swc:address>
 				<foaf:homepage rdf:resource="http://2015.eswc-conferences.org/" />
 
@@ -152,15 +152,15 @@
 				<icaltzd:dtend rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">
 					<xsl:value-of select="$dtend" />
 				</icaltzd:dtend>
-				<!-- icaltzd:duration> <xsl:value-of select="xs:dateTime('2015-06-04T17:00:00')-xs:dateTime('2015-05-31T09:00:00')" 
-					/> </icaltzd:duration> <swc:hasRole rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/sponsor-chair"/ -->
+				< icaltzd:duration> <xsl:value-of select="xs:dateTime('2015-06-04T17:00:00')-xs:dateTime('2015-05-31T09:00:00')" 
+					/> </icaltzd:duration> <swc:hasRole rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/sponsor-chair"/ >
 				<rdfs:label>
 					<xsl:value-of select="$conferenceLongName" />
 				</rdfs:label>
 
 
 
-				<!-- swc:hasLogo rdf:resource="http://2015.eswc-conferences.org/sites/default/files/miniLogo_eswc15_red_0.png"/ -->
+				< swc:hasLogo rdf:resource="http://2015.eswc-conferences.org/sites/default/files/miniLogo_eswc15_red_0.png"/>
 				<icaltzd:location>
 					<xsl:value-of select="$location" />
 				</icaltzd:location>
@@ -171,7 +171,7 @@
 					<xsl:value-of select="$conferenceLongName" />
 				</icaltzd:description>
 
-			</rdf:Description>
+			</rdf:Description-->
 
 
 		</rdf:RDF>

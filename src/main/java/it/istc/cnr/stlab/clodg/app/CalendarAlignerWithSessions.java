@@ -827,33 +827,29 @@ public class CalendarAlignerWithSessions implements Aligner {
 			}
 		}
 		
-		//TODO the poster and demo event are manually indicated in property file
-		Resource poster_event = model
-								.createResource(ns.posterEventURI);
-		
-		Resource demo_event = model
-				.createResource(ns.demoEventURI);
-		
-		
-		poster_event.addProperty(isSubEventOf, conference);
-		demo_event.addProperty(isSubEventOf, conference);
-		conference.addProperty(isSuperEventOf, poster_event);
-		conference.addProperty(isSuperEventOf, demo_event);
+		if (!ns.posterEventURI.equals("")&!ns.demoEventURI.equals("")) {
+			//TODO the poster and demo event are manually indicated in property file
+			Resource poster_event = model.createResource(ns.posterEventURI);
+			Resource demo_event = model.createResource(ns.demoEventURI);
+			poster_event.addProperty(isSubEventOf, conference);
+			demo_event.addProperty(isSubEventOf, conference);
+			conference.addProperty(isSuperEventOf, poster_event);
+			conference.addProperty(isSuperEventOf, demo_event);
+			for (Entry<String, String> e : aligner.getPaperTitles().entrySet()) {
+				if (e.getKey().contains("poster")) {
+					Resource paper = model.createResource(e.getKey());
+					paper.addProperty(isPresentedPredicate, poster_event);
+					poster_event.addProperty(presentsPredicate, paper);
+				} else if (e.getKey().contains("demo")) {
+					Resource paper = model.createResource(e.getKey());
+					paper.addProperty(isPresentedPredicate, demo_event);
+					demo_event.addProperty(presentsPredicate, paper);
+				}
 
-		
-		for (Entry<String, String> e : aligner.getPaperTitles().entrySet()){
-			if (e.getKey().contains("poster")){
-				Resource paper = model.createResource(e.getKey());
-				paper.addProperty(isPresentedPredicate, poster_event);
-				poster_event.addProperty(presentsPredicate, paper);
-			}else if (e.getKey().contains("demo")){
-				Resource paper = model.createResource(e.getKey());
-				paper.addProperty(isPresentedPredicate, demo_event);
-				demo_event.addProperty(presentsPredicate, paper);
 			}
-
+			/////////////////////////////////
 		}
-		/////////////////////////////////
+		
 		
 		//TODO this is ANOTHER dirty patch
 //		Resource challenge_event = model
@@ -901,8 +897,10 @@ public class CalendarAlignerWithSessions implements Aligner {
 					"./calendar2015/main-with-calendar2015.rdf");
 			model.write(out);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(model);
 		}
 
 		// aligner.generateSingleEvents("in/ESWC2014 - main conference_iqll2vaabv1khlfmlt9mq9co48@group.calendar.google.com.ics",

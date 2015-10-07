@@ -91,43 +91,42 @@ import com.hp.hpl.jena.vocabulary.RDFS;
 public class GenerateMainConferenceInitialGraph {
 
 	public static ClassLoader classLoader;
-	
+
 	private OfficialNameSpace ns;
-	
+
 	private PersonMap personMap;
 	private OrganizationMap organizationMap;
 	private Map<String, Boolean> answersMap;
 	private Map<String, Map<String, Homonym>> homonymsMap;
-	
+
 	private String xsltFolder;
 
 	private String conferenceData, conferenceConfig;
 	private Document conferenceDataDoc, conferenceConfigDoc;
 
 	public GenerateMainConferenceInitialGraph() {
-	    getClassLoader();
-	    
-	    this.ns = OfficialNameSpace.getInstance();
-        
-        this.conferenceConfig = conferenceConfig;
-        this.conferenceData = conferenceData;
-        
-        this.xsltFolder = this.ns.xsltFolder;
+		getClassLoader();
+
+		this.ns = OfficialNameSpace.getInstance();
+
+		this.conferenceConfig = conferenceConfig;
+		this.conferenceData = conferenceData;
+
+		this.xsltFolder = this.ns.xsltFolder;
 	}
-	
+
 	public GenerateMainConferenceInitialGraph(String conferenceData,
 			String conferenceConfig) {
-		
+
 		this();
-		
+
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		factory.setNamespaceAware(true);
 		DocumentBuilder builder;
 
 		try {
 			builder = factory.newDocumentBuilder();
-			System.out.println(classLoader
-                .getResourceAsStream(conferenceData));
+			System.out.println(classLoader.getResourceAsStream(conferenceData));
 			conferenceDataDoc = builder.parse(classLoader
 					.getResourceAsStream(conferenceData));
 			conferenceConfigDoc = builder.parse(classLoader
@@ -145,7 +144,7 @@ public class GenerateMainConferenceInitialGraph {
 
 		homonymsMap = new HashMap<String, Map<String, Homonym>>();
 
-		//TODO make this a configurable parameter
+		// TODO make this a configurable parameter
 		CSVReader csvReader = new CSVReader(new InputStreamReader(
 				classLoader.getResourceAsStream("data/ESWC2015-homonyms.csv")));
 
@@ -240,7 +239,7 @@ public class GenerateMainConferenceInitialGraph {
 			Model namesModel) throws XPathExpressionException {
 		for (int i = 0, j = personNodes.getLength(); i < j; i++) {
 			Node node = personNodes.item(i);
-			
+
 			XPathExpression xPathExpression = xPath.compile("firstName");
 			Node firstNameNode = (Node) xPathExpression.evaluate(node,
 					XPathConstants.NODE);
@@ -296,7 +295,8 @@ public class GenerateMainConferenceInitialGraph {
 			}
 
 			if (personURI.isEmpty()) {
-				personURI = Urifier.toURI(this.ns.personNs, name, email, homonymsMap);
+				personURI = Urifier.toURI(this.ns.personNs, name, email,
+						homonymsMap);
 			} else {
 				Map<String, Homonym> homonyms = homonymsMap.get(personURI
 						.replace(this.ns.personNs, ""));
@@ -337,7 +337,7 @@ public class GenerateMainConferenceInitialGraph {
 			 * Read the RDF model containing all people names.
 			 */
 			Model namesModel = ModelFactory.createDefaultModel();
-			//TODO all-names.rdf should be passed as input
+			// TODO all-names.rdf should be passed as input
 			namesModel.read(
 					classLoader.getResourceAsStream("data/all-names.rdf"),
 					"http://data.semanticweb.org/person/", "RDF/XML");
@@ -512,7 +512,8 @@ public class GenerateMainConferenceInitialGraph {
 		}
 
 		if (organizationURI.isEmpty()) {
-			organizationURI = Urifier.toURI(ns.organizationNs, label, null, null);
+			organizationURI = Urifier.toURI(ns.organizationNs, label, null,
+					null);
 		}
 
 		organizationMap.addEntity(new Organization(label, new URI(
@@ -530,23 +531,26 @@ public class GenerateMainConferenceInitialGraph {
 
 		Model model = ModelFactory.createDefaultModel();
 
-		InputStream xsltStream = classLoader
-				.getResourceAsStream(xsltFolder + "/articles.xslt");
+		InputStream xsltStream = classLoader.getResourceAsStream(xsltFolder
+				+ "/articles.xslt");
 		TransformerFactory tFactory = TransformerFactory.newInstance();
-		
+
 		try {
 
-		    System.out.println("... " + xsltFolder);
+			System.out.println("... " + xsltFolder);
 			Transformer transformer = tFactory.newTransformer(new StreamSource(
 					xsltStream));
-			transformer.setParameter("conferenceLabel", OfficialNameSpace.conferenceLabel());
+			transformer.setParameter("conferenceLabel",
+					OfficialNameSpace.conferenceLabel());
 			transformer.setParameter("baseConference", ns.baseConference);
+			transformer.setParameter("conferenceLongName",
+					ns.conferenceLongName);
 			transformer.setParameter("conferenceYear", ns.year);
-			transformer.setParameter("conferenceMonth", ns.baseConference);
+			transformer.setParameter("conferenceMonth", ns.year);
 			transformer.setParameter("location", ns.location);
 			transformer.setParameter("dtstart", ns.dtstart);
 			transformer.setParameter("dtend", ns.dtend);
-			
+
 			ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 			// transformer.transform(new DOMSource(conferenceDataDoc), new
 			// StreamResult(new File(out)));
@@ -558,7 +562,7 @@ public class GenerateMainConferenceInitialGraph {
 			outputStream.close();
 			model.read(inputStream, null, "RDF/XML");
 			inputStream.close();
-			
+
 			addAuthorsInfo(model);
 
 			addKeynotes(xsltFolder + "/keynotes.xslt", model);
@@ -583,7 +587,7 @@ public class GenerateMainConferenceInitialGraph {
 			e.printStackTrace();
 		}
 
-		//TODO this should be configurable
+		// TODO this should be configurable
 		/*
 		 * We add the data about Poster and Demo.
 		 */
@@ -598,7 +602,7 @@ public class GenerateMainConferenceInitialGraph {
 			posterDemoHandler.mergeData(model);
 		}
 
-		//TODO this should be configurable
+		// TODO this should be configurable
 
 		/*
 		 * We add the data about PhD symposium
@@ -612,7 +616,7 @@ public class GenerateMainConferenceInitialGraph {
 			phDSympHandler.mergeData(model);
 		}
 
-		//TODO this should be configurable
+		// TODO this should be configurable
 
 		/*
 		 * We add the data about challenges
@@ -655,168 +659,172 @@ public class GenerateMainConferenceInitialGraph {
 		model.removeAll(null, swrcTmpId, (RDFNode) null);
 		model.removeAll(null, RDF.type, inUsePaperType);
 		model.removeAll(null, RDF.type, researchPaperType);
-		
+
 		return model;
 	}
 
 	public void alignFormData(Model model) {
 		URL formDataLocation = classLoader.getResource("data/form-data");
-		if(formDataLocation != null){
-    		String formDataLocationAsFilePath = formDataLocation.getFile();
-    		File formDataDir = new File(formDataLocationAsFilePath);
-    
-    		FileFilter dirFilter = new FileFilter() {
-    
-    			@Override
-    			public boolean accept(File pathname) {
-    				return pathname.isDirectory() ? true : false;
-    			}
-    		};
-    
-    		FileFilter rdfFilter = new FileFilter() {
-    
-    			@Override
-    			public boolean accept(File pathname) {
-    				return pathname.getName().endsWith(".rdf");
-    			}
-    		};
-    
-    		Property holdsRole = ModelFactory.createDefaultModel().createProperty(
-    				OfficialNameSpace.HOLDS_ROLE_PROP);
-    		for (File subDir : formDataDir.listFiles(dirFilter)) {
-    
-    			for (File rdf : subDir.listFiles(rdfFilter)) {
-    
-    				System.out.println("RDF form model " + rdf.getName());
-    				InputStream inputStream;
-    				try {
-    					inputStream = new FileInputStream(rdf);
-    					Model formModel = ModelFactory.createDefaultModel();
-    					formModel.read(inputStream, null, "RDF/XML");
-    
-    					ResIterator people = formModel.listResourcesWithProperty(
-    							RDF.type, FOAF.Person);
-    
-    					while (people.hasNext()) {
-    						Resource person = people.next();
-    
-    						// Add core information
-    						Statement statement = person.getProperty(RDF.type);
-    						model.add(statement);
-    						statement = person.getProperty(holdsRole);
-    						model.add(statement);
-    
-    						// Update name and label
-    						statement = person.getProperty(FOAF.name);
-    						model.removeAll(person, FOAF.name, null);
-    						model.add(statement);
-    						model.removeAll(person, RDFS.label, null);
-    						model.add(person, RDFS.label, statement.getObject());
-    
-    						// Update first name
-    						statement = person.getProperty(FOAF.firstName);
-    						model.removeAll(person, FOAF.firstName, null);
-    						model.add(statement);
-    
-    						// Update last name
-    						Property foafLastName = model
-    								.createProperty(OfficialNameSpace.FOAF_LAST_NAME);
-    						statement = person.getProperty(foafLastName);
-    						model.removeAll(person, foafLastName, null);
-    						model.add(statement);
-    
-    						// Update homepage
-    						statement = person.getProperty(FOAF.homepage);
-    						if (statement != null) {
-    							model.removeAll(person, FOAF.homepage, null);
-    							model.add(statement);
-    						}
-    
-    						// Update mbox
-    						statement = person.getProperty(FOAF.mbox);
-    						Resource mbox = (Resource) statement.getObject();
-    						model.removeAll(person, FOAF.mbox, null);
-    						model.add(statement);
-    						// Update mbox sha1sum
-    						model.removeAll(person, FOAF.mbox_sha1sum, null);
-    						model.add(person, FOAF.mbox_sha1sum,
-    								DigestUtils.sha1Hex(mbox.getURI()));
-    
-    						// Add depiction
-    						statement = person.getProperty(FOAF.depiction);
-    						if (statement != null) {
-    							Resource depiction = (Resource) statement
-    									.getObject();
-    							String depictionURI = depiction.getURI().replace(
-    									"/images/", "/imgresized/");
-    							if (depictionURI.endsWith(".tiff")
-    									|| depictionURI.endsWith(".TIFF")) {
-    								int index = depictionURI.lastIndexOf(".");
-    								depictionURI = depictionURI.substring(0, index)
-    										+ ".jpg";
-    							} else if (!depictionURI.endsWith(".jpg")
-    									&& !depictionURI.endsWith(".JPG")
-    									&& !depictionURI.endsWith(".jpeg")
-    									&& !depictionURI.endsWith(".JPEG"))
-    								depictionURI += ".jpg";
-    							model.add(statement.getSubject(),
-    									statement.getPredicate(),
-    									model.createResource(depictionURI));
-    						}
-    
-    						// Add Twitter account
-    						Property foafAccount = model
-    								.createProperty(OfficialNameSpace.FOAF_ACCOUNT);
-    						statement = person.getProperty(foafAccount);
-    						if (statement != null) {
-    							model.add(statement);
-    							Resource account = (Resource) statement.getObject();
-    							model.add(account.listProperties());
-    						}
-    
-    						// Add paper image
-    						Resource inProceedings = model
-    								.createResource("http://swrc.ontoware.org/ontology#InProceedings");
-    						ResIterator papers = formModel
-    								.listResourcesWithProperty(RDF.type,
-    										inProceedings);
-    						if (papers.hasNext()) {
-    							Resource paper = papers.next();
-    							Property dbpediaThumbnail = model
-    									.createProperty("http://dbpedia.org/ontology/thumbnail");
-    							statement = paper.getProperty(dbpediaThumbnail);
-    
-    							if (statement != null) {
-    								Resource thumbnail = (Resource) statement
-    										.getObject();
-    								String thumbnailURI = thumbnail.getURI()
-    										.replace("/images/", "/imgresized/");
-    
-    								if (thumbnailURI.endsWith(".tiff")
-    										|| thumbnailURI.endsWith(".TIFF")) {
-    									int index = thumbnailURI.lastIndexOf(".");
-    									thumbnailURI = thumbnailURI.substring(0,
-    											index) + ".jpg";
-    								} else if (!thumbnailURI.endsWith(".jpg")
-    										&& !thumbnailURI.endsWith(".JPG")
-    										&& !thumbnailURI.endsWith(".jpeg")
-    										&& !thumbnailURI.endsWith(".JPEG"))
-    									thumbnailURI += ".jpg";
-    								model.add(statement.getSubject(),
-    										statement.getPredicate(),
-    										model.createResource(thumbnailURI));
-    							}
-    						}
-    
-    					}
-    
-    				} catch (FileNotFoundException e) {
-    					// TODO Auto-generated catch block
-    					e.printStackTrace();
-    				}
-    
-    			}
-    		}
+		if (formDataLocation != null) {
+			String formDataLocationAsFilePath = formDataLocation.getFile();
+			File formDataDir = new File(formDataLocationAsFilePath);
+
+			FileFilter dirFilter = new FileFilter() {
+
+				@Override
+				public boolean accept(File pathname) {
+					return pathname.isDirectory() ? true : false;
+				}
+			};
+
+			FileFilter rdfFilter = new FileFilter() {
+
+				@Override
+				public boolean accept(File pathname) {
+					return pathname.getName().endsWith(".rdf");
+				}
+			};
+
+			Property holdsRole = ModelFactory.createDefaultModel()
+					.createProperty(OfficialNameSpace.HOLDS_ROLE_PROP);
+			for (File subDir : formDataDir.listFiles(dirFilter)) {
+
+				for (File rdf : subDir.listFiles(rdfFilter)) {
+
+					System.out.println("RDF form model " + rdf.getName());
+					InputStream inputStream;
+					try {
+						inputStream = new FileInputStream(rdf);
+						Model formModel = ModelFactory.createDefaultModel();
+						formModel.read(inputStream, null, "RDF/XML");
+
+						ResIterator people = formModel
+								.listResourcesWithProperty(RDF.type,
+										FOAF.Person);
+
+						while (people.hasNext()) {
+							Resource person = people.next();
+
+							// Add core information
+							Statement statement = person.getProperty(RDF.type);
+							model.add(statement);
+							statement = person.getProperty(holdsRole);
+							model.add(statement);
+
+							// Update name and label
+							statement = person.getProperty(FOAF.name);
+							model.removeAll(person, FOAF.name, null);
+							model.add(statement);
+							model.removeAll(person, RDFS.label, null);
+							model.add(person, RDFS.label, statement.getObject());
+
+							// Update first name
+							statement = person.getProperty(FOAF.firstName);
+							model.removeAll(person, FOAF.firstName, null);
+							model.add(statement);
+
+							// Update last name
+							Property foafLastName = model
+									.createProperty(OfficialNameSpace.FOAF_LAST_NAME);
+							statement = person.getProperty(foafLastName);
+							model.removeAll(person, foafLastName, null);
+							model.add(statement);
+
+							// Update homepage
+							statement = person.getProperty(FOAF.homepage);
+							if (statement != null) {
+								model.removeAll(person, FOAF.homepage, null);
+								model.add(statement);
+							}
+
+							// Update mbox
+							statement = person.getProperty(FOAF.mbox);
+							Resource mbox = (Resource) statement.getObject();
+							model.removeAll(person, FOAF.mbox, null);
+							model.add(statement);
+							// Update mbox sha1sum
+							model.removeAll(person, FOAF.mbox_sha1sum, null);
+							model.add(person, FOAF.mbox_sha1sum,
+									DigestUtils.sha1Hex(mbox.getURI()));
+
+							// Add depiction
+							statement = person.getProperty(FOAF.depiction);
+							if (statement != null) {
+								Resource depiction = (Resource) statement
+										.getObject();
+								String depictionURI = depiction.getURI()
+										.replace("/images/", "/imgresized/");
+								if (depictionURI.endsWith(".tiff")
+										|| depictionURI.endsWith(".TIFF")) {
+									int index = depictionURI.lastIndexOf(".");
+									depictionURI = depictionURI.substring(0,
+											index) + ".jpg";
+								} else if (!depictionURI.endsWith(".jpg")
+										&& !depictionURI.endsWith(".JPG")
+										&& !depictionURI.endsWith(".jpeg")
+										&& !depictionURI.endsWith(".JPEG"))
+									depictionURI += ".jpg";
+								model.add(statement.getSubject(),
+										statement.getPredicate(),
+										model.createResource(depictionURI));
+							}
+
+							// Add Twitter account
+							Property foafAccount = model
+									.createProperty(OfficialNameSpace.FOAF_ACCOUNT);
+							statement = person.getProperty(foafAccount);
+							if (statement != null) {
+								model.add(statement);
+								Resource account = (Resource) statement
+										.getObject();
+								model.add(account.listProperties());
+							}
+
+							// Add paper image
+							Resource inProceedings = model
+									.createResource("http://swrc.ontoware.org/ontology#InProceedings");
+							ResIterator papers = formModel
+									.listResourcesWithProperty(RDF.type,
+											inProceedings);
+							if (papers.hasNext()) {
+								Resource paper = papers.next();
+								Property dbpediaThumbnail = model
+										.createProperty("http://dbpedia.org/ontology/thumbnail");
+								statement = paper.getProperty(dbpediaThumbnail);
+
+								if (statement != null) {
+									Resource thumbnail = (Resource) statement
+											.getObject();
+									String thumbnailURI = thumbnail
+											.getURI()
+											.replace("/images/", "/imgresized/");
+
+									if (thumbnailURI.endsWith(".tiff")
+											|| thumbnailURI.endsWith(".TIFF")) {
+										int index = thumbnailURI
+												.lastIndexOf(".");
+										thumbnailURI = thumbnailURI.substring(
+												0, index) + ".jpg";
+									} else if (!thumbnailURI.endsWith(".jpg")
+											&& !thumbnailURI.endsWith(".JPG")
+											&& !thumbnailURI.endsWith(".jpeg")
+											&& !thumbnailURI.endsWith(".JPEG"))
+										thumbnailURI += ".jpg";
+									model.add(statement.getSubject(),
+											statement.getPredicate(),
+											model.createResource(thumbnailURI));
+								}
+							}
+
+						}
+
+					} catch (FileNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+
+				}
+			}
 		}
 	}
 
@@ -834,9 +842,8 @@ public class GenerateMainConferenceInitialGraph {
 
 			Resource authorTypeRole = model
 					.createResource("http://www.ontologydesignpatterns.org/ont/eswc/ontology.owl#Author");
-			Resource authorRole = model.createResource(
-					ns.baseConference+"author",
-					authorTypeRole);
+			Resource authorRole = model.createResource(ns.baseConference
+					+ "author", authorTypeRole);
 			authorRole.addProperty(RDFS.label, "Paper author");
 			authorRole
 					.addProperty(
@@ -936,10 +943,9 @@ public class GenerateMainConferenceInitialGraph {
 
 						Person person;
 						try {
-							person = personMap
-									.getEntityByURI(new URI(Urifier
-											.toURI(this.ns.personNs, name, email,
-													homonymsMap)));
+							person = personMap.getEntityByURI(new URI(Urifier
+									.toURI(this.ns.personNs, name, email,
+											homonymsMap)));
 
 						} catch (URISyntaxException e) {
 							person = null;
@@ -1021,10 +1027,8 @@ public class GenerateMainConferenceInitialGraph {
 
 			Resource presenter = model
 					.createResource("http://data.semanticweb.org/ns/swc/ontology#Presenter");
-			Resource keynoteSpeakerRole = model
-					.createResource(
-							ns.baseConference+ "keynote-speaker",
-							presenter);
+			Resource keynoteSpeakerRole = model.createResource(
+					ns.baseConference + "keynote-speaker", presenter);
 			keynoteSpeakerRole.addProperty(RDFS.label, "Keynote speaker");
 			keynoteSpeakerRole
 					.addProperty(
@@ -1087,24 +1091,24 @@ public class GenerateMainConferenceInitialGraph {
 					Person person;
 					try {
 						person = personMap.getEntityByURI(new URI(Urifier
-								.toURI(this.ns.personNs, firstName + " " + lastName,
-										email, homonymsMap)));
+								.toURI(this.ns.personNs, firstName + " "
+										+ lastName, email, homonymsMap)));
 					} catch (URISyntaxException e) {
 						person = null;
 					}
 					if (person != null) {
 						personUri = person.getURI().toString();
 					} else {
-						personUri = Urifier.toURI(this.ns.personNs, firstName + " "
-								+ lastName, email, homonymsMap);
+						personUri = Urifier.toURI(this.ns.personNs, firstName
+								+ " " + lastName, email, homonymsMap);
 					}
 
 					if (personUri != null) {
 
 						Resource keynoteSpeaker = model.createResource(
 								personUri, FOAF.Person);
-						Resource keynote = model.createResource(this.ns.keynoteNs
-								+ keynoteId);
+						Resource keynote = model
+								.createResource(this.ns.keynoteNs + keynoteId);
 
 						keynoteSpeaker.addProperty(FOAF.made, keynote);
 						keynote.addProperty(FOAF.maker, keynoteSpeaker);
@@ -1163,10 +1167,9 @@ public class GenerateMainConferenceInitialGraph {
 
 			Resource programCommitteeMemberType = model
 					.createResource("http://data.semanticweb.org/ns/swc/ontology#ProgrammeCommitteeMember");
-			Resource programCommitteeMemberRole = model
-					.createResource(
-							ns.baseConference+"program-committee-member",
-							programCommitteeMemberType);
+			Resource programCommitteeMemberRole = model.createResource(
+					ns.baseConference + "program-committee-member",
+					programCommitteeMemberType);
 			programCommitteeMemberRole.addProperty(RDFS.label,
 					"Program committee member");
 			programCommitteeMemberRole
@@ -1212,16 +1215,16 @@ public class GenerateMainConferenceInitialGraph {
 					Person person;
 					try {
 						person = personMap.getEntityByURI(new URI(Urifier
-								.toURI(this.ns.personNs, firstName + " " + lastName,
-										email, homonymsMap)));
+								.toURI(this.ns.personNs, firstName + " "
+										+ lastName, email, homonymsMap)));
 					} catch (URISyntaxException e) {
 						person = null;
 					}
 					if (person != null) {
 						personUri = person.getURI().toString();
 					} else {
-						personUri = Urifier.toURI(this.ns.personNs, firstName + " "
-								+ lastName, email, homonymsMap);
+						personUri = Urifier.toURI(this.ns.personNs, firstName
+								+ " " + lastName, email, homonymsMap);
 					}
 
 					xPathExpression = xPath.compile("organizationId");
@@ -1362,7 +1365,8 @@ public class GenerateMainConferenceInitialGraph {
 					Node roleNode = node.getAttributes().getNamedItem("name");
 
 					String role = roleNode.getTextContent();
-					role = Urifier.toURI(this.ns.baseConference, role, null, null);
+					role = Urifier.toURI(this.ns.baseConference, role, null,
+							null);
 
 					Resource roleResource = model.createResource(role,
 							chairType);
@@ -1405,10 +1409,9 @@ public class GenerateMainConferenceInitialGraph {
 
 						Person person;
 						try {
-							person = personMap
-									.getEntityByURI(new URI(Urifier
-											.toURI(this.ns.personNs, name, email,
-													homonymsMap)));
+							person = personMap.getEntityByURI(new URI(Urifier
+									.toURI(this.ns.personNs, name, email,
+											homonymsMap)));
 						} catch (URISyntaxException e) {
 							person = null;
 						}
