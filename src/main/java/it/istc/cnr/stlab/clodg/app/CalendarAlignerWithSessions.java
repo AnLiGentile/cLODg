@@ -678,6 +678,9 @@ public class CalendarAlignerWithSessions implements Aligner {
 				.createProperty("http://data.semanticweb.org/ns/swc/ontology#hasAcronym");
 		Property hasLocation = model
 				.createProperty("http://data.semanticweb.org/ns/swc/ontology#hasLocation");
+		
+		Resource conferenceEvent = model
+                .createResource("http://data.semanticweb.org/ns/swc/ontology#ConferenceEvent");
 
 		for (Entry<String, String> t : papers.entrySet()) {
 			if (events.keySet().contains(t.getKey())) {
@@ -718,7 +721,7 @@ public class CalendarAlignerWithSessions implements Aligner {
 		
 
 		Resource conference = model
-				.createResource(ns.baseConference);
+				.createResource(ns.baseConference, conferenceEvent);
 		conference.addProperty(label,
 				ns.conferenceLongName);
 		conference.addProperty(address, ns.location);
