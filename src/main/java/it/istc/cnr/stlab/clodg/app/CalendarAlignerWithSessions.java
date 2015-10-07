@@ -678,10 +678,20 @@ public class CalendarAlignerWithSessions implements Aligner {
 				.createProperty("http://data.semanticweb.org/ns/swc/ontology#hasAcronym");
 		Property hasLocation = model
 				.createProperty("http://data.semanticweb.org/ns/swc/ontology#hasLocation");
-		
 		Resource conferenceEvent = model
                 .createResource("http://data.semanticweb.org/ns/swc/ontology#ConferenceEvent");
-
+		Property icaltzd_start = model
+				.createProperty("http://www.w3.org/2002/12/cal/icaltzd#dtstart");
+		Property icaltzd_end = model
+				.createProperty("http://www.w3.org/2002/12/cal/icaltzd#dtend");
+		Property icaltzd_location = model
+				.createProperty("http://www.w3.org/2002/12/cal/icaltzd#location");
+		Property icaltzd_summary = model
+				.createProperty("http://www.w3.org/2002/12/cal/icaltzd#summary");
+		Property icaltzd_description = model
+				.createProperty("http://www.w3.org/2002/12/cal/icaltzd#description");
+		
+		
 		for (Entry<String, String> t : papers.entrySet()) {
 			if (events.keySet().contains(t.getKey())) {
 				// TODO all the content of this if block is just to test
@@ -727,7 +737,64 @@ public class CalendarAlignerWithSessions implements Aligner {
 		conference.addProperty(address, ns.location);
 		conference.addProperty(hasAcronym, ns.conferenceName.trim()+ns.year);
 		conference.addProperty(hasLocation, ns.location);
+		conference.addProperty(icaltzd_description, ns.conferenceLongName);
+		conference.addProperty(icaltzd_end, ns.dtend);
+		//TODO this generates a bug, as it assumes that all locations are listed in the locations.json file
+//		conference.addProperty(icaltzd_location, ns.location);
+		conference.addProperty(icaltzd_start, ns.dtstart);
+		conference.addProperty(icaltzd_summary, ns.conferenceLongName);
 
+
+		
+
+		
+//		<rdf:Description>
+
+
+//		<swc:hasAcronym>
+//			<xsl:value-of select="$conferenceLabel" />
+//		</swc:hasAcronym>
+//		<swc:address>
+//			<xsl:value-of select="$address" />
+//		</swc:address>
+//		<foaf:homepage rdf:resource="http://2015.eswc-conferences.org/" />
+//
+//		<swc:hasRelatedDocument>
+//			<xsl:attribute name="rdf:resource">
+//					<xsl:value-of select="concat($baseConference,'/proceedings')" />
+// 				</xsl:attribute>
+//		</swc:hasRelatedDocument>
+//
+//
+//		<icaltzd:dtstart rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">
+//			<xsl:value-of select="$dtstart" />
+//		</icaltzd:dtstart>
+//		<icaltzd:dtend rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">
+//			<xsl:value-of select="$dtend" />
+//		</icaltzd:dtend>
+//		<!-- icaltzd:duration> <xsl:value-of select="xs:dateTime('2015-06-04T17:00:00')-xs:dateTime('2015-05-31T09:00:00')" 
+//			/> </icaltzd:duration> <swc:hasRole rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/sponsor-chair"/ -->
+//		<rdfs:label>
+//			<xsl:value-of select="$conferenceLongName" />
+//		</rdfs:label>
+//
+//
+//
+//		<!-- swc:hasLogo rdf:resource="http://2015.eswc-conferences.org/sites/default/files/miniLogo_eswc15_red_0.png"/ -->
+//		<icaltzd:location>
+//			<xsl:value-of select="$location" />
+//		</icaltzd:location>
+//		<icaltzd:summary>
+//			<xsl:value-of select="$conferenceLabel" />
+//		</icaltzd:summary>
+//		<icaltzd:description>
+//			<xsl:value-of select="$conferenceLongName" />
+//		</icaltzd:description>
+//
+//	</rdf:Description>
+	
+		
+		
 		System.out.println("number of sessions : "
 				+ aligner.getSessionEvents().size());
 
