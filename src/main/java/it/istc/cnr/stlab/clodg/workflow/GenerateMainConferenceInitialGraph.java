@@ -104,17 +104,22 @@ public class GenerateMainConferenceInitialGraph {
 	private String conferenceData, conferenceConfig;
 	private Document conferenceDataDoc, conferenceConfigDoc;
 
+	public GenerateMainConferenceInitialGraph() {
+	    getClassLoader();
+	    
+	    this.ns = OfficialNameSpace.getInstance();
+        
+        this.conferenceConfig = conferenceConfig;
+        this.conferenceData = conferenceData;
+        
+        this.xsltFolder = this.ns.xsltFolder;
+	}
+	
 	public GenerateMainConferenceInitialGraph(String conferenceData,
 			String conferenceConfig) {
-		getClassLoader();
 		
-		this.ns = OfficialNameSpace.getInstance();
+		this();
 		
-		this.conferenceConfig = conferenceConfig;
-		this.conferenceData = conferenceData;
-		
-		this.xsltFolder = this.ns.xsltFolder;
-
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		factory.setNamespaceAware(true);
 		DocumentBuilder builder;
@@ -528,7 +533,7 @@ public class GenerateMainConferenceInitialGraph {
 		InputStream xsltStream = classLoader
 				.getResourceAsStream(xsltFolder + "/articles.xslt");
 		TransformerFactory tFactory = TransformerFactory.newInstance();
-		System.out.println(tFactory.getClass());
+		
 		try {
 
 		    System.out.println("... " + xsltFolder);

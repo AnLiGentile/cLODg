@@ -89,16 +89,21 @@ public class LD4IE2015 {
 				 * Generate RDF data including thumbnails, depictions and
 				 * decrypted mboxes.
 				 */
-				GenerateMainConferenceInitialGraph generateMainConferenceInitialGraph = new GenerateMainConferenceInitialGraph(
-						easychairSnapshot, conferenceConfiguration);
+				GenerateMainConferenceInitialGraph generateMainConferenceInitialGraph = null;
 				
 				Model dogFoodData = null;
-				if(dogFoodInput != null){
+				if(dogFoodInput == null)
+				    generateMainConferenceInitialGraph = new GenerateMainConferenceInitialGraph(
+                        easychairSnapshot, conferenceConfiguration);
+				
+				else{ 
+				    generateMainConferenceInitialGraph = new GenerateMainConferenceInitialGraph();
 				    try{
-				        dogFoodData = FileManager.get().loadModel(dogFoodInput);
-				    } catch(RiotException e){
-				        System.err.println("The semantic web dog food compliant model is not valid.");
-				    }
+                        dogFoodData = FileManager.get().loadModel(dogFoodInput);
+                    } catch(RiotException e){
+                        System.err.println("The semantic web dog food compliant model is not valid.");
+                    }
+				
 				}
 				
 				if(dogFoodData == null) dogFoodData = generateMainConferenceInitialGraph.generateArticlesRDFModel();
