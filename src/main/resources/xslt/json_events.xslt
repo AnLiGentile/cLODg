@@ -134,6 +134,7 @@
 	    		</xsl:choose>
 	    		<xsl:text>,</xsl:text>
 	            
+	            <!-- TODO Andrea can you check this please and add parameters? PROBLEMA: l'evento conferenza non compare nell'array json degli eventi, puoi vedere perché?-->
 	            <!-- add the parent attribute of the event -->
 	            <xsl:text>"parent": </xsl:text>
 	            <xsl:choose>
