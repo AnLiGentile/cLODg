@@ -538,7 +538,9 @@ public class GenerateMainConferenceInitialGraph {
 			transformer.setParameter("baseConference", ns.baseConference);
 			transformer.setParameter("conferenceYear", ns.year);
 			transformer.setParameter("conferenceMonth", ns.baseConference);
-
+			transformer.setParameter("location", ns.location);
+			transformer.setParameter("dtstart", ns.dtstart);
+			transformer.setParameter("dtend", ns.dtend);
 			
 			ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 			// transformer.transform(new DOMSource(conferenceDataDoc), new

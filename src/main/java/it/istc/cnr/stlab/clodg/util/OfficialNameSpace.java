@@ -31,6 +31,10 @@ public class OfficialNameSpace {
     public String conferenceName;
 	public String year;
 	public String month;
+	public String conferenceLongName;
+	public String location;
+	public String dtstart;
+	public String dtend;
 	public String baseDomainNs;
 	public String baseEswc;
 	public String baseConference;
@@ -175,6 +179,11 @@ public class OfficialNameSpace {
     	    String year = props.getProperty("year");
     	    this.month = props.getProperty("month");
     	    this.conferenceName = props.getProperty("conferenceName");
+    	    this.conferenceLongName = props.getProperty("conferenceLongName");
+    	    this.location = props.getProperty("location");
+    	    this.dtstart = props.getProperty("dtstart");
+    	    this.dtend = props.getProperty("dtend");
+
     	    String baseDomain = props.getProperty("baseDomain");
     	    String conference = props.getProperty("conference");
     	    String mainTrackPaper = props.getProperty("mainTrackPaper");

@@ -17,6 +17,11 @@
 	<xsl:param name="baseConference" />
 	<xsl:param name="conferenceYear" />
 	<xsl:param name="conferenceMonth" />
+		<xsl:param name="dtstart" />
+		<xsl:param name="dtend" />
+		<xsl:param name="conferenceLongName" />
+			<xsl:param name="location" />
+	
 	
 	<xsl:template match="snapshot">
 	
@@ -96,35 +101,57 @@
 					
 				
 			</xsl:for-each>
-			
-			<rdf:Description rdf:about="http://data.semanticweb.org/conference/ld4ie/2015">
+						
+			<!--rdf:Description rdf:about="http://data.semanticweb.org/conference/ld4ie/2015">
     			<rdf:type rdf:resource="http://data.semanticweb.org/ns/swc/ontology#ConferenceEvent"/>
     			<swc:completeGraph rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/complete"/>
     			<swc:hasAcronym>
-    				<xsl:value-of select="$conferenceLabel" />
+    				<xsl:value-of select="baseConference" />
     			</swc:hasAcronym>
-    		</rdf:Description>
+    		</rdf:Description-->
 			
-			<!-- rdf:Description rdf:about="http://data.semanticweb.org/conference/ld4ie/2015">
+
+			
+			
+
+			<rdf:Description>
+									<xsl:attribute name="rdf:about">
+							<xsl:value-of select="$baseConference" />
+		 				</xsl:attribute>
+		 				
     			<rdf:type rdf:resource="http://data.semanticweb.org/ns/swc/ontology#ConferenceEvent"/>
-    			<swc:completeGraph rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/complete"/>
-    			<swc:hasAcronym>ESWC2015</swc:hasAcronym>
-    			<swc:address>Grand hotel Bernardin, Obala 2, 6320 Portorož, Slovenia</swc:address>
+    			<swc:completeGraph>
+    												<xsl:attribute name="rdf:resource">
+							<xsl:value-of select="concat($baseConference,'/complete')" />
+		 				</xsl:attribute>
+		 				</swc:completeGraph>
+    			<swc:hasAcronym><xsl:value-of select="$conferenceLabel"/></swc:hasAcronym>
+    			<swc:address><xsl:value-of select="$address"/></swc:address>
     			<foaf:homepage rdf:resource="http://2015.eswc-conferences.org/"/>
-    			<swc:hasRelatedDocument rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/proceedings"/>
-    			<icaltzd:dtstart rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-05-31T09:00:00</icaltzd:dtstart>
-    			<icaltzd:dtend rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-06-04T17:00:00</icaltzd:dtend>
-    			<icaltzd:duration>
+    			
+    			    			<swc:hasRelatedDocument>
+    												<xsl:attribute name="rdf:resource">
+							<xsl:value-of select="concat($baseConference,'/proceedings')" />
+		 				</xsl:attribute>
+		 				</swc:hasRelatedDocument>
+		 				
+		 				
+    			<icaltzd:dtstart rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"><xsl:value-of select="$dtstart"/></icaltzd:dtstart>
+    			<icaltzd:dtend rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"><xsl:value-of select="$dtend"/></icaltzd:dtend>
+    			<!-- icaltzd:duration>
     				<xsl:value-of select="xs:dateTime('2015-06-04T17:00:00')-xs:dateTime('2015-05-31T09:00:00')" />
     			</icaltzd:duration>
-    			<swc:hasRole rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/sponsor-chair"/>
-    			<rdfs:label>The 12th Extented Semantic Web Conference</rdfs:label>
-    			<swc:hasLogo rdf:resource="http://2015.eswc-conferences.org/sites/default/files/miniLogo_eswc15_red_0.png"/>
-    			<icaltzd:location>Portoroz, Slovenia</icaltzd:location>
-    			<icaltzd:summary>ESWC2015</icaltzd:summary>
-    			<icaltzd:description>The 12th Extented Semantic Web Conference</icaltzd:description>
+    			<swc:hasRole rdf:resource="http://data.semanticweb.org/conference/ld4ie/2015/sponsor-chair"/-->
+    			<rdfs:label><xsl:value-of select="$conferenceLongName"/></rdfs:label>
+    			
+    			
+    			
+    			<!-- swc:hasLogo rdf:resource="http://2015.eswc-conferences.org/sites/default/files/miniLogo_eswc15_red_0.png"/-->
+    			<icaltzd:location><xsl:value-of select="$location"/></icaltzd:location>
+    			<icaltzd:summary><xsl:value-of select="$conferenceLabel"/></icaltzd:summary>
+    			<icaltzd:description><xsl:value-of select="$conferenceLongName"/></icaltzd:description>
 
-  			</rdf:Description-->
+  			</rdf:Description>
 			
 			
 		</rdf:RDF>

@@ -670,14 +670,14 @@ public class CalendarAlignerWithSessions implements Aligner {
 		Property presentsPredicate = model
 				.createProperty("http://www.ontologydesignpatterns.org/ont/eswc/ontology.owl#presents");
 		// TODO this is a dirty patch for adding conference info
-//		Property label = model
-//				.createProperty("http://www.w3.org/2000/01/rdf-schema#label");
-//		Property address = model
-//				.createProperty("http://data.semanticweb.org/ns/swc/ontology#address");
-//		Property hasAcronym = model
-//				.createProperty("http://data.semanticweb.org/ns/swc/ontology#hasAcronym");
-//		Property hasLocation = model
-//				.createProperty("http://data.semanticweb.org/ns/swc/ontology#hasLocation");
+		Property label = model
+				.createProperty("http://www.w3.org/2000/01/rdf-schema#label");
+		Property address = model
+				.createProperty("http://data.semanticweb.org/ns/swc/ontology#address");
+		Property hasAcronym = model
+				.createProperty("http://data.semanticweb.org/ns/swc/ontology#hasAcronym");
+		Property hasLocation = model
+				.createProperty("http://data.semanticweb.org/ns/swc/ontology#hasLocation");
 
 		for (Entry<String, String> t : papers.entrySet()) {
 			if (events.keySet().contains(t.getKey())) {
@@ -719,13 +719,11 @@ public class CalendarAlignerWithSessions implements Aligner {
 
 		Resource conference = model
 				.createResource(ns.baseConference);
-		// TODO this is a dirty patch!
-		// TODO Andrea uncomment this for adding conference info
-//		conference.addProperty(label,
-//				"The 12th Extented Semantic Web Conference");
-//		conference.addProperty(address, "Portoroz, Slovenia");
-//		conference.addProperty(hasAcronym, "ESWC2015");
-//		conference.addProperty(hasLocation, "Portoroz, Slovenia");
+		conference.addProperty(label,
+				ns.conferenceLongName);
+		conference.addProperty(address, ns.location);
+		conference.addProperty(hasAcronym, ns.conferenceName.trim()+ns.year);
+		conference.addProperty(hasLocation, ns.location);
 
 		System.out.println("number of sessions : "
 				+ aligner.getSessionEvents().size());
