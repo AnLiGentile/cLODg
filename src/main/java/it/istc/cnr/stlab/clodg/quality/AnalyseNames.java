@@ -260,7 +260,7 @@ public class AnalyseNames {
 			System.out.println(countAmbigousOrgs+"\t"+s.getKey() + "\t" + s.getValue());
 			}
 		}
-		an.printBibtekTable(oNames);
+//		an.printBibtekTable(oNames);
 
 		
 	}
