@@ -146,11 +146,49 @@ public class AnalyseNames {
 
 	}
 	
-	public HashMap<String, Set<Resource>> buildPersonNames(HashMap<Resource, Set<Literal>> names) {
+	
+	//TODO:Andrea
+	HashMap<Resource, Set<Literal>> extractPublicationsForAuthor(Resource a){
+		//TODO query dog to build a map of publications for the input author
+		//e.g. for http://data.semanticweb.org/person/andrea-giovanni-nuzzolese
+		//one of the entries in the map has
+		//KEY: http://data.semanticweb.org/conference/eswc/2014/paper/ws/SSA/5
+		//VALUES: "Semantic Web-based Sentiment Analysis"
+		return null;
+		
+	}
+	
+
+	//TODO:Andrea
+	HashMap<Resource, Set<Resource>> extractAuthorsForPublication(Resource a){
+		//TODO query dog to build a map of authors for the input publication
+		//e.g. for http://data.semanticweb.org/conference/eswc/2014/paper/ws/SSA/5
+		//one of the entries in the map has
+		//KEY: http://data.semanticweb.org/conference/eswc/2014/paper/ws/SSA/5
+		//VALUES: http://data.semanticweb.org/person/aldo-gangemi, http://data.semanticweb.org/person/diego-reforgiato, ...
+		return null;
+		
+	}
+	
+	//TODO:Annalisa
+	HashMap<Resource, Integer> extractCoauthorsForAuthor(Resource a){
+		//TODO use extractAuthorsForPublication to collect all co-authors for a given resource
+		// call extractAuthorsForPublication to get co-authors for each publication
+		// and build a co-authorship weighted map
+		
+		return null;
+		
+	}
+	
+	
+	/**
+	 * bulds a map of lexicalizations and the URIs that have that lexicalization
+	 * @param names
+	 * @return
+	 */
+	public HashMap<String, Set<Resource>> buildAmbigousNames(HashMap<Resource, Set<Literal>> names) {
 		HashMap<String, Set<Resource>> ambigousNames = new HashMap<String, Set<Resource>>();
-		
-		System.out.println("**COUNTING AMBIGOUS PERSONS*****************");
-		
+			
 		for (Entry<Resource, Set<Literal>> s : names.entrySet()) {
 			for (Literal n : s.getValue()){
 				String name = n.toString();
@@ -163,8 +201,24 @@ public class AnalyseNames {
 		}
 		
 		return ambigousNames;
-		
-		
+
+	}
+	
+	void printBibtekTable(HashMap<String, Set<Resource>> aNames){
+		System.out.println("\\hline");
+
+		for (Entry<String, Set<Resource>> s : aNames.entrySet()) {
+			if (s.getValue().size()>1){
+			System.out.print(s.getKey() + "& ");
+			for (Resource u : s.getValue()){
+				System.out.print("\\url{"+u+"} ");
+			}
+			System.out.println("\\\\");
+
+			}
+		}
+		System.out.println("\\hline");
+
 	}
 
 	public static void main(String[] args) {
@@ -180,17 +234,35 @@ public class AnalyseNames {
 //		}
 
 		System.out.println("********AMBIGOUS*PERSONS*****************");
-		HashMap<String, Set<Resource>> aNames = an.buildPersonNames(names);
+		HashMap<String, Set<Resource>> aNames = an.buildAmbigousNames(names);
+		int countAmbigous =0;
 		for (Entry<String, Set<Resource>> s : aNames.entrySet()) {
-			if (s.getValue().size()>1)
-			System.out.println(s.getKey() + "\t" + s.getValue());
+			if (s.getValue().size()>1){
+				countAmbigous++;
+			System.out.println(countAmbigous+"\t"+s.getKey() + "\t" + s.getValue());
+			}
 		}
+		
+//		an.printBibtekTable(aNames);
 		
 //		System.out.println("*****************ORGANIZATIONS*****************");
 //
 //		for (Entry<Resource, Set<Literal>> s : orgs.entrySet()) {
 //			System.out.println(s.getKey() + "\t" + s.getValue());
 //		}
+		
+		System.out.println("********AMBIGOUS*ORGANIZATIONS************");
+		HashMap<String, Set<Resource>> oNames = an.buildAmbigousNames(orgs);
+		int countAmbigousOrgs =0;
+		for (Entry<String, Set<Resource>> s : oNames.entrySet()) {
+			if (s.getValue().size()>1){
+				countAmbigousOrgs++;
+			System.out.println(countAmbigousOrgs+"\t"+s.getKey() + "\t" + s.getValue());
+			}
+		}
+		an.printBibtekTable(oNames);
+
+		
 	}
 
 }
