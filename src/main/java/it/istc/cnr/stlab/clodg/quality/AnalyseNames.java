@@ -145,6 +145,27 @@ public class AnalyseNames {
 		return names;
 
 	}
+	
+	public HashMap<String, Set<Resource>> buildPersonNames(HashMap<Resource, Set<Literal>> names) {
+		HashMap<String, Set<Resource>> ambigousNames = new HashMap<String, Set<Resource>>();
+		
+		System.out.println("**COUNTING AMBIGOUS PERSONS*****************");
+		
+		for (Entry<Resource, Set<Literal>> s : names.entrySet()) {
+			for (Literal n : s.getValue()){
+				String name = n.toString();
+				if (ambigousNames.get(name)==null)
+					ambigousNames.put(name, new HashSet<Resource> ());
+				
+				ambigousNames.get(name).add(s.getKey());
+				
+			}
+		}
+		
+		return ambigousNames;
+		
+		
+	}
 
 	public static void main(String[] args) {
 
@@ -153,16 +174,23 @@ public class AnalyseNames {
 		HashMap<Resource, Set<Literal>> names = an.extractPersonNames(m);
 		HashMap<Resource, Set<Literal>> orgs = an.extractOrganizationNames(m);
 
-		System.out.println("*****************PERSONS*****************");
-		for (Entry<Resource, Set<Literal>> s : names.entrySet()) {
+//		System.out.println("*****************PERSONS*****************");	
+//		for (Entry<Resource, Set<Literal>> s : names.entrySet()) {
+//			System.out.println(s.getKey() + "\t" + s.getValue());
+//		}
+
+		System.out.println("********AMBIGOUS*PERSONS*****************");
+		HashMap<String, Set<Resource>> aNames = an.buildPersonNames(names);
+		for (Entry<String, Set<Resource>> s : aNames.entrySet()) {
+			if (s.getValue().size()>1)
 			System.out.println(s.getKey() + "\t" + s.getValue());
 		}
-
-		System.out.println("*****************ORGANIZATIONS*****************");
-
-		for (Entry<Resource, Set<Literal>> s : orgs.entrySet()) {
-			System.out.println(s.getKey() + "\t" + s.getValue());
-		}
+		
+//		System.out.println("*****************ORGANIZATIONS*****************");
+//
+//		for (Entry<Resource, Set<Literal>> s : orgs.entrySet()) {
+//			System.out.println(s.getKey() + "\t" + s.getValue());
+//		}
 	}
 
 }
