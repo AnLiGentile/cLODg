@@ -12,6 +12,7 @@ import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -157,9 +158,8 @@ public class AnalyseNames {
 	}
 	
 	
-	//TODO:Andrea
 	private Set<Literal> extractPublicationsForAuthor(Resource publication){
-		//TODO query dog to build a map of publications for the input author
+		//query dog to build a map of publications for the input author
 		//e.g. for http://data.semanticweb.org/person/andrea-giovanni-nuzzolese
 		//one of the entries in the map has
 		//KEY: http://data.semanticweb.org/conference/eswc/2014/paper/ws/SSA/5
@@ -205,9 +205,8 @@ public class AnalyseNames {
 	}
 	
 
-	//TODO:Andrea
 	private Set<Resource> extractAuthorsForPublication(Resource publication){
-		//TODO query dog to build a map of authors for the input publication
+		//query dog to build a map of authors for the input publication
 		//e.g. for http://data.semanticweb.org/conference/eswc/2014/paper/ws/SSA/5
 		//one of the entries in the map has
 		//KEY: http://data.semanticweb.org/conference/eswc/2014/paper/ws/SSA/5
@@ -249,9 +248,10 @@ public class AnalyseNames {
 		
 	}
 	
-	//TODO:Annalisa
+	//TODO there is a bug: saves "null" as resource for empty co-authorships
+	//TODO Andrea please check e.g. for URI http://data.semanticweb.org/person/raphaeel-troncy saves the map {null=0}
 	private Map<Resource, Integer> extractCoauthorsForAuthor(Resource author){
-		//TODO use extractAuthorsForPublication to collect all co-authors for a given resource
+		// use extractAuthorsForPublication to collect all co-authors for a given resource
 		// call extractAuthorsForPublication to get co-authors for each publication
 		// and build a co-authorship weighted map
 	    
@@ -297,6 +297,66 @@ public class AnalyseNames {
 		
 	}
 	
+	
+	double authorSimilarity(Resource URI1, Resource URI2){
+		Map<Resource, Integer> coauthorsMap1 = this.extractCoauthorsForAuthor(URI1);
+		Map<Resource, Integer> coauthorsMap2 = this.extractCoauthorsForAuthor(URI2);
+		
+
+        	
+        	
+        	
+        Set<Resource> couathors = coauthorsMap1.keySet();
+        Set<Resource> couathors2 = coauthorsMap2.keySet();
+        
+        if (couathors!=null&couathors2!=null){
+
+        
+        Set<String> couathors1str = new HashSet<String>();
+
+//        System.out.println("********COAUTHORS MAP OF "+URI1+" ********");
+        for(Resource coauthor : couathors) {
+        	couathors1str.add(coauthor.getURI().toString());
+//        	System.out.println(coauthor.getURI() + " : " + coauthorsMap1.get(coauthor));
+        }
+        
+        Set<String> couathors2str = new HashSet<String>();
+//        System.out.println("********COAUTHORS MAP OF "+URI2+" ********");
+        for(Resource coauthor : couathors2) {
+        	couathors2str.add(coauthor.getURI().toString());
+//        	System.out.println(coauthor.getURI() + " : " + coauthorsMap2.get(coauthor));
+        }
+        
+		// TODO Annalisa: this is a baseline score
+        
+//        System.out.println("******** intersection "+  SetOperations.intersection(couathors1str, couathors2str));
+//        System.out.println("******** union "+  SetOperations.union(couathors1str, couathors2str));
+//        System.out.println("******** difference "+  SetOperations.difference(couathors1str, couathors2str));
+//        System.out.println("******** difference "+  SetOperations.difference(couathors2str, couathors1str));
+        
+        if (couathors1str.size()>0&couathors2str.size()>0){
+            // if the set of co-authors for one is fully contained in the other, set score to 1 
+        	int diff1_2 = SetOperations.difference(couathors1str, couathors2str).size();
+        	int diff2_1 = SetOperations.difference(couathors2str, couathors1str).size();
+        	if (diff1_2==0|diff2_1==0){
+        		return 1;
+        		}else{
+        			// TODO this is crap. If one set is a lot bigger than the other this measure is not a good indicator
+        			int inters = SetOperations.intersection(couathors1str, couathors2str).size();
+        			int uni = SetOperations.union(couathors1str, couathors2str).size();
+        			return (double) inters/uni;
+        			// TODO design a measure that checks diff1_2 and diff2_1
+        		}
+        }
+
+        }else
+        {
+        	System.err.println("one of the URI has NULL coauthor map");
+        }
+
+		return 0;
+		
+	}
 	
 	/**
 	 * bulds a map of lexicalizations and the URIs that have that lexicalization
@@ -357,6 +417,23 @@ public class AnalyseNames {
 			if (s.getValue().size()>1){
 				countAmbigous++;
 			System.out.println(countAmbigous+"\t"+s.getKey() + "\t" + s.getValue());
+			if (s.getValue().size()==2){
+				Resource[] arr = s.getValue().toArray(new Resource[s.getValue().size()]);
+
+//				 Iterator<Resource> it = s.getValue().iterator();
+				 
+				 Resource a1 = arr[0];
+				 Resource a2 = arr[1];
+			     System.out.println("SIMILARITY "+a1+" and "+a2+" --> "+an.authorSimilarity(a1, a2));
+
+//		        Resource a1 = ModelFactory.createDefaultModel().createResource(it.next());
+//		        Resource a2 = ModelFactory.createDefaultModel().createResource(it.next());
+//		        System.out.println("SIMILARITY "+a1+" and "+a2+" --> "+an.authorSimilarity(a1, a2));
+			}else{
+				//TODO fill this block
+				System.err.println("more than 2 ambigous, do something");
+			}
+			
 			}
 		}
 		
@@ -377,7 +454,8 @@ public class AnalyseNames {
 			System.out.println(countAmbigousOrgs+"\t"+s.getKey() + "\t" + s.getValue());
 			}
 		}
-		
+//		an.printBibtekTable(oNames);
+
 		System.out.println("********TITLES OF http://data.semanticweb.org/conference/eswc/2014/paper/ws/SSA/5 ********");
 		Set<Literal> titles = an.extractPublicationsForAuthor(ModelFactory.createDefaultModel().createResource("http://data.semanticweb.org/conference/eswc/2014/paper/ws/SSA/5"));
 		for(Literal title : titles) System.out.println(title);
@@ -388,12 +466,19 @@ public class AnalyseNames {
         for(Resource author : authors) System.out.println(author);
         System.out.println();
         
-        System.out.println("********COAUTHORS MAP OF http://data.semanticweb.org/person/andrea-giovanni-nuzzolese ********");
-        Map<Resource,Integer> coauthorsMap = an.extractCoauthorsForAuthor(ModelFactory.createDefaultModel().createResource("http://data.semanticweb.org/person/andrea-giovanni-nuzzolese"));
-        Set<Resource> couathors = coauthorsMap.keySet();
-        for(Resource coauthor : couathors) System.out.println(coauthor.getURI() + " : " + coauthorsMap.get(coauthor));
-//		an.printBibtekTable(oNames);
+//        System.out.println("********COAUTHORS MAP OF http://data.semanticweb.org/person/andrea-giovanni-nuzzolese ********");
+//        Map<Resource,Integer> coauthorsMap = an.extractCoauthorsForAuthor(ModelFactory.createDefaultModel().createResource("http://data.semanticweb.org/person/andrea-giovanni-nuzzolese"));
+//        Set<Resource> couathors = coauthorsMap.keySet();
+//        for(Resource coauthor : couathors) System.out.println(coauthor.getURI() + " : " + coauthorsMap.get(coauthor));
+//        System.out.println("********COAUTHORS MAP OF http://data.semanticweb.org/person/andrea-nuzzolese ********");
+//        Map<Resource,Integer> coauthorsMap2 = an.extractCoauthorsForAuthor(ModelFactory.createDefaultModel().createResource("http://data.semanticweb.org/person/andrea-nuzzolese"));
+//        Set<Resource> couathors2 = coauthorsMap2.keySet();
+//        for(Resource coauthor : couathors2) System.out.println(coauthor.getURI() + " : " + coauthorsMap2.get(coauthor));
+        
+        Resource a1 = ModelFactory.createDefaultModel().createResource("http://data.semanticweb.org/person/andrea-giovanni-nuzzolese");
+        Resource a2 = ModelFactory.createDefaultModel().createResource("http://data.semanticweb.org/person/andrea-nuzzolese");
 
+        System.out.println("SIMILARITY "+a1+" and "+a2+" --> "+an.authorSimilarity(a1, a2));
 		
 	}
 
