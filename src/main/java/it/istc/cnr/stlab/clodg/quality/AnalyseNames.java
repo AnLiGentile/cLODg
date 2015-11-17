@@ -3,9 +3,16 @@ package it.istc.cnr.stlab.clodg.quality;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
@@ -15,6 +22,7 @@ import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
+import com.hp.hpl.jena.query.ResultSetFactory;
 import com.hp.hpl.jena.query.Syntax;
 import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.Model;
@@ -27,6 +35,8 @@ import com.hp.hpl.jena.vocabulary.RDFS;
 public class AnalyseNames {
 
 	private static final String GRAPH_NAME = "data/all-names.rdf";
+	
+	private static String SWDF_SPARQL_ENDPOINT = "http://data.semanticweb.org/sparql";
 
 	public Model loadGraph() {
 		return loadGraph(null);
@@ -148,35 +158,142 @@ public class AnalyseNames {
 	
 	
 	//TODO:Andrea
-	HashMap<Resource, Set<Literal>> extractPublicationsForAuthor(Resource a){
+	private Set<Literal> extractPublicationsForAuthor(Resource publication){
 		//TODO query dog to build a map of publications for the input author
 		//e.g. for http://data.semanticweb.org/person/andrea-giovanni-nuzzolese
 		//one of the entries in the map has
 		//KEY: http://data.semanticweb.org/conference/eswc/2014/paper/ws/SSA/5
 		//VALUES: "Semantic Web-based Sentiment Analysis"
-		return null;
+	    
+	    Set<Literal> titleSet = new HashSet<Literal>();
+	    
+	    String sparql = "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> " +
+	                    "PREFIX dc: <http://purl.org/dc/elements/1.1/> " +
+	    		        "SELECT DISTINCT ?title WHERE {" +
+	    		        "{<" + publication.getURI() + "> rdfs:label ?title} " +
+	    		        "UNION " +
+	    		        "{<" + publication.getURI() + "> dc:title ?title} " +
+	    		        "}";
+	    
+	    String requestPath;
+        try {
+            requestPath = SWDF_SPARQL_ENDPOINT + "?query=" + URLEncoder.encode(sparql, "UTF-8");
+            URLConnection connection = new URL(requestPath).openConnection();
+            connection.addRequestProperty("Accept", "application/xml");
+            
+            InputStream is = connection.getInputStream();
+            
+            ResultSet resultSet = ResultSetFactory.fromXML(is);
+            while(resultSet.hasNext()){
+                QuerySolution querySolution = resultSet.next();
+                Literal title = querySolution.getLiteral("title");
+                titleSet.add(title);
+            }
+        } catch (UnsupportedEncodingException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (MalformedURLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } 
+	    
+	    return titleSet;
 		
 	}
 	
 
 	//TODO:Andrea
-	HashMap<Resource, Set<Resource>> extractAuthorsForPublication(Resource a){
+	private Set<Resource> extractAuthorsForPublication(Resource publication){
 		//TODO query dog to build a map of authors for the input publication
 		//e.g. for http://data.semanticweb.org/conference/eswc/2014/paper/ws/SSA/5
 		//one of the entries in the map has
 		//KEY: http://data.semanticweb.org/conference/eswc/2014/paper/ws/SSA/5
 		//VALUES: http://data.semanticweb.org/person/aldo-gangemi, http://data.semanticweb.org/person/diego-reforgiato, ...
-		return null;
+	    
+	    Set<Resource> authorSet = new HashSet<Resource>();
+        
+	    String sparql = "PREFIX dc: <http://purl.org/dc/elements/1.1/> " +
+                        "SELECT DISTINCT ?author WHERE {" +
+                        "<" + publication.getURI() + "> dc:creator ?author " +
+                        "}";
+        
+        String requestPath;
+        try {
+            requestPath = SWDF_SPARQL_ENDPOINT + "?query=" + URLEncoder.encode(sparql, "UTF-8");
+            URLConnection connection = new URL(requestPath).openConnection();
+            connection.addRequestProperty("Accept", "application/xml");
+            
+            InputStream is = connection.getInputStream();
+            
+            ResultSet resultSet = ResultSetFactory.fromXML(is);
+            while(resultSet.hasNext()){
+                QuerySolution querySolution = resultSet.next();
+                Resource author = querySolution.getResource("author");
+                authorSet.add(author);
+            }
+        } catch (UnsupportedEncodingException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (MalformedURLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } 
+        
+        return authorSet;
 		
 	}
 	
 	//TODO:Annalisa
-	HashMap<Resource, Integer> extractCoauthorsForAuthor(Resource a){
+	private Map<Resource, Integer> extractCoauthorsForAuthor(Resource author){
 		//TODO use extractAuthorsForPublication to collect all co-authors for a given resource
 		// call extractAuthorsForPublication to get co-authors for each publication
 		// and build a co-authorship weighted map
-		
-		return null;
+	    
+	    Map<Resource, Integer> coauthorMap = new HashMap<Resource, Integer>();
+        
+	    String sparql = "PREFIX dc: <http://purl.org/dc/elements/1.1/> " +
+                        "SELECT ?coauthor (COUNT(?coauthor) AS ?weight) WHERE{" +
+                        "{SELECT distinct ?paper ?coauthor WHERE { " +
+                        "?paper dc:creator <" + author.getURI() + "> . " +
+                        "?paper dc:creator ?coauthor . " +
+                        "FILTER(?coauthor != <" + author.getURI() + ">) " +
+                        "}} " +
+                        "} " +
+                        "GROUP BY ?coauthor";
+        
+        String requestPath;
+        try {
+            requestPath = SWDF_SPARQL_ENDPOINT + "?query=" + URLEncoder.encode(sparql, "UTF-8");
+            URLConnection connection = new URL(requestPath).openConnection();
+            connection.addRequestProperty("Accept", "application/xml");
+            
+            InputStream is = connection.getInputStream();
+            
+            ResultSet resultSet = ResultSetFactory.fromXML(is);
+            while(resultSet.hasNext()){
+                QuerySolution querySolution = resultSet.next();
+                Resource coauthor = querySolution.getResource("coauthor");
+                Literal weight = querySolution.getLiteral("weight");
+                coauthorMap.put(coauthor, Integer.valueOf(weight.getLexicalForm()));
+            }
+        } catch (UnsupportedEncodingException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (MalformedURLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } 
+        
+        return coauthorMap;
 		
 	}
 	
@@ -260,6 +377,21 @@ public class AnalyseNames {
 			System.out.println(countAmbigousOrgs+"\t"+s.getKey() + "\t" + s.getValue());
 			}
 		}
+		
+		System.out.println("********TITLES OF http://data.semanticweb.org/conference/eswc/2014/paper/ws/SSA/5 ********");
+		Set<Literal> titles = an.extractPublicationsForAuthor(ModelFactory.createDefaultModel().createResource("http://data.semanticweb.org/conference/eswc/2014/paper/ws/SSA/5"));
+		for(Literal title : titles) System.out.println(title);
+		System.out.println();
+		
+		System.out.println("********AUTHORS OF http://data.semanticweb.org/conference/eswc/2014/paper/ws/SSA/5 ********");
+		Set<Resource> authors = an.extractAuthorsForPublication(ModelFactory.createDefaultModel().createResource("http://data.semanticweb.org/conference/eswc/2014/paper/ws/SSA/5"));
+        for(Resource author : authors) System.out.println(author);
+        System.out.println();
+        
+        System.out.println("********COAUTHORS MAP OF http://data.semanticweb.org/person/andrea-giovanni-nuzzolese ********");
+        Map<Resource,Integer> coauthorsMap = an.extractCoauthorsForAuthor(ModelFactory.createDefaultModel().createResource("http://data.semanticweb.org/person/andrea-giovanni-nuzzolese"));
+        Set<Resource> couathors = coauthorsMap.keySet();
+        for(Resource coauthor : couathors) System.out.println(coauthor.getURI() + " : " + coauthorsMap.get(coauthor));
 //		an.printBibtekTable(oNames);
 
 		
