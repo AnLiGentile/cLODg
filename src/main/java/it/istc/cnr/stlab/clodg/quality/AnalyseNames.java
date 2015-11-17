@@ -279,8 +279,10 @@ public class AnalyseNames {
             while(resultSet.hasNext()){
                 QuerySolution querySolution = resultSet.next();
                 Resource coauthor = querySolution.getResource("coauthor");
-                Literal weight = querySolution.getLiteral("weight");
-                coauthorMap.put(coauthor, Integer.valueOf(weight.getLexicalForm()));
+                if(coauthor != null){
+                    Literal weight = querySolution.getLiteral("weight");
+                    coauthorMap.put(coauthor, Integer.valueOf(weight.getLexicalForm()));
+                }
             }
         } catch (UnsupportedEncodingException e) {
             // TODO Auto-generated catch block
@@ -476,7 +478,7 @@ public class AnalyseNames {
 //        for(Resource coauthor : couathors2) System.out.println(coauthor.getURI() + " : " + coauthorsMap2.get(coauthor));
         
         Resource a1 = ModelFactory.createDefaultModel().createResource("http://data.semanticweb.org/person/andrea-giovanni-nuzzolese");
-        Resource a2 = ModelFactory.createDefaultModel().createResource("http://data.semanticweb.org/person/andrea-nuzzolese");
+        Resource a2 = ModelFactory.createDefaultModel().createResource("http://data.semanticweb.org/person/raphaeel-troncy");
 
         System.out.println("SIMILARITY "+a1+" and "+a2+" --> "+an.authorSimilarity(a1, a2));
 		
