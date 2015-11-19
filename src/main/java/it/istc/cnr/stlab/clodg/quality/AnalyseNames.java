@@ -316,17 +316,17 @@ public class AnalyseNames {
         
         Set<String> couathors1str = new HashSet<String>();
 
-//        System.out.println("********COAUTHORS MAP OF "+URI1+" ********");
+        System.out.println("********COAUTHORS MAP OF "+URI1+" ********");
         for(Resource coauthor : couathors) {
         	couathors1str.add(coauthor.getURI().toString());
-//        	System.out.println(coauthor.getURI() + " : " + coauthorsMap1.get(coauthor));
+        	System.out.println(coauthor.getURI() + " : " + coauthorsMap1.get(coauthor));
         }
         
         Set<String> couathors2str = new HashSet<String>();
-//        System.out.println("********COAUTHORS MAP OF "+URI2+" ********");
+        System.out.println("********COAUTHORS MAP OF "+URI2+" ********");
         for(Resource coauthor : couathors2) {
         	couathors2str.add(coauthor.getURI().toString());
-//        	System.out.println(coauthor.getURI() + " : " + coauthorsMap2.get(coauthor));
+        	System.out.println(coauthor.getURI() + " : " + coauthorsMap2.get(coauthor));
         }
         
 		// TODO Annalisa: this is a baseline score
@@ -343,10 +343,14 @@ public class AnalyseNames {
         	if (diff1_2==0|diff2_1==0){
         		return 1;
         		}else{
-        			// TODO this is crap. If one set is a lot bigger than the other this measure is not a good indicator
+        			// If one set is a lot bigger than the other this measure is not a good indicator
+        			// TODO this is stiil crap. 
+        			int sizeOfSmallerSet = couathors1str.size();
+        			if (couathors2str.size()<sizeOfSmallerSet)
+        				sizeOfSmallerSet=couathors2str.size();
+        			
         			int inters = SetOperations.intersection(couathors1str, couathors2str).size();
-        			int uni = SetOperations.union(couathors1str, couathors2str).size();
-        			return (double) inters/uni;
+        			return (double) inters/sizeOfSmallerSet;
         			// TODO design a measure that checks diff1_2 and diff2_1
         		}
         }
