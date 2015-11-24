@@ -300,6 +300,56 @@ public class AnalyseNames {
 	}
 	
 	
+	//TODO Andrea please can you change the query to extract organizations
+	private Map<Resource, Integer> extractOrganizationsForAuthor(Resource author){
+	    
+	    Map<Resource, Integer> organizationMap = new HashMap<Resource, Integer>();
+        
+	    // TODO change query to extract organizations
+	    // the integre is the number of times author has a certain affiliation
+	    String sparql = "PREFIX dc: <http://purl.org/dc/elements/1.1/> " +
+                        "SELECT ?coauthor (COUNT(?coauthor) AS ?weight) WHERE{" +
+                        "{SELECT distinct ?paper ?coauthor WHERE { " +
+                        "?paper dc:creator <" + author.getURI() + "> . " +
+                        "?paper dc:creator ?coauthor . " +
+                        "FILTER(?coauthor != <" + author.getURI() + ">) " +
+                        "}} " +
+                        "} " +
+                        "GROUP BY ?coauthor";
+        
+        String requestPath;
+        try {
+            requestPath = SWDF_SPARQL_ENDPOINT + "?query=" + URLEncoder.encode(sparql, "UTF-8");
+            URLConnection connection = new URL(requestPath).openConnection();
+            connection.addRequestProperty("Accept", "application/xml");
+            
+            InputStream is = connection.getInputStream();
+            
+            ResultSet resultSet = ResultSetFactory.fromXML(is);
+            while(resultSet.hasNext()){
+                QuerySolution querySolution = resultSet.next();
+                Resource coauthor = querySolution.getResource("coauthor");
+                if(coauthor != null){
+                    Literal weight = querySolution.getLiteral("weight");
+                    organizationMap.put(coauthor, Integer.valueOf(weight.getLexicalForm()));
+                }
+            }
+        } catch (UnsupportedEncodingException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (MalformedURLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } 
+        
+        return organizationMap;
+		
+	}
+	
+	
 	double authorSimilarity(Resource URI1, Resource URI2){
 		Map<Resource, Integer> coauthorsMap1 = this.extractCoauthorsForAuthor(URI1);
 		Map<Resource, Integer> coauthorsMap2 = this.extractCoauthorsForAuthor(URI2);
@@ -311,7 +361,6 @@ public class AnalyseNames {
         Set<Resource> couathors = coauthorsMap1.keySet();
         Set<Resource> couathors2 = coauthorsMap2.keySet();
         
-        if (couathors!=null&couathors2!=null){
 
         
         Set<String> couathors1str = new HashSet<String>();
@@ -328,6 +377,8 @@ public class AnalyseNames {
         	couathors2str.add(coauthor.getURI().toString());
         	System.out.println(coauthor.getURI() + " : " + coauthorsMap2.get(coauthor));
         }
+        if (!couathors.isEmpty()&!couathors2.isEmpty()){
+
         
 		// TODO Annalisa: this is a baseline score
         
@@ -347,6 +398,7 @@ public class AnalyseNames {
         			// TODO this is stiil crap. 
         			int sizeOfSmallerSet = couathors1str.size();
         			if (couathors2str.size()<sizeOfSmallerSet)
+        				
         				sizeOfSmallerSet=couathors2str.size();
         			
         			int inters = SetOperations.intersection(couathors1str, couathors2str).size();
@@ -357,7 +409,11 @@ public class AnalyseNames {
 
         }else
         {
-        	System.err.println("one of the URI has NULL coauthor map");
+        	//TODO 
+        	System.err.println(URI1+ "has no co-authors: "+ couathors.isEmpty());
+        	System.err.println(URI2+ "has no co-authors: "+ couathors2.isEmpty());
+        	System.out.println();
+
         }
 
 		return 0;
