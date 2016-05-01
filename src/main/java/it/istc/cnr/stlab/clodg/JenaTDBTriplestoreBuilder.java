@@ -2,11 +2,11 @@ package it.istc.cnr.stlab.clodg;
 
 import java.util.Iterator;
 
-import com.hp.hpl.jena.query.Dataset;
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.tdb.TDBFactory;
-import com.hp.hpl.jena.tdb.base.file.Location;
-import com.hp.hpl.jena.util.FileManager;
+import org.apache.jena.query.Dataset;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.tdb.TDBFactory;
+import org.apache.jena.tdb.base.file.Location;
+import org.apache.jena.util.FileManager;
 
 public class JenaTDBTriplestoreBuilder {
 
@@ -28,7 +28,7 @@ public class JenaTDBTriplestoreBuilder {
 	public static void main(String[] args) {
 
 		JenaTDBTriplestoreBuilder triplestoreBuilder = new JenaTDBTriplestoreBuilder();
-		Location location = new Location("out/triplestore");
+		Location location = Location.create("out/triplestore");
 
 		triplestoreBuilder.empty(location);
 

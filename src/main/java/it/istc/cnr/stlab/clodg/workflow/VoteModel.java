@@ -1,11 +1,12 @@
 package it.istc.cnr.stlab.clodg.workflow;
 
-import com.hp.hpl.jena.query.Query;
-import com.hp.hpl.jena.query.QueryExecution;
-import com.hp.hpl.jena.query.QueryExecutionFactory;
-import com.hp.hpl.jena.query.QueryFactory;
-import com.hp.hpl.jena.query.Syntax;
-import com.hp.hpl.jena.rdf.model.Model;
+import org.apache.jena.query.Query;
+import org.apache.jena.query.QueryExecution;
+import org.apache.jena.query.QueryExecutionFactory;
+import org.apache.jena.query.QueryFactory;
+import org.apache.jena.query.Syntax;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.vocabulary.DC_11;
 
 public class VoteModel {
 
@@ -24,10 +25,17 @@ public class VoteModel {
 				+ "CONSTRUCT { " + "?x a voting:Vote . "
 				+ "?x voting:sha1sum ?sha1sum . "
 				+ "?paper a voting:EligibleForVotingPaper . "
-				+ "?paper voting:paperOfTrack ?track " + "} " + "WHERE{ "
+				+ "?paper voting:paperOfTrack ?track . " 
+				+ "?paper voting:id ?id . "
+				+ "?paper <" + DC_11.title.getURI() + "> ?title " 
+				+ "} " 
+				+ "WHERE{ "
 				+ "?x a voting:Vote . " + "?x voting:sha1sum ?sha1sum . "
 				+ "?paper a voting:EligibleForVotingPaper . "
-				+ "?paper voting:paperOfTrack ?track " + "}";
+				+ "?paper voting:paperOfTrack ?track . "
+				+ "?paper voting:id ?id . "
+				+ "?paper <" + DC_11.title.getURI() + "> ?title "
+				+ "}";
 		Query query = QueryFactory.create(sparql, Syntax.syntaxARQ);
 		QueryExecution queryExecution = QueryExecutionFactory.create(query,
 				adminModel);

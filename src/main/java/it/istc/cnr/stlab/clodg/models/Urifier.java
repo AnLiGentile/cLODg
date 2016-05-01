@@ -1,14 +1,12 @@
 package it.istc.cnr.stlab.clodg.models;
 
-import it.istc.cnr.stlab.clodg.Homonym;
-
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.ibm.icu.text.Transliterator;
+import it.istc.cnr.stlab.clodg.Homonym;
 
 public class Urifier {
 

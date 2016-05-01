@@ -2,7 +2,7 @@ package it.istc.cnr.stlab.clodg;
 
 import java.io.File;
 
-import com.hp.hpl.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.Model;
 
 public interface RDFGraphBuilder {
 

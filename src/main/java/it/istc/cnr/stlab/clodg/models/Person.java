@@ -3,8 +3,6 @@ package it.istc.cnr.stlab.clodg.models;
 import java.net.URI;
 import java.util.Set;
 
-import com.hp.hpl.jena.rdf.model.Resource;
-
 /**
  * 
  * @author andrea.nuzzolese

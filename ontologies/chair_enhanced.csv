@@ -1,0 +1,131 @@
+http://data.semanticweb.org/conference/eswc/2006/roles/conference-chair;Conference Chair;http://data.semanticweb.org/conference/eswc/2006;swc:ConferenceChair
+http://data.semanticweb.org/conference/iswc/2004/conference-chair;Conference Chair;http://data.semanticweb.org/conference/iswc/2004;swc:ConferenceChair
+http://data.semanticweb.org/conference/eswc/2006/roles/programme-chair;Programme Chair;http://data.semanticweb.org/conference/eswc/2006;swc:ProgrammeChair
+http://data.semanticweb.org/conference/eswc/2010/main/chair/programmechair;Programme Chair;http://data.semanticweb.org/conference/eswc/2010;swc:ProgrammeChair
+http://data.semanticweb.org/conference/eswc/2011/programme-chair;Programme Chair;http://data.semanticweb.org/conference/eswc/2011;swc:ProgrammeChair
+http://data.semanticweb.org/conference/eswc/2006/roles/workshops-chair;Workshops Chair;http://data.semanticweb.org/conference/eswc/2006;swc:WorkshopsChair
+http://data.semanticweb.org/conference/eswc/2010/main/chair/workshopschair;Workshops Chair;http://data.semanticweb.org/conference/eswc/2010;swc:WorkshopsChair
+http://data.semanticweb.org/conference/eswc/2011/workshops-chair;Workshops Chair;http://data.semanticweb.org/conference/eswc/2011;swc:WorkshopsChair
+http://data.semanticweb.org/conference/eswc/2012/workshops-chair;Workshops Chair;http://data.semanticweb.org/conference/eswc/2012;swc:WorkshopsChair
+http://data.semanticweb.org/conference/eswc/2013/workshops-chair;Workshops Chair;http://data.semanticweb.org/conference/eswc/2013;swc:WorkshopsChair
+http://data.semanticweb.org/conference/eswc/2014/workshops-chair;Workshops Chair;http://data.semanticweb.org/conference/eswc/2014;swc:WorkshopsChair
+http://data.semanticweb.org/conference/eswc/2015/workshops-chair;Workshops Chair;http://data.semanticweb.org/conference/eswc/2015;swc:WorkshopsChair
+http://data.semanticweb.org/conference/eswc/2006/roles/tutorials-chair;Tutorials Chair;http://data.semanticweb.org/conference/eswc/2006;swc:TutorialsChair
+http://data.semanticweb.org/conference/eswc/2010/main/chair/tutorialschair;Tutorials Chair;http://data.semanticweb.org/conference/eswc/2010;swc:TutorialsChair
+http://data.semanticweb.org/conference/eswc/2011/tutorials-chair;Tutorials Chair;http://data.semanticweb.org/conference/eswc/2011;swc:TutorialsChair
+http://data.semanticweb.org/conference/eswc/2012/tutorials-chair;Tutorials Chair;http://data.semanticweb.org/conference/eswc/2012;swc:TutorialsChair
+http://data.semanticweb.org/conference/eswc/2013/tutorials-chair;Tutorials Chair;http://data.semanticweb.org/conference/eswc/2013;swc:TutorialsChair
+http://data.semanticweb.org/conference/eswc/2014/tutorials-chair;Tutorials Chair;http://data.semanticweb.org/conference/eswc/2014;swc:TutorialsChair
+http://data.semanticweb.org/conference/eswc/2015/tutorials-chair;Tutorials Chair;http://data.semanticweb.org/conference/eswc/2015;swc:TutorialsChair
+http://data.semanticweb.org/conference/eswc/2006/roles/posters-chair;Posters Chair;http://data.semanticweb.org/conference/eswc/2006;swc:PostersChair
+http://data.semanticweb.org/conference/iswc/2004/posters-chair;Posters Chair;http://data.semanticweb.org/conference/iswc/2004;swc:PostersChair
+http://data.semanticweb.org/conference/eswc/2006/roles/demos-chair;Demos Chair;http://data.semanticweb.org/conference/eswc/2006;swc:DemosChair
+http://data.semanticweb.org/conference/iswc/2004/demos-chair;Demos Chair;http://data.semanticweb.org/conference/iswc/2004;swc:DemosChair
+http://data.semanticweb.org/conference/eswc/2006/roles/sponsorship-chair;Sponsorship Chair;http://data.semanticweb.org/conference/eswc/2006;swc:SponsorshipChair
+http://data.semanticweb.org/conference/eswc/2010/main/chair/sponsorshipchair;Sponsorship Chair;http://data.semanticweb.org/conference/eswc/2010;swc:SponsorshipChair
+http://data.semanticweb.org/conference/eswc/2011/sponsorship-chair;Sponsorship Chair;http://data.semanticweb.org/conference/eswc/2011;swc:SponsorshipChair
+http://data.semanticweb.org/conference/ruleml-eu/2011/chair/sponsorship;Sponsorship Chair;http://data.semanticweb.org/conference/ruleml-eu/2011;swc:SponsorshipChair
+http://data.semanticweb.org/conference/rr/2009/chair/sponsorship;Sponsorship Chair;http://data.semanticweb.org/conference/rr/2009;swc:SponsorshipChair
+http://data.semanticweb.org/conference/rr/2010/chair/sponsorship;Sponsorship Chair;http://data.semanticweb.org/conference/rr/2010;swc:SponsorshipChair
+http://data.semanticweb.org/conference/rr/2011/chair/sponsorship;Sponsorship Chair;http://data.semanticweb.org/conference/rr/2011;swc:SponsorshipChair
+http://data.semanticweb.org/conference/eswc/2012/sponsorship-chair;Sponsorship Chair;http://data.semanticweb.org/conference/eswc/2012;swc:SponsorshipChair
+http://data.semanticweb.org/conference/iswc/2012/sponsorship-chair;Sponsorship Chair;http://data.semanticweb.org/conference/iswc/2012;swc:SponsorshipChair
+http://data.semanticweb.org/conference/eswc/2013/sponsorship-chair;Sponsorship Chair;http://data.semanticweb.org/conference/eswc/2013;swc:SponsorshipChair
+http://data.semanticweb.org/conference/iswc/2013/sponsorship-chair;Sponsorship Chair;http://data.semanticweb.org/conference/iswc/2013;swc:SponsorshipChair
+http://data.semanticweb.org/conference/eswc/2015/sponsorship-chair;Sponsorship Chair;http://data.semanticweb.org/conference/eswc/2015;swc:SponsorshipChair
+http://data.semanticweb.org/conference/eswc/2006/roles/publicity-chair;Publicity Chair;http://data.semanticweb.org/conference/eswc/2006;swc:PublicityChair
+http://data.semanticweb.org/conference/eswc/2010/main/chair/publicitychair;Publicity Chair;http://data.semanticweb.org/conference/eswc/2010;swc:PublicityChair
+http://data.semanticweb.org/conference/eswc/2011/publicity-chair;Publicity Chair;http://data.semanticweb.org/conference/eswc/2011;swc:PublicityChair
+http://data.semanticweb.org/conference/ruleml-eu/2011/chair/publicity;Publicity Chair;http://data.semanticweb.org/conference/ruleml-eu/2011;swc:PublicityChair
+http://data.semanticweb.org/conference/eswc/2012/publicity-chair;Publicity Chair;http://data.semanticweb.org/conference/eswc/2012;swc:PublicityChair
+http://data.semanticweb.org/conference/iswc/2012/publicity-chair;Publicity Chair;http://data.semanticweb.org/conference/iswc/2012;swc:PublicityChair
+http://data.semanticweb.org/conference/eswc/2013/publicity-chair;Publicity Chair;http://data.semanticweb.org/conference/eswc/2013;swc:PublicityChair
+http://data.semanticweb.org/conference/iswc/2003/publicity-chair;Publicity Chair;http://data.semanticweb.org/conference/iswc/2003;swc:PublicityChair
+http://data.semanticweb.org/conference/iswc/2004/publicity-chair;Publicity Chair;http://data.semanticweb.org/conference/iswc/2004;swc:PublicityChair
+http://data.semanticweb.org/conference/iswc/2013/publicity-chair;Publicity Chair;http://data.semanticweb.org/conference/iswc/2013;swc:PublicityChair
+http://data.semanticweb.org/conference/eswc/2014/publicity-chair;Publicity Chair;http://data.semanticweb.org/conference/eswc/2014;swc:PublicityChair
+http://data.semanticweb.org/conference/eswc/2015/publicity-chair;Publicity Chair;http://data.semanticweb.org/conference/eswc/2015;swc:PublicityChair
+http://data.semanticweb.org/conference/iswc/2012/semantic-web-challenge-chair;Semantic Web Challenge Chair;http://data.semanticweb.org/conference/iswc/2012;swc:SWChallengeChair
+http://data.semanticweb.org/conference/iswc/2004/semantic-web-challenge-chair;Semantic Web Challenge Chair;http://data.semanticweb.org/conference/iswc/2004;swc:SWChallengeChair
+http://data.semanticweb.org/conference/iswc/2013/semantic-web-challenge-chair;Semantic Web Challenge Chair;http://data.semanticweb.org/conference/iswc/2013;swc:SWChallengeChair
+http://data.semanticweb.org/conference/eswc/2010/main/chair/treasurer;Treasurer;http://data.semanticweb.org/conference/eswc/2010;swc:Treasurer
+http://data.semanticweb.org/conference/eswc/2011/treasurer;Treasurer;http://data.semanticweb.org/conference/eswc/2011;swc:Treasurer
+http://data.semanticweb.org/conference/eswc/2012/treasurer;Treasurer;http://data.semanticweb.org/conference/eswc/2012;swc:Treasurer
+http://data.semanticweb.org/conference/eswc/2013/treasurer;Treasurer;http://data.semanticweb.org/conference/eswc/2013;swc:Treasurer
+http://data.semanticweb.org/conference/eswc/2014/treasurer;Treasurer;http://data.semanticweb.org/conference/eswc/2014;swc:Treasurer
+http://data.semanticweb.org/conference/eswc/2015/treasurer;Treasurer;http://data.semanticweb.org/conference/eswc/2015;swc:Treasurer
+http://data.semanticweb.org/conference/eswc/2006/roles/submissions-chair;Submissions Chair;http://data.semanticweb.org/conference/eswc/2006;swc:SubmissionsChair
+http://data.semanticweb.org/conference/eswc/2010/main/chair/exhibitionchair;Exhibition Chair;http://data.semanticweb.org/conference/eswc/2010;swc:ExhibitionChair
+http://data.semanticweb.org/conference/iswc/2004/exhibition-chair;Exhibition Chair;http://data.semanticweb.org/conference/iswc/2004;swc:ExhibitionChair
+http://data.semanticweb.org/conference/eswc/2006/roles/local-organiser;Local Organiser;http://data.semanticweb.org/conference/eswc/2006;swc:LocalOrganiser
+http://data.semanticweb.org/conference/eswc/2010/main/chair/localorganiser;Local Organiser;http://data.semanticweb.org/conference/eswc/2010;swc:LocalOrganiser
+http://data.semanticweb.org/conference/eswc/2011/local-organiser;Local Organiser;http://data.semanticweb.org/conference/eswc/2011;swc:LocalOrganiser
+http://data.semanticweb.org/conference/iswc/2013/local-organiser;Local Organiser;http://data.semanticweb.org/conference/iswc/2013;swc:LocalOrganiser
+http://data.semanticweb.org/conference/eswc/2006/roles/administrator;Administrator;http://data.semanticweb.org/conference/eswc/2006;swc:Administrator
+http://data.semanticweb.org/conference/eswc/2006/roles/webmaster;Webmaster;http://data.semanticweb.org/conference/eswc/2006;swc:Webmaster
+http://data.semanticweb.org/conference/rr/2011/chair/webmaster;Webmaster;http://data.semanticweb.org/conference/rr/2011;swc:Webmaster
+http://data.semanticweb.org/conference/iswc/2012/webmaster;Webmaster;http://data.semanticweb.org/conference/iswc/2012;swc:Webmaster
+http://data.semanticweb.org/workshop/ores/2010/main/chair/organisingcommitteemember;Organising Committee Member;http://data.semanticweb.org/workshop/ores/2010;swc:OrganisingCommitteeMember
+http://data.semanticweb.org/conference/isemantics/2009/main/chair/organisingcommitteemember;Organising Committee Member;http://data.semanticweb.org/conference/isemantics/2009;swc:OrganisingCommitteeMember
+http://data.semanticweb.org/workshop/semwiki/2010/organising-committee-member;Organising Committee Member;http://data.semanticweb.org/workshop/semwiki/2010;swc:OrganisingCommitteeMember
+http://data.semanticweb.org/conference/iswc/2001/session-4b/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2001/session-4b;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2001/session-4a/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2001/session-4a;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2001/session-4c/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2001/session-4c;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2002/session-01/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2002/session-01;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2002/session-02/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2002/session-02;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2002/session-03/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2002/session-03;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2002/session-04/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2002/session-04;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2002/session-06/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2002/session-06;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2002/session-07/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2002/session-07;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2002/session-08/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2002/session-08;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2002/session-09/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2002/session-09;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2002/talk/invited-1/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2002/talk/invited-1;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2002/talk/invited-2/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2002/talk/invited-2;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2003/session-1a/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2003/session-1a;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2003/session-1b/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2003/session-1b;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2003/session-1c/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2003/session-1c;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2003/session-2a/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2003/session-2a;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2003/session-2b/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2003/session-2b;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2003/session-2c/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2003/session-2c;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2003/session-3a/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2003/session-3a;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2003/session-3b/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2003/session-3b;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2003/session-3c/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2003/session-3c;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2003/session-4a/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2003/session-4a;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2003/session-4b/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2003/session-4b;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2003/session-5a/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2003/session-5a;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2003/session-5b/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2003/session-5b;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2003/session-6a/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2003/session-6a;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2003/session-6b/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2003/session-6b;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2003/session-7a/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2003/session-7a;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2003/session-7b/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2003/session-7b;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2003/session-8a/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2003/session-8a;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2003/session-8b/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2003/session-8b;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2003/talk/invited-1/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2003/talk/invited-1;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2003/talk/invited-2/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2003/talk/invited-2;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2003/talk/invited-3/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2003/talk/invited-3;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2013/session-1a/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2013/session-1a;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2013/session-1b/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2013/session-1b;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2013/session-2a/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2013/session-2a;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2013/session-2b/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2013/session-2b;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2013/session-3a/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2013/session-3a;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2013/session-3b/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2013/session-3b;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2013/session-4a/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2013/session-4a;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2013/session-4b/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2013/session-4b;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2013/session-4c/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2013/session-4c;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2013/session-5b/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2013/session-5b;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2013/session-5c/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2013/session-5c;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2013/session-6c/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2013/session-6c;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2013/session-7a/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2013/session-7a;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2013/session-7b/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2013/session-7b;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2013/session-7c/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2013/session-7c;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2013/session-8a/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2013/session-8a;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2013/session-8b/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2013/session-8b;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2013/session-8c/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2013/session-8c;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2013/session-9a/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2013/session-9a;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2013/session-9b/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2013/session-9b;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2013/session-9c/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2013/session-9c;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2013/talk/invited-1/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2013/talk/invited-1;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2013/talk/invited-2/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2013/talk/invited-2;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2013/talk/invited-3/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2013/talk/invited-3;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2013/track/2/event-01/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2013/track/2/event-01;swc:SessionChair
+http://data.semanticweb.org/conference/iswc/2013/event-08/session-chair;Session Chair;http://data.semanticweb.org/conference/iswc/2013/event-08;swc:SessionChair

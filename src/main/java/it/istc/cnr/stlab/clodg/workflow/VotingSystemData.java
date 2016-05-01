@@ -12,18 +12,19 @@ import org.apache.commons.codec.digest.DigestUtils;
 
 import au.com.bytecode.opencsv.CSVReader;
 
-import com.hp.hpl.jena.query.Query;
-import com.hp.hpl.jena.query.QueryExecution;
-import com.hp.hpl.jena.query.QueryExecutionFactory;
-import com.hp.hpl.jena.query.QueryFactory;
-import com.hp.hpl.jena.query.Syntax;
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.Property;
-import com.hp.hpl.jena.rdf.model.Resource;
-import com.hp.hpl.jena.sparql.function.FunctionRegistry;
-import com.hp.hpl.jena.util.FileManager;
-import com.hp.hpl.jena.vocabulary.RDFS;
+import org.apache.jena.query.Query;
+import org.apache.jena.query.QueryExecution;
+import org.apache.jena.query.QueryExecutionFactory;
+import org.apache.jena.query.QueryFactory;
+import org.apache.jena.query.Syntax;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.Property;
+import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.sparql.function.FunctionRegistry;
+import org.apache.jena.util.FileManager;
+import org.apache.jena.vocabulary.DC_11;
+import org.apache.jena.vocabulary.RDFS;
 
 public class VotingSystemData {
 
@@ -34,6 +35,9 @@ public class VotingSystemData {
 		FunctionRegistry.get().put(
 				"http://eswc2015.semanticweb.org/voting/trackextract",
 				TrackFunction.class);
+		FunctionRegistry.get().put(
+            "http://eswc2015.semanticweb.org/voting/localname",
+            LocalNameFunction.class);
 	}
 
 	public VoteModel generateData(File votesCsv, Model conferenceData) {
@@ -64,13 +68,18 @@ public class VotingSystemData {
 						+ "> "
 						+ "CONSTRUCT {"
 						+ "?paper a voting:EligibleForVotingPaper . "
-						+ "?paper voting:paperOfTrack ?track "
+						+ "?paper voting:paperOfTrack ?track . " 
+						+ "?paper voting:id ?localname . "
+						+ "?paper <" + DC_11.title.getURI() + "> ?title "
 						+ "} "
 						+ "WHERE{"
 						+ "{?paper a <http://purl.org/spar/fabio/PosterPaper>} "
 						+ "UNION "
 						+ "{?paper a <http://purl.org/spar/fabio/DemoPaper>} "
-						+ "BIND(voting:trackextract(?paper) AS ?track)" + "}";
+						+ "BIND(voting:trackextract(?paper) AS ?track)"
+						+ "BIND(voting:localname(?paper) AS ?localname)" 
+						+ "?paper <http://purl.org/dc/terms/title> ?title "
+						+ "}";
 				Query query = QueryFactory.create(sparql, Syntax.syntaxARQ);
 				QueryExecution queryExecution = QueryExecutionFactory.create(
 						query, conferenceData);

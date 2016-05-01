@@ -1,8 +1,8 @@
 package it.istc.cnr.stlab.clodg;
 
-import com.hp.hpl.jena.graph.Node;
-import com.hp.hpl.jena.sparql.expr.NodeValue;
-import com.hp.hpl.jena.sparql.function.FunctionBase3;
+import org.apache.jena.graph.Node;
+import org.apache.jena.sparql.expr.NodeValue;
+import org.apache.jena.sparql.function.FunctionBase3;
 
 public class Replace extends FunctionBase3 {
 

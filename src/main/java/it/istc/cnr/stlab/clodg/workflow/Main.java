@@ -20,8 +20,8 @@ import org.apache.commons.cli.PosixParser;
 import org.apache.jena.riot.RiotException;
 import org.codehaus.jettison.json.JSONObject;
 
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.util.FileManager;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.util.FileManager;
 
 /**
  * @author andrea
@@ -113,6 +113,8 @@ public class Main {
 				if(dogFoodInput != null){
 				    try{
 				        dogFoodData = FileManager.get().loadModel(dogFoodInput);
+				        
+				        System.out.println(dogFoodData);
 				    } catch(RiotException e){
 				        System.err.println("The semantic web dog food compliant model is not valid.");
 				    }

@@ -11,12 +11,12 @@ import java.util.List;
 
 import au.com.bytecode.opencsv.CSVReader;
 
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.RDFNode;
-import com.hp.hpl.jena.rdf.model.Resource;
-import com.hp.hpl.jena.rdf.model.Statement;
-import com.hp.hpl.jena.rdf.model.StmtIterator;
-import com.hp.hpl.jena.util.FileManager;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.RDFNode;
+import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.rdf.model.Statement;
+import org.apache.jena.rdf.model.StmtIterator;
+import org.apache.jena.util.FileManager;
 
 public class Heiko {
 
@@ -26,13 +26,16 @@ public class Heiko {
         String demoNs = "http://data.semanticweb.org/ISWC2015demo/submission/submission-";
         String posterNs = "http://data.semanticweb.org/ISWC2015poster/submission/submission-";
         
-        Model model = FileManager.get().loadModel("iswc2015_metadata_preview.rdf");
+        Model model = FileManager.get().loadModel("iswc2015_metadata_preview.ttl");
         
         try {
             CSVReader reader = new CSVReader(new InputStreamReader(new FileInputStream("poster_demo_iswc2015.csv")), ';');
             
             String[] row = null;
             boolean header = true;
+            
+            Resource poster = model.createResource("http://purl.org/spar/fabio/PosterPaper");
+            Resource demo = model.createResource("http://purl.org/spar/fabio/DemoPaper");
             
             while((row = reader.readNext()) != null){
                 if(!header) {
@@ -42,8 +45,8 @@ public class Heiko {
                     Resource paper = model.createResource(ns + id);
                     
                     Resource newPaper = null;
-                    if(track.equals("poster")) newPaper = model.createResource(posterNs + id);
-                    else newPaper = model.createResource(demoNs + id);
+                    if(track.equals("poster")) newPaper = model.createResource(posterNs + id, poster);
+                    else newPaper = model.createResource(demoNs + id, demo);
                     
                     List<Statement> stmts = new ArrayList<Statement>();
                     StmtIterator it = model.listStatements(paper, null, (RDFNode)null);

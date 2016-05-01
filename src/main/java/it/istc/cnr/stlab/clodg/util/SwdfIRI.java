@@ -2,8 +2,8 @@ package it.istc.cnr.stlab.clodg.util;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.hp.hpl.jena.sparql.expr.NodeValue;
-import com.hp.hpl.jena.sparql.function.FunctionBase2;
+import org.apache.jena.sparql.expr.NodeValue;
+import org.apache.jena.sparql.function.FunctionBase2;
 
 public class SwdfIRI extends FunctionBase2 {
 
