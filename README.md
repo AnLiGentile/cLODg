@@ -1,8 +1,9 @@
 # cLODg - conference Linked Open Data generator
 
 cLODg implements a methodology to produce Linked Data to describe a scientific conference and its publications, participants and events.
+To generate conference metadata we assume that you have initial data available (with some specific [format](#data-acquisition)). We then use use [D2R conversion rules](#data-conversion) to produce metadata described with [Conference Ontology](http://w3id.org/scholarlydata/ontology/conference-ontology.owl). While we are in the process of creating a single-click process, we describe here the current workflow to follow. 
 
-The workflow sketched below consists of:
+The workflow consists of:
 
 1. [Data acquisition](#data-acquisition)
 2. [Data conversion](#data-conversion)
@@ -20,8 +21,6 @@ Data is currently collected from:
 
 ## Data conversion
 - We currently import the csv files in a [MySQL](https://www.mysql.com) database and use [D2R](http://d2rq.org/d2r-server) rules to generate data according to [Conference Ontology](http://w3id.org/scholarlydata/ontology/conference-ontology.owl), but we are in the process of replacing MySQL with [HSQLDB](http://hsqldb.org/) to support a fully integrated Java process (to facilitate data creation for the end user as a single process with cLODg). Code for this will be published ASAP.
-
-### Ontologies
 
 We generate data according to the following vocabularies:
 - [Conference Ontology](http://w3id.org/scholarlydata/ontology/conference-ontology.owl)
