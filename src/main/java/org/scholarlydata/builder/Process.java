@@ -1,7 +1,5 @@
 package org.scholarlydata.builder;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -24,9 +22,12 @@ import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.rdf.model.Statement;
 import org.apache.jena.rdf.model.StmtIterator;
 import org.apache.jena.reasoner.ReasonerRegistry;
+import org.apache.jena.sparql.function.FunctionRegistry;
 import org.apache.jena.sparql.vocabulary.FOAF;
 import org.apache.jena.util.FileManager;
 import org.apache.jena.vocabulary.DCTerms;
+import org.apache.jena.vocabulary.OWL2;
+import org.scholarlydata.builder.arq.EventTypeBinder;
 
 
 public class Process {
@@ -102,9 +103,8 @@ public class Process {
             File folderForAlignmentGraphs = new File(outputFolder + "/alignments");
             if(!folderForAlignmentGraphs.exists()) folderForAlignmentGraphs.mkdirs();
             
-            /*
-             
             RoleMappings roleMappings = RoleMappings.getInstance();
+            
             
             for(Resource dogFoodRole : roleMappings.getDogFoodRoles()){
             	
@@ -112,11 +112,14 @@ public class Process {
             	
             	
             }
-            */
             if(inputFolder != null){
                 
                 File dumpFolder = new File(inputFolder);
                 if(dumpFolder.exists() && dumpFolder.isDirectory()){
+                	
+                	
+                	FunctionRegistry.get().put(EventTypeBinder.IRI, EventTypeBinder.class);
+                	
                 	File[] dumps = dumpFolder.listFiles();
                 	for(File dump : dumps){
                 		String dumpName = dump.getName();
@@ -125,10 +128,13 @@ public class Process {
                 		
                 		File ftest = new File(folderForAlignmentGraphs.getAbsolutePath() + "/" + dumpName + "-alignments.rdf");
                 		
-                		if(isAppend && !ftest.exists()){
+                		
+                		if(!isAppend || !ftest.exists()){
 	                		Model modelOut = ModelFactory.createDefaultModel();
 	                		Model model = DatasetLoader.load(dump);
 	                		//model.write(System.out, "N-TRIPLES");
+	                		
+	                		//RoleKB.getInstance().addRolesFromModel(model);
 	                		People people = new People(model);
 	                		Organisations organisations = new Organisations(model);
 	                		InProceedingsSet inProceedingsSet = new InProceedingsSet(model);
@@ -166,6 +172,11 @@ public class Process {
 	                		Resource completeGraph = null;
 	                		if(stmtIt.hasNext()) completeGraph = (Resource)stmtIt.next().getObject();
 	                		
+	                		if(completeGraph == null){
+	                			String uri = conferenceEvent.getResource().getURI();
+	                			uri = uri.replace("http://data.semanticweb.org/conference/", ConferenceOntology.RESOURCE_NS + "conference/");
+	                			completeGraph = ModelFactory.createDefaultModel().createResource(uri + "/complete");
+	                		}
 	                		Model voidDescriptor = addVOID(completeGraph, acronym);
 	                		
 	                		try {
@@ -181,6 +192,16 @@ public class Process {
 	                		
 	                		org.apache.jena.reasoner.Reasoner reasoner = ReasonerRegistry.getOWLReasoner();
 	                		reasoner = reasoner.bindSchema(schema);
+	                		
+	                		
+	                		String sparql = "CONSTRUCT {?s <" + OWL2.sameAs + "> ?o} WHERE {?s <" + OWL2.sameAs + "> ?o}";
+	                		Model sameAsModel = QueryExecutor.execConstruct(modelOut, sparql);
+	                		
+	                		/*
+                			 * Remove the owl:sameAs axioms towards the SWDF as the harden reasoning 
+                			 */
+	                		modelOut.remove(sameAsModel);
+	                		
 	                		InfModel infmodel = ModelFactory.createInfModel(reasoner, modelOut);
 	                		StmtIterator it = infmodel.listStatements();
 	                		Model inf = ModelFactory.createDefaultModel();
@@ -194,8 +215,16 @@ public class Process {
 	                			voidDescriptor = addVOID(completeGraph, acronym + "-alignments");
 	                			
 	                			inf.add(voidDescriptor);
+	                			/*
+	                			 * Remove owl:sameAs having the same entity as subject and object
+	                			 */
+	                			SameAsRemoval.remove(inf);
+	                			/*
+	                			 * Add the owl:sameAs axioms towards the SWDF 
+	                			 */
+	                			inf.add(sameAsModel);
 								inf.write(new FileOutputStream(new File(folderForAlignmentGraphs.getAbsolutePath() + "/" + dumpName + "-alignments.rdf")));
-								inf.remove(voidDescriptor);
+								
 							} catch (FileNotFoundException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
@@ -265,6 +294,9 @@ public class Process {
 	private static Model addVOID(Resource completeGraph, String datasetName){
 		
 		Model model = ModelFactory.createDefaultModel(); 
+		
+		System.out.println("Complete graph " + completeGraph);
+		System.out.println("Dataset name " + datasetName);
 		
 		Resource datasetType = model.createResource("http://rdfs.org/ns/void#Dataset");
 		Resource dataset = model.createResource(ConferenceOntology.RESOURCE_NS + "dataset/" + datasetName, datasetType);

@@ -13,7 +13,7 @@ public class TrackFunction extends FunctionBase1 {
 	public NodeValue exec(NodeValue v) {
 		if (v.isIRI()) {
 			String uri = v.asUnquotedString();
-			if(uri.contains("/ISWC2015poster/")) return NodeValue.makeString("poster");
+			if(uri.contains("/poster/")) return NodeValue.makeString("poster");
 			else return NodeValue.makeString("demo");
 		}
 		return null;

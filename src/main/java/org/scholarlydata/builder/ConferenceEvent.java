@@ -11,8 +11,8 @@ public class ConferenceEvent {
 	private Resource resource;
 	public ConferenceEvent(Model model) {
 		
-		//ResIterator resIt = model.listResourcesWithProperty(RDF.type, SWC.ConferenceEvent);
-		ResIterator resIt = model.listResourcesWithProperty(RDF.type, SWC.WorkshopEvent);
+		ResIterator resIt = model.listResourcesWithProperty(RDF.type, SWC.ConferenceEvent);
+		//ResIterator resIt = model.listResourcesWithProperty(RDF.type, SWC.WorkshopEvent);
 		if(resIt.hasNext()){
 			resource = resIt.next();
 		}

@@ -73,17 +73,18 @@ public class VotingSystemData {
 						+ "?paper <" + DC_11.title.getURI() + "> ?title "
 						+ "} "
 						+ "WHERE{"
-						+ "{?paper a <http://purl.org/spar/fabio/PosterPaper>} "
-						+ "UNION "
-						+ "{?paper a <http://purl.org/spar/fabio/DemoPaper>} "
+						+ "?paper a <http://swrc.ontoware.org/ontology#InProceedings> . "
+						+ "FILTER(REGEX(STR(?paper), \"/poster/\") || REGEX(STR(?paper), \"/demo/\"))"
 						+ "BIND(voting:trackextract(?paper) AS ?track)"
 						+ "BIND(voting:localname(?paper) AS ?localname)" 
-						+ "?paper <http://purl.org/dc/terms/title> ?title "
+						+ "?paper <http://purl.org/dc/elements/1.1/title> ?title "
 						+ "}";
 				Query query = QueryFactory.create(sparql, Syntax.syntaxARQ);
 				QueryExecution queryExecution = QueryExecutionFactory.create(
 						query, conferenceData);
 				Model paperModel = queryExecution.execConstruct();
+				
+				paperModel.write(System.out);
 
 				if (paperModel != null && !paperModel.isEmpty())
 					adminModel.add(paperModel);
@@ -108,7 +109,7 @@ public class VotingSystemData {
 		System.out.println(fileURL.getFile());
 		File file = new File(fileURL.getFile());
 		VoteModel voteModel = votingSystemData.generateData(file, FileManager
-				.get().loadModel("rdf/form-data.rdf"));
+				.get().loadModel("/Users/andrea/Documents/workspaceMars/clodg2/eswc2016.rdf"));
 		try {
 			OutputStream adminModelOut = new FileOutputStream(
 					"rdf/voting_admin.ttl");

@@ -19,6 +19,10 @@ public class ConferenceOntology {
      *  @see #NS */
     public static String getURI() {return NS;}
     
+    public static Model getModel(){
+    	return m_model;
+    }
+    
     /** <p>The namespace of the vocabulary as a resource</p> */
     public static final Resource NAMESPACE = m_model.createResource( NS );
     

@@ -6,6 +6,7 @@ import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.rdf.model.Statement;
 import org.apache.jena.sparql.vocabulary.FOAF;
+import org.apache.jena.vocabulary.OWL2;
 import org.apache.jena.vocabulary.RDFS;
 
 public class Organisation {
@@ -44,7 +45,8 @@ public class Organisation {
 				"CONSTRUCT {"
 				+ "<" + organisation.getURI() + "> a <" + ConferenceOntology.Organisation.getURI() + "> . "
 				+ "<" + organisation.getURI() + "> <" + RDFS.label + "> ?label . "
-				+ "<" + organisation.getURI() + "> <" + ConferenceOntology.name + "> ?name "
+				+ "<" + organisation.getURI() + "> <" + ConferenceOntology.name + "> ?name . "
+				+ "<" + organisation.getURI() + "> <" + OWL2.sameAs + "> <" + resource.getURI() + "> "
 				+ "}"
 				+ "WHERE{ "
 				+ "<" + resource.getURI() + "> <" + RDFS.label + "> ?label . "

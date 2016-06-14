@@ -21,6 +21,12 @@ public class QueryExecutor {
 		return queryExecution.execSelect();
 	}
 	
+	public static ResultSet execRemoteSelect(String serviceURI, String sparql){
+		
+		QueryExecution queryExecution = QueryExecutionFactory.createServiceRequest(serviceURI, QueryFactory.create(sparql, Syntax.syntaxSPARQL_11));
+		return queryExecution.execSelect();
+	}
+	
 	public static Model execConstruct(Model model, String sparql){
 		QueryExecution queryExecution = createQueryExecution(model, sparql);
 		return queryExecution.execConstruct();

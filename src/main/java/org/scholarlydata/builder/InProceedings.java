@@ -9,6 +9,7 @@ import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.sparql.vocabulary.FOAF;
 import org.apache.jena.vocabulary.DCTerms;
 import org.apache.jena.vocabulary.DC_11;
+import org.apache.jena.vocabulary.OWL2;
 import org.apache.jena.vocabulary.RDFS;
 
 public class InProceedings {
@@ -119,6 +120,7 @@ public class InProceedings {
 				+ "<" + inProceedings.getURI() + "> <" + ConferenceOntology.keyword + "> ?subject . "
 				+ "<" + inProceedings.getURI() + "> <" + ConferenceOntology.hasTopic + "> ?topic . "
 				+ "<" + inProceedings.getURI() + "> <" + ConferenceOntology.isPartOf + "> ?proceedings . "
+				+ "<" + inProceedings.getURI() + "> <" + OWL2.sameAs + "> <" + resource.getURI() + "> . "
 				+ "?proceedings <" + ConferenceOntology.hasPart + "> <" + inProceedings.getURI() + "> "
 				+ "}"
 				+ "WHERE{ "

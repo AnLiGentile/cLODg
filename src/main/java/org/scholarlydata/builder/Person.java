@@ -10,6 +10,7 @@ import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.rdf.model.Statement;
 import org.apache.jena.rdf.model.StmtIterator;
 import org.apache.jena.sparql.vocabulary.FOAF;
+import org.apache.jena.vocabulary.OWL2;
 import org.apache.jena.vocabulary.RDFS;
 
 public class Person {
@@ -73,23 +74,30 @@ public class Person {
 		Set<Resource> confRoles = new HashSet<Resource>();
 		Set<Role> roles = holdsRole();
 		
+		
 		String conferenceAcronym = conferenceEvent.getAcronym();
 		conferenceAcronym = conferenceAcronym.toLowerCase().replace(" ", "");
-		String roleURI = ConferenceOntology.RESOURCE_NS + "role-during-event/" + conferenceAcronym;
+		String roleNS = ConferenceOntology.RESOURCE_NS + "role-during-event/" + conferenceAcronym;
 		for(Role role : roles){
-			
+			System.out.println("Role " + role.getResource());
 			Resource swdfRole = role.getResource();
 			if(swdfRole != null){
 				Statement stmt = swdfRole.getProperty(SWC.isRoleAt);
+				System.out.println("     stmt : " + stmt);
 				if(stmt != null){
 					Resource swdfEvent = (Resource)stmt.getObject();
 					Event event = new Event(swdfEvent, conferenceAcronym);
 					
+					
+					
+					System.out.println("     roles types : " + role.getTypes());
 					for(Resource confRole : role.getTypes()){
+						
 						String roleId = confRole.getLocalName();
-						roleURI += "/" + roleId + "/" + resource.getLocalName();
+						String roleURI = roleNS + "-" + roleId + "-" + resource.getLocalName();
 						
 						Resource roleDuringEvent = model.createResource(roleURI, ConferenceOntology.RoleDuringEvent);
+						
 						roleDuringEvent.addProperty(ConferenceOntology.withRole, confRole);
 						roleDuringEvent.addProperty(ConferenceOntology.during, event.asConfResource());
 						
@@ -114,10 +122,10 @@ public class Person {
 		Set<Organisation> orgs = swdfAffiliations();
 		String conferenceAcronym = conferenceEvent.getAcronym();
 		conferenceAcronym = conferenceAcronym.toLowerCase().replace(" ", "");
-		String organisationURI = ConferenceOntology.RESOURCE_NS + "affiliation-during-event/" + conferenceAcronym;
+		String organisationNS = ConferenceOntology.RESOURCE_NS + "affiliation-during-event/" + conferenceAcronym;
 		for(Organisation organisation : orgs){
 			String orgId = organisation.getLocalName();
-			organisationURI += "/" + orgId + "/" + resource.getLocalName();
+			String organisationURI = organisationNS + "-" + orgId + "-" + resource.getLocalName();
 			
 			Event event = new Event(conferenceEvent.getResource(), conferenceEvent.getAcronym());
 			
@@ -147,7 +155,8 @@ public class Person {
 				+ "<" + person.getURI() + "> <" + ConferenceOntology.name + "> ?name . "
 				+ "<" + person.getURI() + "> <" + ConferenceOntology.givenName + "> ?firstName . "
 				+ "<" + person.getURI() + "> <" + ConferenceOntology.familyName + "> ?lastName . "
-				+ "<" + person.getURI() + "> <" + FOAF.mbox_sha1sum + "> ?mbox_sha1sum "
+				+ "<" + person.getURI() + "> <" + FOAF.mbox_sha1sum + "> ?mbox_sha1sum . "
+				+ "<" + person.getURI() + "> <" + OWL2.sameAs + "> <" + resource.getURI() + "> "
 				+ "}"
 				+ "WHERE{ "
 				+ "<" + resource.getURI() + "> <" + RDFS.label + "> ?label . "
@@ -159,8 +168,13 @@ public class Person {
 		
 		model.add(QueryExecutor.execConstruct(modelIn, sparql));
 		
+		
+		System.out.println("create roles");
 		Set<Resource> timeIndexedSituations = createRoles(model);
 		for(Resource roleDuringEvent : timeIndexedSituations){
+			System.out.println("     " + roleDuringEvent);
+			
+			
 			person.addProperty(ConferenceOntology.holdsRole, roleDuringEvent);
 			roleDuringEvent.addProperty(ConferenceOntology.isHeldBy, person);
 		}
