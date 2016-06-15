@@ -24,9 +24,8 @@ We currently accept data in the following formats:
 
 ## Data conversion
 
-We generate data according to the following vocabularies:
-- [Conference Ontology](http://w3id.org/scholarlydata/ontology/conference-ontology.owl)
-- [Semantic Web Conference Ontology](http://data.semanticweb.org/ns/swc/swc_2009-05-09.html#ConferenceEvent) for backward compatibility.
+We generate data according to the [Conference Ontology](http://w3id.org/scholarlydata/ontology/conference-ontology.owl).
+The Conference Ontology is [aligned](http://w3id.org/scholarlydata/ontology/conference-ontology-alignments.owl) to a set of other ontologies/vocabularies that allows interoperability with other linked datasets. Additionally, the Conference Ontology is aligned to the [Semantic Web Conference Ontology](http://data.semanticweb.org/ns/swc/swc_2009-05-09.html#ConferenceEvent) for backward compatibility with the [Semantic Web Dog Food](http://data.semanticweb.org/) dataset.
 
 For csv data, the current workflow requires the manual import into a [MySQL](https://www.mysql.com) database.
 Then it is possible to generate [Conference Ontology](http://w3id.org/scholarlydata/ontology/conference-ontology.owl) data via [D2R](http://d2rq.org/d2r-server) [conversion rules](https://github.com/AnLiGentile/cLODg/blob/clodg2/src/main/resources/templates/easychair/d2rq_mapping_pd.ftl).
