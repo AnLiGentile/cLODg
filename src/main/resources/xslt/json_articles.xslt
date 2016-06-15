@@ -14,13 +14,13 @@
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:dcterms="http://purl.org/dc/terms/creator"
 	xmlns:foaf="http://xmlns.com/foaf/0.1/"
 	xmlns:frbr="http://purl.org/vocab/frbr/core#"
 	xmlns:swc="http://data.semanticweb.org/ns/swc/ontology#"
 	xmlns:swrc="http://swrc.ontoware.org/ontology#"
 	xmlns:bibo="http://purl.org/ontology/bibo/"
-	xmlns:dc-purl="http://purl.org/dc/elements/1.1/"
-	xmlns:dc="http://purl.org/dc/terms/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
 	xmlns:dbpedia-owl="http://dbpedia.org/ontology/"
 	xmlns:eswc-owl="http://www.ontologydesignpatterns.org/ont/eswc/ontology.owl#"
 	exclude-result-prefixes="xsl php">
@@ -49,22 +49,21 @@
 	            
 	            <!-- add the title of the paper -->
 	            <xsl:text>"title": "</xsl:text>
-	            <xsl:choose>
-	            	<xsl:when test="dc:title">
-	            		<xsl:value-of select="replace(dc:title, '&quot;', '\\&quot;')" />
-	            	</xsl:when>
-	            	<xsl:otherwise>
-	            		<xsl:value-of select="replace(dc-purl:title, '&quot;', '\\&quot;')" />
-	            	</xsl:otherwise>
-	            </xsl:choose>
-	    		<xsl:text>",</xsl:text>
+	    		<xsl:value-of select="replace(dc:title, '&quot;', '\\&quot;')" />
+	            <xsl:text>",</xsl:text>
 	            
 	            <!-- add the abstract -->
 	            <xsl:text>"abstract":</xsl:text>
 	            <xsl:choose>
 	            	<xsl:when test="swrc:abstract">
 	            		<xsl:text>"</xsl:text>
-	            		<xsl:value-of select="replace(swrc:abstract, '&quot;', '\\&quot;')" />
+	            		
+	            		<xsl:variable name="abstract" select="replace(swrc:abstract, '&quot;', '\\&quot;')" />
+	            		<xsl:variable name="abstract" select="replace($abstract, '\\', '\\\\')" />
+	    				<xsl:variable name="abstract" select="replace($abstract, '\{', '\\\\{')" />
+	    				<xsl:variable name="abstract" select="replace($abstract, '\}', '\\\\}')" />
+	            		
+	            		<xsl:value-of select="$abstract" />
 	            		<xsl:text>"</xsl:text>
 	            	</xsl:when>
 	            	<xsl:otherwise>
@@ -76,21 +75,10 @@
 	    		<xsl:text>"authors":</xsl:text>
 	            
 	            <!-- add authors -->
-	            <xsl:variable name="authorlistref" select="bibo:authorList/@rdf:resource" />
+	    		
+	    		<xsl:variable name="authorlistref" select="bibo:authorList/@rdf:resource" />
 	            <xsl:choose>
-		            <xsl:when test="swrc:author">
-		            	<xsl:text>[</xsl:text>
-		            	<xsl:for-each select="swrc:author">
-		            		<xsl:if test="(position( )) > 1">
-	            				<xsl:text>,</xsl:text>
-	            			</xsl:if>
-		            		<xsl:text>"</xsl:text>
-							<xsl:value-of select="@rdf:resource" />
-							<xsl:text>"</xsl:text>
-		            	</xsl:for-each>
-		            	<xsl:text>]</xsl:text>
-		            </xsl:when>
-		            <xsl:when test="$authorlistref">
+	            	<xsl:when test="$authorlistref">
 	            		<xsl:text>[</xsl:text>
 	            		<xsl:variable name="authorlist" select="/rdf:RDF/rdf:Description[@rdf:about=$authorlistref]" />
 	            		<xsl:for-each select="$authorlist/*[name() != 'rdf:type']">
@@ -112,7 +100,7 @@
 	            </xsl:choose>
 	    		
 	    		<!-- add the Twitter hanhtag -->
-	    		<xsl:text>,"hashtag":"#iswc2015",</xsl:text>
+	    		<xsl:text>,"hashtag":"#eswc2016",</xsl:text>
 	    		
 	    		<!-- add the thumbnail if any exists -->
 	    		<xsl:text>"thumbnail":</xsl:text>
@@ -131,9 +119,9 @@
 	    		<!-- add the thumbnail if any exists -->
 	    		<xsl:text>"presentedIn":</xsl:text>
 	    		<xsl:choose>
-	    			<xsl:when test="eswc-owl:isPresented">
+	    			<xsl:when test="swc:relatedToEvent">
 	    				<xsl:text>"</xsl:text>
-	    				<xsl:value-of select="eswc-owl:isPresented/@rdf:resource" />
+	    				<xsl:value-of select="swc:relatedToEvent/@rdf:resource" />
 	    				<xsl:text>"</xsl:text>
 	    			</xsl:when>
 	    			<xsl:otherwise>
@@ -146,23 +134,14 @@
 	    		<xsl:text>"track": "</xsl:text>
 	    		<!-- 
 	    			remove the namespace from paper's URI, e.g.:
-	    			INPUT STRING  http://data.semanticweb.org/ISWC2015doctoralconsortium/submission/submission-6
-	    			OUTPUT STRING doctoralconsortium/submission/submission-6
+	    			INPUT STRING http://data.semanticweb.org/conference/eswc/2015/paper/research/175
+	    			OUTPUT STRING research/175
 	    		-->
-	    		<xsl:variable name="track" select="replace($uri, '^http://data.semanticweb.org/ISWC2015', '')" />
-	    		
-	    		<!-- 
-	    			remove the submission from string:
-	    			INPUT STRING ISWC2015doctoralconsortium/submission/submission-6
-	    			OUTPUT STRING ISWC2015doctoralconsortium/6
-	    		-->
-	    		<xsl:variable name="track" select="replace($track, 'submission/submission-', '')" />
-	    		
-	    		
+	    		<xsl:variable name="track" select="replace($uri, '^http://data.semanticweb.org/conference/eswc/2016/paper/', '')" />
 	    		<!-- 
 	    			remove the id of the paper from the track string, e.g.: 
-	    			INPUT STRING ISWC2015doctoralconsortium/6
-	    			OUTPUT STRING ISWC2015doctoralconsortium
+	    			INPUT STRING research/175
+	    			OUTPUT STRING research
 	    		-->
 	    		<xsl:variable name="track" select="replace($track, '/[0-9]+$', '')" />
 	    		<!-- 
