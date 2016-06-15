@@ -23,7 +23,10 @@ We currently accept data in the following formats:
 - we still support conversion from XML [EasyChair](https://www.easychair.org) output, although this is currently not provided anymore by easychair (XML [schema](./resources/conference_dump.xml))
 
 ## Data conversion
-- We currently import the csv files in a [MySQL](https://www.mysql.com) database and use [D2R](http://d2rq.org/d2r-server) rules to generate data according to [Conference Ontology](http://w3id.org/scholarlydata/ontology/conference-ontology.owl), but we are in the process of replacing MySQL with [HSQLDB](http://hsqldb.org/) to support a fully integrated Java process (to facilitate data creation for the end user as a single process with cLODg). Code for this will be published ASAP.
+- For csv data, the current workflow requires the manual import into a [MySQL](https://www.mysql.com) database.
+Then it is possible to generate [Conference Ontology](http://w3id.org/scholarlydata/ontology/conference-ontology.owl) data via [D2R](http://d2rq.org/d2r-server) [conversion rules](https://github.com/AnLiGentile/cLODg/blob/clodg2/src/main/resources/templates/easychair/d2rq_mapping_pd.ftl).
+This is done via specifying the database to use via [property file](https://github.com/AnLiGentile/cLODg/blob/clodg2/eswc2016_example.properties) and using the [LDGenerator](https://github.com/AnLiGentile/cLODg/blob/clodg2/src/main/java/org/scholarlydata/clodg/LDGenerator.java).
+Nevertheless, we are in the process of replacing MySQL with [HSQLDB](http://hsqldb.org/) to support a fully integrated Java process (to facilitate data creation for the end user as a single process with cLODg). Code for this will be published ASAP.
 
 We generate data according to the following vocabularies:
 - [Conference Ontology](http://w3id.org/scholarlydata/ontology/conference-ontology.owl)
