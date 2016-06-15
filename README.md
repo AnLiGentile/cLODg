@@ -15,11 +15,12 @@ The workflow consists of:
 ## Data acquisition
 Data is currently collected from:
 - rdf data (any conference metadata represented with the [Semantic Web Conference Ontology](http://data.semanticweb.org/ns/swc/swc_2009-05-09.html#ConferenceEvent).
--- example of [ESWC2015 data](./resources/swdf_samples/SWDF_eswc2015.rdf)
+ - example of [ESWC2015 data](./resources/swdf_samples/SWDF_eswc2015.rdf)
 - csv files exported from [EasyChair](https://www.easychair.org) 
--- samples of data about [paper authors](./resources/csv_samples/author_sample.csv), [program committee](./resources/csv_samples/committee_sample.csv),
+ - samples of data about [paper authors](./resources/csv_samples/author_sample.csv), [program committee](./resources/csv_samples/committee_sample.csv),
 [submitted papers](./resources/csv_samples/submission_sample.csv) and [conference tracks](./resources/csv_samples/track_sample.csv)
-- csv describing sessions, talks and special events (([example files]()))
+- csv describing keynote, organizing committee, sessions, talks and special events
+ - samples of data about [organizing committee](./resources/csv_samples/organising_sample.csv), [program committee](./resources/csv_samples/committee_sample.csv), [keynote talks](./resources/csv_samples/keynote_sample.csv), [conference sessions](./resources/csv_samples/session_sample.csv) and and [conference talks](./resources/csv_samples/talk_sample.csv)
 - we still support conversion from XML [EasyChair](https://www.easychair.org) output, although this is currently not provided anymore by easychair (XML [schema](./resources/conference_dump.xml))
 
 ## Data conversion
