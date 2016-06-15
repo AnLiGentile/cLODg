@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1461948720879" name="http://data.semanticweb.org/ns/swc/ontology" uri="swc_2009-05-09.rdf"/>
-        <uri id="Automatically generated entry, Timestamp=1461948720879" name="http://www.scholarlydata.org/ontology/conference-ontology-alignments.owl" uri="conference-ontology-alignments.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1461948720879" name="http://www.scholarlydata.org/ontology/conference-ontology.owl" uri="conference-ontology.owl"/>
-    </group>
-</catalog>
