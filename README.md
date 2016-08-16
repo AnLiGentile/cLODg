@@ -1,4 +1,4 @@
-> cLODg code has now been moved to [cLODg2 repository](https://github.com/anuzzolese/cLODg2). Follow [cLODg2 repository](https://github.com/anuzzolese/cLODg2) for code updates.
+> cLODg code has now been moved to [cLODg2 repository](https://github.com/anuzzolese/cLODg2). Follow [cLODg2](https://github.com/anuzzolese/cLODg2) for code updates.
 
 # cLODg - conference Linked Open Data generator
 
