@@ -1,3 +1,5 @@
+> cLODg code has now been moved to [cLODg2 repository](https://github.com/anuzzolese/cLODg2). Follow [cLODg2 repository](https://github.com/anuzzolese/cLODg2) for code updates.
+
 # cLODg - conference Linked Open Data generator
 
 cLODg implements a methodology to produce Linked Data to describe a scientific conference and its publications, participants and events.
